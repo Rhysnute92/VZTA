@@ -59,7 +59,7 @@
   /*block types denote whether a user has unlocked the respective landmark*/
 
     #block1{
-        width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px; width:18px;tooltip
+        width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px; width:18px;
     }
     #block2{
         width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px;width:18px;
@@ -102,6 +102,45 @@
         "checklistFlexbox .";
     }
 
+    .red .uncollected{ /*taken from https://www.w3schools.com/css/css_tooltip.asp*/
+        visibility: hidden;
+        width: 120px;
+        background-color: whitesmoke;
+        color: red;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        top: -5px;
+        left: 105%;
+
+
+
+    }
+    .red:hover .uncollected{
+        visibility: visible;
+    }
+
+    .red .collected{ /*taken from https://www.w3schools.com/css/css_tooltip.asp*/
+        visibility: hidden;
+        width: 120px;
+        background-color: whitesmoke;
+        color: green;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        top: -5px;
+        left: 105%;
+
+
+
+    }
+    .red:hover .collected{
+        visibility: visible;
+    }
+
+
 </style>
 
 <head>
@@ -124,11 +163,11 @@
                 <b class="landmarkProgress" >3 to Go!!</b></div></p>
         </div>
             <li id="checkList">
-                <ul><div id="block1"> </div></ul>
-                <ul><div id="block2"> </div></ul>
-                <ul><div id="block3"> </div></ul>
-                <ul><div id="block4"> </div></ul>
-                <ul><div id="block5"> </div></ul>
+                <ul class="red"><div id="block1"> </div> <span class="uncollected">Uncollected</span></ul>
+                <ul class="red"><div id="block2"> </div><span class="uncollected">Uncollected</span></ul>
+                <ul class="red"><div id="block3"> </div><span class="collected">Collected</span></ul>
+                <ul class="red"><div id="block4"> </div><span class="uncollected">Uncollected</span></ul>
+                <ul class="red"><div id="block5"> </div><span class="collected">Collected</span></ul>
 
 
 
@@ -137,12 +176,13 @@
             <li name="landmarkList"id="landmarkList">
                 <ul><span class="shopping">Landmark 1 </span>
                     <span class="explore">- <a href="../test.html">Explore!</a></span></ul>
+                <hr style="height:0px; visibility:hidden;" />
                 <ul><span class="services">Landmark 2 </span>
-                    <span class="explore">- Explore!</span></ul>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
                 <ul><span class="activities">Landmark 3 </span>
-                    <span class="explore">- Explore!</span></ul>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
                 <ul><span class="shopping">Landmark 4 </span>
-                    <span class="explore">- Explore!</span></ul>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
                 <ul><span class="fnd">Landmark 5 </span>
                     <span class="explore">- Explore!</span></ul>
             </li>
