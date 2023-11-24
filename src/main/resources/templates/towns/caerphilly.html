@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    *{
+        background-color: #36454F;
+        color: white;
+    }
+    .explore{
+        color:deeppink;
 
+    }
+    .fnd{
+        color: dodgerblue;
+
+    }
+    .shopping{
+        color: orangered;
+
+    }
+    .activities{
+        color: rebeccapurple;
+
+    }
+    .services{
+        color: darkseagreen;
+
+    }
     #checklistFlexbox{
         flex-direction: row;
         display: inline-flex;
         /*justify-content: space-between;*/
         flex-wrap: wrap;
         text-align: left;
-        border: 2px solid black;
+        border: 2px solid white;
         grid-area: checklistFlexbox;
 
 
@@ -24,10 +47,14 @@
     }
     #checkList{
 
-
-
-
     }
+    .landmarkProgress{
+        text-align: center;
+        font-size: larger; /*vw changes with browser size*/
+        color: yellow;
+    }
+
+
 
   /*block types denote whether a user has unlocked the respective landmark*/
 
@@ -90,7 +117,12 @@
         <section name="BadgeStickerProgress"> Sticker Pictures and stuff go here</section>
         <h2 id="landmarkTitle">Caerphilly Landmark Progress:</h2>
     <div id="checklistFlexbox">
-        <h2>Caerphilly Landmark Progress:</h2>
+        <div><h2 >Badge Progress:</h2>
+            <div class="landmarkProgress"> <b class="landmarkProgress">2/5</b> </div>
+            <br>
+            <div  class="landmarkProgress">
+                <b class="landmarkProgress" >3 to Go!!</b></div></p>
+        </div>
             <li id="checkList">
                 <ul><div id="block1"> </div></ul>
                 <ul><div id="block2"> </div></ul>
@@ -103,11 +135,16 @@
             </li>
 
             <li name="landmarkList"id="landmarkList">
-                <ul>Landmark 1 - <a href="../test.html">Explore!</a></ul>
-                <ul>Landmark 2 - Explore!</ul>
-                <ul>Landmark 2 - Explore!</ul>
-                <ul>Landmark 2 - Explore!</ul>
-                <ul>Landmark 2 - Explore!</ul>
+                <ul><span class="shopping">Landmark 1 </span>
+                    <span class="explore">- <a href="../test.html">Explore!</a></span></ul>
+                <ul><span class="services">Landmark 2 </span>
+                    <span class="explore">- Explore!</span></ul>
+                <ul><span class="activities">Landmark 3 </span>
+                    <span class="explore">- Explore!</span></ul>
+                <ul><span class="shopping">Landmark 4 </span>
+                    <span class="explore">- Explore!</span></ul>
+                <ul><span class="fnd">Landmark 5 </span>
+                    <span class="explore">- Explore!</span></ul>
             </li>
         </div>
 
