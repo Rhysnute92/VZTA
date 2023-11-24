@@ -1,0 +1,136 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+.center {
+    text-align: center;
+}
+body {
+    background-color: rgb(83, 27, 27);
+    margin: 2%;
+}
+header {
+    background-color: blueviolet;
+    .header1 {
+        text-align: center;
+        padding: 10px;
+        margin: 0;    
+    }
+    .ulHeader {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        padding: 0px;
+
+        .liHeader {
+            flex: 1 1 0px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: white;
+            border: outset black 2px;
+            text-align: center;
+        }
+        .liHeader:hover {
+            background-color: rgb(66, 66, 66);
+            color: white;
+            border: inset black 2px;  
+        }
+    }
+
+}
+
+.mainBlock {
+    display: flex;
+    min-width: 200px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+.mainBlock .trailStats{
+    background-color: rgb(253, 153, 173);
+    flex: 0 0 0px;
+    min-width: 350px;
+    min-height: 350px;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 20px rgb(20, 20, 20);
+    border-radius: 30px;
+    .stats {
+        display: block;
+        width: 200px;
+        margin: auto;
+    }
+    .textStats {
+        display: block;
+        text-align: left;
+        margin: 20px;
+    }
+}
+.mainBlock .trailInfo{
+    background-color: rgb(253, 153, 173);
+    flex: 0 0 0px;
+    min-width: 350px;
+    min-height: 350px;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 20px rgb(20, 20, 20);
+    border-radius: 30px;
+    .trailInfoTxt {
+        margin: 15px;
+    }
+}
+.titleH1 {
+    padding: 0px;
+    margin: 10px 30px 20px 30px;
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+    border-bottom: solid black 1px;
+}
+.mainBlock p {
+    font-size: 25px;
+    text-align: left;
+    padding: 1px;
+}
+main .badgesBlock{
+    bottom: 0%;
+    background-color: rgb(253, 227, 232);
+    flex: 0 0 0px;
+    min-width: 500px;
+    min-height: 100px;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 20px rgb(20, 20, 20);
+    border-radius: 30px;
+}
+.badgeImg {
+    width: 60px;
+    margin: 10px;
+}
+
+footer {
+    bottom: 0%;
+    left: 0%;
+    position: fixed;
+    width: 100%;
+    min-width: 300px;
+}
+footer .footerBar {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+footer .footerButton {
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 0px;
+    color:crimson;
+    background-color: white;
+    
+}
+footer .footerButton:hover {
+    background-color: black;
+}
