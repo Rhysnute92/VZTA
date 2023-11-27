@@ -11,7 +11,7 @@ public class LandmarksArray {
         landmarksList = new ArrayList<>(); //ArrayList is mutable
         landmarksList.addAll(
                 List.of(
-                        new Landmarks("park","desc","loc",2)
+                        new Landmarks("park","asd","desc","loc",9)
                 )
         );
 

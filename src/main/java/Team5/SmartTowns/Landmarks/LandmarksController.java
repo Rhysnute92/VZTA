@@ -24,6 +24,7 @@ public class LandmarksController {
 
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent( @ModelAttribute("landmarkData") Landmarks landmarks ) {
+        System.out.println(landmarks);
 
 //       LandmarksArray userArray = LandmarksArray.getInstance();
 //        Landmarks newUserSubmission = new Landmarks(landmarkData.getFormUsername(),userSubmission.getFormEmail(),
