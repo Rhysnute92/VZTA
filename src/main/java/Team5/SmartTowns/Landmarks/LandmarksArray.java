@@ -9,8 +9,22 @@ public class LandmarksArray {
 
     LandmarksArray() {
         landmarksList = new ArrayList<>(); //ArrayList is mutable
+        landmarksList.addAll(
+                List.of(
+                        new Landmarks("park","desc","loc",2)
+                )
+        );
 
 
     }
+
+
+//    public static UserArray getInstance() {
+//        if (singleton == null) {
+//            singleton = new UserArray();
+//
+//        }
+//        return singleton;
+//    }
 
 }
