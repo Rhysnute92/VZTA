@@ -1,10 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    *{
+        background-color: #36454F;
+        color: white;
+    }
+    .explore{
+
+        color: deeppink;
+
+
+    }
+     a:link{
+
+        color: red;
+
+
+    }
+
+     .explore:visited{
+         color:purple;
+     }
+
+     .explore:hover{
+         color:plum;
+     }
+
+    .fnd{
+        color: dodgerblue;
+
+    }
+    .shopping{
+        color: orangered;
+
+    }
+    .activities{
+        color: rebeccapurple;
+
+    }
+    .services{
+        color: darkseagreen;
+
+    }
+    .checklistFlexbox{
+        flex-direction: row;
+        display: inline-flex;
+        /*justify-content: space-between;*/
+        flex-wrap: wrap;
+        text-align: left;
+        border: 2px solid white;
+        grid-area: checklistFlexbox;
+
+
+    }
+    .landmarkList{
+        padding-right: 15px;
+
+        /*border: 2px solid black;*/
+
+
+
+
+    }
+
+    .landmarkProgress{
+        text-align: center;
+        font-size: larger; /*vw changes with browser size*/
+        color: yellow;
+    }
+
+
+
+  /*block types denote whether a user has unlocked the respective landmark*/
+
+    #block1{
+        width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px; width:18px;
+    }
+    #block2{
+        width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px;width:18px;
+    }
+    #block3{
+        width:15px;height:15px;background: green;border-radius:50%;padding: 0; margin: 0px;height: 18px;width:18px;
+    }
+    #block4{
+        width:15px;height:15px;background: red;border-radius:50%;padding: 0; margin: 0px;height: 18px;width:18px;
+    }
+    #block5{
+        width:15px;height:15px;background: green;border-radius:50%;padding: 0; margin: 0px;height: 18px;width:18px;
+    }
+
+    .landmarkList, .checkList{
+        list-style-type: none;
+    }
+    .townName{
+        grid-area: title1;
+    }
+    .trailHeader{
+        grid-area: title2;
+    }
+    [BadgeStickerProgress]{
+        grid-area: BadgeStickerProgress;
+
+           }
+    .landmarkTitle{
+        grid-area:landmarkTitle
+    }
+    .container{
+        display:grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "title1 title1"
+        "title2 title2"
+        "BadgeStickerProgress ."
+        "landmarkTitle ."
+        "checklistFlexbox .";
+    }
+
+    .checkmark .uncollected{ /*taken from https://www.w3schools.com/css/css_tooltip.asp*/
+        visibility: hidden;
+        width: 120px;
+        background-color: red;
+        color: whitesmoke;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /*top: -5px;*/
+        /*left: 105%;*/
+        top: 5px;
+        left: 105%
+
+
+
+
+    }
+    .checkmark:hover .uncollected{
+        visibility: visible;
+    }
+
+    .checkmark .collected{ /*taken from https://www.w3schools.com/css/css_tooltip.asp*/
+        visibility: hidden;
+        width: 120px;
+        background-color: green;
+        color: whitesmoke;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        top: 0px;
+        left: 105%;
+        /*background-color: whitesmoke;*/
+        /*color: green;*/
+
+
+
+    }
+    .checkmark:hover .collected{
+        visibility: visible;
+    }
+
+
+
+</style>
+
 <head>
     <meta charset="UTF-8">
     <title>Caerphilly</title>
 </head>
 <body>
-<h1> Welcome to the town of Caerphilly.</h1>
+<main>
+    <div class="container">
+        <h1 class="townName"> Welcome to the town of Caerphilly.</h1>
+
+        <h2 class="trailHeader"> Welcome to the trail of trail-ness!</h2>
+        <section name="BadgeStickerProgress"> Sticker Pictures and stuff go here</section>
+        <h2 class="landmarkTitle">Caerphilly Landmark Progress:</h2>
+    <div class="checklistFlexbox">
+        <div><h2 style="padding-left: 3px">Badge Progress:</h2>
+            <div class="landmarkProgress"> <b class="landmarkProgress">2/5</b> </div>
+            <br>
+            <div  class="landmarkProgress">
+                <b class="landmarkProgress" >3 to Go!!</b></div></p>
+        </div>
+            <li class="checkList">
+                <ul class="checkmark"><div id="block1"> </div> <span class="uncollected">Uncollected</span></ul>
+                <ul class="checkmark"><div id="block2"> </div><span class="uncollected">Uncollected</span></ul>
+                <ul class="checkmark"><div id="block3"> </div><span class="collected">Collected</span></ul>
+                <ul class="checkmark"><div id="block4"> </div><span class="uncollected">Uncollected</span></ul>
+                <ul class="checkmark"><div id="block5"> </div><span class="collected">Collected</span></ul>
+
+
+
+            </li>
+
+            <li name="landmarkList"class="landmarkList">
+                <ul><span class="shopping">Landmark 1 </span>
+                    <span ><a href="../test.html" class="explore">- Explore!</a></span></ul>
+                <hr style="height:0px; visibility:hidden;" />
+                <ul><span class="services">Landmark 2 </span>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
+                <ul><span class="activities">Landmark 3 </span>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
+                <ul><span class="shopping">Landmark 4 </span>
+                    <span class="explore">- Explore!</span></ul> <hr style="height:0px; visibility:hidden;" />
+                <ul><span class="fnd">Landmark 5 </span>
+                    <span class="explore">- Explore!</span></ul>
+            </li>
+        </div>
+
+
+    </div>
+</main>
 </body>
+
 </html>
