@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Trails</title>
+    <link rel="stylesheet" th:href="@{css/allTrails.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<header>
+    <ul class="flexList">
+        <li class="listButton" th:each="trail : ${trails}">
+            <a class="listA" th:onclick="'update(' + ${trail.id} + ');'" th:id="'li' + ${trail.id}" th:text="${trail.name}"></a>
+        </li>
+    </ul>
+</header>
+
+<main>
+    <section class="trailInfoBox" th:each="trail : ${trails}" th:id="${trail.id}">
+        <h1 th:text="${trail.description}"></h1>
+    </section>
+
+
+
+</main>
+
+
+<script type="text/javascript" th:src="@{scripts/allTrails.js}"></script>
+<script th:inline="javascript">
+    function fade(element) {
+        var op = 1;  // initial opacity
+        var timer = setInterval(function () {
+            if (op <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+        }, 50);
+    }
+
+    function unfade(element) {
+        var op = 0.1;  // initial opacity
+        element.style.display = 'block';
+        var timer = setInterval(function () {
+            if (op >= 1){
+                clearInterval(timer);
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op += op * 0.1;
+        }, 10);
+    }
+    async function update(id){
+        await updateTrailInfo(id);
+        selectTrail('li' + id);
+    }
+    async function updateTrailInfo(id){
+        let blocks = document.getElementsByClassName('trailInfoBox');
+        let clicked = document.getElementById(id);
+        let active = null;
+        for (let i = 0; i < blocks.length; i++) {
+            if (blocks[i].style.display === 'block') {
+                active = blocks[i];
+            }
+        }
+        if (active == null) {
+            unfade(clicked)
+        } else if (active !== clicked) {
+            fade(active);
+            unfade(clicked)
+        }
+
+    }
+    function selectTrail(string) {
+        let listEl = document.getElementsByClassName('listA')
+        for (let i = 0; i < listEl.length; i++) {
+            listEl[i].classList.remove('selected')
+        }
+        document.getElementById(string).classList.add("selected")
+
+    }
+</script>
+</body>
+</html>
