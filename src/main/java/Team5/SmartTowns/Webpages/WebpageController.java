@@ -9,8 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
 @Controller
 public class WebpageController {
-
-
     @GetMapping("/Caerleon")
     public ModelAndView getCaerleonPage(){
         ModelAndView modelAndView = new ModelAndView("towns/caerleon");
