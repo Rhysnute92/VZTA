@@ -40,13 +40,11 @@
 
 .trailInfoBox {
     animation: fadeIn 3s;
+    padding: 20px;
+    font-size: xx-large;
 }
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-@keyframes fadeGrey {
-    0% {}
-    100% { background-color: #656565 }
-}
-
