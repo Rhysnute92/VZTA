@@ -26,7 +26,7 @@
         </label><br>
         <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
         <br><label>Please Describe Your Business:<br>
-            <textarea th:field="*{landmarkDescription}" rows="8" cols="60" placeholder="Max 200 words please..."></textarea>
+            <textarea th:field="*{landmarkDescription}" rows="18" cols="70" placeholder="Max 200 words please..."></textarea>
         </label><br><br>
         <label>Your Location:
             <select th:field="*{landmarkLocation}">
