@@ -3,44 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Landmark Sign Up</title>
-    <link rel="stylesheet" th:href="@{LandmarkForm.css}">
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+
+
     <style>
-        body{
-            background:  rgb(41, 41, 41);
-            color: wheat;
-        }
-        #landmarkSubmission {
-            background-color: rgb(206, 153, 253);;
-            color: black;
-            border-color: white;
-            align-content: center;
-            text-align: center;
-            border-radius: 25px;
-            max-width: 600px;
+        /*main{*/
+        /*    background:  rgb(41, 41, 41);*/
+        /*    color: wheat;*/
+        /*}*/
+        /*#landmarkSubmission {*/
+        /*    background-color: rgb(206, 153, 253);;*/
+        /*    color: black;*/
+        /*    border-color: white;*/
+        /*    align-content: center;*/
+        /*    text-align: center;*/
+        /*    border-radius: 25px;*/
+        /*    max-width: 600px;*/
 
-            margin: 0 auto
+        /*    margin: 0 auto*/
 
-        }
+        /*}*/
 
 
 
 
     </style>
+
 </head>
 <body>
 <header th:insert="~{/towns/Templating.html :: header}"></header>
+<hr style="height:20px; visibility:hidden;" />
+<H2 id="landmarkFormTitle"> Interested in joining our trails? Sign up Here! </H2>
 <main>
-    <hr style="height:40px; visibility:hidden;" />
 
     <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
 
         <br>
         <label>Business Name:
-           <input type="text" th:field="*{landmarkName}">
+           <input type="text" th:field="*{landmarkName}" placeholder="Business name here...">
         </label><br>
         <div th:errors="*{landmarkName}" th:if="${#fields.hasErrors('landmarkName')}">ErrorLandmarkName</div>
         <br><label>Contact Address:
-            <input type="text" th:field="*{landmarkEmail}">
+            <input type="text" th:field="*{landmarkEmail}" placeholder="E-mail here...">
         </label><br>
         <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
         <br><label>Please Describe Your Business:<br>
