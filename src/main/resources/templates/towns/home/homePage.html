@@ -13,17 +13,50 @@
         .submitLand{
             grid-area: submitButton;
         }
+        .caerphillyBanner{
+            margin-top: 20px;
+            grid-area:townBanner;
+            background-color: hotpink;
+            margin-bottom: 20px;
+            border: solid 2px black;
+            border-right: none;
+        }
+        .caerphillyBannerTrail{
+            background-color: hotpink;
+            margin-top: 20px;
+            grid-area:townBannerDets;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            border: solid 2px black;
+            border-left: none;
+        }
+        #trailCount{
+            flex:1;
+        }
+        #trailProgress{
+            flex:2;
+
+        }
 
         .gridContainer1{
             display:grid;
-            grid-template-columns: 10% 70% 10% 10%;
+            grid-template-columns: 10% 70% 5% 5% 10%;
             grid-template-rows: auto;
             grid-template-areas:
-            ". pageTitle pageTitle ."
-            ". . submitButton .";
-
-
+            ". pageTitle pageTitle pageTitle ."
+            ". . submitButton submitButton ."
+            ". townBanner townBannerDets . .";
         }
+
+
+        /*.gridContainer2{*/
+        /*    display:grid;*/
+        /*    grid-template-columns: 10% 75% 15%;*/
+        /*    grid-template-rows: auto;*/
+        /*    grid-template-areas:*/
+        /*    ". townBanner ."*/
+        /*}*/
 
     </style>
 </head>
@@ -33,6 +66,19 @@
 <div class="gridContainer1">
     <H1 id="homeTitle"> Smart Towns - Trails</H1>
     <button class="submitLand"> Submit Landmark!</button>
+
+
+        <div class="caerphillyBanner">
+            <H2> Caerphilly</H2>
+        </div>
+
+    <div class="caerphillyBannerTrail">
+        <div id="trailCount"> Trails: 3</div>
+        <div id="trailProgress"> 55%</div>
+    </div>
+
+
+
 
 </div>
 
