@@ -91,3 +91,12 @@ footer {
     flex:1;
     color: rgb(255, 255, 255);
 }
+
+/*CHANGES*/
+
+.headerBar, .footerBar{
+    margin:0px;
+    padding: 0px;
+    width: 100%;
+}
+

@@ -7,8 +7,12 @@
 
 
     <style>
+        body{
+        background-color: rgb(41, 41, 41)
+        }
         #homeTitle{
             grid-area: pageTitle;
+            color: whitesmoke;
         }
         .submitLand{
             grid-area: submitButton;
@@ -16,39 +20,63 @@
         .caerphillyBanner , .riscaBanner,.penarthBanner{
             margin-top: 20px;
 
-            background-color: hotpink;
+            background-color: darkslategrey;
             margin-bottom: 20px;
-            border: solid 2px black;
+            border: solid 2px whitesmoke;
+        /*border colour here*/
             border-right: none;
         }
         .caerphillyBannerTrail,.riscaBannerTrail,.penarthBannerTrail{
-            background-color: hotpink;
+            background-color: darkslategrey;
             margin-top: 20px;
             /*display: flex;*/
             /*flex-direction: column;*/
             margin-bottom: 20px;
-            border: solid 2px black;
+            border: solid 2px whitesmoke;
             border-left: none;
+            text-align: center;
             /*align-self: stretch*/
+        }
+
+        .penarthBannerTrail{
+            background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 40%);
+
+        }
+
+        .caerphillyBannerTrail{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: solid 2px whitesmoke;
+            border-left: none;
+            background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 30%);
+        /*    30% left so that's where it turns grey*/
+
         }
 
         .caerphillyBanner{
         /*    #caerUrl{*/
             grid-area:townBannerC;
-            background-image: url('/CaerphillyCastle.jpg');
-            background-size: 800px 200px;
+            background-image: url('/images/CaerphillyCastle.jpg');
+            background-size: 850px 200px;
             background-repeat: no-repeat;
             background-position: left 35%;
-            background-image: url('CaerphillyCastle.jpg');
-            filter: grayscale(30%);
+            color: inherit;
+            text-decoration: none;
+
+            /*filter: grayscale(30%);*/
         }
         /*body{*/
         /*    background-image: url('CaerphillyCastle.jpg');*/
         /*}*/
         .caerphillyBannerTrail{
             grid-area:townBannerDetsC;
+
             /*linear-gradient(90 deg,white,red);*/
         }
+        /*.caerphillyBanner,.caerphillyBannerTrail{*/
+        /*    background-image: linear-gradient(to right, red , green);*/
+        /*    display: flex*/
+        /*}*/
         .riscaBanner{
             grid-area:townBannerR;
         }
@@ -65,6 +93,7 @@
             grid-area: textFlavour;
             margin-top: 25px;
             margin-bottom: 15px;
+            color: whitesmoke;
         }
         #trailCountCaer,#trailCountRisca,#trailCountPenarth{
             flex:1;
@@ -111,10 +140,12 @@
     color: inherit;
     text-decoration: none;
 }
+
+
     </style>
 </head>
 <body>
-<!--<header th:insert="~{../Templating.html::header}"></header>-->
+<header th:insert="~{/towns/Templating.html::header}"></header>
 <main>
 <div class="gridContainer1">
     <H1 id="homeTitle"> VZTA Smart Towns - Trails</H1>
@@ -122,33 +153,34 @@
 
 
 <!--    <a href="/Caerphilly" id="caerUrl" > -->
-        <div class="caerphillyBanner">
+<!--        <div class="caerphillyBanner">-->
 
-            <H2> Caerphilly</H2>
-<!--            <a href="/Caerphilly" id="caerUrl" ><H2> Caerphilly</H2></a>-->
+<!--            <H2> Caerphilly</H2>-->
+            <a href="/Caerphilly" class="caerphillyBanner">
+                <H2> Caerphilly</H2></a>
 <!--            <a href="homePage.html" id="caerUrl"></a>-->
-        </div>
+<!--        </div>-->
 <!--    </a>-->
 
     <div class="caerphillyBannerTrail">
-        <div id="trailCountCaer"> Trails: 3</div>
-        <div id="trailProgressCaer"> 70%</div>
+        <div id="trailCountCaer">Trails: 3</div>
+        <div id="trailProgressCaer">70%</div>
     </div>
 
     <div class="riscaBanner">
         <H2> Risca</H2>
     </div>
     <div class="riscaBannerTrail">
-        <div id="trailCountRisca"> Trails: 2</div>
-        <div id="trailProgressRisca"> 0%</div>
+        <div id="trailCountRisca">Trails: 2</div>
+        <div id="trailProgressRisca">0%</div>
     </div>
 
     <div class="penarthBanner">
         <H2> Penarth</H2>
     </div>
     <div class="penarthBannerTrail">
-        <div id="trailCountPenarth"> Trails: 5</div>
-        <div id="trailProgressPenarth"> 60%</div>
+        <div id="trailCountPenarth">Trails: 5</div>
+        <div id="trailProgressPenarth">60%</div>
     </div>
 
     <div id="aboutUsFlavour"> This is placeholder text about VZTA, this application,
@@ -171,7 +203,7 @@
 
 
 </main>
-<!--<footer th:insert="~{../Templating::footer}"></footer>-->
+<footer th:insert="~{/towns/Templating.html::footer}"></footer>
 
 </body>
 </html>
