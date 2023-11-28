@@ -3,42 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Landmark Sign Up</title>
+    <link rel="stylesheet" href="LandmarkForm.css">
+    <style>
+        body{
+            background:  rgb(41, 41, 41);
+            color: wheat;
+        }
+        #landmarkSubmission {
+            background-color: rgb(206, 153, 253);;
+            color: black;
+            border-color: white;
+            align-content: center;
+            text-align: center;
+            border-radius: 25px;
+            max-width: 600px;
+
+            margin: 0 auto
+
+        }
+
+
+
+
+    </style>
 </head>
 <body>
 <header th:insert="~{/towns/Templating.html :: header}"></header>
 <main>
+
     <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
 
-
+        <br>
         <label>Business Name:
            <input type="text" th:field="*{landmarkName}">
-        </label><br>
+        </label><br><br>
         <div th:errors="*{landmarkName}" th:if="${#fields.hasErrors('landmarkName')}">ErrorLandmarkName</div>
         <label>Contact Address:
             <input type="text" th:field="*{landmarkEmail}">
-        </label><br>
+        </label><br><br>
         <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
         <label>Please Describe Your Business:<br>
             <textarea th:field="*{landmarkDescription}" rows="8" cols="60"></textarea>
-        </label><br>
-        <label>Your town/city:
-            <input type="text" th:field="*{landmarkLocation}">
-        </label><br>
+        </label><br><br>
+        <label>Your Location:
+<!--            <input type="text" th:field="*{landmarkLocation}">-->
+            <select th:field="*{landmarkLocation}">
+                <option value="" disabled selected>Select Location</option>
+                <option value="Caerphilly">Caerphilly</option>
+                <option value="Risca">Risca</option>
+                <option value="Penarth">Penarth</option>
+            </select>
+        </label><br><br>
         <label>Trail:
             <select th:field="*{trailID}">
                 <option value=0 disabled selected>Select Trail</option>
-                <option value=1>Trail 1</option>
-                <option value=2>Trail 2</option>
-                <option value=3>Trail 3</option>
+                <option value=1>(Caerphilly) Castle Trail</option>
+                <option value=2>(Caerphilly) Pub Trail</option>
+                <option value=3>(Caerphilly) Heritage Trail</option>
+                <option value=4>(Caerphilly) Heritage Trail</option>
+                <option value=5>(Caerphilly) Heritage Trail</option>
             </select>
 
-
-
-            </div>
-        </label><br>
+        </label><br><br>
 
 
         <input type="submit">
+        <hr style="height:0px; visibility:hidden;" />
     </form>
 
 </main>
@@ -50,18 +80,36 @@
 
 
     function landmarkFormValidation(){
+        // let element=document.getElementById("landmarkSubmission");
         var pass=true;
         var trail = document.forms["landmarkSubmission"]["trailID"].value
+        var location = document.forms["landmarkSubmission"]["landmarkLocation"].value
         var description = document.forms["landmarkSubmission"]["landmarkDescription"].value;
         var descriptionWrdCount=description.split(" ").length
-        if (descriptionWrdCount>300){
-            alert('Please keep your review to a maximum of 300 words.');
+        if (descriptionWrdCount>200){
+            alert('Please keep your description to a maximum of 200 words.');
             pass = false;
         }
 
         if (trail==0){
             alert('Invalid trail selected. \nPlease select the trail you wish to join.');
             pass = false;
+        } else{
+             trail.innerHTML = option.text;
+             alert(trail.innerHTML)
+            alert('a')
+
+        }
+
+        if (location==0){
+            alert('Invalid location selected. \nPlease select the location you wish to join.');
+
+            pass = false;
+
+        }
+        if (trail==5){
+
+            trail.value=29;
         }
 
         return pass;
