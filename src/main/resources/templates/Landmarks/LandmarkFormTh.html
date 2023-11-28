@@ -7,36 +7,13 @@
     <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 
 
-    <style>
-        /*main{*/
-        /*    background:  rgb(41, 41, 41);*/
-        /*    color: wheat;*/
-        /*}*/
-        /*#landmarkSubmission {*/
-        /*    background-color: rgb(206, 153, 253);;*/
-        /*    color: black;*/
-        /*    border-color: white;*/
-        /*    align-content: center;*/
-        /*    text-align: center;*/
-        /*    border-radius: 25px;*/
-        /*    max-width: 600px;*/
-
-        /*    margin: 0 auto*/
-
-        /*}*/
-
-
-
-
-    </style>
-
 </head>
 <body>
 <header th:insert="~{/towns/Templating.html :: header}"></header>
 <hr style="height:20px; visibility:hidden;" />
 <H2 id="landmarkFormTitle"> Interested in joining our trails? Sign up Here! </H2>
 <main>
-
+<!--    Form used to submit potential landmarks for trails-->
     <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
 
         <br>
@@ -52,7 +29,6 @@
             <textarea th:field="*{landmarkDescription}" rows="8" cols="60" placeholder="Max 200 words please..."></textarea>
         </label><br><br>
         <label>Your Location:
-<!--            <input type="text" th:field="*{landmarkLocation}">-->
             <select th:field="*{landmarkLocation}">
                 <option value="" disabled selected>Select Location</option>
                 <option value="Caerphilly">Caerphilly</option>
@@ -85,7 +61,7 @@
 
 
 
-
+// verification function of the above form
     function landmarkFormValidation(){
         var pass=true;
         var trail = document.forms["landmarkSubmission"]["trailID"].value
@@ -97,7 +73,7 @@
             pass = false;
         }
 
-        if (trail==0){
+        if (trail==0){ // values of 0 and "" used to ensure default drop down option isn't submittable
             alert('Invalid trail selected. \nPlease select the trail you wish to join.');
             pass = false;
         }
@@ -105,7 +81,7 @@
         if (location==""){
             alert('Invalid location selected. \nPlease select the location you wish to join.');
 
-            pass = false;
+            pass = false; // ensure correct trail is selected in accordance to the town it takes place in
 
         } if ( (location=="Caerphilly" & (parseInt(trail/100)!==1)) ||
             (location=="Risca" & (parseInt(trail/100)!==2)) ||

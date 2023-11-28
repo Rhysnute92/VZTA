@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LandmarksController {
 
-
+// Controllers for LandmarkFormTh.html landmark submission form
     @GetMapping("/landmarkSubmission")
     public ModelAndView landmarkSubmission(){
         ModelAndView modelAndView1 = new ModelAndView("Landmarks/LandmarkFormTh.html");
@@ -33,19 +33,15 @@ public class LandmarksController {
 
         } else{
             System.out.println(landmarks);
+            // current functionality only prints successful Landmarks, (todo )database integration is necessary here
 
-//       LandmarksArray userArray = LandmarksArray.getInstance();
-//        Landmarks newUserSubmission = new Landmarks(landmarkData.getFormUsername(),userSubmission.getFormEmail(),
-//                userSubmission.getFormPark(), userSubmission.getFormDescription(),userSubmission.getFormCafe(), userSubmission.getFormToilets());
-//        userArray.addUserSubmission(newUserSubmission);
-//        System.out.println(userArray.getFormItems());
-//
+
         ModelAndView modelAndView = new ModelAndView("redirect:/test.html");
             return modelAndView;
 
         }
 
-//        return modelAndView;
+
 
 
 
@@ -53,13 +49,5 @@ public class LandmarksController {
 
     }
 
-//    @PostMapping("/landmarkSubmission")
-//    public ModelAndView landmarkSubmission( Landmarks landmarks){
-//        System.out.println(landmarks);
-//        ModelAndView modelAndView = new ModelAndView("redirect:/thankyou.html");
-//
-//        return modelAndView;
-//
-//    }
 
 }

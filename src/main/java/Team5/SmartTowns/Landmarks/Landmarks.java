@@ -25,11 +25,5 @@ public class Landmarks {
         this.trailID =0;
     }
 
-//    public Landmarks(String landmarkName, String landmarkEmail, String landmarkDescription, String landmarkLocation, Integer trailID) {
-//        this.landmarkName = landmarkName;
-//        this.landmarkEmail = landmarkEmail;
-//        this.landmarkDescription = landmarkDescription;
-//        this.landmarkLocation = landmarkLocation;
-//        this.trailID = trailID;
-//    }
+
 }
