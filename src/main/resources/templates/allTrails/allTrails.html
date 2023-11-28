@@ -10,8 +10,12 @@
 
 <header>
     <ul class="flexList">
+        <!--TODO trail image instead of title-->
         <li class="listButton" th:each="trail : ${trails}">
-            <a class="listA" th:onclick="'updateOutputTrail('+ ${trail.id} +');'" th:id="'li' + ${trail.id}" th:text="${trail.name}"></a>
+            <a class="listA" th:onclick="'updateOutputTrail('+ ${trail.id} +');'" th:id="'li' + ${trail.id}">
+                <img th:src="@{${trail.getImgPath()}}" class="trailsImages" th:id="'img' + ${trail.getId()}" alt="IMG">
+            </a>
+
         </li>
     </ul>
 </header>
@@ -28,16 +32,18 @@
         $.get("/allTrails/" + id).done(function (fragment) {
             $("#trailInfoBox").html(fragment)
         });
+        updateSelectedTrail(id);
     }
-
-    function updateSelectedTrail(string) {
+    function updateSelectedTrail(id) {
         /* Updates the trail bar, so that it highlights the selected trail */
-        let listEl = document.getElementsByClassName('listA')
-        for (let i = 0; i < listEl.length; i++) {
-            listEl[i].classList.remove('selected')
+        let list = document.getElementsByClassName('trailsImages')
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].classList.contains('selected')) {
+                list[i].classList.remove('selected')
+                break
+            }
         }
-        document.getElementById(string).classList.add("selected")
-
+        document.getElementById("img" + id).classList.add("selected")
     }
 </script>
 </body>
