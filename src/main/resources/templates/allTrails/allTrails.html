@@ -11,73 +11,27 @@
 <header>
     <ul class="flexList">
         <li class="listButton" th:each="trail : ${trails}">
-            <a class="listA" th:onclick="'update(' + ${trail.id} + ');'" th:id="'li' + ${trail.id}" th:text="${trail.name}"></a>
+            <a class="listA" th:onclick="'updateOutputTrail('+ ${trail.id} +');'" th:id="'li' + ${trail.id}" th:text="${trail.name}"></a>
         </li>
     </ul>
 </header>
 
 <main>
-    <section class="trailInfoBox" th:each="trail : ${trails}" th:id="${trail.id}">
-        <h1 th:text="${trail.description}"></h1>
-    </section>
-
-
-
+    <section id="trailInfoBox"></section>
 </main>
 
 
 <script type="text/javascript" th:src="@{scripts/allTrails.js}"></script>
 <script th:inline="javascript">
-    function fade(element) {
-        var op = 1;  // initial opacity
-        var timer = setInterval(function () {
-            if (op <= 0.1){
-                clearInterval(timer);
-                element.style.display = 'none';
-            }
-            element.style.opacity = op;
-            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-            op -= op * 0.1;
-        }, 50);
+    function updateOutputTrail(id) {
+        /* Updates the trail being shown on screen to the one requested by ID */
+        $.get("/allTrails/" + id).done(function (fragment) {
+            $("#trailInfoBox").html(fragment)
+        });
     }
 
-    function unfade(element) {
-        var op = 0.1;  // initial opacity
-        element.style.display = 'block';
-        var timer = setInterval(function () {
-            if (op >= 1){
-                clearInterval(timer);
-            }
-            element.style.opacity = op;
-            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-            op += op * 0.1;
-        }, 10);
-    }
-    async function update(id){
-        await updateTrailInfo(id);
-        selectTrail('li' + id);
-    }
-    async function updateTrailInfo(id){
-        let blocks = document.getElementsByClassName('trailInfoBox');
-        let clicked = document.getElementById(id);
-        let active = null;
-        for (let i = 0; i < blocks.length; i++) {
-            if (blocks[i].style.display === 'block') {
-                active = blocks[i];
-            }
-        }
-        if (active == null) {
-            unfade(clicked)
-            clicked.style.display="block"
-        } else if (active !== clicked) {
-            fade(active);
-            active.style.display="none"
-            unfade(clicked)
-            clicked.style.display="block"
-        }
-
-    }
-    function selectTrail(string) {
+    function updateSelectedTrail(string) {
+        /* Updates the trail bar, so that it highlights the selected trail */
         let listEl = document.getElementsByClassName('listA')
         for (let i = 0; i < listEl.length; i++) {
             listEl[i].classList.remove('selected')
