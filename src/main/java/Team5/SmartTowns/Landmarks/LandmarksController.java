@@ -1,5 +1,6 @@
 package Team5.SmartTowns.Landmarks;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +16,7 @@ public class LandmarksController {
 
     @GetMapping("/landmarkSubmission")
     public ModelAndView landmarkSubmission(){
-        ModelAndView modelAndView1 = new ModelAndView("LandmarkFormTh.html");
+        ModelAndView modelAndView1 = new ModelAndView("Landmarks/LandmarkFormTh.html");
         modelAndView1.addObject("landmarkData", new Landmarks());
         return modelAndView1;
 
@@ -23,8 +24,14 @@ public class LandmarksController {
 
 
     @PostMapping("/landmarkSub")
-    public ModelAndView landmarkSent( @ModelAttribute("landmarkData") Landmarks landmarks ) {
+    public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
         System.out.println(landmarks);
+
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("Landmarks/LandmarkFormTh.html", model.asMap());
+            return modelAndView;
+
+        } else{
 
 //       LandmarksArray userArray = LandmarksArray.getInstance();
 //        Landmarks newUserSubmission = new Landmarks(landmarkData.getFormUsername(),userSubmission.getFormEmail(),
@@ -33,7 +40,11 @@ public class LandmarksController {
 //        System.out.println(userArray.getFormItems());
 //
         ModelAndView modelAndView = new ModelAndView("redirect:/test.html");
-        return modelAndView;
+            return modelAndView;
+
+        }
+
+//        return modelAndView;
 
 
 

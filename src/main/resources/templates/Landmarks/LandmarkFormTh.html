@@ -5,30 +5,36 @@
     <title>Landmark Sign Up</title>
 </head>
 <body>
+<header th:insert="~{/towns/Templating.html :: header}"></header>
 <main>
     <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
 
 
-        <label>Business Name:&nbsp;
+        <label>Business Name:
            <input type="text" th:field="*{landmarkName}">
         </label><br>
+        <div th:errors="*{landmarkName}" th:if="${#fields.hasErrors('landmarkName')}">ErrorLandmarkName</div>
         <label>Contact Address:
             <input type="text" th:field="*{landmarkEmail}">
         </label><br>
+        <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
         <label>Please Describe Your Business:<br>
             <textarea th:field="*{landmarkDescription}" rows="8" cols="60"></textarea>
         </label><br>
         <label>Your town/city:
-            <input type="text" th:field="*{landmarkName}">
+            <input type="text" th:field="*{landmarkLocation}">
         </label><br>
         <label>Trail:
-
             <select th:field="*{trailID}">
                 <option value=0 disabled selected>Select Trail</option>
                 <option value=1>Trail 1</option>
                 <option value=2>Trail 2</option>
                 <option value=3>Trail 3</option>
             </select>
+
+
+
+            </div>
         </label><br>
 
 
@@ -38,23 +44,31 @@
 </main>
 
 <script>
-    function landmarkFormValidation(){
-        console.log("sadasd");
-        var pass=true;
-        var description = (document.forms["landmarkSubmission"]["landmarkDescription"].value);
-        console.log(description);
-        var descriptionWrdCount=description.split(" ").length
-        if(descriptionWrdCount>5){
-            alert('Please keep your review to a maximum of 5 words.');
-            console.log("BAD!!");
-            pass = false;
 
+
+
+
+
+    function landmarkFormValidation(){
+        var pass=true;
+        var trail = document.forms["landmarkSubmission"]["trailID"].value
+        var description = document.forms["landmarkSubmission"]["landmarkDescription"].value;
+        var descriptionWrdCount=description.split(" ").length
+        if (descriptionWrdCount>300){
+            alert('Please keep your review to a maximum of 300 words.');
+            pass = false;
         }
+
+        if (trail==0){
+            alert('Invalid trail selected. \nPlease select the trail you wish to join.');
+            pass = false;
+        }
+
         return pass;
     }
 
 
 </script>
-
+<footer th:insert="~{/towns/Templating.html :: footer}"></footer>
 </body>
 </html>
