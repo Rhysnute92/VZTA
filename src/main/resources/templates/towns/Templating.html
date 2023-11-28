@@ -1,25 +1,24 @@
 <link rel="stylesheet" href="../../static/css/templatingstyle.css">
 <header class="headerBar" th:fragment="header">
-
-<div class="Logo">
-    <img src="../../static/images/VZTA.png" height="97" width="400" alt="VZTA Logo"/>
-</div>
-<nav class="navBar">
-    <ul>
-        <li>Home</li>
-        <li>FAQs</li>
-        <li>Contact us</li>
-    </ul>
-    <label class="work">Who  we Work with:</label>
-    <select>
+    <div class="Logo">
+        <img src="../../static/images/VZTA.png" height="97" width="400" alt="VZTA Logo"/>
+    </div>
+    <nav class="navBar">
         <ul>
-            <option value="localauthorities">Local Authorities</option>
-            <option value="towns">Towns</option>
-            <option value="businesses">Businesses</option>
-            <option value="consumers">Consumers</option>
+            <li>Home</li>
+            <li>FAQs</li>
+            <li>Contact us</li>
         </ul>
-    </select>
-</nav>
+        <label class="work">Who  we Work with:</label>
+        <select>
+            <ul>
+                <option value="localauthorities">Local Authorities</option>
+                <option value="towns">Towns</option>
+                <option value="businesses">Businesses</option>
+                <option value="consumers">Consumers</option>
+            </ul>
+        </select>
+    </nav>
 </header>
 
 <div class="footerBar" th:fragment="footer">

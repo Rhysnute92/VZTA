@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+ <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+
+
+    <style>
+        #homeTitle{
+            grid-area: pageTitle;
+        }
+        .submitLand{
+            grid-area: submitButton;
+        }
+
+        .gridContainer1{
+            display:grid;
+            grid-template-columns: 10% 70% 10% 10%;
+            grid-template-rows: auto;
+            grid-template-areas:
+            ". pageTitle pageTitle ."
+            ". . submitButton .";
+
+
+        }
+
+    </style>
+</head>
+<body>
+<!--<header th:insert="~{../Templating.html::header}"></header>-->
+<main>
+<div class="gridContainer1">
+    <H1 id="homeTitle"> Smart Towns - Trails</H1>
+    <button class="submitLand"> Submit Landmark!</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<!--<footer th:insert="~{../Templating::footer}"></footer>-->
+
+</body>
+</html>
