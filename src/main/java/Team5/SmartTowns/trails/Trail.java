@@ -17,10 +17,12 @@ public class Trail {
     String description;
     int nLandmarks;
     int difficulty; //1-5
+    String imgPath;
 
     public Trail(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
+        imgPath = "images/trails/trail" + id + ".jpg";
     }
 }
