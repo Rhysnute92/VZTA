@@ -68,9 +68,12 @@
         }
         if (active == null) {
             unfade(clicked)
+            clicked.style.display="block"
         } else if (active !== clicked) {
             fade(active);
+            active.style.display="none"
             unfade(clicked)
+            clicked.style.display="block"
         }
 
     }
