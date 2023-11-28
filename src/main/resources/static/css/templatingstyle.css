@@ -1,0 +1,93 @@
+/* Header */
+.headerBar {
+    border-bottom: 2px rgb(230, 230, 230) solid;
+    margin-bottom: 20px;
+    display: flex;
+    background: blueviolet;
+}
+/* Navbar Links */
+.navBar {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right:20px;
+    text-align: right;
+}
+.work{
+    color: rgb(255, 255, 255);
+}
+.navBar ul {
+    list-style: none;
+    display: flex;
+    margin-left: 100px;
+}
+.navBar a {
+    border-left: 2px rgb(185, 185, 185) solid;
+    padding: 10px 40px;
+    text-decoration: none;
+    color:rgb(87, 86, 86);
+    white-space: nowrap;
+    overflow: hidden;
+    float: right;
+}
+.navBar a:hover {
+    background-color: rgb(209, 209, 209);
+}
+.navBar li{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(255, 255, 255);
+}
+.navListLast {
+    border-right: 2px rgb(185, 185, 185) solid;
+    margin-right:40px;
+}
+
+/* Navbar Logo */
+.Logo {
+    margin-left:10px;
+    padding: 20px;
+    width: fit-content;
+}
+.Logo img {
+    width: 120px;
+    margin-left:15px;
+}
+
+/* Footer */
+footer {
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+}
+.footerBar{
+    border-top: 2px rgb(230, 230, 230) solid;
+    text-align: left;
+    display: flex;
+    background: blueviolet;
+    color: rgb(255, 255, 255);
+    padding-left: 30px;
+}
+.footerBar ul {
+    list-style: none;
+    display: flex;
+}
+.copyright{
+    text-align: left;
+    display: flex;
+}
+.containerFooter{
+    display: flex;
+    flex-direction: row;
+}
+.leftFooter{
+    flex:1;
+    color: rgb(255, 255,255);
+}
+.centerFooter{
+    flex: 1;
+    color: rgb(255, 255,255);
+}
+.rightFooter{
+    flex:1;
+    color: rgb(255, 255, 255);
+}
