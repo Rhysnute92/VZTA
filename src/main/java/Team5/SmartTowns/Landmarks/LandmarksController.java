@@ -25,13 +25,14 @@ public class LandmarksController {
 
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
-        System.out.println(landmarks);
+
 
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("Landmarks/LandmarkFormTh.html", model.asMap());
             return modelAndView;
 
         } else{
+            System.out.println(landmarks);
 
 //       LandmarksArray userArray = LandmarksArray.getInstance();
 //        Landmarks newUserSubmission = new Landmarks(landmarkData.getFormUsername(),userSubmission.getFormEmail(),

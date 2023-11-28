@@ -30,20 +30,21 @@
 <body>
 <header th:insert="~{/towns/Templating.html :: header}"></header>
 <main>
+    <hr style="height:40px; visibility:hidden;" />
 
     <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
 
         <br>
         <label>Business Name:
            <input type="text" th:field="*{landmarkName}">
-        </label><br><br>
+        </label><br>
         <div th:errors="*{landmarkName}" th:if="${#fields.hasErrors('landmarkName')}">ErrorLandmarkName</div>
-        <label>Contact Address:
+        <br><label>Contact Address:
             <input type="text" th:field="*{landmarkEmail}">
-        </label><br><br>
+        </label><br>
         <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
-        <label>Please Describe Your Business:<br>
-            <textarea th:field="*{landmarkDescription}" rows="8" cols="60"></textarea>
+        <br><label>Please Describe Your Business:<br>
+            <textarea th:field="*{landmarkDescription}" rows="8" cols="60" placeholder="Max 200 words please..."></textarea>
         </label><br><br>
         <label>Your Location:
 <!--            <input type="text" th:field="*{landmarkLocation}">-->
@@ -57,11 +58,11 @@
         <label>Trail:
             <select th:field="*{trailID}">
                 <option value=0 disabled selected>Select Trail</option>
-                <option value=1>(Caerphilly) Castle Trail</option>
-                <option value=2>(Caerphilly) Pub Trail</option>
-                <option value=3>(Caerphilly) Heritage Trail</option>
-                <option value=4>(Caerphilly) Heritage Trail</option>
-                <option value=5>(Caerphilly) Heritage Trail</option>
+                <option value=0101>(Caerphilly) Castle Trail</option>
+                <option value=0102>(Caerphilly) Pub Trail</option>
+                <option value=0103>(Caerphilly) Heritage Trail</option>
+                <option value=0201>(Risca) Heritage and Culture Trail</option>
+                <option value=0301>(Penarth) Esplanade Trail</option>
             </select>
 
         </label><br><br>
@@ -71,6 +72,7 @@
         <hr style="height:0px; visibility:hidden;" />
     </form>
 
+    <hr style="height:40px; visibility:hidden;" />
 </main>
 
 <script>
@@ -80,7 +82,6 @@
 
 
     function landmarkFormValidation(){
-        // let element=document.getElementById("landmarkSubmission");
         var pass=true;
         var trail = document.forms["landmarkSubmission"]["trailID"].value
         var location = document.forms["landmarkSubmission"]["landmarkLocation"].value
@@ -94,22 +95,18 @@
         if (trail==0){
             alert('Invalid trail selected. \nPlease select the trail you wish to join.');
             pass = false;
-        } else{
-             trail.innerHTML = option.text;
-             alert(trail.innerHTML)
-            alert('a')
-
         }
 
-        if (location==0){
+        if (location==""){
             alert('Invalid location selected. \nPlease select the location you wish to join.');
 
             pass = false;
 
-        }
-        if (trail==5){
-
-            trail.value=29;
+        } if ( (location=="Caerphilly" & (parseInt(trail/100)!==1)) ||
+            (location=="Risca" & (parseInt(trail/100)!==2)) ||
+            (location=="Penarth" & (parseInt(trail/100)!==3)) ){
+            alert('Trail unavailable in your current location. \nPlease choose an available trail');
+            pass = false;
         }
 
         return pass;
