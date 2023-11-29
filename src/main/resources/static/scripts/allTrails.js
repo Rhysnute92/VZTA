@@ -1,7 +1,7 @@
 function updateOutputTrail(id) {
     /* Updates the trail being shown on screen to the one requested by ID */
     $.get("/allTrails/" + id).done(function (fragment) {
-        $("#trailInfoBox").html(fragment)
+        $("#trailInfoContainer").html(fragment)
     });
     updateSelectedTrail(id);
 }
