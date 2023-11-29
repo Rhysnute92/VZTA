@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    *{
+    body{
         background-color: #36454F;
         color: white;
     }
@@ -168,8 +168,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Caerphilly</title>
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 </head>
 <body>
+<header th:insert="~{/towns/Templating.html::header}"></header>
 <main>
     <div class="container">
         <h1 class="townName"> Welcome to the town of Caerphilly.</h1>
@@ -213,6 +215,7 @@
 
     </div>
 </main>
+<footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </body>
 
 </html>
