@@ -9,15 +9,15 @@
 <body>
 
 <header>
-    <ul class="flexList">
-        <!--TODO trail image instead of title-->
-        <li class="listButton" th:each="trail : ${trails}">
-            <a class="listA" th:onclick="'updateOutputTrail('+ ${trail.id} +');'" th:id="'li' + ${trail.id}">
-                <img th:src="@{${trail.getImgPath()}}" class="trailsImages" th:id="'img' + ${trail.getId()}" alt="IMG">
-            </a>
-
-        </li>
-    </ul>
+    <div id="allTrailsBar" class="centerFlex">
+        <!--TODO add rest of page-->
+        <img class="trailsImages"
+             th:each="trail : ${trails}"
+             th:src="@{${trail.getImgPath()}}"
+             th:onclick="'updateOutputTrail('+ ${trail.id} +');'"
+             th:id="'img' + ${trail.getId()}" alt="IMG"
+        >
+    </div>
 </header>
 
 <main>
