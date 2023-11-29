@@ -91,18 +91,23 @@ main {
         border: black solid 1px;
         margin: 1%;
         flex: 1 1;
+
         min-width: 20%;
         max-width: 40%;
         min-height: 20svh;
-        max-height: 40svh;
+        max-height: 90%;
+        overflow: hidden;
     }
     & p {
         color: white;
         flex: 1 1;
-        padding-top: 5px;
-        padding-left: 10px;
+        padding: 5%;
         width: 60%;
         border-left: solid darkgrey 2px;
+        font-size: x-large;
+        text-align: justify;
+        text-justify: inter-character;
+        line-height: 1.5;
     }
 }
 
