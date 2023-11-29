@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>All Trails</title>
     <link rel="stylesheet" th:href="@{css/allTrails.css}">
+    <link rel="stylesheet" th:href="@{css/banners.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<header>
-    <div id="allTrailsBar" class="centerFlex">
+<header th:replace="towns/templates.server/Templating.html :: headerBlock"></header>
+
+<main>
+    <section id="allTrailsBar" class="centerFlex">
         <!--TODO add rest of page-->
         <img class="trailsImages"
              th:each="trail : ${trails}"
@@ -17,34 +20,13 @@
              th:onclick="'updateOutputTrail('+ ${trail.getId()} +');'"
              th:id="'img' + ${trail.getId()}" th:alt="${trail.getName()}"
         >
-    </div>
-</header>
-
-<main>
+    </section>
     <section id="trailInfoBox"></section>
 </main>
 
+<footer th:replace="towns/templates.server/Templating.html:: footerBlock"></footer>
 
 <script type="text/javascript" th:src="@{scripts/allTrails.js}"></script>
-<script th:inline="javascript">
-    function updateOutputTrail(id) {
-        /* Updates the trail being shown on screen to the one requested by ID */
-        $.get("/allTrails/" + id).done(function (fragment) {
-            $("#trailInfoBox").html(fragment)
-        });
-        updateSelectedTrail(id);
-    }
-    function updateSelectedTrail(id) {
-        /* Updates the trail bar, so that it highlights the selected trail */
-        let list = document.getElementsByClassName('trailsImages')
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].classList.contains('selected')) {
-                list[i].classList.remove('selected')
-                break
-            }
-        }
-        document.getElementById("img" + id).classList.add("selected")
-    }
-</script>
+
 </body>
 </html>
