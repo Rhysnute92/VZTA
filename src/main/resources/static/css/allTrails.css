@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(41, 41, 41);
+    margin: 0;
+}
 .centerFlex {
     display: flex;
     justify-content: center;
@@ -5,31 +9,29 @@
 #allTrailsBar {
     padding:0;
     max-width: 60%;
-    height: 12svh;
+    height: 11svh;
     margin: auto;
-    border-bottom: solid grey 4px;
-    border-top: solid grey 4px;
+    border-bottom: solid grey 2px;
+    /*border-top: solid grey 4px;*/
 
 }
 .trailsImages {
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
     height: 10svh;
     width: 10svh;
     border-radius: 20px;
+    border: solid grey 2px;
     transition: 0.5s ease-out 100ms;
 
 }
 .trailsImages:hover {
-    box-shadow: 0 0 30px #bbbb00;
+    box-shadow: 0 0 20px 10px #bbbb00;
     transform: scale(1.2,1.2);
     !important; overflow: visible;
 }
 
 .selected {
-    box-shadow: 0 0 30px yellow;
+    box-shadow: 0 0 20px 10px #bbbb00;
 }
 
 .trailInfoBox {
@@ -42,3 +44,8 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+
+
+
+
+
