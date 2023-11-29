@@ -1,0 +1,11 @@
+<article th:fragment="trailSection" class="trailInfoFrag">
+    <h1 th:text="${trail.getName()}"></h1>
+
+    <div id="trailFragContent">
+        <img th:src="@{${trail.getImgPath()}}" th:alt="${trail.getName()} ">
+        <p th:text="${trail.getDescription()}"></p>
+    </div>
+
+
+    <!--TODO add more to this fragment and then add styling to it-->
+</article>
