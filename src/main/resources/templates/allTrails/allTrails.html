@@ -14,8 +14,8 @@
         <img class="trailsImages"
              th:each="trail : ${trails}"
              th:src="@{${trail.getImgPath()}}"
-             th:onclick="'updateOutputTrail('+ ${trail.id} +');'"
-             th:id="'img' + ${trail.getId()}" alt="IMG"
+             th:onclick="'updateOutputTrail('+ ${trail.getId()} +');'"
+             th:id="'img' + ${trail.getId()}" th:alt="${trail.getName()}"
         >
     </div>
 </header>
