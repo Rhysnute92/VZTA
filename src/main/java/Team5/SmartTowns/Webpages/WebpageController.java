@@ -1,17 +1,12 @@
 package Team5.SmartTowns.Webpages;
 
 
-
-import Team5.SmartTowns.trails.Trail;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
-
-import static Team5.SmartTowns.trails.Trail.trails;
-
 @Controller
 public class WebpageController {
     @GetMapping("/Caerleon")
@@ -43,8 +38,6 @@ public class WebpageController {
         //map.addAttribute("foo", "bar");
         return "fragments/temp_frags.html :: trailInfo2";
     }
-
-
 
 
 
