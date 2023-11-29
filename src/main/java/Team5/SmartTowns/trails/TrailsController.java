@@ -31,7 +31,7 @@ public class TrailsController {
     {
         List<Trail> trailList= Trail.trails;//results from db
         ModelAndView mv= new ModelAndView("fragments/allTrailsFrags :: trailSection");
-        mv.addObject("searchList", trailList.get(id-1));
+        mv.addObject("trail", trailList.get(id-1));
 
         return mv;
     }
