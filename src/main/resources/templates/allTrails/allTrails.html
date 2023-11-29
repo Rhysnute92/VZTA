@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>All Trails</title>
     <link rel="stylesheet" th:href="@{css/allTrails.css}">
-    <link rel="stylesheet" th:href="@{css/banners.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<header th:replace="towns/templates.server/Templating.html :: headerBlock"></header>
+<header th:replace="~{/towns/Templating.html :: header}"></header>
 
 <main>
     <section id="allTrailsBar" class="centerFlex">
@@ -22,13 +22,13 @@
     </section>
 
     <section id="trailInfoContainer">
-
-
+        <h1 class="centerFlex">Please select your trail</h1>
+        <!--Loaded from thymeleaf-->
     </section>
 
 </main>
+<footer th:insert="~{/towns/Templating.html :: footer}"></footer>
 
-<footer th:replace="towns/templates.server/Templating.html:: footerBlock"></footer>
 
 <script type="text/javascript" th:src="@{scripts/allTrails.js}"></script>
 

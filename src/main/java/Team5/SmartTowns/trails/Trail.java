@@ -12,7 +12,7 @@ public class Trail {
             new Trail(2,"Trail2", "This is trail two"),
             new Trail(3,"Trail3", "This is trail three"),
             new Trail(4,"Trail4", "This is trail four"),
-            new Trail(5,"Trail5", "This is trail five, it has no image")
+            new Trail(5,"Trail5", "EDITING THIS")
     );
     int id;
     String name;

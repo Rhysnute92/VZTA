@@ -50,8 +50,8 @@ main {
 
 #trailInfoContainer {
     margin: auto;
-    width: 95vw;
-    min-height: 80vh;
+    width: 95svw;
+    min-height: 40svh;
     min-width: 30svw;
 }
 
@@ -60,15 +60,12 @@ main {
     border: #000000 solid 2px;
     border-radius: 10px;
     box-shadow: 0 5px 20px 0 #000000;
-
     margin:0;
     padding:0;
     animation: fadeIn 3s;
-
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /*min-height: 80svh;*/
     min-width: 30svh;
 
     & h1 {
@@ -84,17 +81,20 @@ main {
 #trailFragContent {
     margin: 0;
     padding: 0;
-
     display: flex;
     overflow: hidden;
+    min-height: 40svh;
+    max-height: 60svh;
 
     & img {
         border-radius: 10px;
         border: black solid 1px;
         margin: 1%;
         flex: 1 1;
-        width: 30%;
-        min-height: 30svh;
+        min-width: 20%;
+        max-width: 40%;
+        min-height: 20svh;
+        max-height: 40svh;
     }
     & p {
         color: white;
@@ -103,10 +103,14 @@ main {
         padding-left: 10px;
         width: 60%;
         border-left: solid darkgrey 2px;
-
     }
-
 }
 
+header {
+    box-shadow: #1e1e1e 0 0 10px 10px;
+}
 
-
+footer {
+    position: relative;
+    bottom: 0;
+}
