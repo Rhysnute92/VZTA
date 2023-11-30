@@ -13,8 +13,8 @@ public class DatabaseController {
     private UserRepository userRepository;
 //    @Autowired
 //    private locationRepository locationRepository;
-//    @Autowired
-//    private trailsRepository trailsRepository;
+    @Autowired
+    private trailsRepository trailsRepository;
 
 //    public DatabaseController() {
 //
@@ -27,13 +27,13 @@ public class DatabaseController {
         mav.addObject("users", users);
         return mav;
     }
-//    @GetMapping("/trailList")
-//    public ModelAndView trailList() {
-//        ModelAndView mav1 = new ModelAndView("towns/trailsData");
-//        List<trail> trail = trailsRepository.getAllTrails();
-//        mav1.addObject("trails", trail);
-//        return mav1;
-//    }
+    @GetMapping("/trailList")
+    public ModelAndView trailList() {
+        ModelAndView mav1 = new ModelAndView("towns/trailsData");
+        List<trail> trail = trailsRepository.getAllTrails();
+        mav1.addObject("trails", trail);
+        return mav1;
+    }
 //    @GetMapping("locationList")
 //    public ModelAndView locationList(){
 //        ModelAndView mav2 = new ModelAndView("towns/locationData");
