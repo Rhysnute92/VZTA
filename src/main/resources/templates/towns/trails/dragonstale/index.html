@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <title>A Dragon's Tale</title>
     <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 </head>
-<body>
+    <body>
+        <header th:insert="towns/Templating.html :: header"></header>
 
-    <div class="centre">
-        <h1> Welcome, to a dragon's tale! </h1>
-        <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon">
-        <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of (thymeleaf element) to discover a prize! </h2>
-    </div>
+        <div class="centre">
+            <h1> Welcome, to a dragon's tale! </h1>
+            <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon">
+            <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of (thymeleaf element) to discover a prize! </h2>
+        </div>
 
-    <div class="centre">
-        <p>
-            Adventurers... embark through mystical historical landmarks to ultimately discover the lair of the dragon.
-            Legend has it that within this ominous lair, mighty dragons, guardians of ancient wisdom and treasures untold lay....
-        </p>
-    </div>
+        <div class="centre">
+            <p>
+                Adventurers... embark through mystical historical landmarks to ultimately discover the lair of the dragon.
+                Legend has it that within this ominous lair, mighty dragons, guardians of ancient wisdom and treasures untold lay....
+            </p>
+        </div>
 
-    <div class="centre">
-        <ul th:each="item : ${landmarksList}">
-            <p th:text="${item.landmarkName}"></p>
-            <p th:text="${item.landmarkDescription}"></p>
-        </ul>
-    </div>
+        <div class="centre">
+            <ul th:each="item : ${landmarksList}">
+                <p th:text="${item.landmarkName}"></p>
+                <p th:text="${item.landmarkDescription}"></p>
+            </ul>
+        </div>
 
-    <div class="centre">
-        <h3>Begin your hunt!</h3>
-        <button type="button" id="begin">Click here!</button>
-    </div>
-<script>
+        <div class="centre">
+            <h3>Begin your hunt!</h3>
+            <button type="button" id="begin">Click here!</button>
+        </div>
 
-    document.getElementById("begin").addEventListener("click", function (){
-        window.location.href = ("/dragonstale/landmarkone");
-    })
+        <div th:insert="towns/Templating.html :: footer"></div>
 
-</script>
+        <script>
 
-</body>
+        document.getElementById("begin").addEventListener("click", function (){
+            window.location.href = ("/dragonstale/landmarkone");
+        })
+
+        </script>
+    </body>
 </html>
