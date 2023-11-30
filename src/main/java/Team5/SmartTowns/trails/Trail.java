@@ -36,4 +36,8 @@ public class Trail {
         File imgFile = new File("src/main/resources/static/" + imgPath);
         return imgFile.exists() ? imgPath : notFoundPath;
     }
+
+    public static List<Trail> getTrails() {
+        return trails;
+    }
 }

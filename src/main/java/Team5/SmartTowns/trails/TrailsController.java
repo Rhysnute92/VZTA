@@ -35,4 +35,19 @@ public class TrailsController {
 
         return mv;
     }
+
+    //Leave this, I'll create a thymeleaf redirect for multiple different trails, rather then just have one for each trail.
+    @GetMapping("/dragonstale")
+    public ModelAndView getDragonsTale(){
+        ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/index");
+        return modelAndView;
+    }
+    //Same for this
+
+    @GetMapping("/dragonstale/landmarkone")
+    public ModelAndView getLandmark(){
+        ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/trailcheckpoints/one/one");
+        return modelAndView;
+}
+
 }

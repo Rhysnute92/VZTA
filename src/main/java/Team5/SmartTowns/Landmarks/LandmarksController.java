@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 //import jakarta.validation.Valid;
 
@@ -21,8 +22,6 @@ public class LandmarksController {
         return modelAndView1;
 
     }
-
-
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
 
@@ -41,13 +40,15 @@ public class LandmarksController {
 
         }
 
+            }
 
 
 
 
 
 
-    }
 
 
 }
+
+
