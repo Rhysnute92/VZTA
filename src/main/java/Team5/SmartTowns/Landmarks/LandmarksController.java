@@ -1,5 +1,6 @@
 package Team5.SmartTowns.Landmarks;
 
+import Team5.SmartTowns.trails.Trail;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,23 +25,23 @@ public class LandmarksController {
     }
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
-
-
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("Landmarks/LandmarkFormTh.html", model.asMap());
             return modelAndView;
-
         } else{
             System.out.println(landmarks);
             // current functionality only prints successful Landmarks, (todo )database integration is necessary here
-
-
         ModelAndView modelAndView = new ModelAndView("redirect:/test.html");
             return modelAndView;
-
         }
+    }
 
-            }
+//    @GetMapping("/dragonstale/{")
+//    public ModelAndView getAllTrails(){
+//        ModelAndView mav = new ModelAndView("allTrails/allTrails");
+//        mav.addObject("landmarks", Landmarks.landmarks); //Mock data for trails
+//        return mav;
+//    }
 
 
 

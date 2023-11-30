@@ -7,12 +7,15 @@ import java.util.List;
 
 @Data
 public class Trail {
+
+    //List not existing upon creation of database.
     public static List<Trail> trails = List.of(
             new Trail(1,"Caerphilly Castle Trail", "Take a stroll through the grounds of one of Europe's finest historic buildings and you will see stunning views of the castle and the lakes. The route of the trail is marked with eight special circular markers, which depict various fascinating historical facts relating to the castle. Pupils from Ysgol Gynradd Gymraeg Caerffili, Plasyfelin Junior School, Ysgol Y Castell and Twyn Primary worked with the artist to come up with the different designs. You do not need to pay to go in the castle to complete this trail. This Trail is fairly short at 1.5 miles and very suitable for wheelchairs and pushchairs as the route stays mostly on well-marked and ramped paths with just a couple of short diversions onto grassed areas."),
             new Trail(2,"Trail2", "This is trail two"),
             new Trail(3,"Trail3", "This is trail three"),
             new Trail(4,"Trail4", "This is trail four"),
-            new Trail(5,"Trail5", "EDITING THIS")
+            new Trail(5,"Trail5", "EDITING THIS"),
+            new Trail(6, "A Dragon's Tale", "Adventurers... embark through mystical historical landmarks to ultimately discover the lair of the dragon. Legend has it that within this ominous lair, mighty dragons, guardians of ancient wisdom and treasures untold lay....")
     );
     int id;
     String name;
@@ -28,6 +31,10 @@ public class Trail {
         imgPath = findImagePath();
     }
 
+    public Trail() {
+        this.id = id;
+    }
+
     private String findImagePath(){
         /* Finds the image in the Path folder, if image is not found assigns default image */
         String imgPath = "images/trails/trail" + id + ".jpg";
@@ -35,9 +42,5 @@ public class Trail {
 
         File imgFile = new File("src/main/resources/static/" + imgPath);
         return imgFile.exists() ? imgPath : notFoundPath;
-    }
-
-    public static List<Trail> getTrails() {
-        return trails;
     }
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <title>A Dragon's Tale</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
 </head>
 <body>
 
     <div class="centre">
         <h1> Welcome, to a dragon's tale! </h1>
-        <img src="dragonstalehome.png" alt="Image of a dragon">
+        <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon">
         <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of (thymeleaf element) to discover a prize! </h2>
     </div>
 
@@ -21,7 +21,9 @@
     </div>
 
     <div class="centre">
-        <!-- TO DO, -->
+        <ul>
+            <li th:insert="fragments/landmarkFrag.html :: landmarkList"></li>
+        </ul>
     </div>
 
     <div class="centre">
