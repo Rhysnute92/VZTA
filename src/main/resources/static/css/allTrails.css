@@ -2,39 +2,51 @@
     box-sizing: border-box;
 }
 body {
-    background-color: rgb(41, 41, 41);
+    /*background-color: rgb(41, 41, 41);*/
+    background-color: #40116b;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
 }
 main {
+    background-color: rgba(41, 41, 41, 0.84);
+    width: 95vw;
+    border-radius: 2vw;
+    margin: auto;
+    margin-top: 2svh;
+    padding-top: 4svh;
+    padding-bottom: 4svh;
+    box-shadow: rgba(0, 0, 0, 0.51) 0 0 30px;
 }
+
 .centerFlex {
     display: flex;
     justify-content: center;
 }
 #allTrailsBar {
-    padding:0;
-    max-width: 80%;
-    height: 11svh;
-    margin: 1svh auto;
+    width: 100%;
+    height: auto;
+    /*margin: 1svh auto;*/
+    padding: 0 5svh;
     display: flex;
-    justify-content: space-between;
-    /*border-bottom: solid grey 2px;*/
-    /*border-top: solid grey 4px;*/
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
 }
 .trailsImages {
-    margin: auto;
-    height: 10svh;
-    width: 10svh;
+    margin: 1svh auto;
+    height: 12svh;
+    width: auto;
     border-radius: 20px;
     border: solid grey 2px;
     transition: 0.5s ease-out 100ms;
-
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
 }
+
 .trailsImages:hover {
     box-shadow: 0 0 20px 10px #bbbb00;
     transform: scale(1.2,1.2);
-    !important; overflow: visible;
 }
 
 .selected {
@@ -44,37 +56,65 @@ main {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-main {
-    margin: 0;
-}
-
-#trailInfoContainer {
-    margin: auto;
-    width: 95svw;
-    min-height: 40svh;
-    min-width: 30svw;
-}
-
 .trailInfoFrag {
     background-color: rgb(84, 33, 128);
     border: #000000 solid 2px;
     border-radius: 10px;
     box-shadow: 0 5px 20px 0 #000000;
-    margin:0;
-    padding:0;
+    margin: 2svh auto;
+    padding-bottom: 2svw;
+    width: 70vw;
+    height: auto;
+    min-height: 30svh;
     animation: fadeIn 3s;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    min-width: 30svh;
 
-    & h1 {
-        color: white;
+    display: grid;
+    grid-template-areas:
+            "header header header"
+            "image text text";
+    grid-template-columns: 30% 30% auto;
+    grid-template-rows: 10% auto;
+    grid-column-gap: 2vw;
+    grid-row-gap: 2svh;
+    & .trailInfoHeader {
         grid-area: header;
-        margin: 10px 25%;
-        font-size: xx-large;
-        text-align: center;
-        border-bottom: #1e1e1e solid 2px;
+        width: 100%;
+        height: 100%;
+        margin-top: 1svh;
+        padding: 0;
+        & h1 {
+            color: white;
+            padding:0;
+            margin:0 25%;
+            font-size: 2vw;
+            text-align: center;
+            box-shadow: 0 10px 10px -10px black;
+        }
+
+    }
+
+    & img {
+        grid-area: image;
+        border-radius: 10px;
+        border: black solid 1px;
+        margin-left: 2vw;
+        margin-right: 2vw;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 10px 20px -10px black;
+    }
+    & p {
+        grid-area: text;
+        color: white;
+        margin: 0;
+        padding: 0 2vw;
+        font-size: 1.3vw;
+        text-align: justify;
+        text-justify: inter-character;
+        line-height: 1.5;
+        width: fit-content;
+        height: fit-content;
+
     }
 }
 
@@ -82,40 +122,12 @@ main {
     margin: 0;
     padding: 0;
     display: flex;
-    overflow: hidden;
     min-height: 40svh;
-    max-height: 60svh;
+    flex-wrap: wrap;
 
-    & img {
-        border-radius: 10px;
-        border: black solid 1px;
-        margin: 1%;
-        flex: 1 1;
-
-        min-width: 20%;
-        max-width: 40%;
-        min-height: 20svh;
-        max-height: 90%;
-        overflow: hidden;
-    }
-    & p {
-        color: white;
-        flex: 1 1;
-        padding: 5%;
-        width: 60%;
-        border-left: solid darkgrey 2px;
-        font-size: x-large;
-        text-align: justify;
-        text-justify: inter-character;
-        line-height: 1.5;
-    }
 }
 
-header {
-    box-shadow: #1e1e1e 0 0 10px 10px;
-}
-
-footer {
-    position: relative;
-    bottom: 0;
-}
+/*header {*/
+/*    box-shadow: #1e1e1e 0 0 10px 10px;*/
+/*    font-size: 1vw;*/
+/*}*/
