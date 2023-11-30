@@ -3,11 +3,13 @@ package Team5.SmartTowns.Towns;
 import lombok.Data;
 
 @Data
-public class towns {
+public class Towns {
     private String name;
     private Integer id;
     private int trailNumber;
     private int trailProgress;
+
+    private String imageTown;
 
 
     public String getName() {
@@ -42,11 +44,19 @@ public class towns {
         this.trailProgress = trailProgress;
     }
 
+    public String getImageTown() {
+        return imageTown;
+    }
 
-    public towns(String name, Integer id, int trailNumber, int trailProgress) {
+    public void setImageTown(String imageTown) {
+        this.imageTown = imageTown;
+    }
+
+    public Towns(String name, Integer id, int trailNumber, int trailProgress, String imageTown) {
         this.name = name;
         this.id = id;
         this.trailNumber = trailNumber;
         this.trailProgress = trailProgress;
+        this.imageTown = imageTown;
     }
 }

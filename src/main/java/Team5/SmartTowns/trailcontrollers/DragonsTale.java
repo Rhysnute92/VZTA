@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class DragonsTale {
     @GetMapping("/dragonstale")
     public ModelAndView getDragonsTale(){
-        ModelAndView modelAndView = new ModelAndView("src/main/resources/templates/towns/trails/dragonstale/index.html");
+        ModelAndView modelAndView = new ModelAndView("src/main/resources/templates/Towns/trails/dragonstale/index.html");
         return modelAndView;
     }
 }
