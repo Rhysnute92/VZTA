@@ -16,7 +16,6 @@ import java.util.List;
 public class Landmarks {
 
     // Intialised object to getID from trail.
-    Trail trail = new Trail();
 
     //Predefined Landmark for Dragons Tale.
     public static List<Landmarks> landmarksDragonstrail = List.of(

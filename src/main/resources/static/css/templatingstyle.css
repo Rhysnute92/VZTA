@@ -3,13 +3,11 @@
     border-bottom: 2px rgb(230, 230, 230) solid;
     margin-bottom: 20px;
     display: flex;
-    background: blueviolet;
+    background-color: rgb(84, 33, 128);
 }
 /* Navbar Links */
 .navBar {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right:20px;
+    margin: 2svh 1vw 2svh auto;
     text-align: right;
 }
 .work{
@@ -20,11 +18,17 @@
     display: flex;
     margin-left: 100px;
 }
+
+
 .navBar a {
-    border-left: 2px rgb(185, 185, 185) solid;
-    padding: 10px 40px;
+
+    /*border-left: 2px rgb(185, 185, 185) solid;*/
+    /*padding: 10px 40px;*/
+    padding-left:5px ;padding-right: 5px;
     text-decoration: none;
-    color:rgb(87, 86, 86);
+    /*color:rgb(87, 86, 86);*/
+/*// original color*/
+    color:white;
     white-space: nowrap;
     overflow: hidden;
     float: right;
@@ -55,15 +59,18 @@
 
 /* Footer */
 footer {
-    margin-top:20px;
+    margin-top:auto;
     display: flex;
     justify-content: center;
+    background-color: rgb(84, 33, 128);
+    border-top: 2px rgb(230, 230, 230) solid;
+    font-size: 1vw;
 }
 .footerBar{
-    border-top: 2px rgb(230, 230, 230) solid;
+
     text-align: left;
     display: flex;
-    background: blueviolet;
+
     color: rgb(255, 255, 255);
     padding-left: 30px;
 }
@@ -91,3 +98,12 @@ footer {
     flex:1;
     color: rgb(255, 255, 255);
 }
+
+/*CHANGES*/
+
+.headerBar, .footerBar{
+    margin:0px;
+    padding: 0px;
+    width: 100%;
+}
+
