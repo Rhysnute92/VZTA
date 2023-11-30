@@ -2,9 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${user.getName()}"></title>
+    <title th:text="'VZLA Profile Page of ' + ${user.getName()}"></title>
+    <link rel="stylesheet" th:href="@{/css/userProfile.css}">
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 </head>
 <body>
+
+<header></header>
+
+<main>
+    <!--PICTURE - DATA - BADGES -->
+    <div class="userInfo">
+        <img th:src="@{${user.getImgPath()}}"
+             th:alt="${user.getName()}"
+             id="userPicture"
+        >
+        <h1 th:text="${user.getName()}"></h1>
+        <!--TODO add some progression info here?-->
+    </div>
+    <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
+        <article id="badgesBar">
+            <h2>Your Badges: </h2> <!--Shows first earned badges, followed by greyed out badges-->
+            <div class="badgesContainer">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge locked">
+                <img src="../images/badges.png" alt="Badge" class="badge locked">
+            </div>
+        </article>
+        <article id="stickersBox"> <!--Need a controller to show earned stickers -->
+            <h2> STICKERS! </h2>
+            <div class="stickersContainer">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge locked">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+                <img src="../images/badges.png" alt="Badge" class="badge locked">
+                <img src="../images/badges.png" alt="Badge" class="badge locked">
+                <img src="../images/badges.png" alt="Badge" class="badge">
+            </div>
+        </article>
+    </section>
+
+</main>
+
+<footer></footer>
+
+
 
 </body>
 </html>

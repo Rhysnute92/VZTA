@@ -1,0 +1,88 @@
+
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    padding: min(2vw, 4em);
+    text-align: center;
+
+    & #userPicture {
+        width: min(20vw, 20em);
+        margin-inline: auto;
+        border-radius: 100%;
+        border: solid #a2a2a2 4px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+    }
+
+    & h1 {
+        margin: 1svh 25%;
+        color:white;
+        border-bottom: #36454F solid 2px;
+        border-radius: 5vw;
+        box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
+    }
+}
+
+#badgesBar {
+    background-color: white;
+    border-radius: 1vw;
+    margin-inline: max(4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+
+    & h2 {
+        margin-inline: 5vw;
+        padding-inline: 2vw;
+        margin-block: 0.5svh;
+        box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
+        border-bottom: #36454F solid 2px;
+    }
+
+    & .badgesContainer {
+        margin: 1svh 2vw;
+        padding: 1svh 1vw;
+        border-inline: solid rgba(194, 98, 188, 0.7) 5px;
+        border-radius: 10%;
+        background: linear-gradient(90deg, rgba(255, 215, 0, 0.75), rgba(184, 134, 11, 0.75));
+        overflow-x: scroll;
+        min(18svh, 12em);
+        align-content: center;
+        display: flex;
+
+        & .badge {
+            margin-inline: 3vw;
+            height: min(18svh, 10em);
+
+        }
+
+    }
+}
+#stickersBox {
+    display: flex;
+    flex-direction: column;
+    margin-block: 0.5svh;
+    margin-inline: 0.5vw;
+    border-radius: 2vw;
+    background: #9f74be;
+    & h2 {
+        font-size: 4em;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.7) 0 2vw 2vw -2vw;
+        border-bottom: #36454F solid 2px;
+        margin-block: 1svh;
+        margin-inline: 25%;
+    }
+    & .stickersContainer {
+        margin-block: 1svh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        & img {
+            width: 20vw;
+
+        }
+    }
+}
+.locked {
+    filter: grayscale(100%);
+}

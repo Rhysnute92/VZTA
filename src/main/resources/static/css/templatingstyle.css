@@ -1,6 +1,28 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(135deg, #9f74be, #3e126b);
+    height: 100svh;
+}
+
+main {
+    background: #1e1e1e;
+    border-radius: 1vw;
+    margin-inline: max(1vw, 2em);
+    margin-block: 1svh;
+    width: min(90%, 90vw);
+    padding-block: 2svh;
+    padding-inline: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+}
+
+
 /* Header */
 .headerBar {
-    border-bottom: 2px rgb(230, 230, 230) solid;
+    /*border-bottom: 2px rgb(230, 230, 230) solid;*/
     margin-bottom: 20px;
     display: flex;
     background-color: rgb(84, 33, 128);
@@ -63,7 +85,7 @@ footer {
     display: flex;
     justify-content: center;
     background-color: rgb(84, 33, 128);
-    border-top: 2px rgb(230, 230, 230) solid;
+    /*border-top: 2px rgb(230, 230, 230) solid;*/
     font-size: 1vw;
 }
 .footerBar{
