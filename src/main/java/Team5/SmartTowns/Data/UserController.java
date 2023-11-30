@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/userList")
     public ModelAndView userList(){
-        ModelAndView mav = new ModelAndView("users.html");
+        ModelAndView mav = new ModelAndView("usersData.sql");
         List<user> users = userRepository.getAllUsers();
         mav.addObject("users", users);
         return mav;

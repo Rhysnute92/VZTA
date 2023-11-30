@@ -29,7 +29,7 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public List<user> getAllUsers(){
-        String sql = "select * from User";
+        String sql = "select * from user";
         return jdbc.query(sql, userMapper);
     }
 }
