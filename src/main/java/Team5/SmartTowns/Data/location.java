@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class location {
-    private int locationId;
+    private int locationID;
     private String name;
 }

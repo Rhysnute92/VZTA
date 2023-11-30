@@ -6,6 +6,6 @@ delete from trails;
 insert into trails (trailID, Name) value ('1', 'Caerphilly Coffee Trail');
 insert into trails (trailID, Name) value ('2', 'Penarth Dragon Trail');
 
-delete from location;
-insert into location (locationID, Name) value ('1', 'Caerphilly');
-insert into location (locationID, Name) value ('2', 'Penarth');
+delete from locations;
+insert into locations (locationID, Name) value ('1', 'Caerphilly');
+insert into locations (locationID, Name) value ('2', 'Penarth');

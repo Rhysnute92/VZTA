@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class trailsRepositoryJDBC {
+public class trailsRepositoryJDBC implements trailsRepository{
     private JdbcTemplate jdbc;
     private RowMapper<trail> trailMapper;
     public trailsRepositoryJDBC(JdbcTemplate aJdbc){
@@ -16,7 +16,7 @@ public class trailsRepositoryJDBC {
     }
     private void settrailsMapper(){
         trailMapper = (rs, i) -> new trail(
-                rs.getInt("trailsId"),
+                rs.getInt("trailID"),
                 rs.getString("name")
         );
     }

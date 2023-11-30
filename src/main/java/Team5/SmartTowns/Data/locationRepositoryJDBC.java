@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public abstract class locationRepositoryJDBC implements locationRepository {
+public class locationRepositoryJDBC implements locationRepository {
     private JdbcTemplate jdbc;
     private RowMapper<location> locationMapper;
 
@@ -17,12 +17,12 @@ public abstract class locationRepositoryJDBC implements locationRepository {
     }
     private void setlocationMapper(){
         locationMapper = (rs, i) -> new location(
-                rs.getInt("locationId"),
+                rs.getInt("locationID"),
                 rs.getString("name")
         );
     }
     public List<location> getAllLocation(){
-        String sql= "SELECT * FROM location";
+        String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
 }

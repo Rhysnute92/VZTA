@@ -11,14 +11,10 @@ public class DatabaseController {
 
     @Autowired
     private UserRepository userRepository;
-//    @Autowired
-//    private locationRepository locationRepository;
+    @Autowired
+    private locationRepository locationRepository;
     @Autowired
     private trailsRepository trailsRepository;
-
-//    public DatabaseController() {
-//
-//    }
 
     @GetMapping("/userList")
     public ModelAndView userList() {
@@ -34,11 +30,11 @@ public class DatabaseController {
         mav1.addObject("trails", trail);
         return mav1;
     }
-//    @GetMapping("locationList")
-//    public ModelAndView locationList(){
-//        ModelAndView mav2 = new ModelAndView("towns/locationData");
-//        List<location> location = locationRepository.getAllLocations();
-//        mav2.addObject("location", location);
-//        return mav2;
-//    }
+    @GetMapping("locationList")
+    public ModelAndView locationList(){
+        ModelAndView mav2 = new ModelAndView("towns/locationData");
+        List<location> locations = locationRepository.getAllLocation();
+        mav2.addObject("location", locations);
+        return mav2;
+    }
 }
