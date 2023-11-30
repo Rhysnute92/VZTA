@@ -13,6 +13,7 @@ public class TownStorage {
           List.of(
                   new Towns("Caerphilly",01,3,70,"/images/CaerphillyCastle.jpg"),
                   new Towns("Risca",02,2,0,"/images/RiscaBanner.jpg"),
+                  new Towns("Penarth",03,5,60,"/images/PenarthBanner.jpg"),
                   new Towns("Penarth",03,5,60,"/images/PenarthBanner.jpg")
 
 
