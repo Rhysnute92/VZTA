@@ -17,19 +17,19 @@ public class UserRepositoryJDBC implements UserRepository{
         setuserMapper();
     }
 
+
     private void setuserMapper(){
         userMapper = (rs, i) -> new user(
                 rs.getInt("userId"),
-                rs.getString("Title"),
-                rs.getString("firstName"),
-                rs.getString("lastName"),
-                rs.getString("emailAddress")
+                rs.getString("name")
         );
     }
 
+
+
     @Override
     public List<user> getAllUsers(){
-        String sql = "select * from user";
+        String sql= "SELECT * FROM users";
         return jdbc.query(sql, userMapper);
     }
 }

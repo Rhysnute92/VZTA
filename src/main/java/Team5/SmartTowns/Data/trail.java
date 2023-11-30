@@ -5,10 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class user {
-    private int userId;
-//    private String title;
+public class trail {
+    private int trailsId;
     private String name;
-//    private String lastName;
-//    private String emailAddress;
 }

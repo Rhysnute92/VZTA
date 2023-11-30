@@ -1,0 +1,27 @@
+package Team5.SmartTowns.Data;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class trailsRepositoryJDBC {
+    private JdbcTemplate jdbc;
+    private RowMapper<trail> trailMapper;
+    public trailsRepositoryJDBC(JdbcTemplate aJdbc){
+        this.jdbc = aJdbc;
+        settrailsMapper();
+    }
+    private void settrailsMapper(){
+        trailMapper = (rs, i) -> new trail(
+                rs.getInt("trailsId"),
+                rs.getString("name")
+        );
+    }
+    public List<trail> getAllTrails(){
+        String sql= "SELECT * FROM trails";
+        return jdbc.query(sql, trailMapper);
+    }
+}
