@@ -21,8 +21,9 @@
     </div>
 
     <div class="centre">
-        <ul>
-            <li th:insert="fragments/landmarkFrag.html :: landmarkList"></li>
+        <ul th:each="item : ${landmarksList}">
+            <p th:text="${item.landmarkName}"></p>
+            <p th:text="${item.landmarkDescription}"></p>
         </ul>
     </div>
 
