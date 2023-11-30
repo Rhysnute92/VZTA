@@ -10,34 +10,34 @@ body {
 }
 main {
 }
+
 .centerFlex {
     display: flex;
     justify-content: center;
 }
 #allTrailsBar {
-    padding:0;
-    max-width: 80%;
-    height: 11svh;
-    margin: 1svh auto;
+    width: 100%;
+    height: auto;
+    /*margin: 1svh auto;*/
+    padding: 0 5svh;
     display: flex;
-    justify-content: space-between;
-    /*border-bottom: solid grey 2px;*/
-    /*border-top: solid grey 4px;*/
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
 }
 .trailsImages {
-    margin: auto;
-    height: 10svh;
-    width: 10svh;
+    margin: 1svh auto;
+    height: 12svh;
+    width: auto;
     border-radius: 20px;
     border: solid grey 2px;
     transition: 0.5s ease-out 100ms;
-
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
 }
+
 .trailsImages:hover {
     box-shadow: 0 0 20px 10px #bbbb00;
     transform: scale(1.2,1.2);
-    !important; overflow: visible;
 }
 
 .selected {
@@ -101,6 +101,7 @@ main {
         margin-right: 2vw;
         width: 100%;
         height: auto;
+        box-shadow: 0 10px 20px -10px black;
     }
     & p {
         grid-area: text;
