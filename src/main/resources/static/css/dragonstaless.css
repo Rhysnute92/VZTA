@@ -5,5 +5,13 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color: antiquewhite;
+    background-color: #927BB7;
+}
+
+#homeimg.centre{
+    box-shadow: 100px -100px purple;
+}
+
+body{
+    background-color: #927BB7;
 }

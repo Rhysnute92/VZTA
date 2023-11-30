@@ -36,7 +36,7 @@ public class LandmarksController {
             // current functionality only prints successful Landmarks, (todo )database integration is necessary here
 
 
-        ModelAndView modelAndView = new ModelAndView("redirect:/allTrails");
+        ModelAndView modelAndView = new ModelAndView("redirect:/test.html");
             return modelAndView;
 
         }

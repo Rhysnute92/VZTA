@@ -1,6 +1,7 @@
 package Team5.SmartTowns.trails;
 
 
+import Team5.SmartTowns.Landmarks.Landmarks;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
 
 @Controller
 public class TrailsController {
@@ -32,7 +35,16 @@ public class TrailsController {
         List<Trail> trailList= Trail.trails;//results from db
         ModelAndView mv= new ModelAndView("fragments/allTrailsFrags :: trailSection");
         mv.addObject("trail", trailList.get(id-1));
-
         return mv;
     }
+
+    @GetMapping("/dragonstale")
+    public ModelAndView getDragonsTale(){
+        List<Landmarks> landmarksList = landmarksDragonstrail;
+        ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/index");
+        modelAndView.addObject("landmarksList", landmarksList);
+        return modelAndView;
+    }
+
 }
+
