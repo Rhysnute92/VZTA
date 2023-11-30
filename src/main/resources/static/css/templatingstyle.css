@@ -20,11 +20,17 @@
     display: flex;
     margin-left: 100px;
 }
+
+
 .navBar a {
-    border-left: 2px rgb(185, 185, 185) solid;
-    padding: 10px 40px;
+
+    /*border-left: 2px rgb(185, 185, 185) solid;*/
+    /*padding: 10px 40px;*/
+    padding-left:5px ;padding-right: 5px;
     text-decoration: none;
-    color:rgb(87, 86, 86);
+    /*color:rgb(87, 86, 86);*/
+/*// original color*/
+    color:white;
     white-space: nowrap;
     overflow: hidden;
     float: right;
@@ -91,3 +97,12 @@ footer {
     flex:1;
     color: rgb(255, 255, 255);
 }
+
+/*CHANGES*/
+
+.headerBar, .footerBar{
+    margin:0px;
+    padding: 0px;
+    width: 100%;
+}
+

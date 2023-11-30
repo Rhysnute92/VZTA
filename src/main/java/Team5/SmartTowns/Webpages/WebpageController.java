@@ -29,7 +29,7 @@ public class WebpageController {
 
     @GetMapping("/home")
     public ModelAndView getHome(){
-        ModelAndView modelAndView = new ModelAndView("home");
+        ModelAndView modelAndView = new ModelAndView("towns/home/homePage");
         return modelAndView;
     }
 
