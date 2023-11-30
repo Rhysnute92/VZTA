@@ -55,15 +55,17 @@
 
 /* Footer */
 footer {
-    margin-top:20px;
+    margin-top:auto;
     display: flex;
     justify-content: center;
+    background: blueviolet;
+    border-top: 2px rgb(230, 230, 230) solid;
 }
 .footerBar{
-    border-top: 2px rgb(230, 230, 230) solid;
+
     text-align: left;
     display: flex;
-    background: blueviolet;
+
     color: rgb(255, 255, 255);
     padding-left: 30px;
 }

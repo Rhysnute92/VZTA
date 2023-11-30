@@ -6,6 +6,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100svh;
 }
 main {
 }
@@ -61,8 +62,10 @@ main {
     border-radius: 10px;
     box-shadow: 0 5px 20px 0 #000000;
     margin: 2svh auto;
+    padding-bottom: 2svw;
     width: 70vw;
-    height: 60svh;
+    height: auto;
+    min-height: 30svh;
     animation: fadeIn 3s;
 
     display: grid;
@@ -104,7 +107,7 @@ main {
         color: white;
         margin: 0;
         padding: 0 2vw;
-        font-size: 1.5vw;
+        font-size: 1.3vw;
         text-align: justify;
         text-justify: inter-character;
         line-height: 1.5;
@@ -127,10 +130,4 @@ main {
 header {
     box-shadow: #1e1e1e 0 0 10px 10px;
     font-size: 1vw;
-}
-
-footer {
-    font-size: 1vw;
-    position: relative;
-    bottom: 0;
 }
