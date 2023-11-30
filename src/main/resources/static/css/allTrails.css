@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(41, 41, 41);
+    margin: 0;
+}
+main {
+}
+.centerFlex {
+    display: flex;
+    justify-content: center;
+}
+#allTrailsBar {
+    padding:0;
+    max-width: 80%;
+    height: 11svh;
+    margin: 1svh auto;
+    display: flex;
+    justify-content: space-between;
+    /*border-bottom: solid grey 2px;*/
+    /*border-top: solid grey 4px;*/
+
+}
+.trailsImages {
+    margin: auto;
+    height: 10svh;
+    width: 10svh;
+    border-radius: 20px;
+    border: solid grey 2px;
+    transition: 0.5s ease-out 100ms;
+
+}
+.trailsImages:hover {
+    box-shadow: 0 0 20px 10px #bbbb00;
+    transform: scale(1.2,1.2);
+    !important; overflow: visible;
+}
+
+.selected {
+    box-shadow: 0 0 20px 10px #bbbb00;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+main {
+    margin: 0;
+}
+
+#trailInfoContainer {
+    margin: auto;
+    width: 95svw;
+    min-height: 40svh;
+    min-width: 30svw;
+}
+
+.trailInfoFrag {
+    background-color: rgb(84, 33, 128);
+    border: #000000 solid 2px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0 #000000;
+    margin:0;
+    padding:0;
+    animation: fadeIn 3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 30svh;
+
+    & h1 {
+        color: white;
+        grid-area: header;
+        margin: 10px 25%;
+        font-size: xx-large;
+        text-align: center;
+        border-bottom: #1e1e1e solid 2px;
+    }
+}
+
+#trailFragContent {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    min-height: 40svh;
+    max-height: 60svh;
+
+    & img {
+        border-radius: 10px;
+        border: black solid 1px;
+        margin: 1%;
+        flex: 1 1;
+
+        min-width: 20%;
+        max-width: 40%;
+        min-height: 20svh;
+        max-height: 90%;
+        overflow: hidden;
+    }
+    & p {
+        color: white;
+        flex: 1 1;
+        padding: 5%;
+        width: 60%;
+        border-left: solid darkgrey 2px;
+        font-size: x-large;
+        text-align: justify;
+        text-justify: inter-character;
+        line-height: 1.5;
+    }
+}
+
+header {
+    box-shadow: #1e1e1e 0 0 10px 10px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+}
