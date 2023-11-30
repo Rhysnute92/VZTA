@@ -3,13 +3,11 @@
     border-bottom: 2px rgb(230, 230, 230) solid;
     margin-bottom: 20px;
     display: flex;
-    background: blueviolet;
+    background-color: rgb(84, 33, 128);
 }
 /* Navbar Links */
 .navBar {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right:20px;
+    margin: 2svh 1vw 2svh auto;
     text-align: right;
 }
 .work{
@@ -64,8 +62,9 @@ footer {
     margin-top:auto;
     display: flex;
     justify-content: center;
-    background: blueviolet;
+    background-color: rgb(84, 33, 128);
     border-top: 2px rgb(230, 230, 230) solid;
+    font-size: 1vw;
 }
 .footerBar{
 
