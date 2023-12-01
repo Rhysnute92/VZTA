@@ -1,3 +1,4 @@
+//Holds variable data for the users table
 package Team5.SmartTowns.Data;
 
 import lombok.AllArgsConstructor;
@@ -7,8 +8,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class user {
     private int userId;
-//    private String title;
     private String name;
-//    private String lastName;
-//    private String emailAddress;
 }

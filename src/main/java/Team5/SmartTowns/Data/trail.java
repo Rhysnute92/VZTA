@@ -1,3 +1,4 @@
+//Holds variable data for the trails table
 package Team5.SmartTowns.Data;
 
 import lombok.AllArgsConstructor;

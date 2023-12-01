@@ -1,3 +1,4 @@
+//Implements the trails repository using JDBC
 package Team5.SmartTowns.Data;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,7 +11,7 @@ import java.util.List;
 public class trailsRepositoryJDBC implements trailsRepository{
     private JdbcTemplate jdbc;
     private RowMapper<trail> trailMapper;
-    public trailsRepositoryJDBC(JdbcTemplate aJdbc){
+        public trailsRepositoryJDBC(JdbcTemplate aJdbc){
         this.jdbc = aJdbc;
         settrailsMapper();
     }

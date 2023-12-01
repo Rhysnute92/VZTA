@@ -1,3 +1,4 @@
+//Holds trails data repository
 package Team5.SmartTowns.Data;
 
 import java.util.List;

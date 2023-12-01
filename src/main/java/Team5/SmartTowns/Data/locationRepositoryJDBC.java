@@ -1,3 +1,4 @@
+//Implements the locations repository using JDBC
 package Team5.SmartTowns.Data;
 
 import org.springframework.jdbc.core.JdbcTemplate;

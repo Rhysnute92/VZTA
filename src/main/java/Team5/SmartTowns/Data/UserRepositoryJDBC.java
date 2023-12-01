@@ -1,3 +1,4 @@
+//Implements the users repository using JDBC
 package Team5.SmartTowns.Data;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,7 +21,7 @@ public class UserRepositoryJDBC implements UserRepository{
 
     private void setuserMapper(){
         userMapper = (rs, i) -> new user(
-                rs.getInt("userId"),
+                rs.getInt("userID"),
                 rs.getString("name")
         );
     }
