@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Website Web</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header th:replace="fragments/temp_frags.html :: header"></header>
+    <main>
+        <div class="trailList">
+            <ul class="ulHeader">
+                <li onclick="selectTrail('trail1', this)" class="liHeader" id="trail1" >Trail 1</li>
+                <li onclick="selectTrail('trail2', this)" class="liHeader selected" id="trail2" >Trail 2</li>
+                <li onclick="selectTrail('trail3', this)" class="liHeader" id="trail3" >Trail 3</li>
+                <li onclick="updateOutput()" class="liHeader" id="trail4" >Trail 4</li>
+            </ul>
+        </div>
+
+      <section class="mainBlock">
+        <article class="trailStats">
+            <h1 class="titleH1">Trail Stats</h1>
+            <img src="../static/images/stats.png" alt="Stats" class="stats">
+            <div class="textStats">
+                <p><b>Explored:</b> 60%</p>
+                <p><b>Landmarks Visited:</b> 3/5</p>
+                <p><b>Shops Visited:</b> 6/10</p>
+            </div>
+        </article>
+        <article id="trailInfoBox" class="trailInfo"></article>
+        <article class="badgesBlock">
+            <h1 class="titleH1">Badges</h1>
+            <div class="badgesList">
+                <img src="../static/images/badges.png" alt="Badge" class="badgeImg">
+                <img src="../static/images/badges.png" alt="Badge" class="badgeImg">
+                <img src="../static/images/badges.png" alt="Badge" class="badgeImg">
+                <img src="../static/images/badges.png" alt="Badge" class="badgeImg">
+                <img src="../static/images/badges.png" alt="Badge" class="badgeImg">
+            </div>
+            
+          </article>  
+      </section>
+    </main>
+
+    <footer th:replace="fragments/temp_frags.html :: footer"></footer>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" th:src="@{scripts/gabScripts.js}"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<article th:fragment="trailSection" class="trailInfoFrag">
+    <div class="trailInfoHeader">
+        <h1 th:text="${trail.getName()}"></h1>
+    </div>
+    <img th:src="@{${trail.getImgPath()}}" th:alt="${trail.getName()} ">
+    <p id="trailDesc" th:text="${trail.getDescription()}"></p>
+</article>

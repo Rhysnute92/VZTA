@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/homePageStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+
+</head>
+<body>
+
+<header th:insert="~{/towns/Templating.html::header}"></header>
+<main>
+<div class="gridContainer1">
+    <H1 id="homeTitle"> VZTA Smart Towns - Trails</H1>
+    <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
+
+            <a href="/allTrails" class="caerphillyBanner">
+                <H2> Caerphilly</H2></a>
+
+
+    <div class="caerphillyBannerTrail">
+        <div id="trailCountCaer">Trails: 3</div>
+        <div id="trailProgressCaer">70%</div>
+    </div>
+
+        <a href="/allTrails" class="riscaBanner">
+            <H2> Risca</H2> </a>
+
+    <div class="riscaBannerTrail">
+        <div id="trailCountRisca">Trails: 2</div>
+        <div id="trailProgressRisca">0%</div>
+    </div>
+
+
+    <a href="/allTrails" class="penarthBanner">
+        <H2> Penarth</H2> </a>
+    <div class="penarthBannerTrail">
+        <div id="trailCountPenarth">Trails: 5</div>
+        <div id="trailProgressPenarth">60%</div>
+    </div>
+
+    <div id="aboutUsFlavour"> This is placeholder text about VZTA, this application,
+    the trails and towns and resultant awards written in an excitable manner!!</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<footer th:insert="~{/towns/Templating.html::footer}"></footer>
+
+</body>
+</html>
