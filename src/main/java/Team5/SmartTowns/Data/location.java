@@ -11,10 +11,54 @@ import lombok.Data;
 public class location {
     private int locationID;
     private String locationName;
-//    private String locationEmail;
-//    private String locationDescription;
-//    private String locationPlace; //todo revert this
-//    private int locationTrailID;
+    private String locationEmail;
+    private String locationDescription;
+    private String locationPlace;
+    private int locationTrailID;
+
+    @Override
+    public String toString() {
+        return "location{" +
+                "" + locationID +
+                ", '" + locationName + '\'' +
+                ", '" + locationEmail + '\'' +
+                ", '" + locationDescription + '\'' +
+                ", '" + locationPlace + '\'' +
+                ", " + locationTrailID +
+                '}';
+    }
 
 
+    public int getLocationID() {
+        return locationID;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public String getLocationEmail() {
+        return locationEmail;
+    }
+
+    public String getLocationDescription() {
+        return locationDescription;
+    }
+
+    public String getLocationPlace() {
+        return locationPlace;
+    }
+
+    public int getLocationTrailID() {
+        return locationTrailID;
+    }
+
+//    public location(int locationID, String locationName, String locationEmail, String locationDescription, String locationPlace, int locationTrailID) {
+//        this.locationID = locationID;
+//        this.locationName = locationName;
+//        this.locationEmail = locationEmail;
+//        this.locationDescription = locationDescription;
+//        this.locationPlace = locationPlace;
+//        this.locationTrailID = locationTrailID;
+//    }
 }
