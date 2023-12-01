@@ -19,7 +19,11 @@ public class locationRepositoryJDBC implements locationRepository {
     private void setlocationMapper(){
         locationMapper = (rs, i) -> new location(
                 rs.getInt("locationID"),
-                rs.getString("name")
+                rs.getString("locationName"),
+                rs.getString("locationEmail"),
+                rs.getString("locationDescription"),
+                rs.getString("locationPlace"),
+                rs.getInt("locationTrailID")
         );
     }
     public List<location> getAllLocation(){
