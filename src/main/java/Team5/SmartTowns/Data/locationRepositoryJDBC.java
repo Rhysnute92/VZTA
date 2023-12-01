@@ -33,20 +33,12 @@ public class locationRepositoryJDBC implements locationRepository {
         return jdbc.query(sql, locationMapper);
     }
 
-    @Override
+    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the location table, todo change location class to Location as its better code grammar and looks funky otherwise.
     public void addLocation(location llocation) {
         String sql = "insert into locations(locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?,?)";
 
         jdbc.update(sql, llocation.getLocationID(),llocation.getLocationName(),llocation.getLocationEmail(),llocation.getLocationDescription(),llocation.getLocationPlace(),llocation.getLocationTrailID());
     }
 
-//    public void insertLocation(Landmarks landmark){
-//        String sql = "INSERT INTO locations(locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID)"+"VALUES("+ landmark.getLandmarkID()+","+","+landmark.getLandmarkName()+","+landmark.getLandmarkEmail()+","+landmark.getLandmarkDescription()+","+landmark.getLandmarkLocation()+","+landmark.getTrailID()+")";
-//        try{
-//            executeUpdate(sql);
-//        }
-//        catch(SQLException e){
-//
-//        }
-//    }
+
 }

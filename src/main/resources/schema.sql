@@ -11,7 +11,7 @@ create table if not exists locations
     locationID bigint auto_increment primary key,
     locationName varchar(128),
     locationEmail varchar(128),
-    locationDescription longtext, #to store large text data
+    locationDescription longtext,
     locationPlace varchar(255),
     locationTrailID varchar(128)
 )   engine=InnoDB;
