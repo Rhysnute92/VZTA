@@ -1,6 +1,7 @@
 package Team5.SmartTowns.users;
 
 import Team5.SmartTowns.rewards.Badge;
+import Team5.SmartTowns.rewards.Sticker;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,14 +29,29 @@ public class UserController {
             new Badge(7, "Badge1", "Bage One is This", 2)
     );
 
+    static List<Sticker> stickers = List.of(
+            new Sticker(1, "Sticker", "Sticker", 1),
+            new Sticker(2, "Sticker", "Sticker", 4),
+            new Sticker(3, "Sticker", "Sticker One is This", 4),
+            new Sticker(4, "Sticker", "Sticker One is This", 5),
+            new Sticker(5, "Sticker", "Sticker One is This", 5),
+            new Sticker(46, "Sticker", "Sticker One is This", 5),
+            new Sticker(7, "Sticker", "Sticker One is This", 2)
+    );
+
     @GetMapping("/user/{id}")
-    public ModelAndView getUserPage(@PathVariable int id){
+    public ModelAndView getUserPage(@PathVariable int id) {
         ModelAndView mav = new ModelAndView("rewards/userProfile");
         users.stream()
                 .filter(user -> user.getId() == id)
                 .findFirst() //Convoluted way of finding the matching user to the id, probably easier to do a hashmap
                 .ifPresent(result -> mav.addObject("user", result));
         mav.addObject("badges", badges);
+        mav.addObject("stickers", stickers);
         return mav;
     }
+//    @GetMapping("/userProfile")
+//    public ModelAndView getUserPage(ModelAndView mav) {
+//        return mav;
+//    }
 }

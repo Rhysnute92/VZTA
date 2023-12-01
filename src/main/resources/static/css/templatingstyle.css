@@ -1,7 +1,6 @@
 * {
     margin:0;
     padding:0;
-    box-sizing: border-box;
 }
 body {
     background: linear-gradient(135deg, #9f74be, #3e126b);
@@ -9,7 +8,7 @@ body {
 }
 
 main {
-    background: #1e1e1e;
+    background: linear-gradient(to bottom, #1e1e1e 10%, darkgoldenrod 50%, #1e1e1e 90%);
     border-radius: 1vw;
     margin-inline: 5%;
     margin-block: 5%;

@@ -1,5 +1,4 @@
 /* AUTHOR: Gabriel Copat*/
-
 .userInfo {
     display: flex;
     flex-direction: column;
@@ -23,18 +22,27 @@
         box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
     }
 }
-
+#badgesBar::-webkit-scrollbar {
+    display: none;
+    -ms-scrollbar-darkshadow-color: transparent;
+}
 #badgesBar {
-    border-radius: 1vw;
+    /* border-radius: 1vw; */
     display: grid;
-    grid-template-areas: "header"
-                         "badges";
+    grid-template-areas:
+        "header"
+        "badges";
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
     scrollbar-color: transparent transparent;
     color: white;
-    @media only screen and (min-device-width: 501px) {
+    padding-bottom: 2%;
+    z-index: 99999;
+    /* margin-right: 10px; */
+    /*background: linear-gradient(to bottom, transparent, darkgoldenrod 200%);*/
+    @media only screen and (
+        min-device-width: 501px) {
         height: 24vw;
     }
     & h2 {
@@ -42,13 +50,11 @@
         grid-area: header;
         margin-inline: 5vw;
         padding-inline: 2vw;
-        margin-block: 0.5svh;
+        margin-block: -1svh;
         box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
         border-bottom: #36454F solid 2px;
         font-size: 4vw;
-        @media only screen and (min-device-width: 501px) {
-            font-size: 4vw;
-        }
+        width: 25%;
     }
     & #allBadgesContainer {
         margin-top: 3svh;
@@ -56,7 +62,8 @@
         height: 10svh;
         align-content: center;
         display: flex;
-        @media only screen and (min-device-width: 501px) {
+        @media only screen and (
+            min-device-width: 501px) {
             height: 20vw;
             margin-top: 6vw;
         }
@@ -64,25 +71,28 @@
     & .badgeImg {
         margin-inline: 3vw;
         height: 8svh;
-        @media only screen and (min-device-width: 501px) {
+        z-index: 999;
+        @media only screen and (
+            min-device-width: 501px) {
             height: 15vw;
         }
-
         transition: 0.3s ease-out 100ms;
     }
     & .badgeImg:hover {
         /*box-shadow: 0 0 20px 10px #bbbb00;*/
         transform: scale(1.5,1.5);
+
     }
 }
 
 #stickersBox {
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
-    margin-block: 0.5svh;
-    margin-inline: 0.5vw;
-    border-radius: 2vw;
-    background: #9f74be;
+    /* border-bottom-left-radius: 2vw; */
+    /* border-bottom-right-radius: 2vw; */
+    /*background: linear-gradient(to bottom, darkgoldenrod, transparent 90%);*/
+    margin-top: -1%;
     & h2 {
         font-size: 4em;
         text-align: center;
@@ -93,11 +103,14 @@
     }
     & .stickersContainer {
         margin-block: 1svh;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
 
-        & img {
+        & .stickerImg {
             width: 20vw;
+            margin-block: 1em;
 
         }
     }
@@ -106,48 +119,55 @@
     filter: grayscale(100%);
 }
 
-
-
-
-/* TOOLTIP CSS MODIFIED FROM:
-    http://www.menucool.com/tooltip/css-tooltip*/
-.popUpBox {
+.dragonProgression {
+    position: relative;
     display: flex;
-    position:relative;
-    width: 50vw;
-    height: 50svh;
-    margin:auto;
-    align-self: center;
-    /*transform:translate(-50%, -5%);*/
-    padding:10px 20px;
-    color:#ffffff;
-    background-color:#009cdc;
-    font-weight:normal;
-    font-size:14px;
-    border-radius:8px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 16svh;
+    box-sizing: content-box;
+    /*background: linear-gradient(to bottom, transparent -50%, darkgoldenrod 50%);*/
+    width: 100%;
+    /*padding-top: 1svh;*/
 
-    z-index:99;
-    box-sizing:border-box;
-    box-shadow:0 1px 8px rgba(0,0,0,0.5);
-    visibility:hidden; opacity:0; transition:opacity 0.8s;
-    overflow: visible;
-}
-.tooltip:hover .popUpBox {
-    visibility:visible; opacity:1;
-    overflow: visible;
-}
-.tooltip .text-content {
-    padding:10px 20px;
-}
+    @media only screen and (
+        min-device-width: 501px) {
+        height: 28vw;
+        margin-bottom: 0;
+        padding-bottom: 5svh;
+    }
+    & h1 {
+        font-size: 3em;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.7) 0 2vw 2vw -2vw;
+        border-bottom: #36454F solid 2px;
+        border-top: #36454F solid 2px;
+        margin-inline: 25%;
+        margin-bottom: 1%;
+    }
+    & .dragonContainer {
+        position: relative;
+        margin: auto;
+    }
+    & .dragonImg {
+        height: 10svh;
+        width: 16svh;
+        @media only screen and (
+            min-device-width: 501px) {
+            height: 22vw;
+            width: 30vw;
+        }
 
-.tooltip .popUpBox i {
-    position:absolute;
-    top:50%;
-    right:100%;
-    margin-top:-12px;
-    width:12px;
-    height:24px;
-    overflow:hidden;
+    }
+
+    & .dragonFill {
+        position: absolute;
+        overflow: hidden;
+        width: 40%;
+    }
+    & .dragonOut {
+        /*position: absolute;*/
+        overflow: hidden;
+    }
 }
-
-

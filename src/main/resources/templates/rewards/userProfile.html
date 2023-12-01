@@ -28,11 +28,25 @@
                      th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >
             </div>
         </article>
+        <article class="dragonProgression">
+            <h1>The Dragon Trail</h1>
+            <div class="dragonContainer">
+                <div class="dragonFill">
+                    <img th:src="@{/images/rewards/dragonFilled.png}"
+                         alt="Filled Dragon" id="FilledDragon" class="dragonImg">
+                </div>
+                <div class="dragonOut">
+                    <img th:src="@{/images/rewards/dragonOutline.png}"
+                         alt="Outline Dragon" id="OutlineDragon" class="dragonImg">
+                </div>
+            </div>
+            <h2>40%</h2>
+        </article>
         <article id="stickersBox"> <!--Need a controller to show earned stickers -->
             <h2> STICKERS! </h2>
             <div class="stickersContainer">
-                <img class="badgeImg"  th:each="badge : ${badges}" th:src="@{'..' + ${badge.getImgPath()}}"
-                     th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >
+                <img class="stickerImg"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getImgPath()}}"
+                     th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
             </div>
         </article>
     </section>
