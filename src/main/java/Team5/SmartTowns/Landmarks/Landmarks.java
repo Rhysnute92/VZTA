@@ -27,6 +27,7 @@ public class Landmarks {
     private int landmarkID;
     @NotEmpty(message = "You must type in a username.")
     private String landmarkName;
+    @NotEmpty(message = "You must attach a contact address.") // Requires @NotEmpty for form validation
     @Email(message = "You must attach a contact address.")
     private String landmarkEmail;
     private String landmarkDescription;
