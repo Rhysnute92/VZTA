@@ -43,7 +43,7 @@ public class LandmarksController {
 
             location loc= new location(landmarks.getLandmarkID(),landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID());
             System.out.println(loc);
-            locationRepository.addLocation(loc);
+            locationRepository.addLocation(loc); // adds valid landmark to locations table
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
 

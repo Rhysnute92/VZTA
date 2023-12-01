@@ -25,17 +25,3 @@ insert into locations (locationID, locationName , locationEmail,locationDescript
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (14, 'The Medieval Courthouse','','location description here','Caerphilly',0103);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (15 ,'Caerphilly Castle','','location description here','Caerphilly',0103);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (16, 'Ty Vaughan House','','location description here','Caerphilly',0103);
-#
-# locationID bigint auto_increment primary key,
-#     locationName varchar(128),
-#     locationEmail varchar(128),
-#     locationDescription varchar(255),
-#     locationTrailID varchar(128)
-#
-#
-#                     <option value=0 disabled selected>Select Trail</option>
-#     <option value=0101>(Caerphilly) Castle Trail</option>
-#   <option value=0102>(Caerphilly) Pub Trail</option>
-#              <option value=0103>(Caerphilly) Heritage Trail</option>
-#                          <option value=0201>(Risca) Heritage and Culture Trail</option>
-#                                      <option value=0301>(Penarth) Esplanade Trail</option>
