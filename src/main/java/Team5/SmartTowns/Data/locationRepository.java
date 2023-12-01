@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface locationRepository {
     List<location> getAllLocation();
-    void addLocation(location llocation);
+    void addLocation(location loc);
 
 
 }

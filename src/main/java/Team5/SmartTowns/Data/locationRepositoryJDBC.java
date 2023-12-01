@@ -34,10 +34,10 @@ public class locationRepositoryJDBC implements locationRepository {
     }
 
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the location table, todo change location class to Location as its better code grammar and looks funky otherwise.
-    public void addLocation(location llocation) {
+    public void addLocation(location loc) {
         String sql = "insert into locations(locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?,?)";
 
-        jdbc.update(sql, llocation.getLocationID(),llocation.getLocationName(),llocation.getLocationEmail(),llocation.getLocationDescription(),llocation.getLocationPlace(),llocation.getLocationTrailID());
+        jdbc.update(sql, loc.getLocationID(),loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
     }
 
 

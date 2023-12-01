@@ -30,7 +30,8 @@
         </label><br><br>
         <label>Your Location:
             <select th:field="*{landmarkLocation}">
-                <option value="" disabled selected>Select Location</option>
+                <option value="" hidden="true">Select Location</option>
+                <option value=""  selected disabled>Select Location</option>
                 <option value="Caerphilly">Caerphilly</option>
                 <option value="Risca">Risca</option>
                 <option value="Penarth">Penarth</option>
@@ -38,6 +39,7 @@
         </label><br><br>
         <label>Trail:
             <select th:field="*{trailID}">
+                <option value=0 hidden="true">Select Trail</option>
                 <option value=0 disabled selected>Select Trail</option>
                 <option value=0101>(Caerphilly) Castle Trail</option>
                 <option value=0102>(Caerphilly) Pub Trail</option>

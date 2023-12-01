@@ -53,12 +53,5 @@ public class location {
         return locationTrailID;
     }
 
-//    public location(int locationID, String locationName, String locationEmail, String locationDescription, String locationPlace, int locationTrailID) {
-//        this.locationID = locationID;
-//        this.locationName = locationName;
-//        this.locationEmail = locationEmail;
-//        this.locationDescription = locationDescription;
-//        this.locationPlace = locationPlace;
-//        this.locationTrailID = locationTrailID;
-//    }
+
 }
