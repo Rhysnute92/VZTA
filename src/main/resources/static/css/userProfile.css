@@ -1,4 +1,4 @@
-
+/* AUTHOR: Gabriel Copat*/
 
 .userInfo {
     display: flex;
@@ -7,7 +7,7 @@
     text-align: center;
 
     & #userPicture {
-        width: min(20vw, 20em);
+        width: min(30vw, 30em);
         margin-inline: auto;
         border-radius: 100%;
         border: solid #a2a2a2 4px;
@@ -15,6 +15,7 @@
     }
 
     & h1 {
+        font-size: max(5vw, 2em);
         margin: 1svh 25%;
         color:white;
         border-bottom: #36454F solid 2px;
@@ -36,6 +37,7 @@
         margin-block: 0.5svh;
         box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
         border-bottom: #36454F solid 2px;
+        font-size: max(2vw, 2em);
     }
 
     & .badgesContainer {
@@ -86,3 +88,83 @@
 .locked {
     filter: grayscale(100%);
 }
+
+
+
+
+/* TOOLTIP CSS MODIFIED FROM:
+    http://www.menucool.com/tooltip/css-tooltip*/
+.tooltip {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.tooltip h3 {margin:12px 0;}
+
+.tooltip {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.tooltip h3 {margin:12px 0;}
+
+.tooltip .right {
+    min-width:200px;
+    max-width:18vw;
+    max-height: 22vw;
+    top:-20px;
+    left:50%;
+    transform:translate(-50%, 10%);
+    padding:10px 20px;
+    color:#ffffff;
+    background-color:#009cdc;
+    font-weight:normal;
+    font-size:14px;
+    border-radius:8px;
+    position:absolute;
+    z-index:1;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    visibility:hidden; opacity:0; transition:opacity 0.8s;
+    overflow: hidden;
+}
+
+.tooltip:hover .right {
+    visibility:visible; opacity:1;
+}
+
+.tooltip .right img {
+    width:400px;
+    border-radius:8px 8px 0 0;
+}
+.tooltip .text-content {
+    padding:10px 20px;
+}
+
+.tooltip .right i {
+    position:absolute;
+    top:50%;
+    right:100%;
+    margin-top:-12px;
+    width:12px;
+    height:24px;
+    overflow:hidden;
+}
+/*.tooltip .right i::after {*/
+/*    content:'';*/
+/*    position:absolute;*/
+/*    width:12px;*/
+/*    height:12px;*/
+/*    left:0;*/
+/*    top:100%;*/
+/*    transform:translate(50%,-50%) rotate(-45deg);*/
+/*    background-color:#444444;*/
+/*    box-shadow:0 1px 8px rgba(0,0,0,0.5);*/
+/*}*/
+
+
+
