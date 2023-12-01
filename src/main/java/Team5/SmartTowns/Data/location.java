@@ -11,8 +11,10 @@ import lombok.Data;
 public class location {
     private int locationID;
     private String locationName;
-    private String locationEmail;
-    private String locationDescription;
-    private String locationPlace;
-    private int locationTrailID;
+//    private String locationEmail;
+//    private String locationDescription;
+//    private String locationPlace; //todo revert this
+//    private int locationTrailID;
+
+
 }

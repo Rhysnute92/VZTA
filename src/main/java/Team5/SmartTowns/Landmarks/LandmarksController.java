@@ -33,7 +33,7 @@ public class LandmarksController {
 
         } else{
             System.out.println(landmarks);
-            // current functionality only prints successful Landmarks, (todo )database integration is necessary here
+
 
 
         ModelAndView modelAndView = new ModelAndView("redirect:/home");

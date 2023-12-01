@@ -19,15 +19,15 @@ public class locationRepositoryJDBC implements locationRepository {
     private void setlocationMapper(){
         locationMapper = (rs, i) -> new location(
                 rs.getInt("locationID"),
-                rs.getString("locationName"),
-                rs.getString("locationEmail"),
-                rs.getString("locationDescription"),
-                rs.getString("locationPlace"),
-                rs.getInt("locationTrailID")
+                rs.getString("locationName")
+//                rs.getString("locationEmail"),
+//                rs.getString("locationDescription"),
+//                rs.getString("locationPlace"), //todo revert this
+//                rs.getInt("locationTrailID")
         );
     }
     public List<location> getAllLocation(){
-        String sql= "SELECT * FROM locations";
+        String sql= "SELECT locationID,locationName FROM locations";
         return jdbc.query(sql, locationMapper);
     }
 }
