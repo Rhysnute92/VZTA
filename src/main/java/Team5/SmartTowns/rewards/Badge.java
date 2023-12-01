@@ -30,7 +30,7 @@ public class Badge {
     private String findImagePath(){
         /* Finds the image in the Path folder, if image is not found assigns default image */
         String imgPath = "images/rewards/badges/" + id + ".jpg";
-        String notFoundPath = "images/rewards/badges/0.jpg";
+        String notFoundPath = "/images/rewards/badges/0.png";
 
         File imgFile = new File("src/main/resources/static/" + imgPath);
         return imgFile.exists() ? imgPath : notFoundPath;

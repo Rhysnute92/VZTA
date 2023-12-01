@@ -11,12 +11,19 @@ body {
 main {
     background: #1e1e1e;
     border-radius: 1vw;
-    margin-inline: max(1vw, 2em);
-    margin-block: 1svh;
-    width: min(90%, 90vw);
+    margin-inline: 5%;
+    margin-block: 5%;
+    width: auto;
     padding-block: 2svh;
     padding-inline: 1vw;
     box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+    @media only screen and (max-device-width: 500px) {
+        min-height: 90svh;
+    }
+
+    @media only screen and (min-device-width: 1000px) {
+        margin-block: 2.5%
+    }
 }
 
 

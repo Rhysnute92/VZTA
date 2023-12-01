@@ -25,40 +25,57 @@
 }
 
 #badgesBar {
-    background-color: white;
     border-radius: 1vw;
-    margin-inline: max(4vw, 3rem);
-    display: flex;
-    flex-direction: column;
-
+    display: grid;
+    grid-template-areas: "header"
+                         "badges";
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+    color: white;
+    @media only screen and (min-device-width: 501px) {
+        height: 24vw;
+    }
     & h2 {
+        position: absolute;
+        grid-area: header;
         margin-inline: 5vw;
         padding-inline: 2vw;
         margin-block: 0.5svh;
         box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
         border-bottom: #36454F solid 2px;
-        font-size: max(2vw, 2em);
+        font-size: 4vw;
+        @media only screen and (min-device-width: 501px) {
+            font-size: 4vw;
+        }
     }
-
-    & .badgesContainer {
-        margin: 1svh 2vw;
-        padding: 1svh 1vw;
-        border-inline: solid rgba(194, 98, 188, 0.7) 5px;
-        border-radius: 10%;
-        background: linear-gradient(90deg, rgba(255, 215, 0, 0.75), rgba(184, 134, 11, 0.75));
-        overflow-x: scroll;
-        min(18svh, 12em);
+    & #allBadgesContainer {
+        margin-top: 3svh;
+        grid-area: badges;
+        height: 10svh;
         align-content: center;
         display: flex;
-
-        & .badge {
-            margin-inline: 3vw;
-            height: min(18svh, 10em);
-
+        @media only screen and (min-device-width: 501px) {
+            height: 20vw;
+            margin-top: 6vw;
+        }
+    }
+    & .badgeImg {
+        margin-inline: 3vw;
+        height: 8svh;
+        @media only screen and (min-device-width: 501px) {
+            height: 15vw;
         }
 
+        transition: 0.3s ease-out 100ms;
+    }
+    & .badgeImg:hover {
+        /*box-shadow: 0 0 20px 10px #bbbb00;*/
+        transform: scale(1.5,1.5);
     }
 }
+
 #stickersBox {
     display: flex;
     flex-direction: column;
@@ -94,58 +111,36 @@
 
 /* TOOLTIP CSS MODIFIED FROM:
     http://www.menucool.com/tooltip/css-tooltip*/
-.tooltip {
-    display:inline-block;
+.popUpBox {
+    display: flex;
     position:relative;
-    border-bottom:1px dotted #666;
-    text-align:left;
-}
-
-.tooltip h3 {margin:12px 0;}
-
-.tooltip {
-    display:inline-block;
-    position:relative;
-    border-bottom:1px dotted #666;
-    text-align:left;
-}
-
-.tooltip h3 {margin:12px 0;}
-
-.tooltip .right {
-    min-width:200px;
-    max-width:18vw;
-    max-height: 22vw;
-    top:-20px;
-    left:50%;
-    transform:translate(-50%, 10%);
+    width: 50vw;
+    height: 50svh;
+    margin:auto;
+    align-self: center;
+    /*transform:translate(-50%, -5%);*/
     padding:10px 20px;
     color:#ffffff;
     background-color:#009cdc;
     font-weight:normal;
     font-size:14px;
     border-radius:8px;
-    position:absolute;
-    z-index:1;
+
+    z-index:99;
     box-sizing:border-box;
     box-shadow:0 1px 8px rgba(0,0,0,0.5);
     visibility:hidden; opacity:0; transition:opacity 0.8s;
-    overflow: hidden;
+    overflow: visible;
 }
-
-.tooltip:hover .right {
+.tooltip:hover .popUpBox {
     visibility:visible; opacity:1;
-}
-
-.tooltip .right img {
-    width:400px;
-    border-radius:8px 8px 0 0;
+    overflow: visible;
 }
 .tooltip .text-content {
     padding:10px 20px;
 }
 
-.tooltip .right i {
+.tooltip .popUpBox i {
     position:absolute;
     top:50%;
     right:100%;
@@ -154,17 +149,5 @@
     height:24px;
     overflow:hidden;
 }
-/*.tooltip .right i::after {*/
-/*    content:'';*/
-/*    position:absolute;*/
-/*    width:12px;*/
-/*    height:12px;*/
-/*    left:0;*/
-/*    top:100%;*/
-/*    transform:translate(50%,-50%) rotate(-45deg);*/
-/*    background-color:#444444;*/
-/*    box-shadow:0 1px 8px rgba(0,0,0,0.5);*/
-/*}*/
-
 
 
