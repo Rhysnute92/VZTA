@@ -25,3 +25,11 @@ create table if not exists badges
     description varchar(128),
     difficulty bigint
 ) engine=InnoDB;
+drop table if exists stickers;
+create table if not exists stickers
+(
+    stickerID bigint auto_increment primary key,
+    name varchar(128),
+    description varchar(128),
+    rarity bigint
+) engine=InnoDB;
