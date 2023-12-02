@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title th:text="'VZLA Profile Page of ' + ${user.getName()}"></title>
     <link rel="stylesheet" th:href="@{/css/userProfile.css}">
-    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+<!--    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">-->
 </head>
 <body>
 
-<header></header>
+<header>
+    <ul class="footerBar">
+        <li class="footerButton"><b>Home</b></li>
+        <li class="footerButton"><b>About</b></li>
+        <li class="footerButton"><b>Map</b></li>
+        <li class="footerButton"><b>Facilities</b></li>
+        <li class="footerButton"><b>Search</b></li>
+    </ul>
+</header>
 
 <main>
     <!--PICTURE - DATA - BADGES -->
@@ -54,7 +62,9 @@
 
 </main>
 
-<footer></footer>
+<footer>
+
+</footer>
 
 
 
