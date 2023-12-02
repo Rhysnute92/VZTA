@@ -29,17 +29,17 @@
         <!--TODO add some progression info here?-->
     </div>
     <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
-        <article id="badgesBar">
-            <h2>Your Badges: </h2> <!--Shows first earned badges, followed by greyed out badges-->
-            <div id="allBadgesContainer"  class="centerFlex">
-                <img class="badgeImg"  th:each="badge : ${badges}" th:src="@{'..' + ${badge.getImgPath()}}"
-                     th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >
-            </div>
-        </article>
+<!--        <article id="badgesBar">-->
+<!--            <h2>Your Badges: </h2> &lt;!&ndash;Shows first earned badges, followed by greyed out badges&ndash;&gt;-->
+<!--            <div id="allBadgesContainer"  class="centerFlex">-->
+<!--                <img class="badgeImg"  th:each="badge : ${badges}" th:src="@{'..' + ${badge.getImgPath()}}"-->
+<!--                     th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >-->
+<!--            </div>-->
+<!--        </article>-->
         <article class="dragonProgression">
             <h1>The Dragon Trail</h1>
             <div class="dragonContainer">
-                <div class="dragonFill">
+                <div class="dragonFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
                     <img th:src="@{/images/rewards/dragonFilled.png}"
                          alt="Filled Dragon" id="FilledDragon" class="dragonImg">
                 </div>
@@ -48,12 +48,12 @@
                          alt="Outline Dragon" id="OutlineDragon" class="dragonImg">
                 </div>
             </div>
-            <h2>40%</h2>
+            <h2 th:text="${user.getDragonProgress()} + '%'"></h2>
         </article>
         <article id="stickersBox"> <!--Need a controller to show earned stickers -->
             <h2> STICKERS! </h2>
             <div class="stickersContainer">
-                <img class="stickerImg"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getImgPath()}}"
+                <img th:class="'stickerImg ' + ${sticker.getVisibility()}"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getImgPath()}}"
                      th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
             </div>
         </article>
@@ -67,7 +67,8 @@
 </footer>
 
 
-
+<script>
+</script>
 </body>
 </html>
 

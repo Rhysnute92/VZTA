@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -34,16 +35,21 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable int id) {
-        List<Badge> badges = badgesRepository.getAllBadges();
-        List<Sticker> stickers = stickersRepository.getAllStickers();
-        List<User> users = userRepository.getAllUsers();
         ModelAndView mav = new ModelAndView("rewards/userProfile");
-        users.stream()
-                .filter(user -> user.getId() == id)
-                .findFirst() //Convoluted way of finding the matching user to the id, probably easier to do a hashmap
-                .ifPresent(result -> mav.addObject("user", result));
-        mav.addObject("badges", badges);
-        mav.addObject("stickers", stickers);
+//        List<Badge> badges = badgesRepository.getAllBadges(); DEPRECATED FOR THE MOMENT
+//        mav.addObject("badges", badges);
+        List<Sticker> allStickers = stickersRepository.getAllStickers();
+        List<User> users = userRepository.getAllUsers();
+        Map<Long, Boolean> userStickers = userRepository.getStickers(id);
+
+        for (Long stickerID : userStickers.keySet()) { //Finds and updates visibility of stickers based on what the user has
+            allStickers.stream()
+                    .filter(sticker -> sticker.getId()==stickerID)
+                    .findFirst().ifPresent(sticker -> sticker.setVisibility(userStickers.get(stickerID)));
+        }
+
+        mav.addObject("user", userRepository.getUser(id));
+        mav.addObject("stickers", allStickers);
         return mav;
     }
 }

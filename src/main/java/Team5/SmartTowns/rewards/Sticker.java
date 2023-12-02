@@ -15,6 +15,7 @@ public class Sticker {
     String description;
     String imgPath;
     int rarity; //1-5
+    boolean hasSticker;
 
     public Sticker(int id, String name, String description, int rarity) {
         this.id = id;
@@ -31,6 +32,16 @@ public class Sticker {
 
         File imgFile = new File("src/main/resources/static/" + imgPath);
         return imgFile.exists() ? imgPath : notFoundPath;
+    }
+
+    public boolean hasSticker(){
+        return hasSticker;
+    }
+    public void setVisibility(boolean hasSticker){
+        this.hasSticker = hasSticker;
+    }
+    public String getVisibility(){
+        return hasSticker? "" : "grayedOut";
     }
 
 

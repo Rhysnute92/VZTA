@@ -228,3 +228,7 @@ header .footerButton {
 header .footerButton:hover {
     background-color: #36454F;
 }
+
+.grayedOut {
+    filter: grayscale(1);
+}
