@@ -1,6 +1,6 @@
 /* Header */
 .headerBar {
-    /*border-bottom: 2px rgb(230, 230, 230) solid;*/
+    border-bottom: 2px rgb(230, 230, 230) solid;
     margin-bottom: 20px;
     display: flex;
     background-color: rgb(84, 33, 128);
@@ -63,7 +63,7 @@ footer {
     display: flex;
     justify-content: center;
     background-color: rgb(84, 33, 128);
-    /*border-top: 2px rgb(230, 230, 230) solid;*/
+    border-top: 2px rgb(230, 230, 230) solid;
     font-size: 1vw;
 }
 .footerBar{
