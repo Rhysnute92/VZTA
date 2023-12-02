@@ -14,5 +14,14 @@ drop table if exists users;
 create table if not exists users
 (
     userID bigint auto_increment primary key,
+    email varchar(128),
     name varchar(128)
+) engine=InnoDB;
+drop table if exists badges;
+create table if not exists badges
+(
+    badgeID bigint auto_increment primary key,
+    name varchar(128),
+    description varchar(128),
+    difficulty bigint
 ) engine=InnoDB;

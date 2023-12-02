@@ -1,7 +1,10 @@
 package Team5.SmartTowns.users;
 
+
 import Team5.SmartTowns.rewards.Badge;
+import Team5.SmartTowns.rewards.BadgesRepository;
 import Team5.SmartTowns.rewards.Sticker;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,23 +15,13 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    /* TEMPORARY USER LIST --- TODO REPLACE IT WITH DATABASE LIST*/
-    static List<User> users = List.of(
-            new User(1, "johndoe@gmail.com", "Claire Redfield"),
-            new User(2, "johndoe@gmail.com", "Albert Wesker"),
-            new User(3, "johndoe@gmail.com", "Leon Kennedy"),
-            new User(4, "johndoe@gmail.com", "Jill Valentine")
-    );
-    static List<Badge> badges = List.of(
-            new Badge(1, "Badge1", "Bage One is This", 1),
-            new Badge(2, "Badge1", "Bage One is This", 4),
-            new Badge(3, "Badge1", "Bage One is This", 4),
-            new Badge(4, "Badge1", "Bage One is This", 5),
-            new Badge(5, "Badge1", "Bage One is This", 5),
-            new Badge(46, "Badge1", "Bage One is This", 5),
-            new Badge(7, "Badge1", "Bage One is This", 2)
-    );
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private BadgesRepository badgesRepository;
 
+
+    /*TODO REPLACE IT WITH DATABASE LIST*/
     static List<Sticker> stickers = List.of(
             new Sticker(1, "Sticker", "Sticker", 1),
             new Sticker(2, "Sticker", "Sticker", 4),
@@ -39,8 +32,18 @@ public class UserController {
             new Sticker(7, "Sticker", "Sticker One is This", 2)
     );
 
+    @GetMapping("/userList")
+    public ModelAndView userList() {
+        ModelAndView mav = new ModelAndView("towns/userData");
+        List<User> users = userRepository.getAllUsers();
+        mav.addObject("users", users);
+        return mav;
+    }
+
     @GetMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable int id) {
+        List<Badge> badges = badgesRepository.getAllBadges();
+        List<User> users = userRepository.getAllUsers();
         ModelAndView mav = new ModelAndView("rewards/userProfile");
         users.stream()
                 .filter(user -> user.getId() == id)
@@ -50,8 +53,4 @@ public class UserController {
         mav.addObject("stickers", stickers);
         return mav;
     }
-//    @GetMapping("/userProfile")
-//    public ModelAndView getUserPage(ModelAndView mav) {
-//        return mav;
-//    }
 }

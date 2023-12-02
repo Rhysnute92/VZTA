@@ -1,5 +1,5 @@
 //Implements the users repository using JDBC
-package Team5.SmartTowns.Data;
+package Team5.SmartTowns.users;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -11,17 +11,18 @@ import java.util.List;
 public class UserRepositoryJDBC implements UserRepository{
 
     private JdbcTemplate jdbc;
-    private RowMapper<user> userMapper;
+    private RowMapper<User> userMapper;
 
     public UserRepositoryJDBC(JdbcTemplate aJdbc){
         this.jdbc = aJdbc;
-        setuserMapper();
+        setUserMapper();
     }
 
 
-    private void setuserMapper(){
-        userMapper = (rs, i) -> new user(
+    private void setUserMapper(){
+        userMapper = (rs, i) -> new User(
                 rs.getInt("userID"),
+                rs.getString("email"),
                 rs.getString("name")
         );
     }
@@ -29,7 +30,7 @@ public class UserRepositoryJDBC implements UserRepository{
 
 
     @Override
-    public List<user> getAllUsers(){
+    public List<User> getAllUsers(){
         String sql= "SELECT * FROM users";
         return jdbc.query(sql, userMapper);
     }
