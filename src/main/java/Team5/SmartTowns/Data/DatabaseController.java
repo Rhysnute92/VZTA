@@ -33,8 +33,8 @@ public class DatabaseController {
     @GetMapping("locationList")
     public ModelAndView locationList(){
         ModelAndView mav2 = new ModelAndView("towns/locationData");
-        List<location> locations = locationRepository.getAllLocation();
-        mav2.addObject("location", locations);
+        List<Location> Locations = locationRepository.getAllLocation();
+        mav2.addObject("location", Locations);
         return mav2;
     }
 }

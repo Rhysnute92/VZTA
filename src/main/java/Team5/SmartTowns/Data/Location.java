@@ -3,13 +3,10 @@ package Team5.SmartTowns.Data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-//insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace,
-//        locationTrailID
-//        ) value ('1', 'St Cenydd','','location description here','Caerphilly',0101);
 @Data
 @AllArgsConstructor
-public class location {
-    private int locationID;
+public class Location {
+//    private int locationID;
     private String locationName;
     private String locationEmail;
     private String locationDescription;
@@ -18,19 +15,13 @@ public class location {
 
     @Override
     public String toString() {
-        return "location{" +
-                "" + locationID +
-                ", '" + locationName + '\'' +
-                ", '" + locationEmail + '\'' +
-                ", '" + locationDescription + '\'' +
-                ", '" + locationPlace + '\'' +
-                ", " + locationTrailID +
+        return "Location{" +
+                 locationName + '\'' +
+                 locationEmail + '\'' +
+                 locationDescription + '\'' +
+                 locationPlace + '\'' +
+                 locationTrailID +
                 '}';
-    }
-
-
-    public int getLocationID() {
-        return locationID;
     }
 
     public String getLocationName() {

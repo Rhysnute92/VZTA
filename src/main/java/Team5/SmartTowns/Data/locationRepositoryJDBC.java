@@ -1,26 +1,24 @@
 //Implements the locations repository using JDBC
 package Team5.SmartTowns.Data;
 
-import Team5.SmartTowns.Landmarks.Landmarks;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
 public class locationRepositoryJDBC implements locationRepository {
     private JdbcTemplate jdbc;
-    private RowMapper<location> locationMapper;
+    private RowMapper<Location> locationMapper;
 
     public locationRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setlocationMapper();
     }
     private void setlocationMapper(){
-        locationMapper = (rs, i) -> new location(
-                rs.getInt("locationID"),
+        locationMapper = (rs, i) -> new Location(
+
                 rs.getString("locationName"),
                 rs.getString("locationEmail"),
                 rs.getString("locationDescription"),
@@ -28,16 +26,16 @@ public class locationRepositoryJDBC implements locationRepository {
                 rs.getInt("locationTrailID")
         );
     }
-    public List<location> getAllLocation(){
+    public List<Location> getAllLocation(){
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
 
-    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the location table, todo change location class to Location as its better code grammar and looks funky otherwise.
-    public void addLocation(location loc) {
-        String sql = "insert into locations(locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?,?)";
+    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
+    public void addLocation(Location loc) {
+        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?)";
 
-        jdbc.update(sql, loc.getLocationID(),loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
+        jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
     }
 
 

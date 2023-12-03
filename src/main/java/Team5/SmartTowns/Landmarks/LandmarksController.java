@@ -1,6 +1,6 @@
 package Team5.SmartTowns.Landmarks;
 
-import Team5.SmartTowns.Data.location;
+import Team5.SmartTowns.Data.Location;
 import Team5.SmartTowns.Data.locationRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.swing.*;
-import java.sql.PreparedStatement;
 //import jakarta.validation.Valid;
 
 @Controller
@@ -40,8 +36,8 @@ public class LandmarksController {
             return modelAndView;
 
         } else{
-
-            location loc= new location(landmarks.getLandmarkID(),landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID());
+            // converts valid response using Location constructor into a submittable format to the sql table
+            Location loc= new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID());
             System.out.println(loc);
             locationRepository.addLocation(loc); // adds valid landmark to locations table
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
