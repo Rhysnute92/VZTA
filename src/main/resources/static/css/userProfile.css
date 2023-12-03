@@ -1,4 +1,17 @@
 /* AUTHOR: Gabriel Copat*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+/*COLOUR PALETTE*/
+* {
+    --main-colour: #e47201;
+    --secondary-colour: #e47201;
+    --accent-colour: #e47201;
+    --accent-border: #b25901;
+
+    --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+}
+
 
 /*FONTS, TYPOGRAPHY & BACKGROUNDS*/
 * {
@@ -12,6 +25,10 @@
         color: white;
         text-justify: inter-word;
     }
+    & label {
+        color: white;
+    }
+
 }
 @media only screen and (max-device-width: 500px) {
     /*ADJUSTING FOR SMALLER SCREENS*/
@@ -22,7 +39,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #9f74be, #3e126b);
+    background: linear-gradient(135deg, #d295e9, #53166a);
     height: 100svh;
 }
 main {
@@ -36,8 +53,6 @@ main {
     padding-inline: 1vw;
     box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
 }
-
-
 .userInfo {
     display: flex;
     flex-direction: column;
@@ -170,10 +185,12 @@ main {
     }
     & h1 {
         font-size: 3em;
+        font-family: 'MedievalSharp', cursive;
+        letter-spacing: 1vw;
         box-shadow: rgba(0, 0, 0, 0.7) 0 2vw 2vw -2vw;
         border-bottom: #36454F solid 2px;
         border-top: #36454F solid 2px;
-        margin-inline: 25%;
+        margin-inline: 15%;
         margin-bottom: 1%;
     }
     & .dragonContainer {
@@ -231,4 +248,74 @@ header .footerButton:hover {
 
 .grayedOut {
     filter: grayscale(1);
+}
+
+.solidBg {
+    background: #1e1e1e;
+    display: flex;
+}
+.loginWrapper {
+    margin-inline: auto;
+    margin-block: 5svh;
+    display: flex;
+    text-align: center;
+    justify-content: left;
+    background: #c45cef;
+    padding: 2em;
+
+    width: auto;
+    height: auto;
+    border-radius: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+    & h2 {
+        margin-left: 1vw;
+        margin-right: auto;
+    }
+    & form{
+        margin-block: auto;
+        font-size: 3em;
+        display: flex;
+        flex-direction: column;
+    }
+    & label {
+        position: relative;
+        margin-top: 1em;
+        /*width: fit-content;*/
+        font-size: 0.8em;
+        & b {
+            float: left;
+        }
+        & a {
+            position: absolute;
+            font-size: 0.4em;
+            right: 0.2em;
+            bottom: 0.2em;
+            height: fit-content;
+        }
+
+    }
+    & input {
+        font-size: 0.6em;
+        height: 1.5em;
+        width: 40vw;
+        border-radius: 0.2em;
+        padding-inline: 0.4em;
+    }
+    & button {
+        font-size: 1em;
+        height: 2em;
+        width: 4em;
+        box-shadow: var(--accent-shadow);
+        margin:auto;
+        margin-top: 1em;
+        background-color: var(--accent-colour);
+        border: 0.1em solid var(--accent-border);
+        border-radius: 1em;
+        color: white;
+
+    }
+    & button:hover{
+        background-color: var(--accent-border);
+        border: 0.1em solid var(--accent-colour);
+    }
 }

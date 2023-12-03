@@ -24,6 +24,13 @@ public class UserController {
     @Autowired
     private StickersRepository stickersRepository;
 
+    @GetMapping("/login")
+    public ModelAndView getLoginPage() {
+        ModelAndView mav = new ModelAndView("rewards/login");
+//        List<User> users = userRepository.getAllUsers();
+//        mav.addObject("users", users);
+        return mav;
+    }
 
     @GetMapping("/userList")
     public ModelAndView userList() {

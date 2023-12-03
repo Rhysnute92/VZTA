@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Log In</title>
+    <link rel="stylesheet" th:href="@{/css/userProfile.css}">
+</head>
+<body>
+
+<header>
+    <ul class="footerBar">
+        <li class="footerButton"><b>Home</b></li>
+        <li class="footerButton"><b>About</b></li>
+        <li class="footerButton"><b>Map</b></li>
+        <li class="footerButton"><b>Facilities</b></li>
+        <li class="footerButton"><b>Log In</b></li>
+    </ul>
+</header>
+<main  class="solidBg">
+    <div class="loginWrapper">
+        <form action="/login" method="post">
+            <h2>Log In</h2>
+            <label for="username"><b>Username</b><br></label>
+                <input type="text" name="username" id="username" placeholder="Enter Username">
+            <label for="password"><b>Password</b><a>Forgot Password</a><br></label>
+                <input type="password" id="password" name="password">
+            <button type="submit"><b>Log In</b></button>
+        </form>
+
+    </div>
+
+</main>
+
+
+</body>
+</html>
