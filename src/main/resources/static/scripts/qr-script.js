@@ -1,6 +1,5 @@
 //qr-script file - R Nute
 import {Html5QrcodeScanner} from "html5-qrcode";
-import {Html5Qrcode} from "html5-qrcode";
 
 function domReady(fn){
     if (
@@ -12,7 +11,7 @@ function domReady(fn){
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
-domReady(function (){
+domReady(function (message){
     //if QR code found
     function onScanSuccess(decodeText, decodeResult){
         alert("You have collected: " + decodeText, decodeResult);
