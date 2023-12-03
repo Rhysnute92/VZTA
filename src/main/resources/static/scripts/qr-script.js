@@ -1,6 +1,7 @@
 //qr-script file - R Nute
 import {Html5QrcodeScanner} from "html5-qrcode";
 import {Html5Qrcode} from "html5-qrcode";
+
 function domReady(fn){
     if (
         document.readyState === "complete" ||
