@@ -1,6 +1,9 @@
 package Team5.SmartTowns.Landmarks;
 
+import Team5.SmartTowns.Data.Location;
+import Team5.SmartTowns.Data.locationRepository;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +25,8 @@ public class LandmarksController {
 
     }
 
-
+    @Autowired
+    private locationRepository locationRepository;
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
 
@@ -32,11 +36,11 @@ public class LandmarksController {
             return modelAndView;
 
         } else{
-            System.out.println(landmarks);
-            // current functionality only prints successful Landmarks, (todo )database integration is necessary here
-
-
-        ModelAndView modelAndView = new ModelAndView("redirect:/test.html");
+            // converts valid response using Location constructor into a submittable format to the sql table
+            Location loc= new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID());
+            System.out.println(loc);
+            locationRepository.addLocation(loc); // adds valid landmark to locations table
+            ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
 
         }
