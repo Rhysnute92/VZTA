@@ -25,3 +25,10 @@ insert into locations (locationID, locationName , locationEmail,locationDescript
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (14, 'The Medieval Courthouse','','Location description here','Caerphilly',0103);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (15 ,'Caerphilly Castle','','Location description here','Caerphilly',0103);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (16, 'Ty Vaughan House','','Location description here','Caerphilly',0103);
+
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (17, 'Risca Colliery','','Location description here','Risca',0201);
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (18, 'Black Vein Colliery Disaster','','Location description here','Risca',0201);
+
+
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (19, 'The Esplanade','','Location description here','Penarth',0301);
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
