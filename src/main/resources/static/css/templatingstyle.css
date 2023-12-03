@@ -3,13 +3,11 @@
     border-bottom: 2px rgb(230, 230, 230) solid;
     margin-bottom: 20px;
     display: flex;
-    background: blueviolet;
+    background-color: rgb(84, 33, 128);
 }
 /* Navbar Links */
 .navBar {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right:20px;
+    margin: 2svh 1vw 2svh auto;
     text-align: right;
 }
 .work{
@@ -61,15 +59,18 @@
 
 /* Footer */
 footer {
-    margin-top:20px;
+    margin-top:auto;
     display: flex;
     justify-content: center;
+    background-color: rgb(84, 33, 128);
+    border-top: 2px rgb(230, 230, 230) solid;
+    font-size: 1vw;
 }
 .footerBar{
-    border-top: 2px rgb(230, 230, 230) solid;
+
     text-align: left;
     display: flex;
-    background: blueviolet;
+
     color: rgb(255, 255, 255);
     padding-left: 30px;
 }

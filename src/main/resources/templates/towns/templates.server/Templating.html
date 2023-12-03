@@ -1,0 +1,149 @@
+<header class="headerBar th:fragment="header">
+
+            <div class="Logo">
+                <img th:src="@{images/VZTA.png}" alt="VZTA Logo">
+            </div>
+            <nav class="navBar">
+                <ul>
+                    <li>Home</li>
+                    <li>FAQs</li>
+                    <li>Contact us</li>
+                </ul>
+                <label class="work">Who  we Work with:</label>
+                    <select>
+                        <ul>
+                            <option value="localauthorities">Local Authorities</option>
+                            <option value="towns">Towns</option>
+                            <option value="businesses">Businesses</option>
+                            <option value="consumers">Consumers</option>
+                        </ul>
+                    </select>
+            </nav>
+        </header>
+
+        <div class="footerBar" th:fragment="footer">
+            <div class="containerFooter">
+                <div class="leftFooter">
+                    <h3>VZTA</h3>
+                    Near Me Now LTD
+                    <br>Britania House
+                    <br>Caerphilly Business Park
+                    <br>Caerphilly
+                    <br>CF83 3GG
+                </div>
+                <div class="rightFooter">
+                    <h3>Connect with us</h3>
+                    <p>Be the first to know about updates by joining out Community page</p>
+                    (C) VZTA 2022<br>
+                    Policy Terms and Conditions
+                </div>
+                    <div class="centerFooter">
+                        <span class="footerText">
+                            <h3>Follow Us</h3>
+                            <a th:href=="https://www.facebook.com/VZTAsmarttowns/" class="icon"></a><img th:src="@{images/Facebook.png}" alt="Facebook Logo" class="picture">
+                            <a th:href=="https://www.twitter.com/VZTAsmarttowns/" class="icon"></a><img th:src="@{images/Twitter-Logo.png}" alt="X (formally Twitter) Logo" class="picture">
+                            <a th:href=="https://www.instagram.com/vztasmarttowns/" class="icon"></a><img th:src="@{images/Instagram.jpg}" alt="Instagram Logo" class="picture">
+                            <a th:href=="https://'www.linkin.com/company/vztasmarttowns/" class="icon"></a><img th:src="@{images/LinkedIn.jpg}" alt="Linkedin Logo" class="picture"> <br>
+                        </span>
+                        </div>
+                            <div class="copyright" style="text-align: left">
+
+                            </div>
+                    </div>
+            </div>
+</div>
+<style>
+    /* Header */
+    .headerBar {
+        border-bottom: 2px rgb(230, 230, 230) solid;
+        margin-bottom: 20px;
+        display: flex;
+        background: blueviolet;
+    }
+    /* Navbar Links */
+    .navBar {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right:20px;
+        text-align: right;
+    }
+    .work{
+        color: rgb(255, 255, 255);
+    }
+    .navBar ul {
+        list-style: none;
+        display: flex;
+        margin-left: 100px;
+    }
+    .navBar a {
+        border-left: 2px rgb(185, 185, 185) solid;
+        padding: 10px 40px;
+        text-decoration: none;
+        color:rgb(87, 86, 86);
+        white-space: nowrap;
+        overflow: hidden;
+        float: right;
+    }
+    .navBar a:hover {
+        background-color: rgb(209, 209, 209);
+    }
+    .navBar li{
+        margin-left: 10px;
+        margin-right: 10px;
+        color: rgb(255, 255, 255);
+    }
+    .navListLast {
+        border-right: 2px rgb(185, 185, 185) solid;
+        margin-right:40px;
+    }
+
+    /* Navbar Logo */
+    .Logo {
+        margin-left:10px;
+        padding: 20px;
+        width: fit-content;
+    }
+    .Logo img {
+        width: 120px;
+        margin-left:15px;
+    }
+
+    /* Footer */
+    footer {
+        margin-top:20px;
+        display: flex;
+        justify-content: center;
+    }
+    .footerBar{
+        border-top: 2px rgb(230, 230, 230) solid;
+        text-align: left;
+        display: flex;
+        background: blueviolet;
+        color: rgb(255, 255, 255);
+        padding-left: 30px;
+    }
+    .footerBar ul {
+        list-style: none;
+        display: flex;
+    }
+    .copyright{
+        text-align: left;
+        display: flex;
+    }
+    .containerFooter{
+        display: flex;
+        flex-direction: row;
+    }
+    .leftFooter{
+        flex:1;
+        color: rgb(255, 255,255);
+    }
+    .centerFooter{
+        flex: 1;
+        color: rgb(255, 255,255);
+    }
+    .rightFooter{
+        flex:1;
+        color: rgb(255, 255, 255);
+    }
+</style>

@@ -1,0 +1,8 @@
+<!-- TODO Develop each individual landmark for DragonsTrail -->
+<!-- Each trail should have a preestablished set of landmarks -->
+
+<div th:fragment="landmarkList" class="centre" id="landmarkList">
+    <ul>
+        <li th:each="item : ${landmarksList}" th:text="${item}"></li>
+    </ul>
+</div>
