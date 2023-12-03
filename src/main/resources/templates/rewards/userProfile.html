@@ -14,7 +14,7 @@
         <li class="footerButton"><b>About</b></li>
         <li class="footerButton"><b>Map</b></li>
         <li class="footerButton"><b>Facilities</b></li>
-        <li class="footerButton"><b>Search</b></li>
+        <li class="footerButton"><b>Log In</b></li>
     </ul>
 </header>
 
@@ -37,7 +37,7 @@
 <!--            </div>-->
 <!--        </article>-->
         <article class="dragonProgression">
-            <h1>The Dragon Trail</h1>
+            <h1>The Dragon's Tale</h1>
             <div class="dragonContainer">
                 <div class="dragonFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
                     <img th:src="@{/images/rewards/dragonFilled.png}"
@@ -71,7 +71,3 @@
 </script>
 </body>
 </html>
-
-<!--TODO finished doing the tooltips, need to add some more changes to them for sure
-    TODO afterwards probably need to implement thymeleaf so it shows badges based on the list
-    TODO implement some placeholder pictures as well for the badges and for the stickers -->
