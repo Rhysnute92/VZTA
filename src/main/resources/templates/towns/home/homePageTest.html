@@ -7,17 +7,17 @@
   <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 <style>
 
-  /*body{*/
-  /*  background-color: rgb(41, 41, 41)*/
-  /*}*/
+  body{
+    background-color: rgb(41, 41, 41)
+  }
   #homeTitle{
-    grid-area: pageTitle;}
-  /*  color: whitesmoke;*/
-  /*}*/
+    grid-area: pageTitle;
+    color: whitesmoke;
+  }
   .submitLand{
     grid-area: submitButton;
   }
-  .Banner , .riscaBanner,.penarthBanner{
+  .Banner {
     margin-top: 20px;
     background-color: darkslategrey;
     margin-bottom: 20px;
@@ -25,71 +25,50 @@
     /*border colour here at .banner and .bannertrail*/
     border-right: none;
   }
-  .BannerTrail ,.riscaBannerTrail,.penarthBannerTrail{
-    background-color: darkslategrey;
+  .BannerTrail, .BannerTrail.overSixty, .BannerTrail.underSixty {
+    /*background-color: darkslategrey;*/
     margin-top: 20px;
     margin-bottom: 20px;
     border: solid 2px whitesmoke;
-    border-left: none;
+    /*border-left: none;*/
     text-align: center;
   }
 
-  .penarthBannerTrail{
-    background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 40%);
-  }
-
-  .caerphillyBannerTrail{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 2px whitesmoke;
-    border-left: none;
-    background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 30%);
-  }
-
-  .caerphillyBanner{
-
-    grid-area:townBannerC;
-    background-image: url('/images/CaerphillyCastle.jpg');
-    /*// from cadw*/
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 35%;
-    color: inherit;
-    text-decoration: none;
-    /*filter: grayscale(30%);*/
-  }
-
-  /*!*https://www.stayinwales.co.uk/wales_picture.cfm?p=4454*! Risca img*/
-
-  .riscaBanner {
-    /*    #caerUrl{*/
-    grid-area: townBannerR;
-    background-image: url('/images/RiscaBanner.jpg');
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 65%;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .penarthBanner {
-    grid-area: townBannerP;
-    background-image: url('/images/PenarthBanner.jpg');
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 78%;
-    color: inherit;
-    text-decoration: none;
-  }
-  .caerphillyBannerTrail{
-    grid-area:townBannerDetsC;
-  }
-  /*.Banner th{*/
-  /*  grid-area:townBanner;*/
-  /*}*/
-  .BannerTrail th{
+  .BannerTrail th, .BannerTrail.overSixty th, .BannerTrail.underSixty{
     grid-area:townBannerDetsR
   }
+
+  .BannerTrail, .BannerTrail.overSixty, .BannerTrail.underSixty{
+      grid-area:townBannerDets;
+  }
+  .BannerTrail.overSixty {
+      background-color: green;
+
+
+  }
+  .BannerTrail {
+      background-color: darkslategrey;
+
+  }
+
+  .BannerTrail.underSixty {
+      background-color: red;
+
+
+  }
+
+
+
+  .BannerTrail {
+      background-color: darkslategrey;
+
+  }
+
+
+
+
+
+
   .Banner {
     grid-area:townBanner;
     /*background-size: 10px 10px;*/
@@ -105,18 +84,8 @@
     background-size: contain;
 
   }
-  /*.Banner {*/
-  /*  grid-area:townBanner;*/
-  /*  background-color: #bbbb00;*/
-  /*  !*background-size: 10px 10px;*!*/
-  /*  !*background-repeat: no-repeat;*!*/
-  /*  !*background-position: left 78%;*!*/
-  /*  !*color: inherit;*!*/
-  /*  !*text-decoration: none;*!*/
-  /*}*/
-  .BannerTrail{
-    grid-area:townBannerDets;
-  }
+
+
 
   #aboutUsFlavour{
     grid-area: textFlavour;
@@ -128,8 +97,7 @@
     flex:1;
 
 
-    /*align-items: center;*/
-    /*justify-content: center;*/
+
 
   }
   #trailProgress{
@@ -157,8 +125,17 @@
             ". townBanner townBanner townBannerDets . .";
   }
 
+  .gridContainer3 {
+    display:grid;
+    grid-template-columns: 10% 10% 60% 5% 5% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
 
-
+            " . . textFlavour . . .";
+  }
+  .a .banner{
+      background-color: #36454F;
+  }
 
 </style>
 </head>
@@ -176,32 +153,28 @@
 
       <a href="/allTrails" class="Banner"
          th:style="'background:url('+ ${town.getImageTown()} +');'"
-         th:styleappend="'background-size: 850px 200px;'+'background-repeat: no-repeat;'+'background-position: left 78%;'"
+         th:styleappend="'background-size: 80vw 24vh;'+'background-repeat: no-repeat;'+'background-position: left 30%;'" />
 
-      >
+
 
 
         <H2 th:text="${town.getName()}"> </H2></a>
 
-      <div class="BannerTrail"
-      th:style=" ${town.getTrailProgress()==0 ? 'background-image:darkslategrey' :  'background-image: linear-gradient(to left, darkgoldenrod ' +${town.getTrailProgress()}+ '%, darkslategrey '}
+        <div class="BannerTrail"
+             th:classappend="(${town.getTrailProgress()>60}?'overSixty' :'underSixty')">
+<!--Rough class append used to distinguish progress, using a class append based on progress can allow for  further customisation to banners later on. this only works for
+a single % point though, todo research this further in the future-->
 
 
-<!--      'background-image: linear-gradient(to left, darkgoldenrod ' +${town.getTrailProgress()}+ '%, darkslategrey );'-->
-">
         <div id="trailCount" th:text="'Trails: '+ ${town.getTrailNumber()}">Trails: </div>
         <div id="trailProgress" th:text="${town.getTrailProgress()}+'%'"></div>
       </div>
-<!--      <div class="BannerTrail"-->
-<!--           th:style="'background-image: linear-gradient(to left, darkgoldenrod ' +${town.getTrailProgress()}+ '%, darkslategrey );'">-->
-<!--        <div id="trailCount" th:text="'Trails: '+ ${town.getTrailNumber()}">Trails: </div>-->
-<!--        <div id="trailProgress" th:text="${town.getTrailProgress()}+'%'"></div>-->
-<!--      </div>-->
+
 
     </div>
 
 
-
+<div class="gridContainer3">
 
 
     <div id="aboutUsFlavour"> This is placeholder text about VZTA, this application,
@@ -221,7 +194,7 @@
 
 
 
-
+<div class="aa aa">asdasdasdf gsddfsfsadf</div>
 
 </main>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>

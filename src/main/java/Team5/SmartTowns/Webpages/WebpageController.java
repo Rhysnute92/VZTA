@@ -33,6 +33,7 @@ public class WebpageController {
         return modelAndView;
     }
 
+
     @RequestMapping(value="/test_ajax_frag", method=RequestMethod.POST)
     public String sendHtmlFragment(Model map) {
         //map.addAttribute("foo", "bar");
