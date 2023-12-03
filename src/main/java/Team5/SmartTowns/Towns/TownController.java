@@ -9,9 +9,9 @@ import java.util.List;
 @Controller
 public class TownController {
 
-    @GetMapping("/townTest")
+    @GetMapping("/home")
     public ModelAndView getTownList(){
-        ModelAndView modelAndView = new ModelAndView("Towns/home/homePageTest");
+        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
         TownStorage townsCurrent= new TownStorage().getInstance();
         List<Towns> towns = townsCurrent.getTownList();
         modelAndView.addObject("towns",towns);

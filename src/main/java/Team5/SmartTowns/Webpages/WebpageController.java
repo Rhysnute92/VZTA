@@ -27,11 +27,11 @@ public class WebpageController {
         return modelAndView;
     }
 
-    @GetMapping("/home")
-    public ModelAndView getHome(){
-        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
-        return modelAndView;
-    }
+//    @GetMapping("/home")
+//    public ModelAndView getHome(){
+//        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
+//        return modelAndView;
+//    }
 
 
     @RequestMapping(value="/test_ajax_frag", method=RequestMethod.POST)

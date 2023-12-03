@@ -2,62 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>VZTA - Smart Towns Trails</title>
     <link rel="stylesheet" th:href="@{/css/homePageStyle.css}">
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
-
 </head>
 <body>
 
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <main>
-<div class="gridContainer1">
-    <H1 id="homeTitle"> VZTA Smart Towns - Trails</H1>
-    <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
-
-            <a href="/allTrails" class="caerphillyBanner">
-                <H2> Caerphilly</H2></a>
-
-
-    <div class="caerphillyBannerTrail">
-        <div id="trailCountCaer">Trails: 3</div>
-        <div id="trailProgressCaer">70%</div>
+  <div class="gridContainer1">
+      <H1 id="homeTitle"> VZTA Smart Towns - Trails</H1>
+      <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
+<!--    <div th:text="${towns}">-->
     </div>
 
-        <a href="/allTrails" class="riscaBanner">
-            <H2> Risca</H2> </a>
+    <div th:each="town:${towns}" class="gridContainer2">
 
-    <div class="riscaBannerTrail">
-        <div id="trailCountRisca">Trails: 2</div>
-        <div id="trailProgressRisca">0%</div>
+      <a href="/allTrails" class="Banner"
+         th:style="'background:url('+ ${town.getImageTown()} +');'"
+         th:styleappend="'background-size: 80vw 24vh;'+'background-repeat: no-repeat;'+'background-position: left 30%;'" />
+
+
+
+
+        <H2 th:text="${town.getName()}"> </H2></a>
+
+        <div class="BannerTrail"th:classappend="|${town.getTrailProgress()==100 ? 'Complete' : ''} ${town.getTrailProgress()<100 and town.getTrailProgress()>=90 ? 'closeComplete' : ''''} ${town.getTrailProgress()<90 and town.getTrailProgress()>=70 ? 'nearComplete' : ''''} ${town.getTrailProgress()<70 and town.getTrailProgress()>=50 ? 'farComplete' : ''''} ${town.getTrailProgress()<50 ? 'notComplete' : ''''}|"
+        >
+
+<!--Rough class append used to distinguish progress, using a class append based on progress can allow for  further customisation to banners later on
+rough % outline;
+100 -gold
+90-99 - darkgold
+70-89 - blue
+50-69-green
+0-49-red-->
+
+
+        <div id="trailCount" th:text="'Trails: '+ ${town.getTrailNumber()}">Trails: </div>
+        <div id="trailProgress" th:text="${town.getTrailProgress()}+'%'"></div>
+      </div>
+
+
     </div>
 
 
-    <a href="/allTrails" class="penarthBanner">
-        <H2> Penarth</H2> </a>
-    <div class="penarthBannerTrail">
-        <div id="trailCountPenarth">Trails: 5</div>
-        <div id="trailProgressPenarth">60%</div>
-    </div>
+<div class="gridContainer3">
+
 
     <div id="aboutUsFlavour"> This is placeholder text about VZTA, this application,
-    the trails and towns and resultant awards written in an excitable manner!!</div>
+      the trails and towns and resultant awards written in an excitable manner!!</div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
 
 </main>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
