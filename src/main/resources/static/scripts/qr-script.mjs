@@ -1,4 +1,5 @@
 //qr-script file - R Nute
+import {Html5QrcodeScanner} from "html5-qrcode";
 
 function domReady(fn){
     if (
