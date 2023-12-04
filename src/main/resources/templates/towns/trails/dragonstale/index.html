@@ -5,14 +5,16 @@
     <title>A Dragon's Tale</title>
     <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
 </head>
     <body>
         <header th:insert="towns/Templating.html :: header"></header>
 
+        <!-- As this predefined trail will be accessible from multiple different towns, this thymeleaf element will display the town the user is currently trying to access and display it accordingly.   <span th:text="${townName}">  -->
         <div class="centre">
             <h1> Welcome, to a dragon's tale! </h1>
             <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon" id="homeimg">
-            <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of (thymeleaf element) to discover a prize! </h2>
+            <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of to discover a prize! </h2>
         </div>
 
         <div class="centre">
@@ -22,15 +24,28 @@
             </p>
         </div>
 
+
+        <!-- tabs -->
         <div class="centre">
-            <ul th:each="item : ${landmarksList}">
-                <p th:text="${item.landmarkName}"></p>
-                <p th:text="${item.landmarkDescription}"></p>
+            <h2>There are <span th:text="${getListSize}"> Size of List </span> adventures in this journey! </h2>
+            <ul th:each="item : ${landmarksList}" id="tabBox">
+                <li>
+                    <a id="tabIdCounter" href="#landmarkTabLink" th:text="${item.landmarkName}"> Landmark Tab</a>
+                </li>
             </ul>
         </div>
 
+
+        <!-- Need to mark each element to an ID then loop through them.  -->
+        <div class="centre" id="listOfLandmarks">
+            <p th:each="item : ${landmarksList}">
+                <span th:text="${item.landmarkDescription}" class="landmarkDesc" id="landmarkTabLink"> Landmark Description</span>
+            </p>
+        </div>
+
+        <!-- If use is starting their journey, this will display begin. If not, they'll continue their journey.  <span th:text="${beginOrContinue}"> -->
         <div class="centre">
-            <h3>Begin your hunt!</h3>
+            <h3>  Begin or Continue your hunt!</h3>
             <button type="button" id="begin">Click here!</button>
         </div>
 

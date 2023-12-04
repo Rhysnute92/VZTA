@@ -8,10 +8,19 @@
     background-color: #927BB7;
 }
 
-#homeimg.centre{
-    box-shadow: 100px -100px purple;
+.landmarkName{
+    font-weight: bold;
+    text-align: left;
+}
+
+.landmarkDesc{
+    font-style: italic;
+    text-align: left;
 }
 
 body{
-    background-color: #927BB7;
+    background-color: #E8A87C;
 }
+
+
+
