@@ -27,6 +27,12 @@ public class WebpageController {
         return modelAndView;
     }
 
+    @GetMapping("/maps")
+    public ModelAndView getMapTestAPI(){
+        ModelAndView modelAndView = new ModelAndView("Towns/MapApiTest");
+        return modelAndView;
+    }
+
 //    @GetMapping("/home")
 //    public ModelAndView getHome(){
 //        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
