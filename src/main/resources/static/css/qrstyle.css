@@ -1,4 +1,6 @@
 /*style sheet for QR code - R Nute*/
+/*Modified from (https://www.geeksforgeeks.org/create-a-qr-code-scanner-or-reader-in-html-css-javascript/)*/
+
 body {
     display: flex;
     justify-content: center;
