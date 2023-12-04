@@ -1,4 +1,17 @@
 /* AUTHOR: Gabriel Copat*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+/*COLOUR PALETTE*/
+* {
+    --main-colour: #e47201;
+    --secondary-colour: #e47201;
+    --accent-colour: #e47201;
+    --accent-border: #b25901;
+
+    --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+}
+
 
 /*FONTS, TYPOGRAPHY & BACKGROUNDS*/
 * {
@@ -12,6 +25,10 @@
         color: white;
         text-justify: inter-word;
     }
+    & label {
+        color: white;
+    }
+
 }
 @media only screen and (max-device-width: 500px) {
     /*ADJUSTING FOR SMALLER SCREENS*/
@@ -22,8 +39,11 @@
 }
 
 body {
-    background: linear-gradient(135deg, #9f74be, #3e126b);
+    background: linear-gradient(135deg, #f7e8fd, #9914d1);
     height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 main {
     background: linear-gradient(to bottom, #1e1e1e 10%, darkgoldenrod 50%, #1e1e1e 90%);
@@ -35,9 +55,9 @@ main {
     margin-top: 6em;
     padding-inline: 1vw;
     box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+
+
 }
-
-
 .userInfo {
     display: flex;
     flex-direction: column;
@@ -170,10 +190,12 @@ main {
     }
     & h1 {
         font-size: 3em;
+        font-family: 'MedievalSharp', cursive;
+        letter-spacing: 1vw;
         box-shadow: rgba(0, 0, 0, 0.7) 0 2vw 2vw -2vw;
         border-bottom: #36454F solid 2px;
         border-top: #36454F solid 2px;
-        margin-inline: 25%;
+        margin-inline: 15%;
         margin-bottom: 1%;
     }
     & .dragonContainer {
@@ -227,4 +249,115 @@ header .footerButton {
 }
 header .footerButton:hover {
     background-color: #36454F;
+}
+
+.grayedOut {
+    filter: grayscale(1);
+}
+
+.solidBg {
+    background: #1e1e1e;
+    display: flex;
+}
+.loginWrapper {
+    margin-inline: auto;
+    margin-block: 5svh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: rgba(196, 92, 239, 0.75);
+    padding: 2em;
+    flex: 0 0;
+    border-radius: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh max(1vw, 1em);
+    & h2 {
+        margin-left: 0;
+        margin-right: auto;
+        margin-bottom: 0.5em;
+    }
+    & form{
+        margin-block: auto;
+        font-size: 3em;
+        display: flex;
+        flex-direction: column;
+    }
+    & label {
+        position: relative;
+        margin-top: 1em;
+        /*width: fit-content;*/
+        font-size: 0.8em;
+        & b {
+            float: left;
+        }
+        & a {
+            position: absolute;
+            font-size: 0.4em;
+            right: 0.2em;
+            bottom: 0.2em;
+            height: fit-content;
+        }
+
+    }
+    & input {
+        font-size: 0.6em;
+        height: 1.5em;
+        width: 40vw;
+        border-radius: 0.2em;
+        padding-inline: 0.4em;
+        border: transparent solid 0.1em;
+        margin-bottom: 1em;
+    }
+    & button {
+        font-size: 1em;
+        height: 2em;
+        width: 4em;
+        box-shadow: var(--accent-shadow);
+        margin:auto;
+        margin-top: 1em;
+        background-color: var(--accent-colour);
+        border: 0.1em solid var(--accent-border);
+        border-radius: 1em;
+        color: white;
+
+    }
+    & button:hover{
+        background-color: var(--accent-border);
+        border: 0.1em solid var(--accent-colour);
+    }
+}
+.label {
+    position: relative;
+}
+.invalid-tooltip {
+    color: red;
+    width: fit-content;
+    opacity: 0;
+    font-size: 0.6em;
+    text-shadow: red 0 0.2em 1em;
+    transition: 0.3s ease-in-out 1ms;
+    padding:0.1em;
+    position: absolute;
+    right: 0.2em;
+    bottom: 0.2em;
+    height: fit-content;
+}
+.invalid-field {
+    box-shadow: red 0 0 1em;
+    transition: 0.3s ease-in-out 1ms;
+}
+.valid-field {
+    box-shadow: #40ff00 0 0 1em;
+    border: #40ff00 solid 0.1em;
+    transition: 0.3s ease-in-out 1ms;
+}
+
+
+#invalidLogin {
+    color: red;
+    text-shadow: black 0 0.1em 0.2em;
+    width: auto;
+    height: auto;
+    font-size: 0.6em;
+    opacity: 0;
+    transition: 0.5s ease-in-out 1ms;
 }
