@@ -11,27 +11,28 @@ import org.springframework.stereotype.Controller;
 public class WebpageController {
     @GetMapping("/Caerleon")
     public ModelAndView getCaerleonPage(){
-        ModelAndView modelAndView = new ModelAndView("towns/caerleon");
+        ModelAndView modelAndView = new ModelAndView("Towns/caerleon");
         return modelAndView;
     }
 
     @GetMapping("/Caerphilly")
     public ModelAndView getCaerphillyPage(){
-        ModelAndView modelAndView = new ModelAndView("towns/caerphilly");
+        ModelAndView modelAndView = new ModelAndView("Towns/caerphilly");
         return modelAndView;
     }
 
     @GetMapping("/Risca")
     public ModelAndView getRiscaPage(){
-        ModelAndView modelAndView = new ModelAndView("towns/risca");
+        ModelAndView modelAndView = new ModelAndView("Towns/risca");
         return modelAndView;
     }
 
-    @GetMapping("/home")
-    public ModelAndView getHome(){
-        ModelAndView modelAndView = new ModelAndView("towns/home/homePage");
-        return modelAndView;
-    }
+//    @GetMapping("/home")
+//    public ModelAndView getHome(){
+//        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
+//        return modelAndView;
+//    }
+
 
     @RequestMapping(value="/test_ajax_frag", method=RequestMethod.POST)
     public String sendHtmlFragment(Model map) {
