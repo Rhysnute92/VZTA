@@ -10,20 +10,33 @@ import java.util.List;
 @Repository
 public class locationRepositoryJDBC implements locationRepository {
     private JdbcTemplate jdbc;
-    private RowMapper<location> locationMapper;
+    private RowMapper<Location> locationMapper;
 
     public locationRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setlocationMapper();
     }
     private void setlocationMapper(){
-        locationMapper = (rs, i) -> new location(
-                rs.getInt("locationID"),
-                rs.getString("name")
+        locationMapper = (rs, i) -> new Location(
+
+                rs.getString("locationName"),
+                rs.getString("locationEmail"),
+                rs.getString("locationDescription"),
+                rs.getString("locationPlace"),
+                rs.getInt("locationTrailID")
         );
     }
-    public List<location> getAllLocation(){
+    public List<Location> getAllLocation(){
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
+
+    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
+    public void addLocation(Location loc) {
+        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?)";
+
+        jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
+    }
+
+
 }
