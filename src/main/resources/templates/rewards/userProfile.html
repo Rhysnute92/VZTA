@@ -29,13 +29,13 @@
         <!--TODO add some progression info here?-->
     </div>
     <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
-<!--        <article id="badgesBar">-->
-<!--            <h2>Your Badges: </h2> &lt;!&ndash;Shows first earned badges, followed by greyed out badges&ndash;&gt;-->
-<!--            <div id="allBadgesContainer"  class="centerFlex">-->
-<!--                <img class="badgeImg"  th:each="badge : ${badges}" th:src="@{'..' + ${badge.getImgPath()}}"-->
-<!--                     th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >-->
-<!--            </div>-->
-<!--        </article>-->
+        <article id="badgesBar">
+            <h2>Your Badges: </h2> <!--Shows first earned badges, followed by greyed out badges-->
+            <div id="allBadgesContainer"  class="centerFlex">
+                <img class="badgeImg"  th:each="badge : ${badges}" th:src="@{'..' + ${badge.getImgPath()}}"
+                     th:id="'img' + ${badge.getId()}" th:alt="${badge.getName()}" >
+            </div>
+        </article>
         <article class="dragonProgression">
             <h1>The Dragon's Tale</h1>
             <div class="dragonContainer">

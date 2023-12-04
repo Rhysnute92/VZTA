@@ -351,6 +351,7 @@ header .footerButton:hover {
     transition: 0.3s ease-in-out 1ms;
 }
 
+
 #invalidLogin {
     color: red;
     text-shadow: black 0 0.1em 0.2em;

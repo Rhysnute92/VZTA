@@ -1,6 +1,6 @@
 delete from users;
-insert into users (userID, email, name, dragonProgress) value ('1', 'hannah@gmail.com', 'Hannah', '90');
-insert into users (userID, email, name) value ('2', 'nigel@gmail.com', 'Nigel');
+insert into users (email, name, dragonProgress) value ('hannah@gmail.com', 'Hannah', '90');
+insert into users (userID, email, name, dragonProgress) value ('2', 'nigel@gmail.com', 'Nigel', '40');
 
 delete from trails;
 insert into trails (trailID, Name) value ('1', 'Caerphilly Coffee Trail');

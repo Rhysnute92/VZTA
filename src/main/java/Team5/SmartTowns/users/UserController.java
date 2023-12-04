@@ -43,8 +43,8 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable int id) {
         ModelAndView mav = new ModelAndView("rewards/userProfile");
-//        List<Badge> badges = badgesRepository.getAllBadges(); DEPRECATED FOR THE MOMENT
-//        mav.addObject("badges", badges);
+        List<Badge> badges = badgesRepository.getAllBadges(); /*DEPRECATED FOR THE MOMENT*/
+        mav.addObject("badges", badges);
         List<Sticker> allStickers = stickersRepository.getAllStickers();
         List<User> users = userRepository.getAllUsers();
         Map<Long, Boolean> userStickers = userRepository.getStickers(id);
