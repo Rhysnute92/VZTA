@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
+import static Team5.SmartTowns.Landmarks.Landmarks.getLandmarksDragonstrail;
 
 @Controller
 public class TrailsController {
@@ -40,11 +40,21 @@ public class TrailsController {
 
     @GetMapping("/dragonstale")
     public ModelAndView getDragonsTale(){
-        List<Landmarks> landmarksList = landmarksDragonstrail;
+        List<Landmarks> landmarksList = getLandmarksDragonstrail();
+        Landmarks landmarks = new Landmarks();
+        int listSize = landmarksList.size();
         ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/index");
         modelAndView.addObject("landmarksList", landmarksList);
+        modelAndView.addObject("getListSize", listSize);
         return modelAndView;
     }
+
+//    @GetMapping("/dragonstale/{landmarks}")
+//    public ModelAndView getDragonstaleLandmarks(){
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject()
+//    }
+
 
 }
 
