@@ -4,14 +4,12 @@ package Team5.SmartTowns.trails;
 import Team5.SmartTowns.Landmarks.Landmarks;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
 
@@ -45,6 +43,16 @@ public class TrailsController {
         modelAndView.addObject("landmarksList", landmarksList);
         return modelAndView;
     }
+
+
+//    //
+//    @GetMapping("dragonstale/{qrCode}/{id}")
+//    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
+//        if (qrCode.isPresent() && id.isPresent()){
+//            //Check if ID is present, if do this, if not dfo that.
+//
+//        }
+//    }
 
 }
 
