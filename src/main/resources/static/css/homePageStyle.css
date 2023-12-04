@@ -1,3 +1,4 @@
+
 body{
     background-color: rgb(41, 41, 41)
 }
@@ -8,117 +9,164 @@ body{
 .submitLand{
     grid-area: submitButton;
 }
-.caerphillyBanner , .riscaBanner,.penarthBanner{
+.Banner {
     margin-top: 20px;
     background-color: darkslategrey;
     margin-bottom: 20px;
-    border: solid 2px whitesmoke;
+    /*border: solid 2px whitesmoke;*/
     /*border colour here at .banner and .bannertrail*/
     border-right: none;
 }
-.caerphillyBannerTrail,.riscaBannerTrail,.penarthBannerTrail{
-    background-color: darkslategrey;
+
+/* .BannerTrail.Complete(100%) .BannerTrail.closeComplete(90-99%) .BannerTrail.nearComplete(70-99%) .BannerTrail.farComplete(50-69%) .BannerTrail.notComplete(0-49%) */
+.BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete {
     margin-top: 20px;
     margin-bottom: 20px;
     border: solid 2px whitesmoke;
-    border-left: none;
     text-align: center;
 }
 
-.penarthBannerTrail{
-    background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 40%);
+.BannerTrail th, .BannerTrail.Complete th, .BannerTrail.closeComplete th, .BannerTrail.nearComplete th, .BannerTrail.farComplete th, .BannerTrail.notComplete th{
+    grid-area:townBannerDetsR
 }
 
-.caerphillyBannerTrail{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 2px whitesmoke;
-    border-left: none;
-    background-image: linear-gradient(to right, darkslategrey , darkgoldenrod 30%);
+.BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete{
+    grid-area:townBannerDets;
 }
 
-.caerphillyBanner{
-    grid-area:townBannerC;
-    background-image: url('/images/CaerphillyCastle.jpg');
-    /*// from cadw*/
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 35%;
+.BannerTrail {
+    background-color: darkslategrey;
+
+}
+
+.BannerTrail.Complete {
+    background-color: gold;
+    border: 2px solid gold;
+    border-left: solid 2px whitesmoke;
+}
+.BannerTrail.closeComplete {
+    background-color: darkgoldenrod;
+    background-color: darkgoldenrod;
+    border: 2px solid darkgoldenrod;
+    border-left: solid 2px whitesmoke;
+}
+
+.BannerTrail.nearComplete {
+    background-color: deepskyblue;
+    background-color: deepskyblue;
+    border: 2px solid deepskyblue;
+    border-left: solid 2px whitesmoke;
+}
+
+.BannerTrail.farComplete {
+    background-color: green;
+    background-color: green;
+    border: 2px solid green;
+    border-left: solid 2px whitesmoke;
+}
+
+.BannerTrail.notComplete {
+    background-color: red;
+    background-color: red;
+    border: 2px solid red;
+    border-left: solid 2px whitesmoke;
+}
+
+/*Below selects banner that has the Complete class to change color*/
+.Banner:has(+.BannerTrail.Complete){
+    border: 2px solid gold;
+    border-right: solid 2px whitesmoke;
+}
+
+.Banner:has(+.BannerTrail.closeComplete){
+    border: 2px solid darkgoldenrod;
+    border-right: solid 2px whitesmoke;
+}
+
+
+.Banner:has(+.BannerTrail.nearComplete){
+    border: 2px solid deepskyblue;
+    border-right: solid 2px whitesmoke;
+}
+.Banner:has(+.BannerTrail.farComplete){
+    border: 2px solid green;
+    border-right: solid 2px whitesmoke;
+}
+.Banner:has(+.BannerTrail.notComplete){
+    border: 2px solid red;
+    border-right: solid 2px whitesmoke;
+}
+
+
+.BannerTrail {
+    background-color: darkslategrey;
+
+}
+
+
+
+
+
+
+.Banner {
+    grid-area:townBanner;
     color: inherit;
     text-decoration: none;
-    /*filter: grayscale(30%);*/
+    background-color: hotpink;
 }
 
-/*!*https://www.stayinwales.co.uk/wales_picture.cfm?p=4454*! Risca img*/
 
-.riscaBanner {
-    /*    #caerUrl{*/
-    grid-area: townBannerR;
-    background-image: url('/images/RiscaBanner.jpg');
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 65%;
-    color: inherit;
-    text-decoration: none;
+a{
+    background-size: contain;
+
 }
 
-.penarthBanner {
-    grid-area: townBannerP;
-    background-image: url('/images/PenarthBanner.jpg');
-    background-size: 850px 200px;
-    background-repeat: no-repeat;
-    background-position: left 78%;
-    color: inherit;
-    text-decoration: none;
-}
-.caerphillyBannerTrail{
-    grid-area:townBannerDetsC;
-}
-.riscaBanner{
-    grid-area:townBannerR;
-}
-.riscaBannerTrail{
-    grid-area:townBannerDetsR;
-}
-.penarthBanner{
-    grid-area:townBannerP;
-}
-.penarthBannerTrail{
-    grid-area:townBannerDetsP;
-}
+
+
 #aboutUsFlavour{
     grid-area: textFlavour;
     margin-top: 25px;
     margin-bottom: 15px;
     color: whitesmoke;
 }
-#trailCountCaer,#trailCountRisca,#trailCountPenarth{
+#trailCount{
     flex:1;
 
 
-    /*align-items: center;*/
-    /*justify-content: center;*/
+
 
 }
-#trailProgressCaer,#trailProgressRisca,#trailProgressPenarth{
+#trailProgress{
     flex:2;
     align-content: center;
 
 }
 
 
-.gridContainer1{
+.gridContainer1 {
     display:grid;
     grid-template-columns: 10% 10% 60% 5% 5% 10%;
     grid-template-rows: auto;
     grid-template-areas:
             ". pageTitle pageTitle pageTitle pageTitle ."
-            ". . . submitButton submitButton ."
-            ". townBannerC townBannerC townBannerDetsC . ."
-            ". townBannerR townBannerR townBannerDetsR . ."
-            ". townBannerP townBannerP townBannerDetsP . ."
-            " . . textFlavour . . .";
+            ". . . submitButton submitButton .";
 }
 
+.gridContainer2 {
+    display:grid;
+    grid-template-columns: 10% 10% 60% 5% 5% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
 
+            ". townBanner townBanner townBannerDets . .";
+}
+
+.gridContainer3 {
+    display:grid;
+    grid-template-columns: 10% 10% 60% 5% 5% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+
+            " . . textFlavour . . .";
+}
 
