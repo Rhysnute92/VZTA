@@ -32,10 +32,6 @@ insert into locations (locationID, locationName , locationEmail,locationDescript
 
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (19, 'The Esplanade','','Location description here','Penarth',0301);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
-
-insert into locations (locationID, Name) value ('1', 'Caerphilly');
-insert into locations (locationID, Name) value ('2', 'Penarth');
-
 delete from badges;
 insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
 insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
