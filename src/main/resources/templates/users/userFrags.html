@@ -1,5 +1,3 @@
-<th:block xmlns:th="http://www.thymeleaf.org">
-
   <!-- @thymesVar id="sticker" type="team5.smartTowns.rewards.Sticker" -->
 <article th:fragment="stickersBox" id="stickersBox">
   <h2>STICKERS!</h2>
@@ -10,17 +8,21 @@
 </article>
 
 <!-- @thymesVar id="user" type="team5.smartTowns.users.User" -->
-<article th:fragment="trailProgression" class="dragonProgression">
+<article th:fragment="trailProgression" class="progressionContainer">
   <h1>The Dragon's Tale</h1>
-  <div class="dragonContainer">
-    <div class="dragonFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
+  <div class="progImgContainer">
+    <div class="progImgFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
       <img th:src="@{/images/rewards/dragonFilled.png}"
-           alt="Filled Dragon" id="FilledDragon" class="dragonImg">
+           alt="Filled Dragon" id="FilledDragon" class="progImg">
     </div>
-    <div class="dragonOut">
+    <div class="progText">
+      <p th:text="${user.getDragonProgress()} + '%'"></p>
+    </div>
+    <div class="progImgOutline">
       <img th:src="@{/images/rewards/dragonOutline.png}"
-           alt="Outline Dragon" id="OutlineDragon" class="dragonImg">
+           alt="Outline Dragon" id="OutlineDragon" class="progImg">
     </div>
+
   </div>
-  <h2 th:text="${user.getDragonProgress()} + '%'"></h2>
+
 </article>
