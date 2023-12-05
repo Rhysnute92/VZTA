@@ -39,6 +39,7 @@ drop table if exists stickers;
 create table if not exists stickers
 (
     stickerID bigint auto_increment primary key,
+    packID bigint,
     name varchar(128),
     description varchar(128),
     rarity bigint
@@ -57,4 +58,11 @@ create table if not exists stickerProgress
     userID bigint,
     stickerID bigint,
     hasSticker boolean /*Has sticker or not*/
+) engine=InnoDB;
+create table if not exists packs
+(
+    packID bigint auto_increment primary key,
+    name varchar(128),
+    description varchar(128)
+
 ) engine=InnoDB;
