@@ -7,7 +7,7 @@ insert into trails ( Name) value ( 'Caerphilly Coffee Trail');
 insert into trails ( Name) value ( 'Penarth Dragon Trail');
 
 delete from locations;
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved)value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Castle','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Medieval Trades','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Queen''s War','','Location description here','Caerphilly',0101, true);

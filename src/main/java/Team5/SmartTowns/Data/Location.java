@@ -15,6 +15,10 @@ public class Location {
 
     private boolean locationApproved;
 
+    public Location() {
+
+    }
+
     @Override
     public String toString() {
         return "Location{" +

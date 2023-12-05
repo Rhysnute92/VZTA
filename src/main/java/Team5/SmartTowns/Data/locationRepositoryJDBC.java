@@ -44,8 +44,6 @@ public class locationRepositoryJDBC implements locationRepository {
     public List<Location> approvedLocations(){
         List<Location> locations = getAllLocation();
         List<Location> locationApprovalList= new ArrayList<>();
-//		for (int i=0;i<locations.size();i++){
-//			location
         for (Location loc :locations){
             if (loc.isLocationApproved()) {
                 locationApprovalList.add(loc);
