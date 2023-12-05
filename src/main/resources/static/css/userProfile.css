@@ -81,15 +81,15 @@ main {
         box-shadow: rgba(0, 0, 0, 0.7) 0 0.5svh 1vw -1vw;
     }
 }
-#badgesBar::-webkit-scrollbar {
+#packsBar::-webkit-scrollbar {
     display: none;
     -ms-scrollbar-darkshadow-color: transparent;
 }
-#badgesBar {
+#packsBar {
     display: grid;
     grid-template-areas:
         "header"
-        "badges";
+        "packs";
     overflow-x: scroll;
     overflow-y: hidden;
     color: white;
@@ -112,7 +112,7 @@ main {
     }
     & #allBadgesContainer {
         margin-top: 3svh;
-        grid-area: badges;
+        grid-area: packs;
         height: 10svh;
         align-content: center;
         display: flex;
@@ -121,7 +121,7 @@ main {
             margin-top: 6vw;
         }
     }
-    & .badgeImg {
+    & .packImg {
         margin-inline: 3vw;
         height: 8svh;
         z-index: 50;
@@ -130,7 +130,7 @@ main {
         }
         transition: 0.3s ease-out 100ms;
     }
-    & .badgeImg:hover {
+    & .packImg:hover {
         /*box-shadow: 0 0 20px 10px #bbbb00;*/
         transform: scale(1.5,1.5);
 

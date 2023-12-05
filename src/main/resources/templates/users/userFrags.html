@@ -1,0 +1,26 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+  <!-- @thymesVar id="sticker" type="team5.smartTowns.rewards.Sticker" -->
+<article th:fragment="stickersBox" id="stickersBox">
+  <h2>STICKERS!</h2>
+  <div class="stickersContainer">
+    <img th:class="'stickerImg ' + ${sticker.getVisibility()}"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getDisplayImg()}}"
+         th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
+  </div>
+</article>
+
+<!-- @thymesVar id="user" type="team5.smartTowns.users.User" -->
+<article th:fragment="trailProgression" class="dragonProgression">
+  <h1>The Dragon's Tale</h1>
+  <div class="dragonContainer">
+    <div class="dragonFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
+      <img th:src="@{/images/rewards/dragonFilled.png}"
+           alt="Filled Dragon" id="FilledDragon" class="dragonImg">
+    </div>
+    <div class="dragonOut">
+      <img th:src="@{/images/rewards/dragonOutline.png}"
+           alt="Outline Dragon" id="OutlineDragon" class="dragonImg">
+    </div>
+  </div>
+  <h2 th:text="${user.getDragonProgress()} + '%'"></h2>
+</article>
