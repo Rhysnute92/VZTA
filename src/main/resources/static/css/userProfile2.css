@@ -1,0 +1,221 @@
+/* AUTHOR: Gabriel Copat*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /*COLOUR PALETTE*/
+    @media (prefers-color-scheme: dark) {
+        --primary-darker: hsl(272, 100%, 10%);
+        --primary-dark: hsl(271, 100%, 20%);
+        --primary-colour: hsl(271, 100%, 30%);
+        --primary-light: hsl(271, 100%, 40%);
+        --primary-lighter: hsl(271, 100%, 50%);
+
+        --secondary-colour: hsl(12, 81%, 46%);
+        --accent-colour: hsl(12, 82%, 32%);
+        --accent-border: hsl(12, 81%, 25%);
+
+        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+
+        color: white;
+
+    }
+    @media (prefers-color-scheme: light) {
+        --primary-darker: hsl(141, 100%, 10%);
+        --primary-dark: hsl(131, 33%, 20%);
+        --primary-colour: hsl(128, 100%, 30%);
+        --primary-light: hsl(271, 100%, 40%);
+        --primary-lighter: hsl(271, 100%, 50%);
+
+        --secondary-colour: hsl(12, 81%, 46%);
+        --accent-colour: hsl(12, 82%, 32%);
+        --accent-border: hsl(12, 81%, 25%);
+
+        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+
+
+    }
+}
+
+
+
+/* DEFAULT CSS MADE FOR SCREEN SIZES WIDTHS
+    BETWEEN 320px and 640px:*/
+
+body {
+    background: linear-gradient(to bottom right,
+    var(--primary-darker),
+    var(--primary-dark),
+    var(--primary-darker));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    position: fixed;
+    width: 100vw;
+    height: 100svh;
+}
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 640px)
+{
+    html {
+        position: fixed;
+        width: 100vw;
+        height: 100svh;
+    }
+    main {
+        width: 90%;
+        height: 95%;
+        background: linear-gradient(to bottom left, #1f1f1f, #1e1e1e, #1f1f1f);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-inline: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: center;
+    }
+    .userContainer {
+        width: 80%;
+        padding-block: 2em;
+        margin-block: 1em;
+        border-radius: 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1svh;
+
+        & h1 {
+            font-size: 5em;
+            text-align: center;
+            text-shadow: black 0 0.2em 0.5em;
+            letter-spacing: 0.1em;
+            /*border-bottom: black solid 3px;*/
+            padding-inline: 5%;
+            padding-block: 2%;
+            border-radius: 35%;
+            box-shadow: var(--accent-shadow);
+            background: var(--accent-border);
+        }
+        & #userPicture {
+            width: 35vw;
+            height: 35vw;
+            border-radius: 100%;
+            border: solid #989898 0.8em;
+            box-shadow: var(--accent-shadow);
+            overflow: hidden;
+        }
+
+    }
+
+
+    .rewards {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        width: 100%;
+    }
+    #packsBar {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        width: 100%;
+        & h2 {
+            font-size: 4em;
+            letter-spacing: 0.1em;
+            border-bottom: 10px solid darkred;
+            margin-inline: 5%;
+        }
+
+    }
+    #allPacksContainer {
+        padding-top: 3em;
+        display: flex;
+        overflow-x: scroll;
+        justify-content: space-between;
+        & .packName {
+            font-size: 2em;
+            height: 2.4em;
+            overflow: hidden;
+            padding-bottom: 1em;
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+
+        }
+        & .packImg {
+            height: 10svh;
+            width: 15em;
+            transition: 0.5s ease-in-out 1ms;
+            padding-inline: 1em;
+        }
+        & .packImg:hover {
+            transform: scale(1.5, 1.5)
+        }
+    }
+
+    #allPacksContainer::-webkit-scrollbar {
+        display: none;
+        -ms-scrollbar-darkshadow-color: transparent;
+    }
+
+    .progressionContainer {
+        display: flex;
+        flex-direction: column;
+        height: 20svh;
+        & h1 {
+            font-size: 4em;
+            font-family: 'MedievalSharp', cursive;
+            text-align: center;
+        }
+        & .progImgContainer {
+            position: relative;
+            margin-inline: auto;
+            & .progImg {
+                height: 10svh;
+                width: 16svh;
+            }
+            & .progImgFill {
+                position: absolute;
+                overflow: hidden;
+                width: 50%;
+            }
+            & .progImgOut {
+                position: absolute;
+                overflow: hidden;
+            }
+            & .progText {
+                opacity: 0.5;
+                position: absolute;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                height: 10svh;
+                width: 16svh;
+
+                font-size: 3em;
+                translate: 0 5%;
+            }
+
+        }
+
+        /*TODO HERE THE FINAL SECTION FOR THE STICKERS BOYO*/
+
+
+
+    }
+
+}
