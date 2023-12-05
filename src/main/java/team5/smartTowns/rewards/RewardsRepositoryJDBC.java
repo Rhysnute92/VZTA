@@ -12,12 +12,15 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
     private final JdbcTemplate jdbc;
     private RowMapper<Badge> badgeMapper;
     private RowMapper<Sticker> stickerMapper;
+    private RowMapper<Pack> packMapper;
 
     public RewardsRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setBadgeMapper();
         setStickerMapper();
+        setPackMapper();
     }
+
     private void setBadgeMapper(){
         badgeMapper = (rs, i) -> new Badge(
                 rs.getInt("badgeID"),
@@ -32,7 +35,15 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
                 rs.getInt("stickerID"),
                 rs.getString("name"),
                 rs.getString("description"),
-                rs.getInt("rarity")
+                rs.getInt("rarity"),
+                rs.getInt("packID")
+        );
+    }
+    private void setPackMapper(){
+        packMapper = (rs, i) -> new Pack(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("description")
         );
     }
 
@@ -43,8 +54,19 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
     }
 
     @Override
+    public List<Pack> getAllPacks() {
+        String sql= "SELECT * FROM packs";
+        return jdbc.query(sql, packMapper);
+    }
+
+    @Override
     public List<Badge> getAllBadges(){
         String sql= "SELECT * FROM badges";
         return jdbc.query(sql, badgeMapper);
+    }
+
+    public List<Sticker> getAllStickersFromPack(int packID){
+        String sql= "SELECT * FROM stickers WHERE packID="+packID;
+        return jdbc.query(sql, stickerMapper);
     }
 }

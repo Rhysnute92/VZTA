@@ -8,6 +8,12 @@ import java.util.List;
 
 public interface RewardsRepository {
     List<Badge> getAllBadges();
+
     List<Sticker> getAllStickers();
+
+    List<Sticker> getAllStickersFromPack(int packID);
+
+    List<Pack> getAllPacks();
+
 }
 

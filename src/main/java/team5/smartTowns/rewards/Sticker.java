@@ -10,10 +10,12 @@ public class Sticker extends Reward{
 
     int rarity; //1-5
     boolean hasSticker;
+    int packID;
 
-    public Sticker(int id, String name, String description, int rarity) {
+    public Sticker(int id, String name, String description, int rarity, int packID) {
         super(id, name, description);
         this.rarity = rarity;
+        this.packID = packID;
     }
 
     @Override

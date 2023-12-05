@@ -47,3 +47,5 @@ function validateForm(){
     }
     //TODO SERVER SIDE VALIDATION AND CHECK AGAINST USERS DB TABLE
 }
+
+

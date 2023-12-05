@@ -45,12 +45,23 @@ insert into badgeprogress (userID, badgeID, progress) value ('1', '1', '40');
 insert into badgeprogress (userID, badgeID, progress) value ('1', '2', '70');
 insert into badgeprogress (userID, badgeID, progress) value ('2', '2', '70');
 
+delete from packs;
+insert into packs (name, description) value ('Pack One Has a Kind of Long Name', 'This is pack 1');
+insert into packs (name, description) value ('Pack2', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Pack3', 'This is pack 2');
+
+
 delete from stickers;
-insert into stickers (name, description, rarity) value ('TownConnoisseur', 'You know the town very well!', '2');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+insert into stickers (name, description, rarity, packID) value ('TownConnoisseur', 'You know the town very well!', '2', 1);
+insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 2);
+insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 2);
 
 delete from stickerprogress;
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);

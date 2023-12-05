@@ -36,13 +36,25 @@ create table if not exists badges
 ) engine=InnoDB;
 
 drop table if exists stickers;
+drop table if exists packs;
+create table if not exists packs
+(
+    id bigint auto_increment primary key,
+    name varchar(128),
+    description varchar(128)
+
+) engine=InnoDB;
+
 create table if not exists stickers
 (
     stickerID bigint auto_increment primary key,
-    packID bigint,
     name varchar(128),
     description varchar(128),
-    rarity bigint
+    rarity bigint,
+    packID bigint,
+    FOREIGN KEY (packID) REFERENCES packs(id)
+            ON DELETE CASCADE
+            ON UPDATE RESTRICT
 ) engine=InnoDB;
 
 drop table if exists badgeProgress;
@@ -58,11 +70,4 @@ create table if not exists stickerProgress
     userID bigint,
     stickerID bigint,
     hasSticker boolean /*Has sticker or not*/
-) engine=InnoDB;
-create table if not exists packs
-(
-    packID bigint auto_increment primary key,
-    name varchar(128),
-    description varchar(128)
-
 ) engine=InnoDB;

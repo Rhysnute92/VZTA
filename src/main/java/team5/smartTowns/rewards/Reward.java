@@ -30,7 +30,7 @@ public abstract class Reward {
     }
     public String findImagePath(){
         /* Finds the image in the Path folder, if image is not found assigns default image */
-        String imgPath = "images/rewards/" + getImgFolder() + "/" + id + ".jpg";
+        String imgPath = "images/rewards/" + getImgFolder() + "/" + id + ".png";
         String notFoundPath = "images/rewards/" + getImgFolder() + "/" + getDefaultImg();
 
         File imgFile = new File("src/main/resources/static/" + imgPath);

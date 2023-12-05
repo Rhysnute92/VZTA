@@ -2,6 +2,7 @@ package team5.smartTowns.users;
 
 
 import team5.smartTowns.rewards.Badge;
+import team5.smartTowns.rewards.Pack;
 import team5.smartTowns.rewards.RewardsRepository;
 import team5.smartTowns.rewards.Sticker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ public class UserController {
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Badge> badges = rewardsRepository.getAllBadges(); /*DEPRECATED FOR THE MOMENT*/
         List<Sticker> allStickers = rewardsRepository.getAllStickers();
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
 
 
 
@@ -53,7 +55,7 @@ public class UserController {
                     .findFirst().ifPresent(sticker -> sticker.setVisibility(userStickers.get(stickerID)));
         }
         mav.addObject("user", userRepository.getUser(id));
-        mav.addObject("packs", badges);
+        mav.addObject("packs", allPacks);
         mav.addObject("stickers", allStickers);
 
         return mav;
