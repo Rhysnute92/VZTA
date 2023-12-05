@@ -14,6 +14,7 @@ public class Trail {
             new Trail(4,"Trail4", "This is trail four"),
             new Trail(5,"A Dragon's Tale", "EDITING THIS")
     );
+
     int id;
     String name;
     String description;

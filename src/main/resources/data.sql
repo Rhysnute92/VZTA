@@ -54,11 +54,5 @@ insert into badgeprogress (userID, badgeID, progress) value ('2', '2', '70');
 delete from stickerprogress;
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
+<<<<<<< HEAD
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
-
-delete from dragonstale;
-insert into dragonstale (landmarkID, landmarkName, landmarkDescription) value (1, 'A scent of...Dragon', 'The Dragon has been spotted near by, find the QR code to continue');
-insert into dragonstale (landmarkID, landmarkName, landmarkDescription) value (2, 'They''ve been found!', 'Don''t let them escape, find the next QR code to continue!');
-
-delete from testuser;
-insert into testuser (userID, user_name, qrCodeScan) value (1, 'Dave', JSON_OBJECT('one', true, 'two', false, 'three', false));
