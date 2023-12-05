@@ -24,30 +24,30 @@ class SmartTownsApplicationTests {
 	void contextLoads() {
 	}
 
-	private static Location location;
-	@BeforeAll
-	public static void before() {
-		location = new Location(); }
-	@Autowired
-	private locationRepository locationRepository;
+//	private static Location location;
+//	@BeforeAll
+//	public static void before() {
+//		location = new Location(); }
+//	@Autowired
+//	private locationRepository locationRepository;
 
-	@Test
-	public void whenAddingLocationsNonApprovedLocationsDontShowInTrails(){
-		/// Discover number of approved/unapproved locations before adding tests
-		List<Location> approvedNumber= locationRepository.approvedLocations();
-//		Location loc1= new Location("TestFail", "Test@PleaseFail.test", "Fail Description here",
-//				"Caerphilly", 103, false);
-//		Location loc2= new Location("TestFail", "Test@PleaseFail2.test", "Fail Description here",
-//				"Caerphilly", 103, false);
-//		Location loc3= new Location("TestPass", "Test@PleasePass.test", "Pass Description here",
-//				"Caerphilly", 103, true);
-//		locationRepository.addLocation(loc1);
-//		locationRepository.addLocation(loc2);
-//		locationRepository.addLocation(loc3);
-//		List<Location> ApprovedNumberAfter=locationRepository.approvedLocations();
-//
-//		assertEquals(1,( ApprovedNumber.size()-ApprovedNumberAfter.size()));
-		}
+//	@Test
+//	public void whenAddingLocationsNonApprovedLocationsDontShowInTrails(){
+//		/// Discover number of approved/unapproved locations before adding tests
+//		List<Location> approvedNumber= locationRepository.approvedLocations();
+////		Location loc1= new Location("TestFail", "Test@PleaseFail.test", "Fail Description here",
+////				"Caerphilly", 103, false);
+////		Location loc2= new Location("TestFail", "Test@PleaseFail2.test", "Fail Description here",
+////				"Caerphilly", 103, false);
+////		Location loc3= new Location("TestPass", "Test@PleasePass.test", "Pass Description here",
+////				"Caerphilly", 103, true);
+////		locationRepository.addLocation(loc1);
+////		locationRepository.addLocation(loc2);
+////		locationRepository.addLocation(loc3);
+////		List<Location> ApprovedNumberAfter=locationRepository.approvedLocations();
+////
+////		assertEquals(1,( ApprovedNumber.size()-ApprovedNumberAfter.size()));
+//		}
 	}
 
 

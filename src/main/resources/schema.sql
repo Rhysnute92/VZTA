@@ -2,7 +2,8 @@ drop table if exists trails;
 create table if not exists trails
 (
     trailID bigint auto_increment primary key,
-    name varchar(128)
+    name varchar(128),
+    tru boolean
 )   engine=InnoDB;
 
 drop table if exists locations;

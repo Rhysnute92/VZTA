@@ -3,8 +3,8 @@ insert into users (email, name, dragonProgress) value ('hannah@gmail.com', 'Hann
 insert into users (userID, email, name, dragonProgress) value ('2', 'nigel@gmail.com', 'Nigel', '40');
 
 delete from trails;
-insert into trails ( Name) value ( 'Caerphilly Coffee Trail');
-insert into trails ( Name) value ( 'Penarth Dragon Trail');
+insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
+insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
 
 delete from locations;
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved)value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);

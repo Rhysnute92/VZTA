@@ -9,4 +9,5 @@ import lombok.Data;
 public class trail {
     private int trailsId;
     private String name;
+    private Boolean tru;
 }

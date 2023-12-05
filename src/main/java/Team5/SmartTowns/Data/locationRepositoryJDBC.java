@@ -42,14 +42,15 @@ public class locationRepositoryJDBC implements locationRepository {
 
     @Override
     public List<Location> approvedLocations(){
-        List<Location> locations = getAllLocation();
+        String sql= "SELECT * FROM locations";
+        List<Location> locations = jdbc.query(sql, locationMapper);
         List<Location> locationApprovalList= new ArrayList<>();
         for (Location loc :locations){
             if (loc.isLocationApproved()) {
                 locationApprovalList.add(loc);
             }
         } return locationApprovalList;
-    }
+ }
 
 
 }
