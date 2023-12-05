@@ -40,6 +40,4 @@ public class Landmarks {
         this.landmarkName = landmarkName;
         this.landmarkDescription = landmarkDescription;
         this.landmarkLocation = landmarkLocation;    }
-        // ? URl check
-
 }
