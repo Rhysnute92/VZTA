@@ -32,4 +32,17 @@ public class DatabaseController {
         mav2.addObject("location", Locations);
         return mav2;
     }
+
+//
+    public List<Location> approvedLocations(){
+        List<Location> locations = locationRepository.getAllLocation();
+        List<Location> locationApprovalList;
+//		for (int i=0;i<locations.size();i++){
+//			location
+        for (Location loc :locations){
+            if (loc.isLocationApproved()) {
+                locationApprovalList.add(loc);
+            }
+        } return locationApprovalList;
+    }
 }

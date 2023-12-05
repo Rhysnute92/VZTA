@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -23,7 +24,8 @@ public class locationRepositoryJDBC implements locationRepository {
                 rs.getString("locationEmail"),
                 rs.getString("locationDescription"),
                 rs.getString("locationPlace"),
-                rs.getInt("locationTrailID")
+                rs.getInt("locationTrailID"),
+                rs.getBoolean("locationApproved")
         );
     }
     public List<Location> getAllLocation(){
@@ -33,9 +35,22 @@ public class locationRepositoryJDBC implements locationRepository {
 
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
     public void addLocation(Location loc) {
-        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?)";
+        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) values (?,?,?,?,?,?)";
 
         jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
+    }
+
+    @Override
+    public List<Location> approvedLocations(){
+        List<Location> locations = getAllLocation();
+        List<Location> locationApprovalList= new ArrayList<>();
+//		for (int i=0;i<locations.size();i++){
+//			location
+        for (Location loc :locations){
+            if (loc.isLocationApproved()) {
+                locationApprovalList.add(loc);
+            }
+        } return locationApprovalList;
     }
 
 

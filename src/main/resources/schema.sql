@@ -14,7 +14,8 @@ create table if not exists locations
     locationEmail varchar(128),
     locationDescription longtext,
     locationPlace varchar(255),
-    locationTrailID varchar(128)
+    locationTrailID varchar(128),
+    locationApproved boolean
 )   engine=InnoDB;
 
 drop table if exists users;
