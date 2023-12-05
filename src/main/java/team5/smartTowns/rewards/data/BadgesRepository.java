@@ -1,5 +1,7 @@
 //Holds locations data repository
-package team5.smartTowns.rewards;
+package Team5.SmartTowns.rewards.data;
+
+import Team5.SmartTowns.rewards.Badge;
 
 import java.util.List;
 
