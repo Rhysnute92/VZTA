@@ -1,6 +1,7 @@
 //Implements the locations repository using JDBC
-package team5.smartTowns.rewards;
+package team5.smartTowns.rewards.data;
 
+import team5.smartTowns.rewards.Sticker;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -21,7 +22,8 @@ public class StickersRepositoryJDBC implements StickersRepository {
                 rs.getInt("stickerID"),
                 rs.getString("name"),
                 rs.getString("description"),
-                rs.getInt("rarity")
+                rs.getInt("rarity"),
+                rs.getString("pack")
         );
     }
 

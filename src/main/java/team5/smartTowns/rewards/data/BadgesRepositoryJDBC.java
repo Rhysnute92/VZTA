@@ -1,6 +1,7 @@
 //Implements the locations repository using JDBC
-package team5.smartTowns.rewards;
+package team5.smartTowns.rewards.data;
 
+import team5.smartTowns.rewards.Badge;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
