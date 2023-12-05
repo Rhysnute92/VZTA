@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="'VZLA Profile Page of ' + ${user.getName()}"></title>
     <link rel="stylesheet" th:href="@{/css/userProfile.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">-->
 </head>
 <body>
@@ -30,11 +31,16 @@
         <!--TODO add some progression info here?-->
     </div>
     <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
+        <h2>Packs</h2>
         <article id="packsBar">
-            <h2>Packs</h2> <!--Shows first earned badges, followed by greyed out badges-->
+             <!--Shows first earned badges, followed by greyed out badges-->
             <div id="allPacksContainer"  class="centerFlex">
-                <img class="packImg"  th:each="pack : ${packs}" th:src="@{'../' + ${pack.getDisplayImg()}}"
-                     th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}" >
+                <div th:each="pack : ${packs}"  class="packContainer">
+                    <h4 class="packName" th:text="${pack.getName()}"></h4>
+                    <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
+                         th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
+                         th:onclick="'updatePack(' + ${user.getId()} +',' + ${pack.getId()} +');'">
+                </div>
             </div>
         </article>
 
@@ -49,7 +55,7 @@
 <footer>
 
 </footer>
-
+<script type="text/javascript" th:src="@{../scripts/userPage.js}"></script>
 
 <script>
 </script>
