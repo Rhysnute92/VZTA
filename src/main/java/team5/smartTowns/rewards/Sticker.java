@@ -10,9 +10,8 @@ public class Sticker extends Reward{
 
     int rarity; //1-5
     boolean hasSticker;
-    String pack;
 
-    public Sticker(int id, String name, String description, int rarity, String pack) {
+    public Sticker(int id, String name, String description, int rarity) {
         super(id, name, description);
         this.rarity = rarity;
     }
