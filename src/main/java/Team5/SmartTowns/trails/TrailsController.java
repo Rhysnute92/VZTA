@@ -45,14 +45,15 @@ public class TrailsController {
     }
 
 
-//    //
-//    @GetMapping("dragonstale/{qrCode}/{id}")
-//    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
-//        if (qrCode.isPresent() && id.isPresent()){
-//            //Check if ID is present, if do this, if not dfo that.
-//
-//        }
-//    }
+    //
+    @GetMapping("dragonstale/{qrCode}/{id}")
+    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
+        if (qrCode.isPresent()){
+
+            //Check if ID is present, if do this, if not dfo that.
+
+        }
+    }
 
 }
 

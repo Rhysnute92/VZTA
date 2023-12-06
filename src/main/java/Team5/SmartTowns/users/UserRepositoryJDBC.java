@@ -12,22 +12,22 @@ import java.util.Map;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
-
     private JdbcTemplate jdbc;
     private RowMapper<User> userMapper;
+    private
 
     public UserRepositoryJDBC(JdbcTemplate aJdbc){
         this.jdbc = aJdbc;
         setUserMapper();
     }
 
-
     private void setUserMapper(){
         userMapper = (rs, i) -> new User(
                 rs.getInt("userID"),
                 rs.getString("email"),
                 rs.getString("name"),
-                rs.getInt("dragonProgress")
+                rs.getInt("dragonProgress"),
+                rs.getObject("dragonstaleLandmarkIDs", getTest())
         );
     }
 
@@ -36,6 +36,7 @@ public class UserRepositoryJDBC implements UserRepository{
         String sql= "SELECT * FROM users";
         return jdbc.query(sql, userMapper);
     }
+
 
     @Override
     public User getUser(int id){
@@ -53,6 +54,12 @@ public class UserRepositoryJDBC implements UserRepository{
             progress.put((Long)result.get("stickerID"), (boolean)result.get("hasSticker"));
         }
         return progress;
+    }
+
+    @Override
+    public Map<Integer, Boolean> getDTCompletion(int id){
+        //Loop over multiple different key-value pairs to find the one that's needed.
+        String sql = "SELECT  "
     }
 
 

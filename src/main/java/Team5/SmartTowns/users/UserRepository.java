@@ -8,5 +8,6 @@ public interface UserRepository {
     List<User> getAllUsers();
 //    Map<Long, Integer> getBadgeProgress(int id);
     Map<Long, Boolean> getStickers(int id);
+    Map<Integer, Boolean> getTest(int id);
     User getUser(int id);
 }
