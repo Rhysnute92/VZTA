@@ -55,13 +55,7 @@ public class UserController {
         }
         mav.addObject("user", userRepository.getUser(id));
         mav.addObject("packs", allPacks);
-        mav.addObject("selectedPack", rewardsRepository.findPackByID(1));
-        mav.addObject("stickers", allStickers);
-
-        /* CHANGE THIS BIT WHEN DEFAULT IS ADDED TO PAGE*/
-        int progress = getPackProgress(allStickers);
-        mav.addObject("progress", progress);
-
+        mav.addAllObjects(getPackInfo(id, 1).getModelMap());
 
 
         return mav;
@@ -80,7 +74,6 @@ public class UserController {
         }
 
         mav.addObject("stickers", allStickers);
-
         int progress = getPackProgress(allStickers);
         mav.addObject("progress", progress);
         mav.addObject("selectedPack", rewardsRepository.findPackByID(packID));

@@ -168,6 +168,7 @@ main {
     }
     & .packImg {
         transition: 0.5s ease-in-out 1ms;
+        border-radius: 20%;
     }
     & .packImg:hover {
         transform: scale(1.5, 1.5)
@@ -191,6 +192,7 @@ main {
         & .progImg {
             height: 14svh;
             width: 16svh;
+            border-radius: 20%;
         }
         & .progImgFill {
             position: absolute;
@@ -202,14 +204,14 @@ main {
             filter: grayscale(1);
         }
         & .progText {
-            color: rgba(255, 255, 255, 0.5);
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            font-family: Consolas, serif;
+            opacity: 0.5;
+            -webkit-text-stroke: 1px black;
             position: absolute;
             text-align: center;
-            /*height: 14svh;*/
             width: 16svh;
             left:50%;
-            transform: translate(-50%, 100%);
+            transform: translate(-50%, 150%);
             font-size: 3em;
         }
 
