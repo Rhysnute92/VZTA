@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Authorities</title>
-    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <link rel="stylesheet" href="../../static/css/templatingstyle.css">
 </head>
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <h1>Local Authorities</h1>
+<div id="councils">
+    <p>Caerphilly County Borough Council,<br>Tredomen Park,<br> Ystrad Mynach,<br> Hengoed,<br> CF82 7PG</p>
+    <a href="https://www.caerphilly.gov.uk/main.aspx?lang=en-GB">Caerphilly County Borough Council Website</a>
+    <p>Risca Town Council,<br>Risca Palace Library,<br>Unit B,<br>75 Tredegar Street,<br>Risca,<br>NP11 6BW</p>
+    <a href="https://www.riscatowncouncil.org.uk/">Risca Town Council Website</a>
+    <p>Penarth Town Council West House,<br>Stanwell Road,<br>Penarth,<br> CF64 2YG</p>
+    <a href="https://www.penarthtowncouncil.gov.uk/your-council/">Penarth Town Council Website</a>
+</div>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </body>
 </html>
