@@ -5,6 +5,15 @@ create table if not exists trails
     name varchar(128)
 )   engine=InnoDB;
 
+
+drop table if exists towns;
+create table if not exists towns
+(
+    townID bigint auto_increment primary key,
+    townName varchar(255),
+    trailNumber tinyint
+
+) engine=InnoDB;
 drop table if exists locations;
 
 create table if not exists locations
@@ -13,8 +22,9 @@ create table if not exists locations
     locationName varchar(128),
     locationEmail varchar(128),
     locationDescription longtext,
-    locationPlace varchar(255),
-    locationTrailID varchar(128)
+    locationPlace bigint,
+    locationTrailID varchar(128),
+    foreign key (locationPlace) references towns(townID)
 )   engine=InnoDB;
 
 drop table if exists users;
@@ -58,3 +68,4 @@ create table if not exists stickerProgress
     stickerID bigint,
     hasSticker boolean /*Has sticker or not*/
 ) engine=InnoDB;
+

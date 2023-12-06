@@ -5,6 +5,10 @@ insert into users (userID, email, name, dragonProgress) value ('2', 'nigel@gmail
 delete from trails;
 insert into trails ( Name) value ( 'Caerphilly Coffee Trail');
 insert into trails ( Name) value ( 'Penarth Dragon Trail');
+delete from towns;
+insert into towns ( townName,townTrailNumber) value ( 'Caerphilly',03);
+insert into towns ( townName,townTrailNumber) value ( 'Risca',01);
+insert into towns ( townName,townTrailNumber) value ( 'Penarth',01);
 
 delete from locations;
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'St Cenydd','','Location description here','Caerphilly',0101);
