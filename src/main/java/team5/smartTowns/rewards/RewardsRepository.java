@@ -15,5 +15,7 @@ public interface RewardsRepository {
 
     List<Pack> getAllPacks();
 
+    Pack findPackByID(int id);
+
 }
 

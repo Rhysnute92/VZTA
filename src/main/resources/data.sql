@@ -60,6 +60,13 @@ delete from stickers;
 insert into stickers (name, description, rarity, packID) value ('TownConnoisseur', 'You know the town very well!', '2', 1);
 insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 1);
 insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
+insert into stickers (name, description, rarity, packID) value ('TownMaster', 'You visited the town 7 days in a row!', '1', 1);
 insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 2);
 insert into stickers (name, description, rarity, packID) value ('TownRegular', 'You visited the town 3 days in a row!', '1', 2);
 

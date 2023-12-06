@@ -4,6 +4,7 @@ package team5.smartTowns.rewards;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import team5.smartTowns.users.User;
 
 import java.util.List;
 
@@ -68,5 +69,12 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
     public List<Sticker> getAllStickersFromPack(int packID){
         String sql= "SELECT * FROM stickers WHERE packID="+packID;
         return jdbc.query(sql, stickerMapper);
+    }
+
+    @Override
+    public Pack findPackByID(int id){
+        String sql= "SELECT * FROM packs WHERE id="+id;
+        List<Pack> result = jdbc.query(sql, packMapper);
+        return result.get(0);
     }
 }

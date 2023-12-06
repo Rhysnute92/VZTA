@@ -20,22 +20,7 @@ public class RewardsController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/packInfo/{userID}/{packID}")
-    public ModelAndView getPackInfo(@PathVariable int userID, @PathVariable int packID) {
-        ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
-        List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
-        Map<Long, Boolean> userStickers = userRepository.getStickers(userID);
 
-        for (Long stickerID : userStickers.keySet()) { //Finds and updates visibility of stickers based on what the user has
-            allStickers.stream()
-                    .filter(sticker -> sticker.getId()==stickerID)
-                    .findFirst().ifPresent(sticker -> sticker.setVisibility(userStickers.get(stickerID)));
-        }
-
-        mav.addObject("stickers", allStickers);
-
-        return mav;
-    }
 
 
 }
