@@ -29,7 +29,7 @@ public class WebpageController {
 
     @GetMapping("/maps")
     public ModelAndView getMapTestAPI(){
-        ModelAndView modelAndView = new ModelAndView("Towns/MapApiTest");
+        ModelAndView modelAndView = new ModelAndView("Towns/mapsTest/MapApiTest");
         return modelAndView;
     }
 

@@ -42,9 +42,8 @@ public class locationRepositoryJDBC implements locationRepository {
 
     @Override
     public List<Location> approvedLocations(){
-        String sql= "SELECT * FROM locations";
-        List<Location> locations = jdbc.query(sql, locationMapper);
-        List<Location> locationApprovalList= new ArrayList<>();
+        List<Location> locations = getAllLocation();
+        List<Location> locationApprovalList= new ArrayList<Location>();
         for (Location loc :locations){
             if (loc.isLocationApproved()) {
                 locationApprovalList.add(loc);
