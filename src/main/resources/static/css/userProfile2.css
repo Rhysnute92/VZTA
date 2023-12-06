@@ -62,184 +62,236 @@ body {
     height: 100svh;
 }
 
+.grayedOut {
+    filter: grayscale(1);
+}
+
+
+html {
+    position: fixed;
+    width: 100vw;
+    height: 100svh;
+}
+main {
+    width: 90%;
+    height: 95%;
+    background: linear-gradient(to bottom left, #1f1f1f, #1e1e1e, #1f1f1f);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
+    border-radius: 5vw;
+}
+.userContainer {
+    width: 90%;
+    padding-block: 2em;
+    margin-block: 1em;
+    border-radius: 5vw;
+    display: flex;
+    flex-direction: row-reverse;
+    /*align-items: center;*/
+    justify-content: space-evenly;
+
+    row-gap: 1svh;
+
+    & h1 {
+        font-size: 5em;
+        text-align: center;
+        text-shadow: black 0 0.2em 0.5em;
+        letter-spacing: 0.1em;
+        width: 40vw;
+        max-height: 40vw;
+        /*border-bottom: black solid 3px;*/
+        padding-inline: 5%;
+        padding-block: 2%;
+        border-radius: 35%;
+        /*box-shadow: var(--accent-shadow);*/
+        /*background: var(--accent-border);*/
+        align-self: center;
+        text-wrap: normal;
+    }
+    & #userPicture {
+        border-radius: 100%;
+        box-shadow: var(--accent-shadow);
+        overflow: hidden;
+    }
+
+}
+
+
+.rewards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: 100%;
+}
+#packsBar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    & h2 {
+        font-size: 4em;
+        letter-spacing: 0.1em;
+        border-bottom: 10px solid darkred;
+        margin-inline: 5%;
+    }
+
+}
+#allPacksContainer {
+    padding-top: 3em;
+    display: flex;
+    overflow-x: scroll;
+    padding-inline: 20%;
+    justify-content: space-between;
+    border-bottom: 10px solid rgba(139, 0, 0, 0.5);
+    margin-bottom: 2em;
+    & .packName {
+        font-size: 2em;
+        height: 2.4em;
+        overflow: hidden;
+        padding-bottom: 1em;
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+
+    }
+    & .packImg {
+        transition: 0.5s ease-in-out 1ms;
+    }
+    & .packImg:hover {
+        transform: scale(1.5, 1.5)
+    }
+}
+.progressionContainer {
+    display: flex;
+    flex-direction: column;
+    height: 14svh;
+    & h1 {
+        font-size: 4em;
+        width: 100%;
+        font-family: 'MedievalSharp', cursive;
+        text-align: center;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    & .progImgContainer {
+        position: relative;
+        margin-inline: auto;
+        & .progImg {
+            height: 10svh;
+            width: 16svh;
+        }
+        & .progImgFill {
+            position: absolute;
+            overflow: hidden;
+            width: 50%;
+        }
+        & .progImgOut {
+            position: absolute;
+            overflow: hidden;
+        }
+        & .progText {
+            opacity: 0.5;
+            position: absolute;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 10svh;
+            width: 16svh;
+
+            font-size: 3em;
+            translate: 0 5%;
+        }
+
+    }
+
+}
+
+#stickersBox {
+    width: 100%;
+}
+.stickersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+    row-gap: 2em;
+    height: 100%;
+
+}
+.stickerImg {
+    height: 15em;
+    margin: 1.5em;
+}
+/*}*/
+
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 640px)
-{
-    html {
-        position: fixed;
-        width: 100vw;
-        height: 100svh;
+and (max-device-width: 640px) {
+    #userPicture {
+        width: 30vw;
+        height: 30vw;
+        border: solid #989898 0.8em;
     }
-    main {
-        width: 90%;
-        height: 95%;
-        background: linear-gradient(to bottom left, #1f1f1f, #1e1e1e, #1f1f1f);
-        overflow-x: hidden;
-        overflow-y: scroll;
-        margin-inline: auto;
-
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        align-items: center;
-        border-radius: 5vw;
-    }
-    .userContainer {
-        width: 80%;
-        padding-block: 2em;
-        margin-block: 1em;
-        border-radius: 5vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1svh;
-
-        & h1 {
-            font-size: 5em;
-            text-align: center;
-            text-shadow: black 0 0.2em 0.5em;
-            letter-spacing: 0.1em;
-            /*border-bottom: black solid 3px;*/
-            padding-inline: 5%;
-            padding-block: 2%;
-            border-radius: 35%;
-            box-shadow: var(--accent-shadow);
-            background: var(--accent-border);
-        }
-        & #userPicture {
-            width: 35vw;
-            height: 35vw;
-            border-radius: 100%;
-            border: solid #989898 0.8em;
-            box-shadow: var(--accent-shadow);
-            overflow: hidden;
-        }
-
-    }
-
-
-    .rewards {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-        width: 100%;
-    }
-    #packsBar {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        text-align: center;
-        width: 100%;
-        & h2 {
-            font-size: 4em;
-            letter-spacing: 0.1em;
-            border-bottom: 10px solid darkred;
-            margin-inline: 5%;
-        }
-
-    }
-    .empty-space {
+    .packImg {
         height: 10svh;
         width: 15em;
-        background: transparent;
+        padding-inline: 1em;
+        margin-inline: 1em;
     }
-    #allPacksContainer {
-        padding-top: 3em;
-        display: flex;
-        overflow-x: scroll;
-        padding-inline: 20%;
-        justify-content: space-between;
-        border-bottom: 10px solid rgba(139, 0, 0, 0.5);
-        margin-bottom: 2em;
-        & .packName {
-            font-size: 2em;
-            height: 2.4em;
-            overflow: hidden;
-            padding-bottom: 1em;
-            display: flex;
-            justify-content: center;
-            align-content: flex-start;
-
-        }
-        & .packImg {
-            height: 10svh;
-            width: 15em;
-            transition: 0.5s ease-in-out 1ms;
-            padding-inline: 1em;
-            margin-inline: 1em;
-        }
-        & .packImg:hover {
-            transform: scale(1.5, 1.5)
-        }
-    }
-
     #allPacksContainer::-webkit-scrollbar {
         display: none;
         -ms-scrollbar-darkshadow-color: transparent;
     }
+}
 
-    .progressionContainer {
-        display: flex;
-        flex-direction: column;
-        height: 14svh;
-        & h1 {
-            font-size: 4em;
-            font-family: 'MedievalSharp', cursive;
-            text-align: center;
-        }
-        & .progImgContainer {
-            position: relative;
-            margin-inline: auto;
-            & .progImg {
-                height: 10svh;
-                width: 16svh;
-            }
-            & .progImgFill {
-                position: absolute;
-                overflow: hidden;
-                width: 50%;
-            }
-            & .progImgOut {
-                position: absolute;
-                overflow: hidden;
-            }
-            & .progText {
-                opacity: 0.5;
-                position: absolute;
-                display: flex;
-                text-align: center;
-                align-items: center;
-                justify-content: center;
-                height: 10svh;
-                width: 16svh;
-
-                font-size: 3em;
-                translate: 0 5%;
-            }
-
-        }
-
+@media only screen
+and (min-device-width: 1000px) {
+    #userPicture {
+        width: 200px;
+        height: 200px;
+        border: solid #989898 10px;
     }
-
-    #stickersBox {
+    #allPacksContainer {
+        padding:0;
+        margin-block: 50px;
         width: 100%;
-        height: inherit;
-        overflow-y: scroll;
-
+        height: 100%;
+        overflow: visible;
+        border: 5px solid rgba(139, 0, 0, 0.5);
     }
-    .stickersContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 2em;
-        row-gap: 2em;
+    .packImg {
+        height: 100px;
+        width: 125px;
+        padding-inline: 1em;
+        margin-inline: 3em;
     }
-    .stickerImg {
-        width: 15em;
-        margin: 1.5em;
+    .packImg:hover ~ .packName{
+        visibility: visible;
+        opacity: 1;
     }
-
+    & .packName {
+        position: absolute;
+        visibility: hidden;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    #packsBar {
+        /*height: 250px;*/
+        & h2 {
+            display: none;
+        }
+    }
 }

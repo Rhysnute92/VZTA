@@ -56,8 +56,50 @@ public class UserController {
         }
         mav.addObject("user", userRepository.getUser(id));
         mav.addObject("packs", allPacks);
+        mav.addObject("selectedPack", rewardsRepository.findPackByID(1));
         mav.addObject("stickers", allStickers);
+
+        /* CHANGE THIS BIT WHEN DEFAULT IS ADDED TO PAGE*/
+        int progress = getPackProgress(allStickers);
+        mav.addObject("progress", progress);
+
+
 
         return mav;
     }
+
+    @GetMapping("/packInfo/{userID}/{packID}")
+    public ModelAndView getPackInfo(@PathVariable int userID, @PathVariable int packID) {
+        ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
+        List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
+        Map<Long, Boolean> userStickers = userRepository.getStickers(userID);
+
+        for (Long stickerID : userStickers.keySet()) { //Finds and updates visibility of stickers based on what the user has
+            allStickers.stream()
+                    .filter(sticker -> sticker.getId()==stickerID)
+                    .findFirst().ifPresent(sticker -> sticker.setVisibility(userStickers.get(stickerID)));
+        }
+
+        mav.addObject("stickers", allStickers);
+
+        int progress = getPackProgress(allStickers);
+        mav.addObject("progress", progress);
+        mav.addObject("selectedPack", rewardsRepository.findPackByID(packID));
+        return mav;
+    }
+
+    public int getPackProgress(List<Sticker> allStickers){
+        /* GETS PROGRESS FOR GIVEN PACK*/
+        double progress = 0;
+        try {
+            progress = (
+                    (double) allStickers.stream().filter(Sticker::hasSticker).count()
+                            / allStickers.size() )
+                    * 100;
+        } catch (ArithmeticException e){ //allStickers is empty
+            progress = 0;
+        }
+        return (int)progress;
+    }
+
 }

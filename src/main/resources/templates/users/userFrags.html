@@ -1,28 +1,28 @@
-  <!-- @thymesVar id="sticker" type="team5.smartTowns.rewards.Sticker" -->
-<article th:fragment="stickersBox" id="stickersBox">
-<!--  <h2>STICKERS!</h2>-->
-  <div class="stickersContainer">
-    <img th:class="'stickerImg ' + ${sticker.getVisibility()}"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getDisplayImg()}}"
-         th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
-  </div>
-</article>
-
+<!-- @thymesVar id="sticker" type="team5.smartTowns.rewards.Sticker" -->
 <!-- @thymesVar id="user" type="team5.smartTowns.users.User" -->
-<article th:fragment="trailProgression" class="progressionContainer">
-  <h1>The Dragon's Tale</h1>
-  <div class="progImgContainer">
-    <div class="progImgFill" th:style="'width:'+ ${user.getDragonProgress()} + '%;'">
-      <img th:src="@{/images/rewards/dragonFilled.png}"
-           alt="Filled Dragon" id="FilledDragon" class="progImg">
+<!-- @thymesVar id="selectedPack" type="team5.smartTowns.rewards.Pack" -->
+<div th:fragment="stickersBox" id="packRewardsWrapper">
+  <article class="progressionContainer">
+    <h1 th:text="${selectedPack.getName()}"></h1>
+    <div class="progImgContainer">
+      <div class="progImgFill" th:style="'width:'+ ${progress} + '%;'">
+        <img th:src="@{/images/rewards/dragonFilled.png}"
+             alt="Filled Dragon" id="FilledDragon" class="progImg">
+      </div>
+      <div class="progText">
+        <p th:text="${progress} + '%'"></p>
+      </div>
+      <div class="progImgOutline">
+        <img th:src="@{/images/rewards/dragonOutline.png}"
+             alt="Outline Dragon" id="OutlineDragon" class="progImg">
+      </div>
     </div>
-    <div class="progText">
-      <p th:text="${user.getDragonProgress()} + '%'"></p>
-    </div>
-    <div class="progImgOutline">
-      <img th:src="@{/images/rewards/dragonOutline.png}"
-           alt="Outline Dragon" id="OutlineDragon" class="progImg">
-    </div>
+  </article>
 
-  </div>
-
-</article>
+  <article id="stickersBox">
+    <div class="stickersContainer">
+      <img th:class="'stickerImg ' + ${sticker.getVisibility()}"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getDisplayImg()}}"
+           th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
+    </div>
+  </article>
+</div>
