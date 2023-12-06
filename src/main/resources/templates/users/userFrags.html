@@ -6,14 +6,14 @@
     <h1 th:text="${selectedPack.getName()}"></h1>
     <div class="progImgContainer">
       <div class="progImgFill" th:style="'width:'+ ${progress} + '%;'">
-        <img th:src="@{/images/rewards/dragonFilled.png}"
+        <img th:src="@{'../' + ${selectedPack.getDisplayImg()}}"
              alt="Filled Dragon" id="FilledDragon" class="progImg">
       </div>
       <div class="progText">
         <p th:text="${progress} + '%'"></p>
       </div>
       <div class="progImgOutline">
-        <img th:src="@{/images/rewards/dragonOutline.png}"
+        <img th:src="@{'../' + ${selectedPack.getDisplayImg()}}"
              alt="Outline Dragon" id="OutlineDragon" class="progImg">
       </div>
     </div>

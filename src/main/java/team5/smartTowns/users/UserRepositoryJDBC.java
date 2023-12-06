@@ -23,10 +23,9 @@ public class UserRepositoryJDBC implements UserRepository{
 
     private void setUserMapper(){
         userMapper = (rs, i) -> new User(
-                rs.getInt("userID"),
+                rs.getInt("id"),
                 rs.getString("email"),
-                rs.getString("name"),
-                rs.getInt("dragonProgress")
+                rs.getString("name")
         );
     }
 
@@ -38,7 +37,7 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public User getUser(int id){
-        String sql= "SELECT * FROM users WHERE userID="+id;
+        String sql= "SELECT * FROM users WHERE id="+id;
         List<User> result = jdbc.query(sql, userMapper);
         return result.get(0);
     }
@@ -51,6 +50,7 @@ public class UserRepositoryJDBC implements UserRepository{
         for (Map<String, Object> result : query) {
             progress.put((Long)result.get("stickerID"), (boolean)result.get("hasSticker"));
         }
+        System.out.println(progress);
         return progress;
     }
 

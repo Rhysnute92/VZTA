@@ -62,8 +62,11 @@ body {
     height: 100svh;
 }
 
-.grayedOut {
+.grayedSticker {
     filter: grayscale(1);
+}
+.gotSticker {
+    filter: drop-shadow(0 0 10px yellow);
 }
 
 
@@ -173,7 +176,7 @@ main {
 .progressionContainer {
     display: flex;
     flex-direction: column;
-    height: 14svh;
+    height: 18svh;
     & h1 {
         font-size: 4em;
         width: 100%;
@@ -186,7 +189,7 @@ main {
         position: relative;
         margin-inline: auto;
         & .progImg {
-            height: 10svh;
+            height: 14svh;
             width: 16svh;
         }
         & .progImgFill {
@@ -194,22 +197,20 @@ main {
             overflow: hidden;
             width: 50%;
         }
-        & .progImgOut {
-            position: absolute;
-            overflow: hidden;
+        & .progImgOutline {
+            opacity: 0.1;
+            filter: grayscale(1);
         }
         & .progText {
-            opacity: 0.5;
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             position: absolute;
-            display: flex;
             text-align: center;
-            align-items: center;
-            justify-content: center;
-            height: 10svh;
+            /*height: 14svh;*/
             width: 16svh;
-
+            left:50%;
+            transform: translate(-50%, 100%);
             font-size: 3em;
-            translate: 0 5%;
         }
 
     }
@@ -293,5 +294,8 @@ and (min-device-width: 1000px) {
         & h2 {
             display: none;
         }
+    }
+    .progressionContainer {
+        height: 20svh;
     }
 }

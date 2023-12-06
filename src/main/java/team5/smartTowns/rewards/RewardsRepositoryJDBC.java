@@ -33,7 +33,7 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
 
     private void setStickerMapper(){
         stickerMapper = (rs, i) -> new Sticker(
-                rs.getInt("stickerID"),
+                rs.getInt("id"),
                 rs.getString("name"),
                 rs.getString("description"),
                 rs.getInt("rarity"),

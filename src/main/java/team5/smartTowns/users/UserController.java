@@ -41,7 +41,6 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable int id) {
         ModelAndView mav = new ModelAndView("users/userProfile");
-        List<Badge> badges = rewardsRepository.getAllBadges(); /*DEPRECATED FOR THE MOMENT*/
         List<Sticker> allStickers = rewardsRepository.getAllStickers();
         List<Pack> allPacks = rewardsRepository.getAllPacks();
 
@@ -77,7 +76,7 @@ public class UserController {
         for (Long stickerID : userStickers.keySet()) { //Finds and updates visibility of stickers based on what the user has
             allStickers.stream()
                     .filter(sticker -> sticker.getId()==stickerID)
-                    .findFirst().ifPresent(sticker -> sticker.setVisibility(userStickers.get(stickerID)));
+                    .findFirst().ifPresent(sticker -> sticker.setVisibility(true));
         }
 
         mav.addObject("stickers", allStickers);

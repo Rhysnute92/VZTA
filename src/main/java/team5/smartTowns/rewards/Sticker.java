@@ -30,7 +30,7 @@ public class Sticker extends Reward{
         this.hasSticker = hasSticker;
     }
     public String getVisibility(){
-        return hasSticker? "" : "grayedOut";
+        return hasSticker ? "gotSticker" : "grayedSticker";
     }
 }
 
