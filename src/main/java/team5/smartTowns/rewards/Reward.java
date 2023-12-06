@@ -18,7 +18,6 @@ public abstract class Reward {
         this.id = id;
         this.name = name;
         this.description = description;
-        displayImg = findImagePath();
     }
 
     public abstract String getImgFolder();
@@ -32,7 +31,6 @@ public abstract class Reward {
         /* Finds the image in the Path folder, if image is not found assigns default image */
         String imgPath = "images/rewards/" + getImgFolder() + "/" + id + ".png";
         String notFoundPath = "images/rewards/" + getImgFolder() + "/" + getDefaultImg();
-
         File imgFile = new File("src/main/resources/static/" + imgPath);
         return imgFile.exists() ? imgPath : notFoundPath;
     }

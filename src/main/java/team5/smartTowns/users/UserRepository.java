@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface UserRepository {
     List<User> getAllUsers();
-//    Map<Long, Integer> getBadgeProgress(int id);
-    Map<Long, Boolean> getStickers(int id);
-    User getUser(int id);
+    List<Long> getUserStickersFromPack(int userID, int packID);
+    User getUserById(int userID);
+    boolean unlockSticker(int userID, int packID, int stickerID);
 }

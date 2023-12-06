@@ -17,27 +17,17 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
 
     public RewardsRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
-        setBadgeMapper();
         setStickerMapper();
         setPackMapper();
     }
 
-    private void setBadgeMapper(){
-        badgeMapper = (rs, i) -> new Badge(
-                rs.getInt("badgeID"),
-                rs.getString("name"),
-                rs.getString("description"),
-                rs.getInt("difficulty")
-        );
-    }
-
     private void setStickerMapper(){
         stickerMapper = (rs, i) -> new Sticker(
-                rs.getInt("id"),
+                rs.getInt("packID"),
+                rs.getInt("stickerID"),
                 rs.getString("name"),
                 rs.getString("description"),
-                rs.getInt("rarity"),
-                rs.getInt("packID")
+                rs.getInt("rarity")
         );
     }
     private void setPackMapper(){
@@ -61,13 +51,17 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
     }
 
     @Override
-    public List<Badge> getAllBadges(){
-        String sql= "SELECT * FROM badges";
-        return jdbc.query(sql, badgeMapper);
-    }
-
     public List<Sticker> getAllStickersFromPack(int packID){
         String sql= "SELECT * FROM stickers WHERE packID="+packID;
+        return jdbc.query(sql, stickerMapper);
+    }
+
+    @Override
+    public List<Sticker> getAllStickersFromUser(int userID) {
+        /* FINDS ALL STICKERS UNLOCKED BY THE GIVEN USER */
+        String sql= "SELECT * FROM stickers LEFT JOIN stickerprogress " +
+                "ON (stickers.id, stickers.packID) = (stickerprogress.stickerID, stickerprogress.packID) " +
+                "WHERE stickerprogress.userID="+userID;
         return jdbc.query(sql, stickerMapper);
     }
 
@@ -75,6 +69,6 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
     public Pack findPackByID(int id){
         String sql= "SELECT * FROM packs WHERE id="+id;
         List<Pack> result = jdbc.query(sql, packMapper);
-        return result.get(0);
+        return result.isEmpty() ? null : result.get(0);
     }
 }

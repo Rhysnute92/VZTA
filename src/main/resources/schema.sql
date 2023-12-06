@@ -41,18 +41,22 @@ create table if not exists packs
 create table if not exists stickers
 (
     id bigint auto_increment primary key,
-    name varchar(30),
-    description text,
-    rarity tinyint,
     packID bigint,
     FOREIGN KEY (packID) REFERENCES packs(id)
-            ON DELETE CASCADE
-            ON UPDATE RESTRICT
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    stickerID bigint, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
+    name varchar(30),
+    description text,
+    rarity tinyint
+
 ) engine=InnoDB;
 
 create table if not exists stickerProgress
 (
+    id bigint auto_increment primary key,
     userID bigint,
-    stickerID bigint,
-    hasSticker boolean /*Has sticker or not*/
+    packID bigint,
+    stickerID bigint
+
 ) engine=InnoDB;

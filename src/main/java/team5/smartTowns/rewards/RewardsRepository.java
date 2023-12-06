@@ -7,11 +7,11 @@ import team5.smartTowns.rewards.Sticker;
 import java.util.List;
 
 public interface RewardsRepository {
-    List<Badge> getAllBadges();
-
     List<Sticker> getAllStickers();
 
     List<Sticker> getAllStickersFromPack(int packID);
+
+    List<Sticker> getAllStickersFromUser(int userID);
 
     List<Pack> getAllPacks();
 

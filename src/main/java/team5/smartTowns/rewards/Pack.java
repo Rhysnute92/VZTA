@@ -11,6 +11,7 @@ public class Pack extends Reward{
 
     public Pack(int id, String name, String description) {
         super(id, name, description);
+        displayImg = super.findImagePath();
     }
 
     public void setProgression(List<Sticker> packStickers, List<Sticker> userStickers){
