@@ -83,6 +83,7 @@ and (max-device-width: 640px)
         flex-direction: column;
         align-content: flex-start;
         align-items: center;
+        border-radius: 5vw;
     }
     .userContainer {
         width: 80%;
@@ -140,11 +141,19 @@ and (max-device-width: 640px)
         }
 
     }
+    .empty-space {
+        height: 10svh;
+        width: 15em;
+        background: transparent;
+    }
     #allPacksContainer {
         padding-top: 3em;
         display: flex;
         overflow-x: scroll;
+        padding-inline: 20%;
         justify-content: space-between;
+        border-bottom: 10px solid rgba(139, 0, 0, 0.5);
+        margin-bottom: 2em;
         & .packName {
             font-size: 2em;
             height: 2.4em;
@@ -160,6 +169,7 @@ and (max-device-width: 640px)
             width: 15em;
             transition: 0.5s ease-in-out 1ms;
             padding-inline: 1em;
+            margin-inline: 1em;
         }
         & .packImg:hover {
             transform: scale(1.5, 1.5)
@@ -174,7 +184,7 @@ and (max-device-width: 640px)
     .progressionContainer {
         display: flex;
         flex-direction: column;
-        height: 20svh;
+        height: 14svh;
         & h1 {
             font-size: 4em;
             font-family: 'MedievalSharp', cursive;
@@ -212,10 +222,24 @@ and (max-device-width: 640px)
 
         }
 
-        /*TODO HERE THE FINAL SECTION FOR THE STICKERS BOYO*/
+    }
 
+    #stickersBox {
+        width: 100%;
+        height: inherit;
+        overflow-y: scroll;
 
-
+    }
+    .stickersContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2em;
+        row-gap: 2em;
+    }
+    .stickerImg {
+        width: 15em;
+        margin: 1.5em;
     }
 
 }

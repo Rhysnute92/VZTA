@@ -1,6 +1,6 @@
   <!-- @thymesVar id="sticker" type="team5.smartTowns.rewards.Sticker" -->
 <article th:fragment="stickersBox" id="stickersBox">
-  <h2>STICKERS!</h2>
+<!--  <h2>STICKERS!</h2>-->
   <div class="stickersContainer">
     <img th:class="'stickerImg ' + ${sticker.getVisibility()}"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getDisplayImg()}}"
          th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
