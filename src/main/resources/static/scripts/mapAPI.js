@@ -1,12 +1,12 @@
-import GeoJSON from 'node_modules/ol/format/GeoJSON.js';
-import Map from 'node_modules/ol/Map.js';
-import VectorLayer from 'node_modules/ol/layer/Vector.js';
-import VectorSource from 'node_modules/ol/source/Vector.js';
-import View from 'node_modules/ol/View.js';
-import {DragBox, Select} from 'node_modules/ol/interaction.js';
-import {Fill, Stroke, Style} from 'node_modules/ol/style.js';
-import {getWidth} from '../templates/towns/mapsTest/node_module/ol/extent.js';
-import {platformModifierKeyOnly} from 'ol/events/condition.js';
+import GeoJSON from '../../templates/towns/mapsTest/node_modules/ol/format/GeoJSON.js';
+import Map from '../../templates/towns/mapsTest/node_modules/ol/Map.js';
+import VectorLayer from '../../templates/towns/mapsTest/node_modules/ol/source/Vector.js'
+import VectorSource from '../../templates/towns/mapsTest/node_modules/ol/source/Vector.js';
+import View from '../../templates/towns/mapsTest/node_modules/ol/View.js';
+import {DragBox, Select} from '../../templates/towns/mapsTest/node_modules/ol/interaction.js';
+import {Fill, Stroke, Style} from '../../templates/towns/mapsTest/node_modules/ol/style.js';
+import {getWidth} from '../../templates/towns/mapsTest/node_modules/ol/extent.js';
+import {platformModifierKeyOnly} from '../../templates/towns/mapsTest/node_modules/ol/events/condition.js';
 //Invesitgate created directories mnode module mapstest and extent.js
 
 const vectorSource = new VectorSource({
