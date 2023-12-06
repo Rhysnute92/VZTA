@@ -191,7 +191,7 @@ main {
         margin-inline: auto;
         & .progImg {
             height: 14svh;
-            width: 16svh;
+            /*width: 16svh;*/
             border-radius: 20%;
         }
         & .progImgFill {
@@ -232,7 +232,7 @@ main {
 
 }
 .stickerImg {
-    height: 15em;
+    height: 17em;
     margin: 1.5em;
 }
 /*}*/

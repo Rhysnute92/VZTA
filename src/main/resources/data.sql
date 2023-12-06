@@ -35,9 +35,9 @@ insert into locations (locationID, locationName , locationEmail,locationDescript
 
 
 delete from packs;
-insert into packs (name, description) value ('Wales National Team', 'Pack of Welsh Football Players in the National Team');
-insert into packs (name, description) value ('Pack2', 'This is pack 2');
-insert into packs (name, description) value ('Pack3', 'This is pack 2');
+insert into packs (name, description) value ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
+insert into packs (name, description) value ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
+insert into packs (name, description) value ('Welsh Heritage', 'Pack About Welsh Heritage');
 insert into packs (name, description) value ('Pack3', 'This is pack 2');
 insert into packs (name, description) value ('Pack3', 'This is pack 2');
 insert into packs (name, description) value ('Pack3', 'This is pack 2');
@@ -56,6 +56,9 @@ insert into stickers (name, description, rarity, packID) value ('Adam Beard', 'W
 insert into stickers (name, description, rarity, packID) value ('Elliot Dee', 'Wales Rugby Team Player', '1', 2);
 insert into stickers (name, description, rarity, packID) value ('Corey Domachowski', 'Wales Rugby Team Player', '1', 2);
 insert into stickers (name, description, rarity, packID) value ('Ryan Elias', 'Wales Rugby Team Player', '1', 2);
+insert into stickers (name, description, rarity, packID) value ('Welsh Lady', 'Welsh Heritage', '1', 3);
+insert into stickers (name, description, rarity, packID) value ('Welsh Outline', 'Welsh Heritage', '1', 3);
+insert into stickers (name, description, rarity, packID) value ('Welsh Spoon', 'Welsh Heritage', '1', 3);
 
 delete from stickerprogress;
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
@@ -64,6 +67,8 @@ insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', tru
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '5', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '7', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '9', true);
+insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '12', true);
+insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '13', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '4', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '6', true);
