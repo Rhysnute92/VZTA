@@ -41,7 +41,13 @@ public class TownController {
         return modelAndView;
     }
 
-    public List<Location> filterByLocationForTrails(List<Location>)
+    public List<Location> filterByLocationForTrails(List<Location> locationList , String town){
+        List<Location> filteredList;
+        for( location:locationList){
+
+        }
+
+    }
 
 
 }
