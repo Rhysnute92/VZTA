@@ -8,5 +8,4 @@ public interface LocationRepository {
     List<Location> getAllLocation();
     void addLocation(Location loc);
 
-
 }

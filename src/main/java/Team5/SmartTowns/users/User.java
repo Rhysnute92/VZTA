@@ -17,7 +17,6 @@ public class User {
     String name;
     String imgPath;
     int dragonProgress;
-    Map<Badge, Integer> badgeProgress = new HashMap<>(); // Demonstrates the progress towards a specific badge (0-100)
     Map<Sticker, Boolean> hasStickers = new HashMap<>(); // True if User has sticker (key)
     Map<Integer, Boolean> dragonstaleLandmarkIDs = new HashMap<>(); // Storing the IDs of the landmarks associated with Dragonstale, as well as if the user has visited it before (boolean)
 
@@ -26,14 +25,12 @@ public class User {
         this.email = email;
         this.name = name;
         this.dragonProgress = dragonProgress;
-//        this.dragonstaleLandmarkIDs = dragonstaleLandmarkIDs;
         imgPath = findImagePath();
     }
-    public User(int id, String email, String name, int dragonProgress) {
+    public User(int id, String email, String name) {
         this.id = id;
         this.email = email;
         this.name = name;
-        this.dragonProgress = dragonProgress;
         imgPath = findImagePath();
     }
 
