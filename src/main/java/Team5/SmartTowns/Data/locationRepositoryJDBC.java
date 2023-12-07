@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.print.DocFlavor;
+import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
@@ -26,6 +28,14 @@ public class locationRepositoryJDBC implements locationRepository {
                 rs.getInt("locationTrailID")
         );
     }
+    public String getCountOfEmployees() {
+        return jdbc.queryForObject("SELECT COUNT(*) FROM locations",String.class);
+    }
+
+    public List<Location> getAllLocation2(JdbcTemplate aJdbc){
+        String sql= "SELECT * FROM locations";
+        return aJdbc.query(sql, locationMapper);
+    }
     public List<Location> getAllLocation(){
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
@@ -39,4 +49,10 @@ public class locationRepositoryJDBC implements locationRepository {
     }
 
 
+    public void setDataSource(DataSource dataSource) {
+        jdbc = new JdbcTemplate(dataSource);
+    }
+
+    public locationRepositoryJDBC() {
+    }
 }

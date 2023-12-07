@@ -22,6 +22,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework:spring-dao:2.0.8'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -34,7 +35,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework:spring-dao:2.0.8'
+	// https://mvnrepository.com/artifact/org.springframework/spring-dao
+// https://mvnrepository.com/artifact/org.springframework/spring-dao
+	implementation group: 'org.springframework', name: 'spring-tx', version: '6.1.1'
+//	implementation 'org.springframework.dao.DataAccessException'
+//Thanks for using https://jar-download.com
+
+
 }
 
 tasks.named('bootBuildImage') {
