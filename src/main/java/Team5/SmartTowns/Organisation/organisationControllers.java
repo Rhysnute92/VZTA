@@ -10,7 +10,22 @@ import org.springframework.stereotype.Controller;
 public class organisationControllers {
     @GetMapping("/localauthorities")
     public ModelAndView getLocalAuthoritiesPage(){
-        ModelAndView modelAndView = new ModelAndView("local-authorities");
+        ModelAndView modelAndView = new ModelAndView("WorkWith/local-authorities.html");
+        return modelAndView;
+    }
+    @GetMapping("/businesses")
+    public ModelAndView getBusinessPage(){
+        ModelAndView modelAndView = new ModelAndView("WorkWith/business.html");
+        return modelAndView;
+    }
+    @GetMapping("/consumers")
+    public ModelAndView getConsumersPage(){
+        ModelAndView modelAndView = new ModelAndView("WorkWith/consumers.html");
+        return modelAndView;
+    }
+    @GetMapping("/towns")
+    public ModelAndView getTownsPage(){
+        ModelAndView modelAndView = new ModelAndView("WorkWith/towns.html");
         return modelAndView;
     }
 }
