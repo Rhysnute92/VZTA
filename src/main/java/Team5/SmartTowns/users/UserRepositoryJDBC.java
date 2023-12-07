@@ -5,11 +5,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
-
     private JdbcTemplate jdbc;
     private RowMapper<User> userMapper;
 
@@ -31,6 +31,7 @@ public class UserRepositoryJDBC implements UserRepository{
         String sql= "SELECT * FROM users";
         return jdbc.query(sql, userMapper);
     }
+
 
     @Override
     public User getUserById(int userID){

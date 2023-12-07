@@ -27,7 +27,10 @@ create table if not exists users
 (
     id bigint auto_increment primary key,
     email varchar(128),
-    name varchar(30)
+    name varchar(30),
+    name varchar(128),
+    dragonProgress int,
+    dragonsLandmarkIDs longtext
 ) engine=InnoDB;
 
 
