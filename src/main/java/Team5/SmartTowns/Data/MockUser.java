@@ -9,7 +9,6 @@ public class MockUser {
 
     private JdbcTemplate jdbc;
     private RowMapper<trail> trailMapper;
-
     public List<trail> getAllTrails(){
         String sql= "SELECT * FROM trails";
         return jdbc.query(sql, trailMapper);
