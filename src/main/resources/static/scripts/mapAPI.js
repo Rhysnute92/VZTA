@@ -1,12 +1,12 @@
-import GeoJSON from '../nodeMods/node_modules/ol/format/GeoJSON.js';
-import Map from '../nodeMods/node_modules/ol/Map.js';
-import VectorLayer from '../nodeMods/node_modules/ol/source/Vector.js'
-import VectorSource from '../nodeMods/node_modules/ol/source/Vector.js';
-import View from '../nodeMods/node_modules/ol/View.js';
-import {DragBox, Select} from '../nodeMods/node_modules/ol/interaction.js';
-import {Fill, Stroke, Style} from '../nodeMods/node_modules/ol/style.js';
-import {getWidth} from '../nodeMods/node_modules/ol/extent.js';
-import {platformModifierKeyOnly} from '../nodeMods/node_modules/ol/events/condition.js';
+import GeoJSON from '/nodeMods/node_modules/ol/format/GeoJSON.js';
+import Map from '/nodeMods/node_modules/ol/Map.js';
+import VectorLayer from '/nodeMods/node_modules/ol/source/Vector.js'
+import VectorSource from '/nodeMods/node_modules/ol/source/Vector.js';
+import View from '/nodeMods/node_modules/ol/View.js';
+import {DragBox, Select} from '/nodeMods/node_modules/ol/interaction.js';
+import {Fill, Stroke, Style} from '/nodeMods/node_modules/ol/style.js';
+import {getWidth} from '/nodeMods/node_modules/ol/extent.js';
+import {platformModifierKeyOnly} from '/nodeMods/node_modules/ol/events/condition.js';
 // //Invesitgate created directories mnode module mapstest and extent.js
 // import GeoJSON from '/node_modules/ol/format/GeoJSON.js';
 // import Map from '/ol/Map.js';
