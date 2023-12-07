@@ -1,7 +1,7 @@
 package Team5.SmartTowns.trails;
 
 
-import Team5.SmartTowns.Landmarks.Landmarks;
+import Team5.SmartTowns.landmarks.Landmarks;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
+import static Team5.SmartTowns.landmarks.Landmarks.landmarksDragonstrail;
 
 //import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
 
