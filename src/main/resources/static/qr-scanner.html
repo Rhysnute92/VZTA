@@ -1,0 +1,29 @@
+<!--setup html page for QR codes - R Nute-->
+<!--Modified from (https://www.geeksforgeeks.org/create-a-qr-code-scanner-or-reader-in-html-css-javascript/)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/templatingstyle.css">
+    <link rel="stylesheet" href="css/qrstyle.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script type="module" src="scripts/qr-script.js"></script>
+    <title>QR Code</title>
+</head>
+
+<body>
+    <header th:insert="towns/Templating.html :: header"></header>
+
+    <div class="container">
+        <h1>Scan location QR code</h1>
+        <div class="section">
+            <div id="qr-code-reader">
+            </div>
+        </div>
+    </div>
+
+    <div th:insert="towns/Templating.html :: footer"></div>
+</body>
+</html>

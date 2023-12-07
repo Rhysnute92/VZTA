@@ -23,7 +23,8 @@ create table if not exists users
     userID bigint auto_increment primary key,
     email varchar(128),
     name varchar(128),
-    dragonProgress int
+    dragonProgress int,
+    dragonsLandmarkIDs longtext
 ) engine=InnoDB;
 
 drop table if exists badges;

@@ -5,14 +5,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
-
     private JdbcTemplate jdbc;
     private RowMapper<User> userMapper;
 
@@ -20,7 +18,6 @@ public class UserRepositoryJDBC implements UserRepository{
         this.jdbc = aJdbc;
         setUserMapper();
     }
-
 
     private void setUserMapper(){
         userMapper = (rs, i) -> new User(
@@ -36,6 +33,7 @@ public class UserRepositoryJDBC implements UserRepository{
         String sql= "SELECT * FROM users";
         return jdbc.query(sql, userMapper);
     }
+
 
     @Override
     public User getUser(int id){
@@ -54,6 +52,18 @@ public class UserRepositoryJDBC implements UserRepository{
         }
         return progress;
     }
+
+//    @Override
+//    public Map<Long, Boolean> getDTCompletion(int id){
+//        //Using prepared statement to prevent SQL injections
+//        String sql = "SELECT userid, qrCodeSCAN FROM testuser WHERE userID= ?";
+//        List<Map<String, Object>> dtQuery = jdbc.queryForList(sql, id);
+//        Map<Long, Boolean> dtProgress = new HashMap<>();
+//        for (Map<String, Object> result : dtQuery) {
+//            dtProgress.put((Long)result.get("stickerID"), (boolean)result.get("hasSticker"));
+//        }
+//        return dtProgress;
+//    }
 
 
 //    @Override
