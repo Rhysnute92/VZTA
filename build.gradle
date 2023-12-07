@@ -46,3 +46,7 @@ tasks.named('bootBuildImage') {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task myScript(type: NodeTask) {
+	script = file('src/main/resources/static/scripts/mapAPI.js')
+}

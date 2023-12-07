@@ -30,10 +30,10 @@ class SmartTownsApplicationTests {
 	private static Location location;
 	private static locationRepositoryJDBC locationRepo;
 	private static JdbcTemplate jdbc;
-	@BeforeAll
-	public static void before() {
-		location = new Location();
-		locationRepo = new locationRepositoryJDBC(jdbc);}
+//	@BeforeAll
+//	public static void before() {
+//		location = new Location();
+//		locationRepo = new locationRepositoryJDBC(jdbc);}
 //	@BeforeAll
 //	public static void before2() {
 //		locationRepo = new locationRepositoryJDBC(jdbc); }

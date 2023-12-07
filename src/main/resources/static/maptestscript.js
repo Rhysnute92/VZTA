@@ -1,5 +1,5 @@
 
-import Map from './node_modules/ol/Map.js';
+import Map from '../nodeMods/node_modules/ol/Map.js';
 import OSM from './node_modules/ol/source/OSM.js';
 import TileLayer from './node_modules/ol/layer/Tile.js';
 import View from './node_modules/ol/View.js';

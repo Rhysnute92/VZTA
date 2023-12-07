@@ -1,13 +1,23 @@
-import GeoJSON from '../../templates/towns/mapsTest/node_modules/ol/format/GeoJSON.js';
-import Map from '../../templates/towns/mapsTest/node_modules/ol/Map.js';
-import VectorLayer from '../../templates/towns/mapsTest/node_modules/ol/source/Vector.js'
-import VectorSource from '../../templates/towns/mapsTest/node_modules/ol/source/Vector.js';
-import View from '../../templates/towns/mapsTest/node_modules/ol/View.js';
-import {DragBox, Select} from '../../templates/towns/mapsTest/node_modules/ol/interaction.js';
-import {Fill, Stroke, Style} from '../../templates/towns/mapsTest/node_modules/ol/style.js';
-import {getWidth} from '../../templates/towns/mapsTest/node_modules/ol/extent.js';
-import {platformModifierKeyOnly} from '../../templates/towns/mapsTest/node_modules/ol/events/condition.js';
-//Invesitgate created directories mnode module mapstest and extent.js
+import GeoJSON from '../nodeMods/node_modules/ol/format/GeoJSON.js';
+import Map from '../nodeMods/node_modules/ol/Map.js';
+import VectorLayer from '../nodeMods/node_modules/ol/source/Vector.js'
+import VectorSource from '../nodeMods/node_modules/ol/source/Vector.js';
+import View from '../nodeMods/node_modules/ol/View.js';
+import {DragBox, Select} from '../nodeMods/node_modules/ol/interaction.js';
+import {Fill, Stroke, Style} from '../nodeMods/node_modules/ol/style.js';
+import {getWidth} from '../nodeMods/node_modules/ol/extent.js';
+import {platformModifierKeyOnly} from '../nodeMods/node_modules/ol/events/condition.js';
+// //Invesitgate created directories mnode module mapstest and extent.js
+// import GeoJSON from '/node_modules/ol/format/GeoJSON.js';
+// import Map from '/ol/Map.js';
+// import VectorLayer from '/ol/layer/Vector.js';
+// import VectorSource from '/ol/source/Vector.js';
+// import View from '/ol/View.js';
+// import {DragBox, Select} from '/ol/interaction.js';
+// import {Fill, Stroke, Style} from '/ol/style.js';
+// import {getWidth} from '/ol/extent.js';
+// import {platformModifierKeyOnly} from '/ol/events/condition.js';
+
 
 const vectorSource = new VectorSource({
     url: 'https://openlayers.org/data/vector/ecoregions.json',
