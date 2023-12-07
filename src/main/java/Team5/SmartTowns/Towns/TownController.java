@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class TownController {
@@ -29,7 +31,7 @@ public class TownController {
 
     }
 
-    @GetMapping("/home/town")
+    @GetMapping("/home/town/Caerphilly")
     public ModelAndView getATownTrailsList(){
         ModelAndView modelAndView = new ModelAndView("userTrails/userTrailsTemplate");
         TownStorage townsCurrent= new TownStorage().getInstance();
@@ -37,15 +39,19 @@ public class TownController {
         List<Town> Towns = townRepository.getAllTowns();
         modelAndView.addObject("towns", Towns);
         List<Location> Locations = locationRepository.getAllLocation();
+        Locations= filterByLocationForTrails(Locations, "Caerphilly");
         modelAndView.addObject("locations", Locations);
         return modelAndView;
     }
 
     public List<Location> filterByLocationForTrails(List<Location> locationList , String town){
-        List<Location> filteredList;
-        for( location:locationList){
+        List<Location> filteredList = new ArrayList<Location>();;
+        for( Location location:locationList){
+            if (Objects.equals(location.getLocationPlace(), town)){
+                filteredList.add(location);
+            }
 
-        }
+        }return filteredList;
 
     }
 

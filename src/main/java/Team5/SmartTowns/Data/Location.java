@@ -3,8 +3,11 @@ package Team5.SmartTowns.Data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Location {
 //    private int locationID;
     private String locationName;
@@ -12,6 +15,8 @@ public class Location {
     private String locationDescription;
     private String locationPlace;
     private int locationTrailID;
+
+
 
     @Override
     public String toString() {
