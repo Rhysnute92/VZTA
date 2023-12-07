@@ -57,8 +57,8 @@ create table if not exists badgeProgress
 
 create table if not exists stickerProgress
 (
-    userID bigint,
-    stickerID bigint,
+    userID int,
+    stickerID int,
     hasSticker boolean /*Has sticker or not*/
 ) engine=InnoDB;
 

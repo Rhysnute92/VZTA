@@ -55,7 +55,7 @@ insert into badgeprogress (userID, badgeID, progress) value ('1', '1', '40');
 insert into badgeprogress (userID, badgeID, progress) value ('1', '2', '70');
 insert into badgeprogress (userID, badgeID, progress) value ('2', '2', '70');
 
-delete from stickerprogress;
-insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
-insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
-insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
+# delete from stickerprogress;
+# insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
+# insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
+# insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
