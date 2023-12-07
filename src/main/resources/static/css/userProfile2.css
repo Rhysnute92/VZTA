@@ -25,9 +25,9 @@
 
     }
     @media (prefers-color-scheme: light) {
-        --primary-darker: hsl(141, 100%, 10%);
-        --primary-dark: hsl(131, 33%, 20%);
-        --primary-colour: hsl(128, 100%, 30%);
+        --primary-darker: hsl(272, 100%, 10%);
+        --primary-dark: hsl(271, 100%, 20%);
+        --primary-colour: hsl(271, 100%, 30%);
         --primary-light: hsl(271, 100%, 40%);
         --primary-lighter: hsl(271, 100%, 50%);
 
@@ -36,6 +36,8 @@
         --accent-border: hsl(12, 81%, 25%);
 
         --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+
+        color: white;
 
 
     }
