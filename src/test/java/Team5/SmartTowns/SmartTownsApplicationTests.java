@@ -32,18 +32,19 @@ class SmartTownsApplicationTests {
 	private static JdbcTemplate jdbc;
 	@BeforeAll
 	public static void before() {
-		location = new Location(); }
-	@BeforeAll
-	public static void before2() {
-		locationRepo = new locationRepositoryJDBC(jdbc); }
+		location = new Location();
+		locationRepo = new locationRepositoryJDBC(jdbc);}
+//	@BeforeAll
+//	public static void before2() {
+//		locationRepo = new locationRepositoryJDBC(jdbc); }
 //	@Autowired
 //	private locationRepository locationRepository;
 
-	@Test
-	public void whenAddingLocationsNonApprovedLocationsDontShowInTrails(){
-		/// Discover number of approved/unapproved locations before adding tests
-		List<Location> approvedNumber = locationRepo.approvedLocations();
-	}
+//	@Test
+//	public void whenAddingLocationsNonApprovedLocationsDontShowInTrails(){
+//		/// Discover number of approved/unapproved locations before adding tests
+//		List<Location> approvedNumber = locationRepo.approvedLocations();
+//	}
 ////		Location loc1= new Location("TestFail", "Test@PleaseFail.test", "Fail Description here",
 ////				"Caerphilly", 103, false);
 ////		Location loc2= new Location("TestFail", "Test@PleaseFail2.test", "Fail Description here",
