@@ -55,3 +55,8 @@ delete from stickerprogress;
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
+
+delete from businesses;
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Caerphilly Castle', 'Castle Street', '', 'Caerphilly', '', 'CF83 1JD', 'https://cadw.gov.wales/visit/places-to-visit/caerphilly-castle');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Risca Colliers Institute', 'Grove Road', '', 'Risca', '', 'NP11 6GN', 'https://www.nmrs.org.uk/mines-map/coal-mining-in-the-british-isles/swales/abercarn/risca-colliery/');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Penarth Esplanade', '7 Pier Buildings', 'Penarth Pier', '', 'CF64 3AU', 'https://www.facebook.com/DecksPenarth/', '');
