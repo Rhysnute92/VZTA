@@ -24,7 +24,7 @@ public class Test5 {
 //	test 1
     void whenInjectInMemoryDataSource_thenReturnCorrectEmployeeCount() {
         locationRepositoryJDBC employeeDAO = new locationRepositoryJDBC(ajdbc);
-//        employeeDAO.setJdbcTemplate(ajdbc);
+//        employeeDAO.setJdbc(ajdbc);
         assertEquals(4, employeeDAO.getAllLocation().size());
 
     }
