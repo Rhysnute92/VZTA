@@ -7,9 +7,38 @@
 </head>
 <body>
 <div id="container1">
-    <form id="data">
-
-    </form>
+    <h2>Enter your Local authority</h2>
+        <form action="local-auth-data.php" method="post" id="data">
+            <p>
+                <label for="localAthorityName">Enter your local authority</label>
+                <input type="text" name="authority_name" id="localAthorityName">
+            </p>
+            <p>
+                <label for="address1">Please enter first line of address</label>
+                <input type="text" name="address_1" id="address1">
+            </p>
+            <p>
+                <label for="address2">Please enter second line of address (optional)</label>
+                <input type="text" name="address_2" id="address2">
+            </p>
+            <p>
+                <label for="city">Please enter the City/Town</label>
+                <input type="text" name="city" id="city">
+            </p>
+            <p>
+                <label for="county">Please enter you county (optional)</label>
+                <input type="text" name="county" id="county">
+            </p>
+            <p>
+                <label for="postcode">Please enter your postcode</label>
+                <input type="text" name="post_code" id="postcode">
+            </p>
+            <p>
+                <label for="website">Please enter your website address</label>
+                <input type="url" name="web_site" id="website">
+            </p>
+            <input type="submit" value="Submit Data">
+        </form>
 </div>
 </body>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
