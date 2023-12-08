@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
@@ -21,10 +20,9 @@ public class UserRepositoryJDBC implements UserRepository{
 
     private void setUserMapper(){
         userMapper = (rs, i) -> new User(
-                rs.getInt("userID"),
+                rs.getInt("id"),
                 rs.getString("email"),
-                rs.getString("name"),
-                rs.getInt("dragonProgress")
+                rs.getString("name")
         );
     }
 
@@ -36,44 +34,23 @@ public class UserRepositoryJDBC implements UserRepository{
 
 
     @Override
-    public User getUser(int id){
-        String sql= "SELECT * FROM users WHERE userID="+id;
+    public User getUserById(int userID){
+        String sql= "SELECT * FROM users WHERE id="+userID;
         List<User> result = jdbc.query(sql, userMapper);
-        return result.get(0);
+        return result.isEmpty() ? null : result.get(0);
     }
 
     @Override
-    public Map<Long, Boolean> getStickers(int id){
-        String sql = "SELECT stickerID, hasSticker FROM stickerprogress WHERE userID=" + id;
-        List<Map<String, Object>> query = jdbc.queryForList(sql);
-        Map<Long, Boolean> progress = new HashMap<>();
-        for (Map<String, Object> result : query) {
-            progress.put((Long)result.get("stickerID"), (boolean)result.get("hasSticker"));
-        }
-        return progress;
+    public List<Long> getUserStickersFromPack(int userID, int packID) {
+        String sql = "SELECT stickerID FROM stickerprogress WHERE (userID, packID)= (" + userID + "," + packID + ")";
+        return jdbc.queryForList(sql, Long.class);
     }
 
-//    @Override
-//    public Map<Long, Boolean> getDTCompletion(int id){
-//        //Using prepared statement to prevent SQL injections
-//        String sql = "SELECT userid, qrCodeSCAN FROM testuser WHERE userID= ?";
-//        List<Map<String, Object>> dtQuery = jdbc.queryForList(sql, id);
-//        Map<Long, Boolean> dtProgress = new HashMap<>();
-//        for (Map<String, Object> result : dtQuery) {
-//            dtProgress.put((Long)result.get("stickerID"), (boolean)result.get("hasSticker"));
-//        }
-//        return dtProgress;
-//    }
-
-
-//    @Override
-//    public Map<Long, Integer> getBadgeProgress(int id){
-//        String sql = "SELECT badgeID, progress FROM badgeprogress WHERE userID=" + id;
-//        List<Map<String, Object>> query = jdbc.queryForList(sql);
-//        Map<Long, Integer> progress = new HashMap<>();
-//        for (Map<String, Object> result : query) {
-//            progress.put((Long)result.get("badgeID"), (int)result.get("progress"));
-//        }
-//        return progress;
-//    }
+    @Override
+    public boolean unlockSticker(int userID, int packID, int stickerID){
+        String sql = "INSERT INTO stickerprogress (userID, packID, stickerID) VALUES (" +
+                userID + ", " + packID + "," + stickerID + ")";
+        jdbc.update(sql);
+        return true;
+    }
 }

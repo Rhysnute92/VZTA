@@ -17,45 +17,48 @@ create table if not exists locations
     locationTrailID varchar(128)
 )   engine=InnoDB;
 
+
 drop table if exists users;
+drop table if exists stickers;
+drop table if exists packs;
+drop table if exists stickerProgress;
+
 create table if not exists users
 (
-    userID bigint auto_increment primary key,
+    id bigint auto_increment primary key,
     email varchar(128),
-    name varchar(128),
+    name varchar(30),
     dragonProgress int,
     dragonsLandmarkIDs longtext
 ) engine=InnoDB;
 
-drop table if exists badges;
-create table if not exists badges
+
+create table if not exists packs
 (
-    badgeID bigint auto_increment primary key,
-    name varchar(128),
-    description varchar(128),
-    difficulty bigint
+    id bigint auto_increment primary key,
+    name varchar(20),
+    description text
 ) engine=InnoDB;
 
-drop table if exists stickers;
 create table if not exists stickers
 (
-    stickerID bigint auto_increment primary key,
-    name varchar(128),
-    description varchar(128),
-    rarity bigint
-) engine=InnoDB;
+    id bigint auto_increment primary key,
+    packID bigint,
+    FOREIGN KEY (packID) REFERENCES packs(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    stickerID bigint, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
+    name varchar(30),
+    description text,
+    rarity tinyint
 
-drop table if exists badgeProgress;
-create table if not exists badgeProgress
-(
-    userID bigint,
-    badgeID bigint,
-    progress int /*0-100*/
 ) engine=InnoDB;
 
 create table if not exists stickerProgress
 (
+    id bigint auto_increment primary key,
     userID bigint,
-    stickerID bigint,
-    hasSticker boolean /*Has sticker or not*/
+    packID bigint,
+    stickerID bigint
+
 ) engine=InnoDB;
