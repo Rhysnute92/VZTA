@@ -27,9 +27,13 @@ class SmartTownsApplicationTests {
 	void contextLoads() {
 	}
 
-	private static Location location;
-	private static locationRepositoryJDBC locationRepo;
-	private static JdbcTemplate jdbc;
+
+
+
+
+//	private static Location location;
+//	private static locationRepositoryJDBC locationRepo;
+//	private static JdbcTemplate jdbc;
 //	@BeforeAll
 //	public static void before() {
 //		location = new Location();

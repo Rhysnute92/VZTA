@@ -60,3 +60,20 @@ create table if not exists stickerProgress
     stickerID bigint,
     hasSticker boolean /*Has sticker or not*/
 ) engine=InnoDB;
+
+
+drop table if exists locations;
+
+
+
+drop table if exists locationsCoordinates;
+create table if not exists locationsCoordinates
+(locationCoordID bigint auto_increment primary key,
+ locationID bigint,
+ locationCoordName varchar(128),
+ locationCoordsLong double,
+ locationCoordsLat double,
+ Foreign Key (locationID) REFERENCES locations(locationID)
+
+
+)engine=InnoDB;
