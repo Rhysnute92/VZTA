@@ -55,3 +55,8 @@ delete from stickerprogress;
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
+
+delete from locationsCoordinates;
+insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (2,51.57623,-3.21910 );
+insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (3,51.575372, -3.219186 );
+insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (4,51.576363, -3.220712 );

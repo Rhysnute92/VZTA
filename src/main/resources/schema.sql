@@ -7,7 +7,6 @@ create table if not exists trails
 )   engine=InnoDB;
 
 drop table if exists locations;
-
 create table if not exists locations
 (
     locationID bigint auto_increment primary key,
@@ -62,18 +61,15 @@ create table if not exists stickerProgress
 ) engine=InnoDB;
 
 
-drop table if exists locations;
-
 
 
 drop table if exists locationsCoordinates;
 create table if not exists locationsCoordinates
 (locationCoordID bigint auto_increment primary key,
  locationID bigint,
- locationCoordName varchar(128),
  locationCoordsLong double,
  locationCoordsLat double,
- Foreign Key (locationID) REFERENCES locations(locationID)git a
+ Foreign Key (locationID) REFERENCES locations(locationID)
 
 
 )engine=InnoDB;
