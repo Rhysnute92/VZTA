@@ -3,8 +3,13 @@ package Team5.SmartTowns.users;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,9 +53,20 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public boolean unlockSticker(int userID, int packID, int stickerID){
-        String sql = "INSERT INTO stickerprogress (userID, packID, stickerID) VALUES (" +
-                userID + ", " + packID + "," + stickerID + ")";
-        jdbc.update(sql);
+        String sql = "INSERT INTO stickerprogress (userID, packID, stickerID) VALUES (?,?,?)";
+        jdbc.update(sql, userID, packID, stickerID);
         return true;
     }
+
+    @Override
+    public boolean addUser(String username, String email, String password){
+        String query = "INSERT INTO users (name, email) VALUES (?,?)";
+        jdbc.update(query, username, email);
+        return false;
+    }
+    public boolean doesUserExist(String email){
+        String query = "SELECT COUNT(email) FROM users WHERE (email) = (?)";
+        return !(jdbc.queryForObject(query, Integer.class, email) == 0);
+    }
+
 }

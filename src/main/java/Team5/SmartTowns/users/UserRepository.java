@@ -8,4 +8,6 @@ public interface UserRepository {
     List<Long> getUserStickersFromPack(int userID, int packID);
     User getUserById(int userID);
     boolean unlockSticker(int userID, int packID, int stickerID);
+    boolean addUser(String username, String email, String password);
+    boolean doesUserExist(String email);
 }

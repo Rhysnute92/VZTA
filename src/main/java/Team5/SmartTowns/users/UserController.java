@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,32 +18,36 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private RewardsRepository rewardsRepository;
 
+    /* LOGIN MAPPING & FUNCTIONS */
     @GetMapping("/login")
     public ModelAndView getLoginPage() {
         ModelAndView mav = new ModelAndView("users/login");
-//        List<User> users = userRepository.getAllUsers();
-//        mav.addObject("users", users);
         return mav;
     }
 
-    @GetMapping("/userList")
-    public ModelAndView userList() {
-        ModelAndView mav = new ModelAndView("towns/userData");
-        List<User> users = userRepository.getAllUsers();
-        mav.addObject("users", users);
+    @PostMapping("/login/register")
+    public ModelAndView registerUser(String[] userInfo) {
+        /* TODO CHECK IS USER ALREADY EXISTS */
+
+        /* TODO CALL FUNCTION HERE TO CRATE USER IN THE DATABASE */
+
+        ModelAndView mav = new ModelAndView("users/login");
         return mav;
     }
 
+    /* USER MAPPING & FUNCTIONS */
     @GetMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable int id) {
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Pack> allPacks = rewardsRepository.getAllPacks();
         mav.addObject("user", userRepository.getUserById(id));
         mav.addObject("packs", allPacks);
-
+        userRepository.addUser("Maria", "MariaEmail", "MariaPassword");
+        userRepository.doesUserExist("MariaEmail");
         mav.addAllObjects(getPackInfo(id, 1).getModelMap());
 
         return mav;
@@ -85,5 +90,8 @@ public class UserController {
         }
         return displayedStickers;
     }
+
+
+
 
 }

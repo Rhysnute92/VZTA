@@ -26,7 +26,7 @@ drop table if exists stickerProgress;
 create table if not exists users
 (
     id bigint auto_increment primary key,
-    email varchar(128),
+    email varchar(128) NOT NULL ,
     name varchar(30),
     dragonProgress int,
     dragonsLandmarkIDs longtext
