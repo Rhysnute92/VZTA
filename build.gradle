@@ -45,11 +45,7 @@ dependencies {
 
 }
 
-jar {
-	manifest{
-		attributes 'External-Library' :
-	}
-}
+
 
 tasks.named('bootBuildImage') {
 	builder = 'paketobuildpacks/builder-jammy-base:latest'
