@@ -36,9 +36,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// https://mvnrepository.com/artifact/org.springframework/spring-dao
-// https://mvnrepository.com/artifact/org.springframework/spring-dao
-	implementation group: 'org.springframework', name: 'spring-tx', version: '6.1.1'
-	implementation 'org.springframework:spring-dao:2.0.8'
+//	implementation group: 'org.springframework', name: 'spring-tx', version: '6.1.1'
 	implementation 'org.springframework:spring-dao:2.0.8'
 //	implementation 'org.springframework.dao.DataAccessException'
 	// https://mvnrepository.com/artifact/org.springframework/spring-core
