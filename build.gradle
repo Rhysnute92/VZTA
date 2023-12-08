@@ -43,8 +43,9 @@ dependencies {
 //	implementation 'org.springframework.dao.DataAccessException'
 	// https://mvnrepository.com/artifact/org.springframework/spring-core
 	implementation 'org.springframework:spring-core:6.0.6'
-	implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.1'
-	implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.1'
+	implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.0.1'
+	implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.0.1'
+
 //Thanks for using https://jar-download.com
 
 
