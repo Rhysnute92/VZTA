@@ -6,6 +6,7 @@ create table if not exists trails
     tru boolean
 )   engine=InnoDB;
 
+drop table if exists locationCoordinates;
 drop table if exists locations;
 create table if not exists locations
 (
@@ -59,27 +60,24 @@ create table if not exists stickerProgress
 (
     id bigint auto_increment primary key,
     userID bigint,
-<<<<<<< HEAD
-    stickerID bigint,
-    hasSticker boolean /*Has sticker or not*/
+    stickerID bigint
 ) engine=InnoDB;
 
 
 
 
-drop table if exists locationsCoordinates;
-create table if not exists locationsCoordinates
-(locationCoordID bigint auto_increment primary key,
- locationID bigint,
- locationCoordsLong double,
- locationCoordsLat double,
- Foreign Key (locationID) REFERENCES locations(locationID)
+
+create table if not exists locationCoordinates
+(
+    locationCoordID bigint auto_increment primary key,
+    locationID bigint,
+    Foreign Key (locationID) REFERENCES locations(locationID)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    locationCoordsLong varchar(128),
+    locationCoordsLat varchar(128)
 
 
 )engine=InnoDB;
-=======
-    packID bigint,
-    stickerID bigint
 
-) engine=InnoDB;
->>>>>>> main
+

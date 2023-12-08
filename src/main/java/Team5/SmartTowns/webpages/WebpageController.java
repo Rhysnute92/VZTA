@@ -1,7 +1,10 @@
 package Team5.SmartTowns.webpages;
 
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
 @Controller
@@ -23,7 +26,7 @@ public class WebpageController {
         ModelAndView modelAndView = new ModelAndView("Towns/risca");
         return modelAndView;
     }
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Webpages/WebpageController.java
+
 
     @GetMapping("/maps")
     public ModelAndView getMapTestAPI(){
@@ -38,14 +41,10 @@ public class WebpageController {
 //    }
 
 
-    @RequestMapping(value="/test_ajax_frag", method=RequestMethod.POST)
-    public String sendHtmlFragment(Model map) {
-        //map.addAttribute("foo", "bar");
-        return "fragments/temp_frags.html :: trailInfo2";
+
     }
 
 
 
-=======
->>>>>>> main:src/main/java/Team5/SmartTowns/webpages/WebpageController.java
-}
+
+

@@ -7,7 +7,7 @@ insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
 insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
 
 delete from locations;
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved)value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Castle','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Medieval Trades','','Location description here','Caerphilly',0101, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Queen''s War','','Location description here','Caerphilly',0101, true);
@@ -25,30 +25,26 @@ insert into locations ( locationName , locationEmail,locationDescription,locatio
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Medieval Courthouse','','Location description here','Caerphilly',0103, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ('Caerphilly Castle','','Location description here','Caerphilly',0103, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Ty Vaughan House','','Location description here','Caerphilly',0103, true);
-
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Risca Colliery','','Location description here','Risca',0201, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Esplanade','','Location description here','Penarth',0301, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
 
 
-<<<<<<< HEAD
-insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value (19, 'The Esplanade','','Location description here','Penarth',0301, true);
-insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
-delete from badges;
-insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
-insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into badges (name, description, difficulty) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
-insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-=======
-insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (19, 'The Esplanade','','Location description here','Penarth',0301);
-insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
+# delete from badges;
+# insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
+# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+# insert into badges (name, description, difficulty) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
+# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+
 
 
 delete from packs;
 insert into packs (name, description) value ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
 insert into packs (name, description) value ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
 insert into packs (name, description) value ('Welsh Heritage', 'Pack About Welsh Heritage');
->>>>>>> main
+
 
 delete from stickers;
 insert into stickers (packID, stickerID, name, description, rarity) value (1, 1, 'wayne_hennessey', 'Wales Football Team Player', '2');
@@ -65,21 +61,20 @@ insert into stickers (packID, stickerID, name, description, rarity) value (3, 1,
 insert into stickers (packID, stickerID, name, description, rarity) value (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
 insert into stickers (packID, stickerID, name, description, rarity) value (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
 
-delete from stickerprogress;
-<<<<<<< HEAD
+# delete from stickerprogress;
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
-delete from locationsCoordinates;
-insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (2,51.57623,-3.21910 );
-insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (3,51.575372, -3.219186 );
-insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (4,51.576363, -3.220712 );
-=======
-insert into stickerprogress (userID, packID, stickerID) value (1, 1, 1);
-insert into stickerprogress (userID, packID, stickerID) value (1, 1, 2);
-insert into stickerprogress (userID, packID, stickerID) value (1, 1, 3);
-insert into stickerprogress (userID, packID, stickerID) value (1, 1, 5);
-insert into stickerprogress (userID, packID, stickerID) value (1, 2, 1);
-insert into stickerprogress (userID, packID, stickerID) value (1, 2, 3);
->>>>>>> main
+delete from locationCoordinates;
+insert into locationCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (2,'51.57623','-3.21910' );
+insert into locationCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (3,'51.575372','-3.219186');
+insert into locationCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (4, '51.576363','-3.220712' );
+#
+# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 1);
+# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 2);
+# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 3);
+# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 5);
+# insert into stickerprogress (userID, packID, stickerID) value (1, 2, 1);
+# insert into stickerprogress (userID, packID, stickerID) value (1, 2, 3);
+

@@ -1,10 +1,10 @@
 package Team5.SmartTowns;
 
-import Team5.SmartTowns.Data.DatabaseController;
-import Team5.SmartTowns.Data.Location;
-import Team5.SmartTowns.Data.locationRepository;
-import Team5.SmartTowns.Data.locationRepositoryJDBC;
-import Team5.SmartTowns.Landmarks.Landmarks;
+import Team5.SmartTowns.data.DatabaseController;
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepository;
+import Team5.SmartTowns.data.LocationRepositoryJDBC;
+import Team5.SmartTowns.landmarks.Landmarks;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

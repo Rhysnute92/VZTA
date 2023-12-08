@@ -51,5 +51,24 @@ public class LocationRepositoryJDBC implements LocationRepository {
         } return locationApprovalList;
  }
 
+    @Override
+    public List<Location> unapprovedLocations(){
+        List<Location> locations = getAllLocation();
+        List<Location> locationUnapprovedList= new ArrayList<Location>();
+        for (Location loc :locations){
+            if (!loc.isLocationApproved()) {
+                locationUnapprovedList.add(loc);
+            }
+        } return locationUnapprovedList;
+    }
 
+
+
+
+
+
+
+
+    public LocationRepositoryJDBC() {
+    }
 }
