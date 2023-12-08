@@ -1,0 +1,7 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "dependencies": {
+    "html5-qrcode": "^2.3.8"
+  }
+}

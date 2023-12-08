@@ -1,6 +1,6 @@
 delete from users;
-insert into users (email, name, dragonProgress) value ('hannah@gmail.com', 'Hannah', '90');
-insert into users (userID, email, name, dragonProgress) value ('2', 'nigel@gmail.com', 'Nigel', '40');
+insert into users (email, name) value ('hannah@gmail.com', 'Hannah');
+insert into users (email, name) value ('nigel@gmail.com', 'Nigel');
 
 delete from trails;
 insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
@@ -30,6 +30,7 @@ insert into locations ( locationName , locationEmail,locationDescription,locatio
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201, true);
 
 
+<<<<<<< HEAD
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value (19, 'The Esplanade','','Location description here','Penarth',0301, true);
 insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
 delete from badges;
@@ -38,20 +39,34 @@ insert into badges (name, description, difficulty) value ('TownRegular', 'You vi
 insert into badges (name, description, difficulty) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
 insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
 insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+=======
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (19, 'The Esplanade','','Location description here','Penarth',0301);
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
+
+
+delete from packs;
+insert into packs (name, description) value ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
+insert into packs (name, description) value ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
+insert into packs (name, description) value ('Welsh Heritage', 'Pack About Welsh Heritage');
+>>>>>>> main
 
 delete from stickers;
-insert into stickers (name, description, rarity) value ('TownConnoisseur', 'You know the town very well!', '2');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-
-delete from badgeprogress;
-insert into badgeprogress (userID, badgeID, progress) value ('1', '1', '40');
-insert into badgeprogress (userID, badgeID, progress) value ('1', '2', '70');
-insert into badgeprogress (userID, badgeID, progress) value ('2', '2', '70');
+insert into stickers (packID, stickerID, name, description, rarity) value (1, 1, 'wayne_hennessey', 'Wales Football Team Player', '2');
+insert into stickers (packID, stickerID, name, description, rarity) value (1, 2, 'neco_williams', 'Wales Football Team Player', '2');
+insert into stickers (packID, stickerID, name, description, rarity) value (1, 3, 'joe_morrell', 'Wales Football Team Player', '2');
+insert into stickers (packID, stickerID, name, description, rarity) value (1, 4, 'ethan_ampadu', 'Wales Football Team Player', '2');
+insert into stickers (packID, stickerID, name, description, rarity) value (1, 5, 'connor_roberts', 'Wales Football Team Player', '2');
+insert into stickers (packID, stickerID, name, description, rarity) value (2, 1, 'Taine_Basham', 'Wales Rugby Team Player', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (2, 2, 'Adam Beard', 'Wales Rugby Team Player', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (2, 3, 'Elliot Dee', 'Wales Rugby Team Player', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (2, 4, 'Corey Domachowski', 'Wales Rugby Team Player', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (2, 5, 'Ryan Elias', 'Wales Rugby Team Player', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (3, 1, 'Welsh Lady', 'Welsh Heritage', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
+insert into stickers (packID, stickerID, name, description, rarity) value (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
 
 delete from stickerprogress;
+<<<<<<< HEAD
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
@@ -60,3 +75,11 @@ delete from locationsCoordinates;
 insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (2,51.57623,-3.21910 );
 insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (3,51.575372, -3.219186 );
 insert into locationsCoordinates(locationID, locationCoordsLong, locationCoordsLat) value (4,51.576363, -3.220712 );
+=======
+insert into stickerprogress (userID, packID, stickerID) value (1, 1, 1);
+insert into stickerprogress (userID, packID, stickerID) value (1, 1, 2);
+insert into stickerprogress (userID, packID, stickerID) value (1, 1, 3);
+insert into stickerprogress (userID, packID, stickerID) value (1, 1, 5);
+insert into stickerprogress (userID, packID, stickerID) value (1, 2, 1);
+insert into stickerprogress (userID, packID, stickerID) value (1, 2, 3);
+>>>>>>> main
