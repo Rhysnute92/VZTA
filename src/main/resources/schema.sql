@@ -73,7 +73,7 @@ create table if not exists locationsCoordinates
  locationCoordName varchar(128),
  locationCoordsLong double,
  locationCoordsLat double,
- Foreign Key (locationID) REFERENCES locations(locationID)
+ Foreign Key (locationID) REFERENCES locations(locationID)git a
 
 
 )engine=InnoDB;
