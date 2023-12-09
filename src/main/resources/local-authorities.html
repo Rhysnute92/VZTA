@@ -9,6 +9,9 @@
 <body>
 <h1>Local Authorities</h1>
 <div id="councils">
+    <ul th:each="localauthority:${localauthorities}">
+        <li th:text="${localauthority}"></li>
+    </ul>
 </div>
 <p>Local Autorities please enter here</p><button><a href="local-auth-data.html" id="authority">Login</a></button>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
