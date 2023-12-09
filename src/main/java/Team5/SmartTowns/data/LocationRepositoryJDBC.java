@@ -18,11 +18,12 @@ public class LocationRepositoryJDBC implements LocationRepository {
         setlocationMapper();
     }
 
-    public LocationRepositoryJDBC() {
-        JdbcTemplate ajdbc = new JdbcTemplate();
-        this.jdbc =ajdbc;
-        
-    }
+//    public LocationRepositoryJDBC() {
+//        JdbcTemplate ajdbc = new JdbcTemplate();
+//        this.jdbc =ajdbc;
+//        setlocationMapper();
+//
+//    }
 
 
     private void setlocationMapper(){
@@ -40,11 +41,16 @@ public class LocationRepositoryJDBC implements LocationRepository {
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
-
-    public LocationRepositoryJDBC(JdbcTemplate jdbc, RowMapper<Location> locationMapper) {
-        this.jdbc = jdbc;
-        this.locationMapper = locationMapper;
-    }
+//    public LocationRepositoryJDBC() {
+//        JdbcTemplate ajdbc = new JdbcTemplate();
+//        this.jdbc =ajdbc;
+//        setlocationMapper();
+//
+//    }
+//    public LocationRepositoryJDBC(JdbcTemplate jdbc, RowMapper<Location> locationMapper) {
+//        this.jdbc = jdbc;
+//        this.locationMapper = locationMapper;
+//    }
 
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
     public void addLocation(Location loc) {
@@ -64,18 +70,18 @@ public class LocationRepositoryJDBC implements LocationRepository {
             }
         } return locationApprovalList;
  }
-
-    @Override
-    public List<Location> getApprovedLocations2(List<Location> list){
-
-        List<Location> locationApprovalList= new ArrayList<Location>();
-        for (Location loc :list){
-            if (loc.isLocationApproved()) {
-                locationApprovalList.add(loc);
-            }
-        } return locationApprovalList;
-    }
-
+//
+//    @Override
+//    public List<Location> getApprovedLocations2(List<Location> list){
+//
+//        List<Location> locationApprovalList= new ArrayList<Location>();
+//        for (Location loc :list){
+//            if (loc.isLocationApproved()) {
+//                locationApprovalList.add(loc);
+//            }
+//        } return locationApprovalList;
+//    }
+//
 
 
     @Override

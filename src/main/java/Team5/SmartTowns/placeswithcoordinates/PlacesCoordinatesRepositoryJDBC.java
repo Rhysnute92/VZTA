@@ -75,7 +75,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
 
     public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
-        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
         return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
     }
 
@@ -128,45 +128,45 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
 
     // Method used to approve and add locations with associated coordinates. List<Location> unapprovedLocations
-    public void approveLocationAndAddCoords(String locationsName, Double latCoords, Double longCoords,JdbcTemplate jdbc) {
-        // need list too
-
-        LocationsCoordinates jdbcTemp= new LocationsCoordinates(jdbc);
-        List<Location> unapprovedLocations = jdbcTemp.getFullUnapprovedLocations(jdbc);
-        List<Location> allLocations = jdbcTemp.getFullListLocations(jdbc);
-
-        PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
-        List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
-        int unapporvedLocationsListIndex=99;  // initialize variable to allow after if statement to run todo fix this
-        for (int i=0; i<unapprovedLocations.size();i++){ // check if location exists
-            if (Objects.equals(unapprovedLocations.get(i).getLocationName(), locationsName)){
-                unapporvedLocationsListIndex =i;
-                break;
-
-            } else if(!Objects.equals(unapprovedLocations.get(i).getLocationPlace(), locationsName)){
-                System.out.println("Error, location is not valid, please check your spelling or locations table.");
-
-                return;
-            }
-            String toBeApprovedLocationTown=unapprovedLocations.get(unapporvedLocationsListIndex).getLocationPlace();
-            int tableLocationIDOfInputtedLocation= getLocationTableIDValue(allLocations, locationsName);
-            LocationsCoordinates unapprovedLocation= new LocationsCoordinates(tableLocationIDOfInputtedLocation,latCoords, longCoords);
-            boolean locationWithinTownBoundaries= checkInputtedCoordsMatchTown(Double.toString(latCoords) ,Double.toString(longCoords), toBeApprovedLocationTown);
-            if (locationWithinTownBoundaries){
-                addLocationCoord(unapprovedLocation);
-                return;
-
-
-            } else {
-                return;}
-
-//            for (TownWithTrails town : allTowns){
-//                if (Objects.equals(toBeApprovedLocationTown, town.getTownName())){
-
-
-                }
-
-            }
+//    public void approveLocationAndAddCoords(String locationsName, Double latCoords, Double longCoords,JdbcTemplate jdbc) {
+//        // need list too
+//
+//        LocationsCoordinates jdbcTemp= new LocationsCoordinates(jdbc);
+//        List<Location> unapprovedLocations = jdbcTemp.getFullUnapprovedLocations(jdbc);
+//        List<Location> allLocations = jdbcTemp.getFullListLocations(jdbc);
+//
+//        PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
+//        List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
+//        int unapporvedLocationsListIndex=99;  // initialize variable to allow after if statement to run todo fix this
+//        for (int i=0; i<unapprovedLocations.size();i++){ // check if location exists
+//            if (Objects.equals(unapprovedLocations.get(i).getLocationName(), locationsName)){
+//                unapporvedLocationsListIndex =i;
+//                break;
+//
+//            } else if(!Objects.equals(unapprovedLocations.get(i).getLocationPlace(), locationsName)){
+//                System.out.println("Error, location is not valid, please check your spelling or locations table.");
+//
+//                return;
+//            }
+//            String toBeApprovedLocationTown=unapprovedLocations.get(unapporvedLocationsListIndex).getLocationPlace();
+//            int tableLocationIDOfInputtedLocation= getLocationTableIDValue(allLocations, locationsName);
+//            LocationsCoordinates unapprovedLocation= new LocationsCoordinates(tableLocationIDOfInputtedLocation,latCoords, longCoords);
+//            boolean locationWithinTownBoundaries= checkInputtedCoordsMatchTown(Double.toString(latCoords) ,Double.toString(longCoords), toBeApprovedLocationTown);
+//            if (locationWithinTownBoundaries){
+//                addLocationCoord(unapprovedLocation);
+//                return;
+//
+//
+//            } else {
+//                return;}
+//
+////            for (TownWithTrails town : allTowns){
+////                if (Objects.equals(toBeApprovedLocationTown, town.getTownName())){
+//
+//
+//                }
+//
+//            }
 
 
 

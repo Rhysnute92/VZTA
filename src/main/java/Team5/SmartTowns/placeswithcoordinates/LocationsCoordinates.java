@@ -15,7 +15,7 @@ import java.util.List;
 //@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LocationsCoordinates  extends LocationRepositoryJDBC {
+public class LocationsCoordinates {
     /// separate class to location to cover all locations within trails that have been approved and have long/lat coords attached for mapping.
     private int locationID;
     private Double locationCoordsLat;
@@ -48,12 +48,12 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC {
         this.locationCoordsLat = locationCoordsLat;
     }
 
-    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong) {
-        super(aJdbc);
-        this.locationID = locationID;
-        this.locationCoordsLong = locationCoordsLong;
-        this.locationCoordsLat = locationCoordsLat;
-    }
+//    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong) {
+//        super(aJdbc);
+//        this.locationID = locationID;
+//        this.locationCoordsLong = locationCoordsLong;
+//        this.locationCoordsLat = locationCoordsLat;
+//    }
 
 //    public LocationsCoordinates(int locationID, Double locationCoordsLat, Double locationCoordsLong,JdbcTemplate jdbc) {
 //        super(jdbc);
@@ -63,27 +63,26 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC {
 //    }
 
 
-    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong, JdbcTemplate jdbc) {
-        super(aJdbc);
-        this.locationID = locationID;
-        this.locationCoordsLat = locationCoordsLat;
-        this.locationCoordsLong = locationCoordsLong;
-        this.jdbc = jdbc;
-    }
+//    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong, JdbcTemplate jdbc) {
+//        super(aJdbc);
+//        this.locationID = locationID;
+//        this.locationCoordsLat = locationCoordsLat;
+//        this.locationCoordsLong = locationCoordsLong;
+//        this.jdbc = jdbc;
+//    }
 
     public LocationsCoordinates(int locationID, Double locationCoordsLat, Double locationCoordsLong) {
-        super();
         this.locationID = locationID;
         this.locationCoordsLat = locationCoordsLat;
         this.locationCoordsLong = locationCoordsLong;
     }
 
-    public LocationsCoordinates(JdbcTemplate aJdbc) {
-        super(aJdbc);
-    }
+//    public LocationsCoordinates(JdbcTemplate aJdbc) {
+//        super(aJdbc);
+//    }
 
     public List<Location> getFullListLocations(JdbcTemplate aJdbc){
-        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
         return new LocationRepositoryJDBC(aJdbc).getAllLocation();
     }
 
@@ -95,7 +94,7 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC {
 //    }
 
     public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
-        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
         return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
     }
 

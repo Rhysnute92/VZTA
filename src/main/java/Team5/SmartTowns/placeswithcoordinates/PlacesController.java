@@ -22,8 +22,8 @@ public class PlacesController {
 
     @Autowired
     private PlacesCoordinatesRepository placeRepo;
-//    @Autowired
-//    private TrailsRepository locationRepo;
+    @Autowired
+    private LocationRepository locationRepo;
 
 
 
@@ -31,17 +31,16 @@ public class PlacesController {
     @GetMapping("/checkpoint")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
-//        List<Trail> locationssad =  locationRepo.getAllTrails();
+        List<Location> locations =  locationRepo.getAllLocation();
 //        List<Location> approvedLocations =  locationRepo.getApprovedLocations2(locations);
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
         List<Integer> locationIDIndex = new ArrayList<Integer>();
-//        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-//        for (LocationsCoordinates coord: locCoords){
-//            locationIDIndex.add(coord.getLocationID()-1);
-//            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-//        }
-
-//        modelAndView.addObject("locations", locationCoordsWorkaround);
+        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+        for (LocationsCoordinates coord: locCoords){
+            locationIDIndex.add(coord.getLocationID()-1);
+            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
+        }
+        modelAndView.addObject("location", locationCoordsWorkaround);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }

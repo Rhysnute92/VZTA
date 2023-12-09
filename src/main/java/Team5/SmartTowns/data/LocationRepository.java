@@ -11,7 +11,7 @@ public interface LocationRepository {
 
     List<Location> getApprovedLocations();
 
-    List<Location> getApprovedLocations2(List<Location> list);
+//    List<Location> getApprovedLocations2(List<Location> list);
 
     List<Location> getUnapprovedLocations();
 
