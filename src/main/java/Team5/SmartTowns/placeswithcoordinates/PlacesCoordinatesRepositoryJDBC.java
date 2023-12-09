@@ -113,13 +113,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
                 index = i;
                 return index;
 
-            } else{
-                return index= Integer.parseInt(null);
             }
+        } return index= Integer.parseInt(null);
 
-
-
-        }
     }
 
 
@@ -134,7 +130,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
         PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
         List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
-        int unapporvedLocationsListIndex=99;  // initialiose variable to allow after if statement to run todo fix this
+        int unapporvedLocationsListIndex=99;  // initialize variable to allow after if statement to run todo fix this
         for (int i=0; i<unapprovedLocations.size();i++){ // check if location exists
             if (Objects.equals(unapprovedLocations.get(i).getLocationName(), locationsName)){
                 unapporvedLocationsListIndex =i;

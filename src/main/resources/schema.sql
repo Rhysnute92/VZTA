@@ -88,9 +88,10 @@ create table if not exists townsWithTrails
     townName varchar(128),
     townCentreCoordsLat varchar(128),
     townCentreCoordsLong varchar(128),
-    townLeftmostCoordsLat varchar(128),
-    townRightmostCoordsLat varchar(128),
-    townUppermostCoordsLong varchar(128),
-    townLowermostCoordsLong varchar(128)
+    townUppermostCoordsLat varchar(128),
+    townLowermostCoordsLat varchar(128),
+    townLeftmostCoordsLong varchar(128),
+    townRightmostCoordsLong varchar(128)
+
 )engine=InnoDB;
 
