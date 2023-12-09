@@ -10,7 +10,10 @@
 <h1>Compete with Online Retailers</h1>
 <h1>Drive Footfall to the high street</h1>
 <h1>Increase Sales</h1>
-<p>Businesses please enter here</p><button><a href="businesses.html" id="business">Login</a></button>
+<ul th:each="businesses:${business}">
+    <li th:text="${businesses}"></li>
+</ul>
+<p>Businesses please enter here</p><button><a href="business-data.html" id="business">Login</a></button>
 </body>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </html>
