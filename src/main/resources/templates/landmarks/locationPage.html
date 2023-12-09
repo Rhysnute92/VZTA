@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Checkpoint</title>
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 </head>
 <body>
 
 <main>
+    <header th:insert="~{/fragments/Templating.html::header}"></header>
     <div th:each="coord, indexValue:${locationCoords}">
         <p th:text="*{coord.getLocationID()}"></p>
 <!--        <p th:text="${locations[indexValue.index]}"></p>-->
@@ -39,6 +41,6 @@
 
 
 </main>
-
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
 </body>
 </html>

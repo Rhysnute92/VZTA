@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:fragment="locationSection" class="locationPageFrag">
+<!-- todo check if this is ok here-->
 <head>
     <meta charset="UTF-8">
     <title th:text="${location.getLocationName()}"></title>
+
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{/css/locationPageFragsStyle.css}">
 </head>
-<body>
+<body >
 <header th:insert="~{/fragments/Templating.html::header}"></header>
-    <main th:fragment="locationSection" class="locationPageFrag">
-        <div class="locationFragnment">
-        </div>
+    <main>
 
-
-        <div >
-            <p th:text="*{locCoord.getLocationID()}"></p>
-            <!--        <p th:text="${locations[indexValue.index]}"></p>-->
-            <H1 th:text="${location.getLocationName()}"> </H1>
-            <H4 th:text="${location.getLocationPlace()}"> </H4>
+        <hr style="height:40px; visibility:hidden;" />
+        <article class="locationFragment">
+            
+            <H1 th:text="${location.getLocationName()}" > </H1>
+            <H4 th:text="${location.getLocationPlace()}" id="townHeader"> </H4>
             <p th:text="${location.getLocationDescription()}"></p>
 
 
@@ -29,8 +30,8 @@
                     th:src="'https://maps.google.com/maps?q='+ ${locCoord.getLocationCoordsLat()} +','+ ${locCoord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
             </iframe>
 
-        </div>
-
+        </article>
+        <hr style="height:40px; visibility:hidden;" />
     </main>
 
 <footer th:insert="~{/fragments/Templating.html::footer}"></footer>
