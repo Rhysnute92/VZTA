@@ -62,9 +62,11 @@ public class PlacesController {
             int locationID = 999;
 
 
-            for (int i=0;i<locCoords.size();i++){
-                locationIDIndex.add(locCoords.get(i).getLocationID()-1);
+            for (int i=0;i<locCoords.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with lcoation index manually
+                locationIDIndex.add(locCoords.get(i).getLocationID()-1); // gets location ID and therefore location list index number
                 locationCoordsWorkaround.add(locations.get(locCoords.get(i).getLocationID()-1));
+                System.out.println(locCoords.get(i).getLocationID()-1);
+                System.out.println(i);
                 System.out.println(locations.get(locCoords.get(i).getLocationID()-1).getLocationName().replace(' ', '-'));
                 System.out.println(location);
                 System.out.println((locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)));
