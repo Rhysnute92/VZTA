@@ -81,3 +81,14 @@ create table if not exists locationCoordinates
 )engine=InnoDB;
 
 
+drop table if exists townsWithTrails;
+create table if not exists townsWithTrails
+(
+    townID bigint auto_increment primary key,
+    townName varchar(128),
+    townCoordsLong varchar(128),
+    townCoordsLat varchar(128)
+
+
+)engine=InnoDB;
+
