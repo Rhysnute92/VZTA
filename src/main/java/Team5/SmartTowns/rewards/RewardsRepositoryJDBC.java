@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public class RewardsRepositoryJDBC implements RewardsRepository {
     private final JdbcTemplate jdbc;
-    private RowMapper<Badge> badgeMapper;
     private RowMapper<Sticker> stickerMapper;
     private RowMapper<Pack> packMapper;
 

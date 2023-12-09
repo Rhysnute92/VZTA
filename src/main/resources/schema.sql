@@ -1,47 +1,49 @@
-drop table if exists trails;
-create table if not exists trails
-(
+/* DELETES AND RECREATES DATABASE EVERY TIME THE SYSTEM IS BOOTED*/
+DROP DATABASE IF EXISTS towns;
+CREATE DATABASE IF NOT EXISTS towns;
+USE towns;
+/****************************************************************/
+
+/* DROPS ALL TABLES IF THEY EXIST (they wont but just in case) */
+DROP TABLE IF EXISTS trails;
+DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS stickers;
+DROP TABLE IF EXISTS packs;
+DROP TABLE IF EXISTS stickerProgress;
+/****************************************************************/
+
+/* CREATES ALL TABLES */
+
+CREATE TABLE IF NOT EXISTS trails (
     trailID bigint auto_increment primary key,
     name varchar(128)
-)   engine=InnoDB;
+);
 
-drop table if exists locations;
-
-create table if not exists locations
-(
+CREATE TABLE IF NOT EXISTS locations (
     locationID bigint auto_increment primary key,
     locationName varchar(128),
     locationEmail varchar(128),
     locationDescription longtext,
     locationPlace varchar(255),
     locationTrailID varchar(128)
-)   engine=InnoDB;
+);
 
-
-drop table if exists users;
-drop table if exists stickers;
-drop table if exists packs;
-drop table if exists stickerProgress;
-
-create table if not exists users
-(
+CREATE TABLE IF NOT EXISTS users (
     id bigint auto_increment primary key,
     email varchar(128) NOT NULL ,
     name varchar(30),
     dragonProgress int,
     dragonsLandmarkIDs longtext
-) engine=InnoDB;
+);
 
-
-create table if not exists packs
-(
+CREATE TABLE IF NOT EXISTS packs (
     id bigint auto_increment primary key,
     name varchar(20),
     description text
-) engine=InnoDB;
+);
 
-create table if not exists stickers
-(
+CREATE TABLE IF NOT EXISTS stickers (
     id bigint auto_increment primary key,
     packID bigint,
     FOREIGN KEY (packID) REFERENCES packs(id)
@@ -51,14 +53,11 @@ create table if not exists stickers
     name varchar(30),
     description text,
     rarity tinyint
+);
 
-) engine=InnoDB;
-
-create table if not exists stickerProgress
-(
+CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
     userID bigint,
     packID bigint,
     stickerID bigint
-
-) engine=InnoDB;
+);
