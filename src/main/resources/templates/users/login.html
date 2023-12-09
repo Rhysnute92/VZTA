@@ -14,32 +14,32 @@
 </header>
 
 <main>
-    <!--CODE FROM: https://www.youtube.com/watch?v=PlpM2LJWu-s&t=928s -->
+    <!--CODE MODIFIED FROM: https://github.com/AsmrProg-YT/Modern-Login -->
     <div class="container sign-in">
         <div class="container" id="container">
             <div class="form-container sign-up">
-                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="">
+                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return registerFormValidation()">
                     <h1>Create Account</h1>
                     <label>
-                        <input class="input" th:field="*{name}" type="text" placeholder="Name">
+                        <input class="input" th:field="*{name}" id="register-username" type="text" placeholder="Name">
                     </label>
                     <label>
-                        <input class="input" th:field="*{email}" type="email" placeholder="Email">
+                        <input class="input" th:field="*{email}" id="register-email" type="email" placeholder="Email">
                     </label>
                     <label>
-                        <input class="input" th:field="*{password}" type="password" placeholder="Password">
+                        <input class="input" th:field="*{password}" id="register-password" type="password" placeholder="Password">
                     </label>
                     <button type="submit" >Sign Up</button>
                 </form>
             </div>
             <div class="form-container sign-in">
-                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="">
+                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return loginFormValidation()">
                     <h1>Sign In</h1>
                     <label>
-                        <input class="input" th:field="*{email}" type="email" placeholder="Email">
+                        <input class="input" th:field="*{email}" id="login-email" type="email" placeholder="Email">
                     </label>
                     <label>
-                        <input class="input" th:field="*{password}" type="password" placeholder="Password">
+                        <input class="input" th:field="*{password}" id="login-password" type="password" placeholder="Password">
                     </label>
                     <a href="#" class="text">Forget Your Password?</a>
                     <button type="submit">Sign In</button>
