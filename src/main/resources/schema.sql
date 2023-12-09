@@ -74,8 +74,8 @@ create table if not exists locationCoordinates
     Foreign Key (locationID) REFERENCES locations(locationID)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
-    locationCoordsLong varchar(128),
-    locationCoordsLat varchar(128)
+    locationCoordsLat varchar(128),
+    locationCoordsLong varchar(128)
 
 
 )engine=InnoDB;
@@ -86,9 +86,11 @@ create table if not exists townsWithTrails
 (
     townID bigint auto_increment primary key,
     townName varchar(128),
-    townCoordsLong varchar(128),
-    townCoordsLat varchar(128)
-
-
+    townCentreCoordsLat varchar(128),
+    townCentreCoordsLong varchar(128),
+    townLeftmostCoordsLat varchar(128),
+    townRightmostCoordsLat varchar(128),
+    townUppermostCoordsLong varchar(128),
+    townLowermostCoordsLong varchar(128)
 )engine=InnoDB;
 

@@ -1,11 +1,12 @@
-package Team5.SmartTowns.data;
+package Team5.SmartTowns.placeswithcoordinates;
 
 
 
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepositoryJDBC;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -13,11 +14,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LocationsCoordinates  extends LocationRepositoryJDBC  {
+public class LocationsCoordinates  extends LocationRepositoryJDBC {
     /// separate class to location to cover all locations within trails that have been approved and have long/lat coords attached for mapping.
     private int locationID;
-    private String locationCoordsLong;
     private String locationCoordsLat;
+    private String locationCoordsLong;
     private JdbcTemplate jdbc;
 
 
@@ -41,14 +42,14 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC  {
         this.locationCoordsLat = locationCoordsLat;
     }
 
-    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, String locationCoordsLong, String locationCoordsLat) {
+    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, String locationCoordsLat, String locationCoordsLong) {
         super(aJdbc);
         this.locationID = locationID;
         this.locationCoordsLong = locationCoordsLong;
         this.locationCoordsLat = locationCoordsLat;
     }
 
-    public LocationsCoordinates(int locationID, String locationCoordsLong, String locationCoordsLat) {
+    public LocationsCoordinates(int locationID, String locationCoordsLat, String locationCoordsLong) {
         this.locationID = locationID;
         this.locationCoordsLong = locationCoordsLong;
         this.locationCoordsLat = locationCoordsLat;
@@ -62,6 +63,8 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC  {
         LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
         return new LocationRepositoryJDBC(aJdbc).getAllLocation();
     }
+
+
 
     public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
         LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
