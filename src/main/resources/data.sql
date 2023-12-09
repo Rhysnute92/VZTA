@@ -78,8 +78,17 @@ insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLon
 # insert into stickerprogress (userID, packID, stickerID) value (1, 2, 1);
 # insert into stickerprogress (userID, packID, stickerID) value (1, 2, 3);
 
-delete from townsWithTrails;
-#                                                                                                                                                                                                                                          LAT=X LONG=Y
-insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Caerphilly', '51.57903','-3.22075','51.57224','51.58856','-3.24597','-3.22496');
-insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Risca','51.61195','-3.09648','51.61483','51.60566','-3.09853','-3.09377');
-insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Penarth','51.43893','-3.17354','51.34750','51.44365','-3.18830','-3.18187');
+delete from townsWithTrails;                                                                                                                                                              'Caerphilly', '-3.22075','51.57903',,'-3.24597','-3.22496','51.57224','51.58856');
+
+# insert into townsWithTrails (townName, townCentreCoordsLong, townCentreCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat) value ('Caerphilly', '51.57903','-3.22075','51.57224','51.58856','-3.24597','-3.22496');
+# insert into townsWithTrails (townName, townCentreCoordsLong, townCentreCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat) value ('Risca','51.61155','-3.10170','51.61483','51.60566','-3.09853','-3.09377');
+# insert into townsWithTrails (townName, townCentreCoordsLong, townCentreCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat) value ('Penarth','51.43893','-3.17354','51.34750','51.44365','-3.18830','-3.18187');
+#
+#
+# insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Caerphilly', '51.57903','-3. ','51.57224','51.58856','-3.24597','-3.22496');
+# insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Risca','51.61195','-3.09648','51.61483','51.60566','-3.09853','-3.09377');
+# insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townLeftmostCoordsLat, townRightmostCoordsLat, townUppermostCoordsLong, townLowermostCoordsLong) value ('Penarth','51.43893','-3.17354','51.34750','51.44365','-3.18830','-3.18187');
+#                                                                                                                                                                                     lat=y=50s long=x=-3.0s
+insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Caerphilly', '51.57903','-3.22075 ','51.60418','51.55093','-3.25222','-3.17696');
+insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Risca','51.61195','-3.09648','51.63039','51.59175','-3.12129','-3.06438');
+insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Penarth','51.43893','-3.17354','51.44878','51.41233','-3.20271','-3.16005');

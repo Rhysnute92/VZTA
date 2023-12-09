@@ -37,10 +37,11 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
                 rs.getString("townName"),
                 rs.getString("townCentreCoordsLat"),
                 rs.getString("townCentreCoordsLong"),
-                rs.getString("ownLeftmostCoordsLat"),
-                rs.getString("townRightmostCoordsLat"),
-                rs.getString("townUppermostCoordsLong"),
-                rs.getString("townLowermostCoordsLong")
+                rs.getString("townUppermostCoordsLat"),
+                rs.getString("townLowermostCoordsLat"),
+                rs.getString("townLeftmostCoordsLong"),
+                rs.getString("townRightmostCoordsLong")
+
 
         );
     }
@@ -65,9 +66,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
     }
     @Override
     public void addTownWithCoords(TownWithTrails town) {
-        String sql = "insert into townswithtrails(townName,townCentreCoordsLat,townCentreCoordsLong,townLeftmostCoordsLat,townRightmostCoordsLat,townUppermostCoordsLong,townLowermostCoordsLong) values (?,?,?,?,?,?,?)";
+        String sql = "insert into townswithtrails(townName,townCentreCoordsLat,townCentreCoordsLong,townUppermostCoordsLat,townLowermostCoordsLat,townLeftmostCoordsLong,townRightmostCoordsLong) values (?,?,?,?,?,?,?)";
 
-        jdbc.update(sql,town.getTownName(),town.getTownCentreCoordsLong(),town.getTownCentreCoordsLong(),town.getTownLeftmostCoordsLat(),town.getTownRightmostCoordsLat(),town.getTownUppermostCoordsLong(),town.getTownLowermostCoordsLong());
+        jdbc.update(sql,town.getTownName(),town.getTownCentreCoordsLong(),town.getTownCentreCoordsLong(),town.getTownUppermostCoordsLat(),town.getTownLowermostCoordsLat(),town.getTownLeftmostCoordsLong(),town.getTownRightmostCoordsLong());
 
     }
 
@@ -77,29 +78,63 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
     }
 
 
-    public boolean checkInputtedCoordsMatchTown(String inpLongCoords, String inpLatCoords, String townName){
+    public boolean checkInputtedCoordsMatchTown(String inpLatCoords, String inpLongCoords, String townName){
      PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
      List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
      for (TownWithTrails town : allTowns){
          if (Objects.equals(townName, town.getTownName())){
              // check lon within boundaries
-//             if ((inpLongCoords))
+             // convert values to doubles
+             double inpLat=Double.parseDouble(inpLatCoords);
+             double inpLong=Double.parseDouble(inpLongCoords);
+             double townBoundaryLatUppermost=Double.parseDouble(town.getTownUppermostCoordsLat());
+             double townBoundaryLatLowermost=Double.parseDouble(town.getTownLowermostCoordsLat());
+
+             double townBoundaryLongLeftmost=Double.parseDouble(town.getTownLeftmostCoordsLong());
+             double townBoundaryLongRightmost=Double.parseDouble(town.getTownRightmostCoordsLong());
+             // check coords within respective town boundary (boundary decided by rough google maps red-line)
+             if ( (inpLat<=townBoundaryLatUppermost)&& (inpLat>=townBoundaryLatLowermost) && (inpLat<=townBoundaryLongLeftmost) &&  (inpLat<=townBoundaryLongRightmost)){
+                 // location within boundary
+                 return true;
+             } else{
+                 System.out.println("Location outside town boundary. "); //todo scanner bad idea, add admin override?
+                 return false;
+             }
 
 
 
          }
      }
     return true;}
+    int getLocationTableIDValue(List<Location> locations, String locationName){
+        int index;
+        for(int i=0;i<locations.size();i++){
+            if (Objects.equals(locations.get(i).getLocationName(), locationName)){
+                index = i;
+                return index;
+
+            } else{
+                return index= Integer.parseInt(null);
+            }
+
+
+
+        }
+    }
 
 
 
     // Method used to approve and add locations with associated coordinates. List<Location> unapprovedLocations
-    public void approveLocationAndAddCoords(String locationsName, String longCoords, String latCoords,JdbcTemplate jdbc) { // need list too
+    public void approveLocationAndAddCoords(String locationsName, String latCoords, String longCoords,JdbcTemplate jdbc) {
+        // need list too
+
         LocationsCoordinates jdbcTemp= new LocationsCoordinates(jdbc);
         List<Location> unapprovedLocations = jdbcTemp.getFullUnapprovedLocations(jdbc);
+        List<Location> allLocations = jdbcTemp.getFullListLocations(jdbc);
+
         PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
         List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
-        int unapporvedLocationsListIndex;
+        int unapporvedLocationsListIndex=99;  // initialiose variable to allow after if statement to run todo fix this
         for (int i=0; i<unapprovedLocations.size();i++){ // check if location exists
             if (Objects.equals(unapprovedLocations.get(i).getLocationName(), locationsName)){
                 unapporvedLocationsListIndex =i;
@@ -107,9 +142,21 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
             } else if(!Objects.equals(unapprovedLocations.get(i).getLocationPlace(), locationsName)){
                 System.out.println("Error, location is not valid, please check your spelling or locations table.");
+
                 return;
             }
-//            String toBeApprovedLocationTown=unapprovedLocations.get(unapporvedLocationsListIndex).getLocationPlace();
+            String toBeApprovedLocationTown=unapprovedLocations.get(unapporvedLocationsListIndex).getLocationPlace();
+            int tableLocationIDOfInputtedLocation= getLocationTableIDValue(allLocations, locationsName);
+            LocationsCoordinates unapprovedLocation= new LocationsCoordinates(tableLocationIDOfInputtedLocation,latCoords, longCoords);
+            boolean locationWithinTownBoundaries= checkInputtedCoordsMatchTown(latCoords ,longCoords, toBeApprovedLocationTown);
+            if (locationWithinTownBoundaries){
+                addLocationCoord(unapprovedLocation);
+                return;
+
+
+            } else {
+                return;}
+
 //            for (TownWithTrails town : allTowns){
 //                if (Objects.equals(toBeApprovedLocationTown, town.getTownName())){
 
