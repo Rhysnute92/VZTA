@@ -2,8 +2,8 @@ package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
+import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
-import Team5.SmartTowns.trails.Trail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,8 +22,8 @@ public class PlacesController {
 
     @Autowired
     private PlacesCoordinatesRepository placeRepo;
-    @Autowired
-    private LocationRepository locationRepo;
+//    @Autowired
+//    private TrailsRepository locationRepo;
 
 
 
@@ -30,13 +31,17 @@ public class PlacesController {
     @GetMapping("/checkpoint")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
-//        List<Location> locations =  locationRepo.getAllLocation();
+//        List<Trail> locationssad =  locationRepo.getAllTrails();
 //        List<Location> approvedLocations =  locationRepo.getApprovedLocations2(locations);
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        for (LocationsCoordinates coord: locCoords){
-            coord.
-        }
-//        modelAndView.addObject("locations", approvedLocations);
+        List<Integer> locationIDIndex = new ArrayList<Integer>();
+//        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+//        for (LocationsCoordinates coord: locCoords){
+//            locationIDIndex.add(coord.getLocationID()-1);
+//            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
+//        }
+
+//        modelAndView.addObject("locations", locationCoordsWorkaround);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }

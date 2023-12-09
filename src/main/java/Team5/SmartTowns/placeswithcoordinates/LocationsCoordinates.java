@@ -9,55 +9,73 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
-@Data
+//@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class LocationsCoordinates  extends LocationRepositoryJDBC {
     /// separate class to location to cover all locations within trails that have been approved and have long/lat coords attached for mapping.
     private int locationID;
-    private String locationCoordsLat;
-    private String locationCoordsLong;
+    private Double locationCoordsLat;
+    private Double locationCoordsLong;
     private JdbcTemplate jdbc;
 
-    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
-        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
-        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
-    }
+//    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
+//        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
+//        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
+//    }
 
 
     public int getLocationID() {
         return locationID;
     }
 
-    public String getLocationCoordsLong() {
+    public Double getLocationCoordsLong() {
         return locationCoordsLong;
     }
 
-    public String getLocationCoordsLat() {
+    public Double getLocationCoordsLat() {
         return locationCoordsLat;
     }
 
-    public void setLocationCoordsLong(String locationCoordsLong) {
+    public void setLocationCoordsLong(Double locationCoordsLong) {
         this.locationCoordsLong = locationCoordsLong;
     }
 
-    public void setLocationCoordsLat(String locationCoordsLat) {
+    public void setLocationCoordsLat(Double locationCoordsLat) {
         this.locationCoordsLat = locationCoordsLat;
     }
 
-    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, String locationCoordsLat, String locationCoordsLong) {
+    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong) {
         super(aJdbc);
         this.locationID = locationID;
         this.locationCoordsLong = locationCoordsLong;
         this.locationCoordsLat = locationCoordsLat;
     }
 
-    public LocationsCoordinates(int locationID, String locationCoordsLat, String locationCoordsLong) {
+//    public LocationsCoordinates(int locationID, Double locationCoordsLat, Double locationCoordsLong,JdbcTemplate jdbc) {
+//        super(jdbc);
+//        this.locationID = locationID;
+//        this.locationCoordsLong = locationCoordsLong;
+//        this.locationCoordsLat = locationCoordsLat;
+//    }
+
+
+    public LocationsCoordinates(JdbcTemplate aJdbc, int locationID, Double locationCoordsLat, Double locationCoordsLong, JdbcTemplate jdbc) {
+        super(aJdbc);
         this.locationID = locationID;
-        this.locationCoordsLong = locationCoordsLong;
         this.locationCoordsLat = locationCoordsLat;
+        this.locationCoordsLong = locationCoordsLong;
+        this.jdbc = jdbc;
+    }
+
+    public LocationsCoordinates(int locationID, Double locationCoordsLat, Double locationCoordsLong) {
+        super();
+        this.locationID = locationID;
+        this.locationCoordsLat = locationCoordsLat;
+        this.locationCoordsLong = locationCoordsLong;
     }
 
     public LocationsCoordinates(JdbcTemplate aJdbc) {

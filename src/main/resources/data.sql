@@ -67,9 +67,9 @@ insert into stickers (packID, stickerID, name, description, rarity) value (3, 3,
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
 delete from locationCoordinates;
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (2, '51.57623', '-3.21910' );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (3, '51.575372', '-3.219186');
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (4, '51.576363', '-3.220712' );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (2, 51.57623, -3.21910 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (3, 51.575372, -3.219186);
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (4, 51.576363, -3.220712 );
 #
 # insert into stickerprogress (userID, packID, stickerID) value (1, 1, 1);
 # insert into stickerprogress (userID, packID, stickerID) value (1, 1, 2);

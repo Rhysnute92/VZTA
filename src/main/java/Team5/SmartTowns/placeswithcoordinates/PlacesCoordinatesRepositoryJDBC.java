@@ -27,8 +27,8 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
         locationCoordMapper = (rs, i) -> new LocationsCoordinates(
 
                 rs.getInt("locationID"),
-                rs.getString("locationCoordsLat"),
-                rs.getString("locationCoordsLong")
+                rs.getDouble("locationCoordsLat"),
+                rs.getDouble("locationCoordsLong")
 
         );
     }
@@ -128,7 +128,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
 
     // Method used to approve and add locations with associated coordinates. List<Location> unapprovedLocations
-    public void approveLocationAndAddCoords(String locationsName, String latCoords, String longCoords,JdbcTemplate jdbc) {
+    public void approveLocationAndAddCoords(String locationsName, Double latCoords, Double longCoords,JdbcTemplate jdbc) {
         // need list too
 
         LocationsCoordinates jdbcTemp= new LocationsCoordinates(jdbc);
@@ -151,7 +151,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
             String toBeApprovedLocationTown=unapprovedLocations.get(unapporvedLocationsListIndex).getLocationPlace();
             int tableLocationIDOfInputtedLocation= getLocationTableIDValue(allLocations, locationsName);
             LocationsCoordinates unapprovedLocation= new LocationsCoordinates(tableLocationIDOfInputtedLocation,latCoords, longCoords);
-            boolean locationWithinTownBoundaries= checkInputtedCoordsMatchTown(latCoords ,longCoords, toBeApprovedLocationTown);
+            boolean locationWithinTownBoundaries= checkInputtedCoordsMatchTown(Double.toString(latCoords) ,Double.toString(longCoords), toBeApprovedLocationTown);
             if (locationWithinTownBoundaries){
                 addLocationCoord(unapprovedLocation);
                 return;

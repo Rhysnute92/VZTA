@@ -74,8 +74,8 @@ create table if not exists locationCoordinates
     Foreign Key (locationID) REFERENCES locations(locationID)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
-    locationCoordsLat varchar(128),
-    locationCoordsLong varchar(128)
+    locationCoordsLat DECIMAL(8,6),
+    locationCoordsLong DECIMAL(8,6)
 
 
 )engine=InnoDB;

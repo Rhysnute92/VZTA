@@ -10,13 +10,21 @@ import java.util.List;
 
 @Repository
 public class LocationRepositoryJDBC implements LocationRepository {
-    private JdbcTemplate jdbc;
+   private JdbcTemplate jdbc;
     private RowMapper<Location> locationMapper;
 
     public LocationRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setlocationMapper();
     }
+
+    public LocationRepositoryJDBC() {
+        JdbcTemplate ajdbc = new JdbcTemplate();
+        this.jdbc =ajdbc;
+        
+    }
+
+
     private void setlocationMapper(){
         locationMapper = (rs, i) -> new Location(
 
@@ -31,6 +39,11 @@ public class LocationRepositoryJDBC implements LocationRepository {
     public List<Location> getAllLocation(){
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
+    }
+
+    public LocationRepositoryJDBC(JdbcTemplate jdbc, RowMapper<Location> locationMapper) {
+        this.jdbc = jdbc;
+        this.locationMapper = locationMapper;
     }
 
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
@@ -77,10 +90,9 @@ public class LocationRepositoryJDBC implements LocationRepository {
     }
 
 
-    public JdbcTemplate getJdbc() {
-        return jdbc;
-    }
+//    public JdbcTemplate getJdbc() {
+//        return jdbc;
+//    }
 
-    public LocationRepositoryJDBC() {
-    }
+
 }
