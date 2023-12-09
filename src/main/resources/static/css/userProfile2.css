@@ -198,8 +198,14 @@ main {
     height: 17em;
     margin: 1.5em;
 }
-/*}*/
+/* LOGIN FORM PAGE */
 
+
+
+
+
+
+/* MEDIA TYPE UPDATES*/
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 640px) {
@@ -267,4 +273,21 @@ and (min-device-width: 1000px) {
     .progressionContainer {
         height: 20svh;
     }
+}
+
+.container {
+    width: 500px;
+    margin-block: 5%;
+    background-color: var(--accent-colour);
+    border-radius: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & form {
+        margin-inline: auto;
+        margin-block: 5%;
+    }
+}
+.container-active {
+    background: black;
 }

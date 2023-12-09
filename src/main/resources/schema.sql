@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS users (
     id bigint auto_increment primary key,
     email varchar(128) NOT NULL ,
     name varchar(30) NOT NULL,
+    password varchar(30) NOT NULL,
     dragonProgress int,
     dragonsLandmarkIDs longtext
 );

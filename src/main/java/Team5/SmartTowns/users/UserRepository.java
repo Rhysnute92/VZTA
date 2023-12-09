@@ -10,4 +10,5 @@ public interface UserRepository {
     boolean unlockSticker(int userID, int packID, int stickerID);
     boolean addUser(String username, String email, String password);
     boolean doesUserExist(String email);
+    boolean userLogIn(String username, String password);
 }

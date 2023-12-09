@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
@@ -60,13 +61,20 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public boolean addUser(String username, String email, String password){
-        String query = "INSERT INTO users (name, email) VALUES (?,?)";
-        jdbc.update(query, username, email);
-        return false;
+        String query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+        jdbc.update(query, username, email, password);
+        return true;
     }
+    @Override
     public boolean doesUserExist(String email){
         String query = "SELECT COUNT(email) FROM users WHERE (email) = (?)";
         return !(jdbc.queryForObject(query, Integer.class, email) == 0);
+    }
+    @Override
+    public boolean userLogIn(String email, String password){
+        String query = "SELECT (password) FROM users WHERE (email) = (?)";
+        String dbpassword = jdbc.queryForObject(query, String.class, email);
+        return Objects.equals(dbpassword, password);
     }
 
 }

@@ -1,8 +1,8 @@
 DELETE FROM users;
-INSERT INTO users (id, email, name) VALUE (1, 'admin@gmail.com', 'Admin');
-INSERT INTO users (email, name) VALUE ('hannah@gmail.com', 'Hannah');
-INSERT INTO users (email, name) VALUE ('nigel@gmail.com', 'Nigel');
-INSERT INTO users (email, name) VALUE ('oscar@gmail.com', 'Nigel');
+INSERT INTO users (id, email, name, password) VALUE (1, 'admin@gmail.com', 'Admin', 'admin');
+INSERT INTO users (email, name, password) VALUE ('hannah@gmail.com', 'Hannah', 'root');
+INSERT INTO users (email, name, password) VALUE ('nigel@gmail.com', 'Nigel', 'root');
+INSERT INTO users (email, name, password) VALUE ('oscar@gmail.com', 'Oscar', 'root');
 
 DELETE FROM trails;
 INSERT INTO trails ( Name) VALUE ( 'Caerphilly Coffee Trail');

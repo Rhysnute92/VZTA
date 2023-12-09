@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --container-colour: #2a2a2a;
+    --details-colour: var(--primary-light);
+    --details-light: #512da8;
+
+    --font-buttons: 14px;
+    --font-size-1: 14px;
+    --font-size-2: 200px;
+    --font-size-3: 300px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+body{
+    align-items: center;
+    height: 100svh;
+}
+
+main {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+@media only screen
+and (min-device-width: 650px) {
+    .container{
+        background-color: var(--container-colour);
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        min-width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+    }
+
+    .container p{
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        margin: 20px 0;
+    }
+
+
+    .container a{
+        font-size: var(--font-size-1);
+        text-decoration: none;
+        margin: 15px 0 10px;
+    }
+
+    .container button{
+        background-color: var(--details-colour)/*#512da8*/;
+        color: #fff;
+        font-size: var(--font-buttons);
+        padding: 10px 45px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .container button.hidden{
+        background-color: transparent;
+        border-color: #fff;
+    }
+
+    .container form{
+        background-color: var(--container-colour);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        height: 100%;
+    }
+
+    .container input{
+        background-color: #eee;
+        border: none;
+        margin: 8px 0;
+        padding: 10px 15px;
+        font-size: 13px;
+        border-radius: 8px;
+        width: 100%;
+        outline: none;
+    }
+
+    .form-container{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in{
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .container.active .sign-in{
+        transform: translateX(100%);
+    }
+
+    .sign-up{
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .container.active .sign-up{
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: move 0.6s;
+    }
+
+
+
+    .toggle-container{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.6s ease-in-out;
+        border-radius: 150px 0 0 100px;
+        z-index: 1000;
+    }
+
+    .container.active .toggle-container{
+        transform: translateX(-100%); /*BG THING*/
+        border-radius: 0 150px 100px 0;
+    }
+
+    .toggle{
+        background-color: var(--details-colour);
+        height: 100%;
+        background: linear-gradient(to right, var(--details-light), var(--details-colour));
+        color: #fff;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: all 0.6s ease-in-out;
+    }
+
+    .container.active .toggle{
+        transform: translateX(50%);
+    }
+
+    .toggle-panel{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 30px;
+        text-align: center;
+        top: 0;
+        transform: translateX(0);
+        transition: all 0.6s ease-in-out;
+    }
+
+    .toggle-left{
+        transform: translateX(-200%);
+    }
+
+    .container.active .toggle-left{
+        transform: translateX(0);
+    }
+
+    .toggle-right{
+        right: 0;
+        transform: translateX(0);
+    }
+
+    .container.active .toggle-right{
+        transform: translateX(200%);
+    }
+    .input {
+        color: black;
+    }
+
+}
+@media only screen
+and (max-device-width: 640px) {
+    .container {
+        position: relative;
+
+        background-color: var(--container-colour);
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .form-container {
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-container form {
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+        font-size: 3em;
+        margin-inline: 5%;
+    }
+    .form-container input {
+        flex: 1 1;
+        font-size: 1em;
+        color: black;
+        margin-block: 5%;
+        padding: 2%;
+        border-radius: 30px;
+    }
+
+    .form-container button {
+        flex: 1 1;
+        font-size: 1em;
+    }
+    .toggle-container {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50%;
+        transition: all 0.6s ease-in-out;
+        overflow: hidden;
+        border-radius:  0 0 150px 150px;
+        z-index: 1000;
+
+    }
+    .container.active .toggle-container{
+        transform: translateY(100%); /*BG THING*/
+        border-radius: 150px 150px 0 0;
+    }
+    .toggle {
+        position: absolute;
+        width: 100%;
+        height: 200%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+        background: linear-gradient(to bottom, var(--details-light), var(--details-colour));
+        /*background-color: red;*/
+    }
+    .toggle-panel {
+        flex: 1 1;
+        width: 100%;
+    }
+    .container .toggle-right {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .container .toggle-left {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .container.active .toggle-right{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .container.active .toggle-left{
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+
+    .container .sign-up {
+        opacity: 0;
+        z-index: -1;
+        transform: translateY(100%);
+    }
+    .container .sign-in {
+        opacity: 1;
+        z-index: 5;
+    }
+
+    .container.active .sign-in{
+        transform: translateY(-100%);
+        opacity: 0;
+        z-index: -1;
+    }
+    .container.active .sign-up{
+        animation: move 0.6s;
+        opacity: 1;
+        z-index: 5;
+        transform: translateY(0);
+    }
+
+
+    .toggle-panel {
+        transition: all 0.6s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: xxx-large;
+
+    }
+    .toggle-panel p {
+        margin-inline: 10%;
+    }
+    .container button{
+        background-color: var(--details-colour)/*#512da8*/;
+        color: #fff;
+        font-size: xxx-large;
+        padding: 40px 40px;
+        border: 5px solid transparent;
+        border-radius: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+
+    .container button.hidden{
+        background-color: transparent;
+        border-color: #fff;
+    }
+}
+
+

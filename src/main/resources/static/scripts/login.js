@@ -1,4 +1,4 @@
-let username = document.forms["loginForm"]["username"];
+/*let username = document.forms["loginForm"]["username"];
 let password = document.forms["loginForm"]["password"];
 let pattern = new RegExp("^[a-z0-9_-]{3,15}$");
 
@@ -46,6 +46,39 @@ function validateForm(){
         return false;
     }
     //TODO SERVER SIDE VALIDATION AND CHECK AGAINST USERS DB TABLE
-}
+}*/
+/*
+function createAccountPOST(){
+    let data = { username: username.value, password: password.value}
+    console.log(username.value);
+    console.log(password.value);
+    $.ajax
+    ({
+        type: "POST",
+        url: "http://localhost:8080/login/register",
+        dataType: 'json',
+        data: JSON.stringify(data),
+        success: function (){
+            console.log('Success');
+        },
+        error: function (request, status, error) {
+            console.log("ERROR");
+            console.log(request);
+            console.log(status);
+            console.log(error);
+        }
+    });
+    return false;
+}*/
 
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
 
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});

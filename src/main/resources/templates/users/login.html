@@ -3,41 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>User Log In</title>
-    <link rel="stylesheet" th:href="@{/css/userProfile.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
 
 <header>
-    <ul class="footerBar">
-        <li class="footerButton"><b>Home</b></li>
-        <li class="footerButton"><b>About</b></li>
-        <li class="footerButton"><b>Map</b></li>
-        <li class="footerButton"><b>Facilities</b></li>
-        <li class="footerButton"><b>Log In</b></li>
-    </ul>
 </header>
-<main  class="solidBg">
-    <div class="loginWrapper">
-        <form action="" onsubmit="return validateForm()" method="post" name="loginForm">
-            <h2>Log In</h2>
-            <div class="label">
-                <label for="username"><b>Username</b><br></label>
-                <div id="usernameInvalid" class="invalid-tooltip">Please fill out this field.</div>
-            </div>
-            <input type="text" name="username" id="username" placeholder="Enter Username" title="Username Input">
 
-            <div class="label">
-                <label for="password"><b>Password</b><br></label>
-                <div id="passwordInvalid" class="invalid-tooltip">Please fill out this field.</div>
+<main>
+    <!--CODE FROM: https://www.youtube.com/watch?v=PlpM2LJWu-s&t=928s -->
+    <div class="container sign-in">
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="">
+                    <h1>Create Account</h1>
+                    <label>
+                        <input class="input" th:field="*{name}" type="text" placeholder="Name">
+                    </label>
+                    <label>
+                        <input class="input" th:field="*{email}" type="email" placeholder="Email">
+                    </label>
+                    <label>
+                        <input class="input" th:field="*{password}" type="password" placeholder="Password">
+                    </label>
+                    <button type="submit" >Sign Up</button>
+                </form>
             </div>
-            <input type="password" id="password" name="password">
-            <div id="invalidLogin">Username and/or Password incorrect. Please try again.</div>
-            <button type="submit"><b>Log In</b></button>
-        </form>
-
+            <div class="form-container sign-in">
+                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="">
+                    <h1>Sign In</h1>
+                    <label>
+                        <input class="input" th:field="*{email}" type="email" placeholder="Email">
+                    </label>
+                    <label>
+                        <input class="input" th:field="*{password}" type="password" placeholder="Password">
+                    </label>
+                    <a href="#" class="text">Forget Your Password?</a>
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter your personal details and start tracking your landmarks!</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, Welcome!</h1>
+                        <p>Register with your personal details and start earning stickers!</p>
+                        <button class="hidden" id="register">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </main>
 
 

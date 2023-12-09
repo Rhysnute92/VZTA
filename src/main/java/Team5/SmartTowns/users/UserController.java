@@ -4,13 +4,15 @@ package Team5.SmartTowns.users;
 import Team5.SmartTowns.rewards.Pack;
 import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.rewards.Sticker;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -26,17 +28,32 @@ public class UserController {
     @GetMapping("/login")
     public ModelAndView getLoginPage() {
         ModelAndView mav = new ModelAndView("users/login");
+        mav.addObject("user", new NewUser( "", "", ""));
         return mav;
     }
 
     @PostMapping("/login/register")
-    public ModelAndView registerUser(String[] userInfo) {
-        /* TODO CHECK IS USER ALREADY EXISTS */
+    public ModelAndView registerUser(@Valid @ModelAttribute("user") NewUser user, BindingResult bindingResult, Model model) {
+        ModelAndView mav = new ModelAndView("users/login", model.asMap());
+        // TODO VALIDATE EMAIL INPUT
 
-        /* TODO CALL FUNCTION HERE TO CRATE USER IN THE DATABASE */
+        if (bindingResult.hasErrors()) {
+            System.out.println("Errors");
+        }
+        System.out.println(user.getName());
+        System.out.println(user.getPassword());
 
-        ModelAndView mav = new ModelAndView("users/login");
-        return mav;
+        if ( userRepository.doesUserExist(user.getEmail()) ) {
+            //TODO return modelandview for user already exists
+            System.out.println(user.getEmail() + " already exists");
+            System.out.print("LOG IN:");
+            System.out.println(userRepository.userLogIn(user.email, user.password));
+            return mav;
+        } else {
+            userRepository.addUser(user.name, user.email, user.password);
+            System.out.println(user.getEmail() + " created");
+            return mav;
+        }
     }
 
     /* USER MAPPING & FUNCTIONS */
