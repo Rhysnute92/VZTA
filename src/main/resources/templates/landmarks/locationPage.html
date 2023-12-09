@@ -9,12 +9,10 @@
 <main>
     <div th:each="coord, indexValue:${locationCoords}">
         <p th:text="*{coord.getLocationID()}"></p>
-        <p th:text="*{coord.getLocationCoordsLat()}"></p>
-        <p th:text="*{coord.getLocationCoordsLong()}"></p>
 <!--        <p th:text="${locations[indexValue.index]}"></p>-->
-
-
         <H1 th:text="${location[indexValue.index].getLocationName()}"> </H1>
+        <H4 th:text="${location[indexValue.index].getLocationPlace()}"> </H4>
+        <p th:text="${location[indexValue.index].getLocationDescription()}"></p>
 
 
         <iframe
@@ -26,7 +24,7 @@
                 marginwidth="0"
                 th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
         </iframe>
-<!--        <br />-->
+        <br />
 <!--        <small>-->
 <!--&lt;!&ndash;            <a&ndash;&gt; //https://maps.google.com/maps?q=51.57623,-3.21910&hl=es&z=14&amp;output=embed">-->
 <!--                    th:href="https://maps.google.com/maps?q='+{coord.getLocationCoordsLat()}+','+*{coord.getLocationCoordsLong()}+'&hl=es;z=14&amp;output=embed"-->

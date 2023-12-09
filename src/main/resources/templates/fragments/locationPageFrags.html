@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${location.getLocationName()}"></title>
+</head>
+<body>
+<header th:insert="~{/fragments/Templating.html::header}"></header>
+    <main th:fragment="locationSection" class="locationPageFrag">
+        <div class="locationFragnment">
+        </div>
+
+
+        <div >
+            <p th:text="*{locCoord.getLocationID()}"></p>
+            <!--        <p th:text="${locations[indexValue.index]}"></p>-->
+            <H1 th:text="${location.getLocationName()}"> </H1>
+            <H4 th:text="${location.getLocationPlace()}"> </H4>
+            <p th:text="${location.getLocationDescription()}"></p>
+
+
+            <iframe
+                    width="600"
+                    height="400"
+                    frameborder="0"
+                    scrolling="yes"
+                    marginheight="0"
+                    marginwidth="0"
+                    th:src="'https://maps.google.com/maps?q='+ ${locCoord.getLocationCoordsLat()} +','+ ${locCoord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
+            </iframe>
+
+        </div>
+
+    </main>
+
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
+</body>
+</html>

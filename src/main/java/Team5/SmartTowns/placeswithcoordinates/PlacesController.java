@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class PlacesController {
@@ -28,7 +29,7 @@ public class PlacesController {
 
 
 
-    @GetMapping("/checkpoint")
+    @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
         List<Location> locations =  locationRepo.getAllLocation();
@@ -44,12 +45,40 @@ public class PlacesController {
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }
-//
-//    @RequestMapping(value="/location", method= RequestMethod.POST)
-//    public String sendHtmlFragment(Model map) {
-//        map.addAttribute("foo", "bar");
-//        return "checkpoint/checkpoint";
-//    }
+
+    @RequestMapping(value="/location", method= RequestMethod.POST)
+    public String sendHtmlFragment(Model map) {
+        map.addAttribute("foo", "bar");
+        return "checkpoint/checkpoint";
+    }
+
+        @GetMapping("/checkpoints/{location}")
+    public ModelAndView getResultBySearchKey(@PathVariable String location) {
+            List<Location> locations =  locationRepo.getAllLocation();
+            List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+
+            List<Integer> locationIDIndex = new ArrayList<Integer>();
+            List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+            int locationID = 999;
+
+
+            for (int i=0;i<locCoords.size();i++){
+                locationIDIndex.add(locCoords.get(i).getLocationID()-1);
+                locationCoordsWorkaround.add(locations.get(locCoords.get(i).getLocationID()-1));
+                System.out.println(locations.get(locCoords.get(i).getLocationID()-1).getLocationName().replace(' ', '-'));
+                System.out.println(location);
+                System.out.println((locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)));
+                if ( (locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)) ){
+
+                    locationID=locCoords.get(i).getLocationID()-1;
+
+                }
+            }
+        ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
+        modelAndView.addObject("locCoord", locCoords.get(locationID));
+        modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
+        return modelAndView;
+    }
 //
 //
 //    //GC example
