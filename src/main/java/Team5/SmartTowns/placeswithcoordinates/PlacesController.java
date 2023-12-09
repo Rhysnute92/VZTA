@@ -33,6 +33,9 @@ public class PlacesController {
 //        List<Location> locations =  locationRepo.getAllLocation();
 //        List<Location> approvedLocations =  locationRepo.getApprovedLocations2(locations);
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        for (LocationsCoordinates coord: locCoords){
+            coord.
+        }
 //        modelAndView.addObject("locations", approvedLocations);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
