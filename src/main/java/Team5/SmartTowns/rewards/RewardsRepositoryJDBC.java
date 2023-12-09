@@ -50,8 +50,8 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
 
     @Override
     public List<Sticker> getAllStickersFromPack(int packID){
-        String sql= "SELECT * FROM stickers WHERE packID="+packID;
-        return jdbc.query(sql, stickerMapper);
+        String sql= "SELECT * FROM stickers WHERE packID=?";
+        return jdbc.query(sql, stickerMapper, packID);
     }
 
     @Override
@@ -59,14 +59,14 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
         /* FINDS ALL STICKERS UNLOCKED BY THE GIVEN USER */
         String sql= "SELECT * FROM stickers LEFT JOIN stickerprogress " +
                 "ON (stickers.id, stickers.packID) = (stickerprogress.stickerID, stickerprogress.packID) " +
-                "WHERE stickerprogress.userID="+userID;
-        return jdbc.query(sql, stickerMapper);
+                "WHERE stickerprogress.userID = ? ";
+        return jdbc.query(sql, stickerMapper, userID);
     }
 
     @Override
     public Pack findPackByID(int id){
-        String sql= "SELECT * FROM packs WHERE id="+id;
-        List<Pack> result = jdbc.query(sql, packMapper);
+        String sql= "SELECT * FROM packs WHERE id= ?";
+        List<Pack> result = jdbc.query(sql, packMapper, id);
         return result.isEmpty() ? null : result.get(0);
     }
 }

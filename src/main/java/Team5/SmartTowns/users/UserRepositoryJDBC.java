@@ -15,7 +15,7 @@ import java.util.List;
 
 @Repository
 public class UserRepositoryJDBC implements UserRepository{
-    private JdbcTemplate jdbc;
+    private final JdbcTemplate jdbc;
     private RowMapper<User> userMapper;
 
     public UserRepositoryJDBC(JdbcTemplate aJdbc){
@@ -40,15 +40,15 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public User getUserById(int userID){
-        String sql= "SELECT * FROM users WHERE id="+userID;
-        List<User> result = jdbc.query(sql, userMapper);
+        String sql= "SELECT * FROM users WHERE id=?";
+        List<User> result = jdbc.query(sql, userMapper, userID);
         return result.isEmpty() ? null : result.get(0);
     }
 
     @Override
     public List<Long> getUserStickersFromPack(int userID, int packID) {
-        String sql = "SELECT stickerID FROM stickerprogress WHERE (userID, packID)= (" + userID + "," + packID + ")";
-        return jdbc.queryForList(sql, Long.class);
+        String sql = "SELECT stickerID FROM stickerprogress WHERE (userID, packID)= (?,?)";
+        return jdbc.queryForList(sql, Long.class, userID, packID);
     }
 
     @Override

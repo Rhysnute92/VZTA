@@ -32,32 +32,41 @@ CREATE TABLE IF NOT EXISTS locations (
 CREATE TABLE IF NOT EXISTS users (
     id bigint auto_increment primary key,
     email varchar(128) NOT NULL ,
-    name varchar(30),
+    name varchar(30) NOT NULL,
     dragonProgress int,
     dragonsLandmarkIDs longtext
 );
 
 CREATE TABLE IF NOT EXISTS packs (
     id bigint auto_increment primary key,
-    name varchar(20),
+    name varchar(20) NOT NULL,
     description text
 );
 
 CREATE TABLE IF NOT EXISTS stickers (
     id bigint auto_increment primary key,
-    packID bigint,
+    packID bigint NOT NULL,
     FOREIGN KEY (packID) REFERENCES packs(id)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
-    stickerID bigint, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
-    name varchar(30),
-    description text,
+    stickerID bigint NOT NULL, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
+    name varchar(30) NOT NULL,
+    description text NOT NULL,
     rarity tinyint
 );
 
 CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
-    userID bigint,
-    packID bigint,
-    stickerID bigint
+    userID bigint NOT NULL,
+    FOREIGN KEY (userID) REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    packID bigint NOT NULL,
+    FOREIGN KEY (packID) REFERENCES packs(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    stickerID bigint NOT NULL,
+        FOREIGN KEY (stickerID) REFERENCES stickers(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
 );
