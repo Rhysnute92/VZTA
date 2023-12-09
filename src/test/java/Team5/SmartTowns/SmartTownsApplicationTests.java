@@ -64,4 +64,4 @@ class SmartTownsApplicationTests {
 //		}
 	}
 
-
+// create test where getFullListLocations and getFullApproved/Unapporved lcopations from lcoationcooirds matches locationJDBC

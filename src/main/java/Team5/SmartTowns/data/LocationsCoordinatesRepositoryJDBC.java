@@ -3,10 +3,12 @@ package Team5.SmartTowns.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class LocationsCoordinatesRepositoryJDBC extends LocationsCoordinatesRepository{
+@Repository
+public class LocationsCoordinatesRepositoryJDBC implements LocationsCoordinatesRepository{
 
 
     private JdbcTemplate jdbc;
@@ -25,13 +27,13 @@ public class LocationsCoordinatesRepositoryJDBC extends LocationsCoordinatesRepo
 
         );
     }
-    public List<LocationsCoordinates> getAllLocation(){
+    public List<LocationsCoordinates> getAllLocationCoords(){
         String sql= "SELECT * FROM locationCoordinates";
         return jdbc.query(sql, locationCoordMapper);
     }
 
     @Override
-    public void addLocation(LocationsCoordinates locCoords) {
+    public void addLocationCoord(LocationsCoordinates locCoords) {
         String sql = "insert into locationCoordinates(locationID, locationCoordsLong,locationCoordsLat) values (?,?,?)";
 
         jdbc.update(sql,locCoords.getLocationID(), locCoords.getLocationCoordsLong(),locCoords.getLocationCoordsLat());
@@ -47,11 +49,10 @@ public class LocationsCoordinatesRepositoryJDBC extends LocationsCoordinatesRepo
 //	@BeforeAll
 //	public static void before2() {
 //		locationRepo = new locationRepositoryJDBC(jdbc); }
-	@Autowired
-	private locationRepository locationRepository;
 
     public void approveLocationAndAddCoords(String town, String longCoords, String latCoords){ // need list too
-        List<Location> needApprovalList = new LocationsCoordinatesRepositoryJDBC.unapprovedLocations();
+
+//        List<Location> needApprovalList = .unapprovedLocations();
         // unapproved list
         // if matches name, approve
         // add long/lat coords

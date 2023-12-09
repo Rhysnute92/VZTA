@@ -9,8 +9,8 @@ public interface LocationRepository {
     void addLocation(Location loc);
 
 
-    List<Location> approvedLocations();
-    List<Location> unapprovedLocations();
+    List<Location> getApprovedLocations();
+    List<Location> getUnapprovedLocations();
 
 
 //     List<Location> approvedLocations();

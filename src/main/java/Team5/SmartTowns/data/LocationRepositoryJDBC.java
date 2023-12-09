@@ -41,7 +41,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
     }
 
     @Override
-    public List<Location> approvedLocations(){
+    public List<Location> getApprovedLocations(){
         List<Location> locations = getAllLocation();
         List<Location> locationApprovalList= new ArrayList<Location>();
         for (Location loc :locations){
@@ -52,7 +52,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
  }
 
     @Override
-    public List<Location> unapprovedLocations(){
+    public List<Location> getUnapprovedLocations(){
         List<Location> locations = getAllLocation();
         List<Location> locationUnapprovedList= new ArrayList<Location>();
         for (Location loc :locations){

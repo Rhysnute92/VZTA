@@ -5,7 +5,10 @@ package Team5.SmartTowns.data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +18,7 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC  {
     private int locationID;
     private String locationCoordsLong;
     private String locationCoordsLat;
+    private JdbcTemplate jdbc;
 
 
     public int getLocationID() {
@@ -49,6 +53,27 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC  {
         this.locationCoordsLong = locationCoordsLong;
         this.locationCoordsLat = locationCoordsLat;
     }
+
+    public LocationsCoordinates(JdbcTemplate aJdbc) {
+        super(aJdbc);
+    }
+
+    public List<Location> getFullListLocations(JdbcTemplate aJdbc){
+        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+        return new LocationRepositoryJDBC(aJdbc).getAllLocation();
+    }
+
+    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
+        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
+    }
+
+    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
+        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
+    }
+
+
 
 
  /// Need a constructor to create a lcoations list, approved lcoatiosn lsit, unapproved lcoations list.
