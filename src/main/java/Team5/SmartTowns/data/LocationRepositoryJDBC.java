@@ -42,7 +42,8 @@ public class LocationRepositoryJDBC implements LocationRepository {
 
     @Override
     public List<Location> getApprovedLocations(){
-        List<Location> locations = getAllLocation();
+        JdbcTemplate jdbc = new JdbcTemplate();
+        List<Location> locations = new LocationRepositoryJDBC(jdbc).getAllLocation();
         List<Location> locationApprovalList= new ArrayList<Location>();
         for (Location loc :locations){
             if (loc.isLocationApproved()) {
@@ -50,6 +51,19 @@ public class LocationRepositoryJDBC implements LocationRepository {
             }
         } return locationApprovalList;
  }
+
+    @Override
+    public List<Location> getApprovedLocations2(List<Location> list){
+
+        List<Location> locationApprovalList= new ArrayList<Location>();
+        for (Location loc :list){
+            if (loc.isLocationApproved()) {
+                locationApprovalList.add(loc);
+            }
+        } return locationApprovalList;
+    }
+
+
 
     @Override
     public List<Location> getUnapprovedLocations(){
@@ -63,11 +77,9 @@ public class LocationRepositoryJDBC implements LocationRepository {
     }
 
 
-
-
-
-
-
+    public JdbcTemplate getJdbc() {
+        return jdbc;
+    }
 
     public LocationRepositoryJDBC() {
     }

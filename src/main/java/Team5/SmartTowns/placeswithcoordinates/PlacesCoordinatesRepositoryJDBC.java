@@ -1,6 +1,7 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepositoryJDBC;
 import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -72,10 +73,16 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
     }
 
-    @Override //TODO CHECK
+
     public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
-        return null;
+        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
     }
+
+//    @Override //TODO CHECK
+//    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
+//        return null;
+//    }
 
 
     public boolean checkInputtedCoordsMatchTown(String inpLatCoords, String inpLongCoords, String townName){

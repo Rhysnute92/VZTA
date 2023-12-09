@@ -21,6 +21,11 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC {
     private String locationCoordsLong;
     private JdbcTemplate jdbc;
 
+    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
+        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
+        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
+    }
+
 
     public int getLocationID() {
         return locationID;
@@ -66,10 +71,10 @@ public class LocationsCoordinates  extends LocationRepositoryJDBC {
 
 
 
-    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
-        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
-    }
+//    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc){
+//        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
+//        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
+//    }
 
     public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
         LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
