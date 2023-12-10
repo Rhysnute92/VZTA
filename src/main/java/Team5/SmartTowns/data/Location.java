@@ -13,6 +13,12 @@ public class Location {
     private String locationPlace;
     private int locationTrailID;
 
+    private boolean locationApproved;
+
+    public Location() {
+
+    }
+
     @Override
     public String toString() {
         return "Location{" +
@@ -21,6 +27,7 @@ public class Location {
                  locationDescription + '\'' +
                  locationPlace + '\'' +
                  locationTrailID +
+                locationApproved+
                 '}';
     }
 
@@ -44,5 +51,7 @@ public class Location {
         return locationTrailID;
     }
 
-
+    public boolean isLocationApproved() {
+        return locationApproved;
+    }
 }

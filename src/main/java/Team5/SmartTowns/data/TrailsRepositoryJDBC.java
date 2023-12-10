@@ -18,7 +18,8 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
     private void settrailsMapper(){
         trailMapper = (rs, i) -> new Trail(
                 rs.getInt("trailID"),
-                rs.getString("name")
+                rs.getString("name"),
+                rs.getBoolean("tru")
         );
     }
     public List<Trail> getAllTrails(){

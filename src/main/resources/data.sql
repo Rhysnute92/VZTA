@@ -4,36 +4,36 @@ INSERT INTO users (email, name, password) VALUE ('hannah@gmail.com', 'Hannah', '
 INSERT INTO users (email, name, password) VALUE ('nigel@gmail.com', 'Nigel', 'root');
 INSERT INTO users (email, name, password) VALUE ('oscar@gmail.com', 'Oscar', 'root');
 
-DELETE FROM trails;
-INSERT INTO trails ( Name) VALUE ( 'Caerphilly Coffee Trail');
-INSERT INTO trails ( Name) VALUE ( 'Penarth Dragon Trail');
+delete from trails;
+insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
+insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
 
-DELETE FROM locations;
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'St Cenydd','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'The Castle','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Medieval Trades','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'The Queen''s War','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'The Green Lady','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Armoury','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Architecture','','Location description here','Caerphilly',0101);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( '21st Century Landmark','','Location description here','Caerphilly',0101);
+delete from locations;
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Castle','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Medieval Trades','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Queen''s War','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Green Lady','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Armoury','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Architecture','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( '21st Century Landmark','','Location description here','Caerphilly',0101, true);
 
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'JD Wetherspoons-Malcolm Uphill','','Location description here','Caerphilly',0102);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Caerphilly Cwtch','','Location description here','Caerphilly',0102);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Caerphilly Conservative Club','','Location description here','Caerphilly',0102);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'The King''s Arms','','Location description here','Caerphilly',0102);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'JD Wetherspoons-Malcolm Uphill','','Location description here','Caerphilly',0102, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Cwtch','','Location description here','Caerphilly',0102, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Conservative Club','','Location description here','Caerphilly',0102, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The King''s Arms','','Location description here','Caerphilly',0102, true);
 
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Caerphilly Bus Station','','Location description here','Caerphilly',0103);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'The Medieval Courthouse','','Location description here','Caerphilly',0103);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ('Caerphilly Castle','','Location description here','Caerphilly',0103);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Ty Vaughan House','','Location description here','Caerphilly',0103);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Bus Station','','Location description here','Caerphilly',0103, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Medieval Courthouse','','Location description here','Caerphilly',0103, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ('Caerphilly Castle','','Location description here','Caerphilly',0103, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Ty Vaughan House','','Location description here','Caerphilly',0103, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Risca Colliery','','Location description here','Risca',0201, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Esplanade','','Location description here','Penarth',0301, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
 
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Risca Colliery','','Location description here','Risca',0201);
-INSERT INTO locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201);
 
 
-INSERT INTO locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE (19, 'The Esplanade','','Location description here','Penarth',0301);
-INSERT INTO locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) VALUE (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
 
 
 DELETE FROM packs;
