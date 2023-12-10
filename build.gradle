@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.5'
 	id 'io.spring.dependency-management' version '1.1.3'
+	id "com.github.node-gradle.node" version "7.0.1"
 }
 
 group = 'Team.5'
@@ -34,6 +35,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// https://mvnrepository.com/artifact/org.webjars/openlayers
+	implementation group: 'org.webjars', name: 'openlayers', version: '5.2.0'
 }
 
 tasks.named('bootBuildImage') {
@@ -42,4 +45,8 @@ tasks.named('bootBuildImage') {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+task myScript(type: NodeTask) {
+	script = file('src/main/resources/static/scripts/mapAPI.js')
 }

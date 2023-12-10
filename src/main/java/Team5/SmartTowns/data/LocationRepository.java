@@ -8,4 +8,15 @@ public interface LocationRepository {
     List<Location> getAllLocation();
     void addLocation(Location loc);
 
+
+    List<Location> getApprovedLocations();
+
+//    List<Location> getApprovedLocations2(List<Location> list);
+
+    List<Location> getUnapprovedLocations();
+
+
+//     List<Location> approvedLocations();
+
+
 }
