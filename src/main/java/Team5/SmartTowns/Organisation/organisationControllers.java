@@ -28,7 +28,7 @@ public class organisationControllers {
     @Autowired
     private businessRepository businessRepository;
     @PostMapping("/businesssub")
-    public ModelAndView localAuthSent(@Valid @ModelAttribute("business-data")business  business, BindingResult bindingResult, Model model ) {
+    public ModelAndView businessSent(@Valid @ModelAttribute("business-data")business  business, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("business-data", model.asMap());
             return modelAndView;
