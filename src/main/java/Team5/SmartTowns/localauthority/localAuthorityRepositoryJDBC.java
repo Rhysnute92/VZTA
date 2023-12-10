@@ -1,4 +1,4 @@
-package Team5.SmartTowns.Data;
+package Team5.SmartTowns.localauthority;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
