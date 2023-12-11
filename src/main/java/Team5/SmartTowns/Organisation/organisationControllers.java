@@ -27,10 +27,10 @@ public class organisationControllers {
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @GetMapping("/local-auth-data.html")
+    @GetMapping("/local-auth-data")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
-            ModelAndView modelAndView = new ModelAndView("local-auth-data.html", model.asMap());
+            ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
 
