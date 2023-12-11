@@ -69,7 +69,6 @@ public class UserController {
         System.out.println(user.getUsername());
         mav.addObject("user", userRepository.findUserByName("Admin"));
         mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
-
         return mav;
     }
 
@@ -82,7 +81,6 @@ public class UserController {
         mav.addObject("user", userRepository.findUserByName("Admin"));
         mav.addObject("packs", allPacks);
         mav.addAllObjects(getPackInfo(username, 1).getModelMap());
-
         return mav;
     }
 
