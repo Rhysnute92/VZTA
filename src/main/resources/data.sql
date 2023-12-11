@@ -57,6 +57,6 @@ insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', tru
 insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
 delete from localauthority;
-insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Caerphilly County Borough Council', 'Tredomen Park', 'Ystrad Mynach, Hengoed', '', 'CF82 7PG', 'https://www.caerphilly.gov.uk/main.aspx?lang=en-GB');
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Caerphilly County Borough Council', 'Tredomen Park','', 'Ystrad Mynach, Hengoed', '', 'CF82 7PG', 'https://www.caerphilly.gov.uk/main.aspx?lang=en-GB');
 insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Risca Town Council', 'Unit B, 75 Tredegar Street', '', 'Risca', '', 'NP11 6BW', 'https://www.riscatowncouncil.org.uk/');
 insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Penarth Town Council West House', 'Stanwell Road', '', 'Penarth', '', 'CF64 2YG', 'https://www.penarthtowncouncil.gov.uk/your-council/');

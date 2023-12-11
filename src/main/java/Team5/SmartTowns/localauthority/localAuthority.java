@@ -12,7 +12,7 @@ public class localAuthority {
     private String city;
     private String county;
     private String postcode;
-
+    private String website;
     @Override
     public String toString() {
         return "localAuthority{" +
@@ -54,5 +54,5 @@ public class localAuthority {
         return website;
     }
 
-    private String website;
+
 }
