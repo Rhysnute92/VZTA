@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trails</title>
+</head>
+<body>
+<main>
+    <div th:each="trail, indexValue:${trails}">
+        <H1 th:text="*{trail.getTrailName()}"></H1>
+        <div th:each="locationCoord, indexValue2:${locationCoords}"  >
+            <div th:if="${locations[indexValue2.index].getLocationTrailID()==trail.getTrailsId()}">
+
+                <a th:href="'/checkpoints/'+${locations[indexValue2.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue2.index].getLocationName()}"></a>
+
+                <p th:text="${locationCoord.getLocationCoordsLong()}"></p></div>
+
+
+<!--            <div th:each="coord, indexValue:${locationCoords}">-->
+<!--                <p th:text="*{coord.getLocationID()}"></p>-->
+<!--                &lt;!&ndash;        <p th:text="${locations[indexValue.index]}"></p>&ndash;&gt;-->
+<!--                <H1 th:text="${location[indexValue.index].getLocationName()}"> </H1>-->
+<!--                <H4 th:text="${location[indexValue.index].getLocationPlace()}"> </H4>-->
+<!--                <p th:text="${location[indexValue.index].getLocationDescription()}"></p>-->
+
+
+<!--            <div th:each="trail, indexValue:${trails}">-->
+<!--                <H1 th:text="*{trail.getTrailName()}"></H1>-->
+<!--                <div th:each="location, indexValue2:${locations}" th:each="locationCoord, indexValue3:${locationCoords}" th:if="!${location.getLocationTrailID()==trail.getTrailsId()}" >-->
+<!--                    <p th:text="${location.getLocationPlace()}">A</p>-->
+<!--                    <p th:text="${location[indexValue3.index].getLocationPlace()}">A</p>-->
+
+<!--                    <p th:text="${locationCoord.getLocationCoordsLong()}"></p>-->
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+</main>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ public class Location {
     private String locationEmail;
     private String locationDescription;
     private String locationPlace;
-    private int locationTrailID;
+    private String locationTrailID;
 
     private boolean locationApproved;
 
@@ -47,7 +47,7 @@ public class Location {
         return locationPlace;
     }
 
-    public int getLocationTrailID() {
+    public String getLocationTrailID() {
         return locationTrailID;
     }
 

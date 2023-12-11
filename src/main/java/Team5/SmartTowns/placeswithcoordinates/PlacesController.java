@@ -2,6 +2,8 @@ package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
+import Team5.SmartTowns.data.Trail;
+import Team5.SmartTowns.data.TrailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,8 @@ public class PlacesController {
     @Autowired
     private LocationRepository locationRepo;
 
-
+    @Autowired
+    private TrailsRepository trailsRepo;
 
 
     @GetMapping("/checkpoints")
@@ -77,5 +80,29 @@ public class PlacesController {
 
 
     /// Trail webpage mapping
+
+
+    @GetMapping("/trails")
+    public ModelAndView getTrailsPage(){
+        ModelAndView modelAndView = new ModelAndView("landmarks/trailsPage.html");
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        List<Location> locations =  locationRepo.getAllLocation();
+        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        List<Integer> locationIDIndex = new ArrayList<Integer>();
+        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+        for (LocationsCoordinates coord: locCoords){
+            locationIDIndex.add(coord.getLocationID()-1);
+            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
+        }
+        modelAndView.addObject("trails", trailslocations);
+        modelAndView.addObject("locations", locationCoordsWorkaround);
+        modelAndView.addObject("locationCoords", locCoords);
+
+
+
+
+
+        return  modelAndView;
+    }
 
 }

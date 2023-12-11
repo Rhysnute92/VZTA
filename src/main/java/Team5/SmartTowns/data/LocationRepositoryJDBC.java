@@ -33,7 +33,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
                 rs.getString("locationEmail"),
                 rs.getString("locationDescription"),
                 rs.getString("locationPlace"),
-                rs.getInt("locationTrailID"),
+                rs.getString("locationTrailID"),
                 rs.getBoolean("locationApproved")
         );
     }
@@ -56,7 +56,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
     public void addLocation(Location loc) {
         String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) values (?,?,?,?,?,?)";
 
-        jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
+        jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID(), false);
     }
 
     @Override
