@@ -3,8 +3,11 @@ insert into users (email, name) value ('hannah@gmail.com', 'Hannah');
 insert into users (email, name) value ('nigel@gmail.com', 'Nigel');
 
 delete from trails;
-insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
-insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
+insert into trails ( trailID, trailName, trailNumber) value ( 0101,'Caerphilly Castle Trail','0101');
+insert into trails ( trailID, trailName, trailNumber) value ( 0102,'Caerphilly Pub Trail','0102');
+insert into trails ( trailID, trailName, trailNumber) value ( 0103,'Caerphilly Heritage Trail','0103');
+insert into trails ( trailID, trailName, trailNumber) value ( 0201,'Risca Heritage Trail','0201');
+insert into trails ( trailID, trailName, trailNumber) value ( 0301,'Penarth Heritage Trail','0301');
 
 delete from locations;
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);

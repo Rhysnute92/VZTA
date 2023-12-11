@@ -57,7 +57,7 @@ public class PlacesController {
             List<Location> locationCoordsWorkaround = new ArrayList<Location>();
             int locationID = 999;
             int workAroundID=0;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
-            for (int i=0;i<locCoords.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with lcoation index manually
+            for (int i=0;i<locCoords.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with location index manually
                 locationIDIndex.add(locCoords.get(i).getLocationID()-1); // gets location ID and therefore location list index number
                 locationCoordsWorkaround.add(locations.get(locCoords.get(i).getLocationID()-1));
                 if ( (locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)) ){
@@ -73,5 +73,9 @@ public class PlacesController {
         modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
         return modelAndView;
     }
+
+
+
+    /// Trail webpage mapping
 
 }

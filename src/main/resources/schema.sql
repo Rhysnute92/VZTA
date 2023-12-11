@@ -1,13 +1,16 @@
-drop table if exists trails;
-create table if not exists trails
-(
-    trailID bigint auto_increment primary key,
-    name varchar(128),
-    tru boolean
-)   engine=InnoDB;
 
 drop table if exists locationCoordinates;
 drop table if exists locations;
+drop table if exists trails;
+
+create table if not exists trails
+(
+    trailID varchar(128) primary key,
+    trailName varchar(128),
+    trailNumber varchar(128)
+)   engine=InnoDB;
+
+
 create table if not exists locations
 (
     locationID bigint auto_increment primary key,
@@ -16,6 +19,9 @@ create table if not exists locations
     locationDescription longtext,
     locationPlace varchar(255),
     locationTrailID varchar(128),
+    Foreign Key (locationTrailID) REFERENCES trails(trailID)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
     locationApproved boolean
 )   engine=InnoDB;
 
