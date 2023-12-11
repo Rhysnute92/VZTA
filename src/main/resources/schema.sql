@@ -36,12 +36,17 @@ create table if not exists locations
 
 
 CREATE TABLE IF NOT EXISTS users (
-    id bigint auto_increment primary key,
-    email varchar(128) NOT NULL ,
-    name varchar(30) NOT NULL,
+    username varchar(30) primary key NOT NULL,
+    email varchar(128),
     password varchar(30) NOT NULL,
-    dragonProgress int,
-    dragonsLandmarkIDs longtext
+    enabled boolean default true,
+    roles varchar(128)
+);
+
+CREATE TABLE IF NOT EXISTS authorities (
+    id bigint primary key auto_increment NOT NULL,
+    username varchar(30) NOT NULL ,
+    authority varchar(45) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS packs (
@@ -64,8 +69,8 @@ CREATE TABLE IF NOT EXISTS stickers (
 
 CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
-    userID bigint NOT NULL,
-    FOREIGN KEY (userID) REFERENCES users(id)
+    username varchar(30) NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
     packID bigint NOT NULL,

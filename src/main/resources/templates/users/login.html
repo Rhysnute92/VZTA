@@ -33,13 +33,15 @@
                 </form>
             </div>
             <div class="form-container sign-in">
-                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return loginFormValidation()">
+                <form  name="f" th:action="@{/login}" th:method="POST">
                     <h1>Sign In</h1>
+                    <div th:if="${param.error}" class="alert alert-error">Invalid Username or Password</div>
+                    <div th:if="${param.logout}" class="alert alert-success">Successfully Logged out</div>
                     <label>
-                        <input class="input" th:field="*{email}" id="login-email" type="email" placeholder="Email">
+                        <input class="input" id="username" type="text" name="username" placeholder="Email">
                     </label>
                     <label>
-                        <input class="input" th:field="*{password}" id="login-password" type="password" placeholder="Password">
+                        <input class="input" id="password" type="password" name="password" placeholder="Password">
                     </label>
                     <a href="#" class="text">Forget Your Password?</a>
                     <button type="submit">Sign In</button>

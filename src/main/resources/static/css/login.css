@@ -9,6 +9,8 @@
     --font-size-1: 14px;
     --font-size-2: 200px;
     --font-size-3: 300px;
+
+    --error-colour: red;
 }
 
 *{
@@ -363,5 +365,8 @@ and (max-device-width: 640px) {
         border-color: #fff;
     }
 }
-
+.alert {
+    color: var(--error-colour);
+    text-shadow: var(--error-colour) 0 0 10px;
+}
 

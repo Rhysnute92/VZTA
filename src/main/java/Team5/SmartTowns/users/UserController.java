@@ -6,13 +6,14 @@ import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.rewards.Sticker;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -29,6 +30,7 @@ public class UserController {
     public ModelAndView getLoginPage() {
         ModelAndView mav = new ModelAndView("users/login");
         mav.addObject("user", new NewUser( "", "", ""));
+        System.out.println(userRepository.findUserByName("Admin").getName());
         return mav;
     }
 
@@ -38,16 +40,17 @@ public class UserController {
         // TODO VALIDATE EMAIL INPUT
 
         if (bindingResult.hasErrors()) {
-            System.out.println("Errors");
+            ModelAndView modelAndView = new ModelAndView("users/login");
+            modelAndView.addObject("errors", bindingResult);
+            return modelAndView;
         }
         System.out.println(user.getName());
         System.out.println(user.getPassword());
 
+
         if ( userRepository.doesUserExist(user.getEmail()) ) {
             //TODO return modelandview for user already exists
             System.out.println(user.getEmail() + " already exists");
-            System.out.print("LOG IN:");
-            System.out.println(userRepository.userLogIn(user.email, user.password));
             return mav;
         } else {
             userRepository.addUser(user.name, user.email, user.password);
@@ -56,28 +59,42 @@ public class UserController {
         }
     }
 
-    /* USER MAPPING & FUNCTIONS */
-    @GetMapping("/user/{id}")
-    public ModelAndView getUserPage(@PathVariable int id) {
+    @GetMapping("/userProfile")
+    public ModelAndView userProfile(){
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Pack> allPacks = rewardsRepository.getAllPacks();
-        mav.addObject("user", userRepository.getUserById(id));
         mav.addObject("packs", allPacks);
-        userRepository.addUser("Maria", "MariaEmail", "MariaPassword");
-        userRepository.doesUserExist("MariaEmail");
-        mav.addAllObjects(getPackInfo(id, 1).getModelMap());
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(user.getUsername());
+        mav.addObject("user", userRepository.findUserByName("Admin"));
+        mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
 
         return mav;
     }
 
-    @GetMapping("/packInfo/{userID}/{packID}")
-    public ModelAndView getPackInfo(@PathVariable int userID, @PathVariable int packID) {
+
+    /* USER MAPPING & FUNCTIONS */
+    @GetMapping("/user/{username}")
+    public ModelAndView getUserPage(@PathVariable String username) {
+        ModelAndView mav = new ModelAndView("users/userProfile");
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
+        mav.addObject("user", userRepository.findUserByName("Admin"));
+        mav.addObject("packs", allPacks);
+        mav.addAllObjects(getPackInfo(username, 1).getModelMap());
+
+        return mav;
+    }
+
+    @GetMapping("/packInfo/{username}/{packID}")
+    public ModelAndView getPackInfo(@PathVariable String username, @PathVariable int packID) {
         /* Displays on page the stickers present in the pack and colour the ones the
         *  user has acquired */
 
         ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
         List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
-        List<Long> userStickers = userRepository.getUserStickersFromPack(userID, packID);
+        List<Long> userStickers = userRepository.getUserStickersFromPack(username, packID);
+        System.out.println(userStickers);
 
 
 

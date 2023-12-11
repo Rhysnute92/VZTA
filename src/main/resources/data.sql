@@ -1,9 +1,3 @@
-DELETE FROM users;
-INSERT INTO users (id, email, name, password) VALUE (1, 'admin@gmail.com', 'Admin', 'admin');
-INSERT INTO users (email, name, password) VALUE ('hannah@gmail.com', 'Hannah', 'root');
-INSERT INTO users (email, name, password) VALUE ('nigel@gmail.com', 'Nigel', 'root');
-INSERT INTO users (email, name, password) VALUE ('oscar@gmail.com', 'Oscar', 'root');
-
 delete from trails;
 insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
 insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
@@ -56,10 +50,3 @@ INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 1,
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
 
-DELETE FROM stickerprogress;
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 1, 1);
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 1, 2);
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 1, 3);
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 1, 5);
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 2, 1);
-INSERT INTO stickerprogress (userID, packID, stickerID) VALUE (1, 2, 3);
