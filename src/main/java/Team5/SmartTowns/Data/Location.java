@@ -50,4 +50,9 @@ public class Location {
     }
 
 
+
+    public int testMe(){
+        int a=4;
+        return 4;
+    }
 }
