@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Businesses</title>
-    <link rel="stylesheet" href="../static/css/templatingstyle.css">
+    <link rel="stylesheet" th:href="@{css\businessesStyle.css}">
+    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
 </head>
+<header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
-<h1>Future Proof Businesses</h1>
-<h1>Compete with Online Retailers</h1>
-<h1>Drive Footfall to the high street</h1>
-<h1>Increase Sales</h1>
-<ul th:each="businesses:${business}">
-    <li th:text="${businesses}"></li>
+<h3>Future Proof Businesses</h3>
+<h3>Compete with Online Retailers</h3>
+<h3>Drive Footfall to the high street</h3>
+<h3>Increase Sales</h3>
+<ul th:each="business:${business}">
+    <li th:text="${business}"></li>
 </ul>
-<p>Businesses please enter here</p><button><a href="business-data.html" id="business">Login</a></button>
+<button><a href="business-data.html" id="business">Businesses please enter here</a></button>
 </body>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </html>
