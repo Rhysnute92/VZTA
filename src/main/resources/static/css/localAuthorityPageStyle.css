@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(41, 41, 41)
+}
+h1{
+    color: wheat;
+}
+h3{
+    color: wheat;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    color: wheat;
+    list-style: none;
+}

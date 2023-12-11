@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -26,10 +27,10 @@ public class organisationControllers {
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @PostMapping("/local-auth-data")
+    @GetMapping("/local-auth-data.html")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
-            ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
+            ModelAndView modelAndView = new ModelAndView("local-auth-data.html", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
 

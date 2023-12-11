@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Authority</title>
-    <link rel="stylesheet" th:href="@{css\allTrails.css}">
-    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
+
+    <link rel="stylesheet" th:href="@{css/localAuthortyPageStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <div id="container1">
     <h2>Enter your Local authority</h2>
-        <form action="/local-auth-data" method="post" id="data" object="localauthsub">
+        <form action="/local-auth-data" method="post" id="data" object="local-auth-data">
             <p>
                 <label for="localAuthorityName">Enter your local authority</label>
                 <input type="text" name="authority_name" id="localAuthorityName">
