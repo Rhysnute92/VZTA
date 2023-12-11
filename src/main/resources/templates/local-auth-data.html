@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Authority</title>
-    <link rel="stylesheet" href=css\landmarkFormStyle.css>
-    <link rel="stylesheet" href=css\templatingstyle.css>
+    <link rel="stylesheet" th:href="@{css\allTrails.css}">
+    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
 </head>
-<header class="headerBar" th:fragment="header">
+<header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <div id="container1">
     <h2>Enter your Local authority</h2>
-        <form action="/localauthsub" method="post" id="data" object="localauthsub">
+        <form action="/local-auth-data" method="post" id="data" object="localauthsub">
             <p>
                 <label for="localAuthorityName">Enter your local authority</label>
                 <input type="text" name="authority_name" id="localAuthorityName">
@@ -39,9 +39,9 @@
                 <label for="website">Please enter your website address</label>
                 <input type="url" name="web_site" id="website">
             </p>
-            <input type="submit" value="Submit Data">
+            <input type="submit" value="Submit">
         </form>
 </div>
 </body>
-<footer th:insert=/towns/Templating.html></footer>
+<footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </html>

@@ -3,6 +3,8 @@ package Team5.SmartTowns.localauthority;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.net.URL;
+
 @AllArgsConstructor
 @Data
 public class localAuthority {
@@ -12,7 +14,7 @@ public class localAuthority {
     private String city;
     private String county;
     private String postcode;
-    private String website;
+    private URL website;
     @Override
     public String toString() {
         return "localAuthority{" +
@@ -50,9 +52,7 @@ public class localAuthority {
         return postcode;
     }
 
-    public String getWebsite() {
+    public URL getWebsite() {
         return website;
     }
-
-
 }

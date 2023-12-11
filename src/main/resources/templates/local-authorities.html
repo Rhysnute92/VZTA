@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Authorities</title>
-    <link rel="stylesheet" href="../static/css/templatingstyle.css">
+    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
 </head>
+<header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <h1>Local Authorities</h1>
 <div id="councils">
-    <ul th:each="localauthority:${localauthorities}">
-        <li th:text="${localAuthority}"></li>
+    <ul th:each="localauthorities:${localAuthority}">
+        <li th:text="${localauthorities}"></li>
     </ul>
 </div>
-<p>Local Authorities please enter here</p><button><a href="local-auth-data" id="authority">Login</a></button>
-<footer insert=towns/Templating.html::footer></footer>
+<button><a href="local-auth-data" id="authority">Local Authorities please enter here</a></button>
+<footer th:insert=/towns/Templating.html::footer></footer>
 </body>
 </html>
