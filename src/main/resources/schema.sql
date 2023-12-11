@@ -37,10 +37,10 @@ create table if not exists locations
 
 CREATE TABLE IF NOT EXISTS users (
     username varchar(30) primary key NOT NULL,
+    id bigint auto_increment unique, /*DEPRECATED COLUMN, LEFT IN WHILE SOME OTHER FUNCTIONS STILL USE IT*/
     email varchar(128),
     password varchar(30) NOT NULL,
-    enabled boolean default true,
-    roles varchar(128)
+    enabled boolean default true
 );
 
 CREATE TABLE IF NOT EXISTS authorities (

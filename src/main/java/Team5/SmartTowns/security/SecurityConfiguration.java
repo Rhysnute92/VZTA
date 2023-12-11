@@ -17,6 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+    /* Configures the longin features and tracks logged on users on the page */
 
 
     @Bean
@@ -36,6 +37,7 @@ public class SecurityConfiguration {
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
+        /* Nothing here yet, this just saves passwords in plaintext. TODO password encryption */
         return NoOpPasswordEncoder.getInstance();
     }
 

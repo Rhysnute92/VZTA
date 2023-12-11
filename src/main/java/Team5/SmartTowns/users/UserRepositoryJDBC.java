@@ -40,19 +40,27 @@ public class UserRepositoryJDBC implements UserRepository{
 
     @Override
     public List<Long> getUserStickersFromPack(String username, int packID) {
+        /* Returns a list with the stickerIDs of stickers that the specified user has unlocked from the given pack */
         String sql = "SELECT stickerID FROM stickerprogress WHERE (username, packID)= (?,?)";
         return jdbc.queryForList(sql, Long.class, username, packID);
     }
 
     @Override
     public boolean unlockSticker(String username, int packID, int stickerID){
-        String sql = "INSERT INTO stickerprogress (username, packID, stickerID) VALUES (?,?,?)";
-        jdbc.update(sql, username, packID, stickerID);
-        return true;
+        /* Adds entry in the stickerprogress database, effectively unlocking the sticker for the user
+        *  Returns false if no sticker is unlocked */
+        String query = "SELECT COUNT(id) FROM stickers WHERE (stickerID, packID) = (stickerID, packID)";
+        if (jdbc.queryForObject(query, Integer.class) == 1){ //Checks if sticker exists
+            String sql = "INSERT INTO stickerprogress (username, packID, stickerID) VALUES (?,?,?)";
+            jdbc.update(sql, username, packID, stickerID);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean addUser(String username, String email, String password){
+        /* Adds new user to the database */
         String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?);";
         String query2= "INSERT INTO authorities (username, authority) VALUES (?,?);";
         jdbc.update(query, username, email, password);
@@ -61,18 +69,21 @@ public class UserRepositoryJDBC implements UserRepository{
     }
     @Override
     public boolean doesUserExist(String email){
+        /* Returns true if a user with given email already exists in the database */
         String query = "SELECT COUNT(email) FROM users WHERE (email) = (?)";
         return !(jdbc.queryForObject(query, Integer.class, email) == 0);
     }
 
     @Override
     public User findUserByEmail(String email) {
+        /* Finds user matching given email */
         String query = "SELECT * FROM users WHERE (email) = (?)";
         List<User> result = jdbc.query(query, userMapper, email);
         return result.isEmpty() ? null : result.get(0);
     }
     @Override
     public User findUserByName(String name) {
+        /* Finds user matching given name */
         String query = "SELECT * FROM users WHERE (username) = (?)";
         List<User> result = jdbc.query(query, userMapper, name);
         return result.isEmpty() ? null : result.get(0);
