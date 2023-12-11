@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class organisationControllers {
-    @GetMapping("/localauthorities")
+    @GetMapping("/local-authorities")
     public ModelAndView getLocalAuthoritiesPage(){
         ModelAndView mav = new ModelAndView("local-authorities");
         List<localAuthority> localAuthority = localAuthorityRepository.getAllLocalAuthority();
@@ -26,8 +26,8 @@ public class organisationControllers {
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @PostMapping("/localauthsub")
-    public ModelAndView localAuthSent(@Valid @ModelAttribute("local-auth-data")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
+    @PostMapping("/local-auth-data")
+    public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
             ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
             return modelAndView;

@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Local Authority</title>
-    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
-    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
-    <script src="scripts/landmarkFormThScript.js"></script></head>
+    <link rel="stylesheet" href=css\landmarkFormStyle.css>
+    <link rel="stylesheet" href=css\templatingstyle.css>
+</head>
+<header class="headerBar" th:fragment="header">
 <body>
 <div id="container1">
     <h2>Enter your Local authority</h2>
-        <form action="/localauthsub" method="post" id="data">
+        <form action="/localauthsub" method="post" id="data" object="localauthsub">
             <p>
-                <label for="localAthorityName">Enter your local authority</label>
-                <input type="text" name="authority_name" id="localAthorityName">
+                <label for="localAuthorityName">Enter your local authority</label>
+                <input type="text" name="authority_name" id="localAuthorityName">
             </p>
             <p>
                 <label for="address1">Please enter first line of your address</label>
@@ -42,5 +43,5 @@
         </form>
 </div>
 </body>
-<footer th:insert="~{/towns/Templating.html::footer}"></footer>
+<footer th:insert=/towns/Templating.html></footer>
 </html>
