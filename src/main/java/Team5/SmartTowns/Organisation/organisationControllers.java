@@ -22,12 +22,12 @@ public class organisationControllers {
     }
     @GetMapping("/businesses")
     public ModelAndView getBusinessPage(){
-        ModelAndView modelAndView = new ModelAndView("WorkWith/business.html");
+        ModelAndView modelAndView = new ModelAndView("businesses");
         return modelAndView;
     }
     @Autowired
     private businessRepository businessRepository;
-    @PostMapping("/businesssub")
+    @PostMapping("/business-data")
     public ModelAndView businessSent(@Valid @ModelAttribute("business-data")business  business, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("business-data", model.asMap());
