@@ -1,4 +1,4 @@
-.centre{
+body{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -7,6 +7,16 @@
     width: 50%;
     background-color: #927BB7;
 }
+
+.dropdown{
+    background-color: coral;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
 
 .landmarkName{
     font-weight: bold;

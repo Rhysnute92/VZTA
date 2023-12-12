@@ -21,8 +21,10 @@ public class DragonsTaleController {
     @GetMapping("/dragonstale")
     public ModelAndView getDragonsTale(){
         List<Landmarks> landmarksList = landmarksDragonstrail;
+        int landmarksListSize = landmarksDragonstrail.size();
         modelAndView = new ModelAndView("/dragonstale/index");
         modelAndView.addObject("landmarksList", landmarksList);
+        modelAndView.addObject("getListSize", landmarksListSize);
         return modelAndView;
     }
 
@@ -33,16 +35,9 @@ public class DragonsTaleController {
         return modelAndView;
     }
 
-//    @GetMapping("/{trailID}/QRScan") //In here, we could use trailID as a string variable and use it to track what trail the user clicked from.
-//    public ModelAndView getQRScanner(@PathVariable Optional<Integer> trailID){
-//        ModelAndView modelAndView = new ModelAndView("/dragonstale/index");
-//        //Can we extract the pathvariable in a JS function?
-//        return modelAndView;
-//    }
+    //Create another controller that directs to the given DragonsTale..Trail.. and updates the users account accordingly.
 
-
-
-
+// This code is to be used
 //    @GetMapping("dragonstale/{qrCode}/{id}")
 //    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
 //        if (qrCode.isPresent()){
