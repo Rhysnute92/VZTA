@@ -21,15 +21,20 @@ public class organisationControllers {
     public ModelAndView getLocalAuthoritiesPage(){
         ModelAndView mav = new ModelAndView("local-authorities");
         List<localAuthority> localAuthority = localAuthorityRepository.getAllLocalAuthority();
-        mav.addObject("localAuthority", localAuthority);
         return mav;
+    }
+    @GetMapping("/localForm")
+    public ModelAndView getLocalAuthForm(){
+        ModelAndView modelAndView = new ModelAndView("local-auth-data.html");
+        modelAndView.addObject("localAuthority",new localAuthority());
+        return modelAndView;
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @GetMapping("/local-auth-data")
+    @PostMapping("/local-auth-data1")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
-            ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
+            ModelAndView modelAndView = new ModelAndView("local-auth-data.html", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
 
@@ -40,7 +45,7 @@ public class organisationControllers {
             return modelAndView;
         }
     }
-    @PostMapping
+
     @GetMapping("/businesses")
     public ModelAndView getBusinessesPage(){
         ModelAndView mav1 = new ModelAndView("Businesses");

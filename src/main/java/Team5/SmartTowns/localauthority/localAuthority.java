@@ -2,10 +2,12 @@ package Team5.SmartTowns.localauthority;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.net.URL;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class localAuthority {
     private String localAuthorityName;
