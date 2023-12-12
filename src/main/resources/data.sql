@@ -34,6 +34,10 @@ DELETE FROM packs;
 INSERT INTO packs (name, description) VALUE ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
 INSERT INTO packs (name, description) VALUE ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
 INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
+INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
+INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
+INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
+INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
 
 DELETE FROM stickers;
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 1, 'wayne_hennessey', 'Wales Football Team Player', '2');

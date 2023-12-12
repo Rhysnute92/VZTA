@@ -2,9 +2,15 @@
   <a class="nav-logo-container"><img th:src="@{/images/icons/VZTA.png}" alt="Logo" class="nav-logo"></a>
   <nav class="head-navbar">
     <ul class="nav-ul">
-      <li class="nav-li li-first"><a href="/mobile-home" class="nav-links">Home</a></li>
-      <li class="nav-li li-middle"><a class="nav-links">Profile</a></li>
-      <li class="nav-li li-middle"><a class="nav-links">FAQ</a></li>
+      <li class="nav-li li-first">
+        <a href="/mobile-home" class="nav-links">Home</a>
+      </li>
+      <li class="nav-li li-middle" th:if="${#authentication.principal}!=anonymousUser">
+        <a th:href="'/profile/' + ${#authentication.getName()}" class="nav-links">Profile</a>
+      </li>
+      <li class="nav-li li-middle">
+        <a class="nav-links">FAQ</a>
+      </li>
       <li class="nav-li li-last" th:if="${#authentication.principal}==anonymousUser">
         <a href="/login" class="nav-links">Log In</a>
       </li>

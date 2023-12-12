@@ -66,26 +66,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/userProfile")
-    public ModelAndView userProfile(){
-        ModelAndView mav = new ModelAndView("users/userProfile");
-        List<Pack> allPacks = rewardsRepository.getAllPacks();
-        mav.addObject("packs", allPacks);
-
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(user.getUsername());
-        mav.addObject("user", userRepository.findUserByName("Admin"));
-        mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
-        return mav;
-    }
-
-
     /* USER MAPPING & FUNCTIONS */
-    @GetMapping("/user/{username}")
+    @GetMapping("/profile/{username}")
     public ModelAndView getUserPage(@PathVariable String username) {
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Pack> allPacks = rewardsRepository.getAllPacks();
-        mav.addObject("user", userRepository.findUserByName("Admin"));
+        allPacks.remove(0);
+        mav.addObject("user", userRepository.findUserByName(username));
         mav.addObject("packs", allPacks);
         mav.addAllObjects(getPackInfo(username, 1).getModelMap());
         return mav;
@@ -99,13 +86,16 @@ public class UserController {
         ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
         List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
         List<Long> userStickers = userRepository.getUserStickersFromPack(username, packID);
-        System.out.println(userStickers);
 
-
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
+        Pack current = allPacks.stream().filter(pack -> pack.getId() == packID).findFirst().get();
+        allPacks.remove(current);
 
         mav.addObject("stickers", setStickerVisibility(allStickers, userStickers));
         mav.addObject("progress", getPackProgress(allStickers));
         mav.addObject("selectedPack", rewardsRepository.findPackByID(packID));
+        mav.addObject("packs", allPacks);
+        mav.addObject("user", userRepository.findUserByName(username));
         return mav;
     }
 

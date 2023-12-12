@@ -3,60 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="'VZLA Profile Page of ' + ${user.getName()}"></title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/userProfile2.css}">
+    <link rel="stylesheet" th:href="@{/css/colours.css.css}">
+    <link rel="stylesheet" th:href="@{/css/mobile-style.css}">
+    <link rel="stylesheet" th:href="@{/css/userProfile.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">-->
 </head>
+
 <body>
+    <header th:replace="~{/fragments/banners::header}"></header>
 
-<!--<header>-->
-<!--    <ul class="footerBar">-->
-<!--        <li class="footerButton"><b>Home</b></li>-->
-<!--        <li class="footerButton"><b>About</b></li>-->
-<!--        <li class="footerButton"><b>Map</b></li>-->
-<!--        <li class="footerButton"><b>Facilities</b></li>-->
-<!--        <li class="footerButton"><b>Log In</b></li>-->
-<!--    </ul>-->
-<!--</header>-->
-
-<main>
-    <!--PICTURE - DATA - BADGES -->
-    <div class="userContainer">
-        <h1 th:text="${user.getName()}"></h1>
-        <img th:src="@{${user.getImgPath()}}"
-             th:alt="${user.getName()}"
-             id="userPicture"
-        >
-
-        <!--TODO add some progression info here?-->
-    </div>
-    <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
-        <article id="packsBar">
-            <h2>Packs</h2>
-             <!--Shows first earned badges, followed by greyed out badges-->
-            <div id="allPacksContainer"  class="centerFlex">
-                <div th:each="pack : ${packs}"  class="packContainer">
-                    <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
-                         th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
-                         th:data-url="@{/packInfo/{username}/{packID}(username=${user.getName()}, packID=${pack.getId()})}"
-                         onclick="updatePack(this.getAttribute('data-url'))">
-                    <h4 class="packName" th:text="${pack.getName()}"></h4>
+    <main>
+        <!--PICTURE - DATA - BADGES -->
+        <div class="userContainer">
+            <img th:src="@{${user.getImgPath()}}"
+                 th:alt="${user.getName()}"
+                 id="userPicture"
+            >
+            <h1 th:text="${user.getName()}"></h1>
+        </div>
+        <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
+            <!--<article id="packsBar">
+                <h2>Packs</h2>
+                 &lt;!&ndash;Shows first earned badges, followed by greyed out badges&ndash;&gt;
+                <div id="allPacksContainer"  class="centerFlex">
+                    <div th:each="pack : ${packs}"  class="packContainer">
+                        <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
+                             th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
+                             th:data-url="@{/packInfo/{username}/{packID}(username=${user.getName()}, packID=${pack.getId()})}"
+                             onclick="updatePack(this.getAttribute('data-url'))">
+                        <h4 class="packName" th:text="${pack.getName()}"></h4>
+                    </div>
                 </div>
-            </div>
-        </article>
-        <article th:replace="~{users/userFrags.html::stickersBox}" id="stickersBox"></article>
-    </section>
+            </article>-->
+            <article th:replace="~{users/userFrags.html::stickersBox}" id="stickersBox"></article>
+        </section>
+    </main>
 
+    <footer th:replace="~{/fragments/banners::footer}"></footer>
 
-</main>
-
-<footer>
-
-</footer>
-<script type="text/javascript" th:src="@{../scripts/userPage.js}"></script>
-
-<script>
-</script>
+    <script type="text/javascript" th:src="@{../scripts/userPage.js}"></script>
 </body>
 </html>
