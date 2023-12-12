@@ -60,7 +60,5 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.named('test') {
-	Test6Mock()
-}
+
 

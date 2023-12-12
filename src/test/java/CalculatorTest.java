@@ -1,5 +1,3 @@
-package Team5.SmartTowns;
-
 import Team5.SmartTowns.Data.Calculator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 //import org.junit.platform.engine.TestDescriptor;
 //import org.junit.platform.commons.util.Preconditions;
 import org.apache.commons.logging.LogFactory;
-@SpringBootTest
+//@SpringBootTest
 public class CalculatorTest {
 //    String asd= getLegacyReportingName("das");
 
