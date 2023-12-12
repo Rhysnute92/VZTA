@@ -13,14 +13,6 @@
     --error-colour: red;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-}
-
 @keyframes move{
     0%, 49.99%{
         opacity: 0;

@@ -22,20 +22,7 @@
             >
             <h1 th:text="${user.getName()}"></h1>
         </div>
-        <section class="rewards"> <!--Reward lists, badges on top, stickers (larger) on the bottom-->
-            <!--<article id="packsBar">
-                <h2>Packs</h2>
-                 &lt;!&ndash;Shows first earned badges, followed by greyed out badges&ndash;&gt;
-                <div id="allPacksContainer"  class="centerFlex">
-                    <div th:each="pack : ${packs}"  class="packContainer">
-                        <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
-                             th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
-                             th:data-url="@{/packInfo/{username}/{packID}(username=${user.getName()}, packID=${pack.getId()})}"
-                             onclick="updatePack(this.getAttribute('data-url'))">
-                        <h4 class="packName" th:text="${pack.getName()}"></h4>
-                    </div>
-                </div>
-            </article>-->
+        <section class="rewards">
             <article th:replace="~{users/userFrags.html::stickersBox}" id="stickersBox"></article>
         </section>
     </main>

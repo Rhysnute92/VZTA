@@ -1,36 +1,18 @@
-* {
-    box-sizing: border-box;
-}
-body {
-    background-color: rgb(41, 41, 41);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100svh;
-}
-main {
-}
-
-.centerFlex {
-    display: flex;
-    justify-content: center;
-}
 #allTrailsBar {
     width: 100%;
     height: auto;
     /*margin: 1svh auto;*/
-    padding: 0 5svh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
 }
 .trailsImages {
-    margin: 1svh auto;
-    height: 12svh;
-    width: auto;
+    margin: 1svh 0;
+    height: 8svh;
+    aspect-ratio: 1;
     border-radius: 20px;
-    border: solid grey 2px;
+    border: solid grey 4px;
     transition: 0.5s ease-out 100ms;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
 }
@@ -46,9 +28,6 @@ main {
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-main {
-    margin: 0;
 }
 
 #trailInfoContainer {
@@ -125,10 +104,4 @@ main {
     display: flex;
     min-height: 40svh;
     flex-wrap: wrap;
-
-}
-
-header {
-    box-shadow: #1e1e1e 0 0 10px 10px;
-    font-size: 1vw;
 }
