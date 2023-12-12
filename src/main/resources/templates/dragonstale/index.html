@@ -5,7 +5,7 @@
     <title>A Dragon's Tale</title>
     <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+<!--    <script defer src="../../static/scripts/DTscript.js"></script>-->
 </head>
     <body>
         <header th:insert="fragments/Templating.html :: header"></header>
@@ -31,6 +31,7 @@
             <ul th:each="item : ${landmarksList}" id="tabBox">
                 <li>
                     <a id="tabIdCounter" href="#landmarkTabLink" th:text="${item.landmarkName}"> Landmark Tab</a>
+<!--                    <button id="qrcodescanner">Click here to scan a QR code for <span th:text="${item.landmarkName}">Landmark Name Here</span></button>-->
                 </li>
             </ul>
         </div>
