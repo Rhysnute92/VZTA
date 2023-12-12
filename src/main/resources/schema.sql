@@ -20,12 +20,12 @@ create table if not exists locations
     locationTrailID varchar(128)
 )   engine=InnoDB;
 
-drop table if exists users;
-create table if not exists users
+drop table if exists userss;
+create table if not exists userss
 (
     userID bigint auto_increment primary key,
     email varchar(128),
-    name varchar(128),
+    named varchar(128),
     dragonProgress int
 ) engine=InnoDB;
 

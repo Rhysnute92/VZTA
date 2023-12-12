@@ -46,6 +46,8 @@ dependencies {
 
 //Thanks for using https://jar-download.com
 
+// https://mvnrepository.com/artifact/com.h2database/h2 // if breaks
+	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.192'
 
 
 }

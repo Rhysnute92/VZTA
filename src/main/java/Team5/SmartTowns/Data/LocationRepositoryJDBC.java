@@ -4,19 +4,16 @@ package Team5.SmartTowns.Data;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.dao.DataAccessException;
-import org.springframework.core.NestedRuntimeException;
-import org.springframework.core.NestedRuntimeException;
-import javax.print.DocFlavor;
+
 import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
-public class locationRepositoryJDBC implements locationRepository {
+public class LocationRepositoryJDBC implements LocationRepository {
     private JdbcTemplate jdbc;
     private RowMapper<Location> locationMapper;
 
-    public locationRepositoryJDBC(JdbcTemplate aJdbc) {
+    public LocationRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setlocationMapper();
     }
@@ -55,7 +52,7 @@ public class locationRepositoryJDBC implements locationRepository {
         jdbc = new JdbcTemplate(dataSource);
     }
 
-    public locationRepositoryJDBC() {
+    public LocationRepositoryJDBC() {
     }
 
     public void setJdbc(JdbcTemplate jdbc) {

@@ -1,8 +1,8 @@
 //package Team5.SmartTowns;
 //
 //import Team5.SmartTowns.Data.Location;
-//import Team5.SmartTowns.Data.locationRepository;
-//import Team5.SmartTowns.Data.locationRepositoryJDBC;
+//import Team5.SmartTowns.Data.LocationRepository;
+//import Team5.SmartTowns.Data.LocationRepositoryJDBC;
 //import org.junit.Before;
 ////import org.junit.runner.RunWith;
 ////import org.mockito.Mockito;
@@ -38,9 +38,9 @@
 //
 //
 //        @Autowired
-//        private locationRepository locationRepo;
+//        private LocationRepository locationRepo;
 //        @Autowired
-//        private locationRepositoryJDBC locationRepoJ;
+//        private LocationRepositoryJDBC locationRepoJ;
 //
 //
 //        @MockBean
@@ -49,7 +49,7 @@
 //
 //        @BeforeAll
 //        public static void setUp() {
-//            locationRepository locationRepository= new locationRepository() {
+//            LocationRepository LocationRepository= new LocationRepository() {
 //                @Override
 //                public List<Location> getAllLocation() {
 //                    return null;
@@ -63,15 +63,15 @@
 //
 ////        Location alex = new Location("House","House@Bricks","Description Here","Caerphilly",103);
 ////
-////        Mockito.when(locationRepository.getAllLocation())
-////                .thenReturn(locationRepository.getAllLocation());
+////        Mockito.when(LocationRepository.getAllLocation())
+////                .thenReturn(LocationRepository.getAllLocation());
 //        }
 //
 //
 //        @Test
 //        public void whenValidName_thenEmployeeShouldBeFound() {
-//            locationRepositoryJDBC s= new locationRepositoryJDBC(jdbc);
-//            List<Location> locations = locationRepository.getAllLocation();
+//            LocationRepositoryJDBC s= new LocationRepositoryJDBC(jdbc);
+//            List<Location> locations = LocationRepository.getAllLocation();
 //            assertEquals(18,locations.size());
 //
 //        }

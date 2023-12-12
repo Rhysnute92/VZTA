@@ -13,7 +13,7 @@
 //
 //
 //    @Autowired
-//    private locationRepository locationRepository;
+//    private LocationRepository LocationRepository;
 //    @Autowired
 //    private trailsRepository trailsRepository;
 //
@@ -28,7 +28,7 @@
 //    @GetMapping("locationList")
 //    public ModelAndView locationList(){
 //        ModelAndView mav2 = new ModelAndView("towns/locationData");
-//        List<Location> Locations = locationRepository.getAllLocation();
+//        List<Location> Locations = LocationRepository.getAllLocation();
 //        mav2.addObject("location", Locations);
 //        return mav2;
 //    }

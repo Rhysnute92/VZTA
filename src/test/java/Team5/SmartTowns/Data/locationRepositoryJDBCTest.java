@@ -14,17 +14,17 @@
 //@SpringBootTest
 //class locationRepositoryJDBCTest {
 //
-//private static locationRepository locationRepo;
+//private static LocationRepository locationRepo;
 //
 //
 //    @Autowired
-//    private locationRepository locationRepo;
+//    private LocationRepository locationRepo;
 //
 //    @Mock
 //    private JdbcTemplate jdbc;
 //@BeforeAll
 //public static void setup(){
-//    locationRepositoryJDBC aa= new locationRepositoryJDBC(jdbc);
+//    LocationRepositoryJDBC aa= new LocationRepositoryJDBC(jdbc);
 //}
 //    @Test
 //    void getAllLocation() {

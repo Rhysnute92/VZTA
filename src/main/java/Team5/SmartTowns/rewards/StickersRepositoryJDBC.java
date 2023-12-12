@@ -19,7 +19,7 @@ public class StickersRepositoryJDBC implements StickersRepository {
     private void setStickerMapper(){
         stickerMapper = (rs, i) -> new Sticker(
                 rs.getInt("stickerID"),
-                rs.getString("name"),
+                rs.getInt("stickerID"), rs.getString("name"),
                 rs.getString("description"),
                 rs.getInt("rarity")
         );

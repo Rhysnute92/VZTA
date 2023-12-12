@@ -17,7 +17,7 @@ public class Sticker {
     int rarity; //1-5
     boolean hasSticker;
 
-    public Sticker(int id, String name, String description, int rarity) {
+    public Sticker(int id, int stickerID, String name, String description, int rarity) {
         this.id = id;
         this.name = name;
         this.description = description;

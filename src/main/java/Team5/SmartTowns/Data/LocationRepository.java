@@ -4,7 +4,7 @@ package Team5.SmartTowns.Data;
 import java.util.List;
 
 
-public interface locationRepository {
+public interface LocationRepository {
     List<Location> getAllLocation();
     void addLocation(Location loc);
 

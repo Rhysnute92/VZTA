@@ -1,7 +1,7 @@
 package Team5.SmartTowns.Landmarks;
 
 import Team5.SmartTowns.Data.Location;
-import Team5.SmartTowns.Data.locationRepository;
+import Team5.SmartTowns.Data.LocationRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class LandmarksController {
     }
 
     @Autowired
-    private locationRepository locationRepository;
+    private LocationRepository locationRepository;
     @PostMapping("/landmarkSub")
     public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
 

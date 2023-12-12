@@ -1,32 +1,30 @@
 package Team5.SmartTowns;
 
-import Team5.SmartTowns.Data.locationRepository;
-import Team5.SmartTowns.Data.locationRepositoryJDBC;
+import Team5.SmartTowns.Data.LocationRepository;
 //import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.jdbc.Sql;
-import org.testng.annotations.Test;
+
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 //@JdbcTest
 //
-@Sql({"schema.sql", "test-data.sql"})
+@Sql({"/resources/schema.sql", "/resources/test-data.sql"})
 public class Test5 {
 
     @Autowired
-    private locationRepository locationRepo;
+    private LocationRepository locationRepo;
 
 
     @Test
 //	test 1
     void whenInjectInMemoryDataSource_thenReturnCorrectEmployeeCount() {
-//        locationRepositoryJDBC employeeDAO = new locationRepositoryJDBC(ajdbc);
+//        LocationRepositoryJDBC employeeDAO = new LocationRepositoryJDBC(ajdbc);
         int aa=2;
         int bb=2;
 //        employeeDAO.setJdbc(ajdbc);
