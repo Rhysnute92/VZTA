@@ -1,6 +1,9 @@
 package Team5.SmartTowns;
 
 import org.junit.jupiter.api.Test;
+
+//import static org.testing.AssertJUnit.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.testng.annotations.Test;
 //import org.testng.annotations.Test;
@@ -8,7 +11,7 @@ import org.junit.jupiter.api.Test;
 //import org.junit.platform.engine.TestDescriptor;
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.testng.AssertJUnit.assertEquals;
+
 
 public class DBUnitTestCase {
     int bb=4;
