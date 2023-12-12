@@ -67,12 +67,9 @@ public class PlacesController {
                     locationID= i;
                     break;
                 } workAroundID++;
-            }System.out.println(locationCoordsWorkaround);
-            System.out.println("ag"+locationID);
+            }
         ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
-            System.out.println("ag"+locationID);
         modelAndView.addObject("locCoord", locCoords.get(locationID));
-            System.out.println("sd"+workAroundID);
         modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
         return modelAndView;
     }
@@ -113,40 +110,44 @@ public class PlacesController {
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
         List<Integer> locationIDIndex = new ArrayList<Integer>();
         List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-        int locationID = 999;
+        int trailID = 999;
         int workAroundID=0;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
-
-        for (int i=0;i<trailslocations.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with location index manually
-            locationIDIndex.add(trailslocations.get(i).getLocationID()-1); // gets location ID and therefore location list index number
-            locationCoordsWorkaround.add(locations.get(trailslocations.get(i).getLocationID()-1));
-            if ( (locations.get(trailslocations.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)) ){
-                locationID= i;
-                break;
-            } workAroundID++;
-        }System.out.println(locationCoordsWorkaround);
-
-        ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
-
-        modelAndView.addObject("locCoord", locCoords.get(locationID));
-
-        modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
-        modelAndView.addObject("trails", trailslocations);
-
-
-
-        List<Trail> trailslocations =  trailsRepo.getAllTrails();
-        List<Location> locations =  locationRepo.getAllLocation();
-        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Integer> locationIDIndex = new ArrayList<Integer>();
-        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
         for (LocationsCoordinates coord: locCoords){
             locationIDIndex.add(coord.getLocationID()-1);
             locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
         }
-        modelAndView.addObject("trails", trailslocations);
+
+        for (int i=0;i<trailslocations.size();i++){
+            System.out.println(trail);
+            System.out.println(i);
+            System.out.println(trailslocations.get(i).getTrailName());
+            System.out.println(trailslocations.get(i).getTrailName().replace(' ', '-').trim());
+
+            if (trailslocations.get(i).getTrailName().replace(' ', '-').trim().equals(trail)){
+                trailID=i;
+            break;}
+        }
+        ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
+        modelAndView.addObject("trail", trailslocations.get(trailID));
+        modelAndView.addObject("locCoords", locCoords);
         modelAndView.addObject("locations", locationCoordsWorkaround);
-        modelAndView.addObject("locationCoords", locCoords);
         return modelAndView;
+
+
+
+//        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+//        List<Location> locations =  locationRepo.getAllLocation();
+//        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+//        List<Integer> locationIDIndex = new ArrayList<Integer>();
+//        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+//        for (LocationsCoordinates coord: locCoords){
+//            locationIDIndex.add(coord.getLocationID()-1);
+//            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
+//        }
+//        modelAndView.addObject("trails", trailslocations);
+//        modelAndView.addObject("locations", locationCoordsWorkaround);
+//        modelAndView.addObject("locationCoords", locCoords);
+//        return modelAndView;
     }
 
 }

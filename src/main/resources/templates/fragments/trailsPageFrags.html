@@ -5,41 +5,9 @@
     <title th:text="${trail.getTrailName()}"></title>
 
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
-<!--    <link rel="stylesheet" th:href="@{/css/locationPageFragsStyle.css}">-->
+    <link rel="stylesheet" th:href="@{/css/trailsPageFragsStyle.css}">
 
-    <style>
-        .trailsFragment{
-            background-color: rgb(206, 153, 253);
-            color: black;
-            border-color: white;
-            align-content: center;
-            text-align: center;
-            border-radius: 25px;
-            max-width: 800px;
-            margin: 0 auto;
 
-        }
-        .trailsPageFrag{
-            background:  rgb(41, 41, 41);
-            color: wheat;
-        }
-
-        iframe{
-            margin-top: 20px;
-            margin-bottom: 60px;
-            border: white 2px solid;
-        }
-        H1{
-            padding-top: 5px;
-            padding-bottom:3px ;
-            margin-bottom: 0;
-        }
-        #trailHeader{
-            margin: 0;
-            padding: 0;
-
-        }
-    </style>
 </head>
 <body >
 <header th:insert="~{/fragments/Templating.html::header}"></header>
@@ -71,7 +39,7 @@
                     scrolling="yes"
                     marginheight="0"
                     marginwidth="0"
-                    th:src="'https://www.google.com/maps/dir/51.57239,-3.21992/51.57230,-3.21938//@11z'">
+                    th:src="'https://www.google.com/maps/dir/51.57239,-3.21992/51.57230,-3.21938//@&hl=en&z=20&amp;output=embed'">
             </iframe>
 
         </div>
@@ -113,10 +81,10 @@
         </div>
         <H3>Checkpoints:</H3>
 <!-- With the trial name, we go through locations list to get -->
-        <div th:each="locationCoord, indexValue:${locationCoords}"  >
+        <div th:each="locationCoord, indexValue:${locCoords}"  >
             <div th:if="${locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}">
-                <li style="list-style: none">
-                    <a th:href="'/checkpoints/'+${locations[indexValue.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue2.index].getLocationName()}"></a>
+                <li id="checkpointList">
+                    <a th:href="'/checkpoints/'+${locations[indexValue.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue.index].getLocationName()}"></a>
                     <ul></ul>
                 </li>
 
@@ -131,8 +99,10 @@
 
 
         </div>
-        <hr style="height:40px; visibility:hidden;" />
+    </article>
+    <hr style="height:40px; visibility:hidden;" />
 </main>
+
 <footer th:insert="~{/fragments/Templating.html::footer}"></footer>
 </body>
 </html>
