@@ -101,7 +101,7 @@ public class LocationsCoordinates {
 
 
 
- /// Need a constructor to create a lcoations list, approved lcoatiosn lsit, unapproved lcoations list.
+ /// Need a constructor to create a locations list, approved collation list, unapproved locations list.
 
 
 

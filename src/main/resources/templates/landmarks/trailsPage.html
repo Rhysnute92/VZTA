@@ -3,89 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Trails</title>
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
 </head>
 <body>
+<header th:insert="~{/fragments/Templating.html::header}"></header>
 <main>
-    <div th:each="trail, indexValue:${trails}">
-        <H1 th:text="*{trail.getTrailName()}"></H1>
+        <div th:each="trail, indexValue:${trails}">
+            <H1 th:text="*{trail.getTrailName()}"></H1>
 
-        <div th:if="*{trail.getTrailName()=='Caerphilly Castle Trail'}">
-            <iframe
-                                        width="600"
-                                        height="400"
-                                        frameborder="0"
-                                        scrolling="yes"
-                                        marginheight="0"
-                                        marginwidth="0"
-                                        src="https://www.google.com/maps/dir/51.57623,-3.21910/51.575372,-3.219186/51.576363,-3.220712//@11z">
-                                </iframe>
+            <div th:if="*{trail.getTrailName()=='Caerphilly Castle Trail'}">
+                <iframe
+                                            width="600"
+                                            height="400"
+                                            frameborder="0"
+                                            scrolling="yes"
+                                            marginheight="0"
+                                            marginwidth="0"
+                                            src="https://www.google.com/maps/dir/51.57623,-3.21910/51.575372,-3.219186/51.576363,-3.220712//@11z">
+                                    </iframe>
 
-        </div>
+            </div>
 
-        <div th:if="*{trail.getTrailName()=='Caerphilly Pub Trail'}">
-            <iframe
-                    width="600"
-                    height="400"
-                    frameborder="0"
-                    scrolling="yes"
-                    marginheight="0"
-                    marginwidth="0"
-                    th:src="'https://www.google.com/maps/dir/51.57239,-3.21992/51.57230,-3.21938//@11z'">
-            </iframe>
+            <div th:if="*{trail.getTrailName()=='Caerphilly Pub Trail'}">
+                <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0"
+                        scrolling="yes"
+                        marginheight="0"
+                        marginwidth="0"
+                        th:src="'https://www.google.com/maps/dir/51.57239,-3.21992/51.57230,-3.21938//@11z'">
+                </iframe>
 
-        </div>
+            </div>
+            <div th:if="*{trail.getTrailName()=='Caerphilly Heritage Trail'}">
+                <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0"
+                        scrolling="yes"
+                        marginheight="0"
+                        marginwidth="0"
+                        th:src="'https://www.google.com/maps/dir/51.57168,-3.21861/51.57465,-3.22022//@11z'">
+                </iframe>
 
-        <div th:each="locationCoord, indexValue2:${locationCoords}"  >
-            <div th:if="${locations[indexValue2.index].getLocationTrailID()==trail.getTrailsId()}">
-                <li>
+            </div>
+            <div th:if="*{trail.getTrailName()=='Risca Heritage Trail'}">
+                <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0"
+                        scrolling="yes"
+                        marginheight="0"
+                        marginwidth="0"
+                        th:src="'https://www.google.com/maps/dir/51.61117,-3.10198/51.61655,-3.12371 //@11z'">
+                </iframe>
 
-                <a th:href="'/checkpoints/'+${locations[indexValue2.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue2.index].getLocationName()}"></a>
+            </div>
+            <div th:if="*{trail.getTrailName()=='Penarth Esplanade Trail'}">
+                <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0"
+                        scrolling="yes"
+                        marginheight="0"
+                        marginwidth="0"
+                        th:src="'https://www.google.com/maps/dir/51.43484,-3.16492/51.43547,-3.16789//@11z'">
+                </iframe>
+
+            </div>
+            <H3>Checkpoints:</H3>
+
+            <div th:each="locationCoord, indexValue2:${locationCoords}"  >
+                <div th:if="${locations[indexValue2.index].getLocationTrailID()==trail.getTrailsId()}">
+                    <li style="list-style: none">
+                    <a th:href="'/checkpoints/'+${locations[indexValue2.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue2.index].getLocationName()}"></a>
+                        <ul></ul>
                     </li>
 
 
-<!--                <iframe-->
-<!--                        width="600"-->
-<!--                        height="400"-->
-<!--                        frameborder="0"-->
-<!--                        scrolling="yes"-->
-<!--                        marginheight="0"-->
-<!--                        marginwidth="0"-->
-<!--                        th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">-->
-<!--                </iframe>-->
+
+
+            </div>
 
 
 
-<!--                <p th:text="${locationCoord.getLocationCoordsLong()}"></p></div>-->
 
-
-<!--            <div th:each="coord, indexValue:${locationCoords}">-->
-<!--                <p th:text="*{coord.getLocationID()}"></p>-->
-<!--                &lt;!&ndash;        <p th:text="${locations[indexValue.index]}"></p>&ndash;&gt;-->
-<!--                <H1 th:text="${location[indexValue.index].getLocationName()}"> </H1>-->
-<!--                <H4 th:text="${location[indexValue.index].getLocationPlace()}"> </H4>-->
-<!--                <p th:text="${location[indexValue.index].getLocationDescription()}"></p>-->
-
-
-<!--            <div th:each="trail, indexValue:${trails}">-->
-<!--                <H1 th:text="*{trail.getTrailName()}"></H1>-->
-<!--                <div th:each="location, indexValue2:${locations}" th:each="locationCoord, indexValue3:${locationCoords}" th:if="!${location.getLocationTrailID()==trail.getTrailsId()}" >-->
-<!--                    <p th:text="${location.getLocationPlace()}">A</p>-->
-<!--                    <p th:text="${location[indexValue3.index].getLocationPlace()}">A</p>-->
-
-<!--                    <p th:text="${locationCoord.getLocationCoordsLong()}"></p>-->
 
 
         </div>
-
-
-
-
-
-
-    </div>
-
-
 </main>
-
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
 </body>
 </html>
