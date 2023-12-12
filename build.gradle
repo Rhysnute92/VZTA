@@ -38,7 +38,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.webjars/openlayers
 	implementation group: 'org.webjars', name: 'openlayers', version: '5.2.0'
 //	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
-//	testImplementation 'org.junit.vintage.engine-API:5.01'
+// https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+	testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.7.0'
+
 	// https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
 //	testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.0.1'
 
