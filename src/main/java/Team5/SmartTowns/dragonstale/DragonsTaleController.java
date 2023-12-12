@@ -1,6 +1,7 @@
 package Team5.SmartTowns.dragonstale;
 
 import Team5.SmartTowns.landmarks.Landmarks;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -8,6 +9,9 @@ import java.util.List;
 
 import static Team5.SmartTowns.dragonstale.DragonsTale.landmarksDragonstrail;
 
+
+
+@Controller
 public class DragonsTaleController {
 
     @GetMapping("/dragonstale")
@@ -18,7 +22,6 @@ public class DragonsTaleController {
         return modelAndView;
     }
 
-    //
 //    @GetMapping("dragonstale/{qrCode}/{id}")
 //    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
 //        if (qrCode.isPresent()){
@@ -27,5 +30,7 @@ public class DragonsTaleController {
 //
 //        }
 //    }
+
+
 
 }
