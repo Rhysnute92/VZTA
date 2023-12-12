@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Local Authority</title>
 
-    <link rel="stylesheet" th:href="@{css/localAuthortyPageStyle.css}">
-    <link rel="stylesheet" th:href="@{../static/css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <div id="container1">
     <h2>Enter your Local authority</h2>
-        <form action="/local-auth-data1" method="post" id="data">
-            <p>
-                <label for="localAuthorityName">Enter your local authority</label>
-                <input type="text" name="authority_name" id="localAuthorityName">
-            </p>
-            <p>
-                <label for="address1">Please enter first line of your address</label>
-                <input type="text" name="address_1" id="address1">
-            </p>
-            <p>
-                <label for="address2">Please enter second line of your address (optional)</label>
-                <input type="text" name="address_2" id="address2">
-            </p>
-            <p>
-                <label for="city">Please enter the City/Town</label>
-                <input type="text" name="city" id="city">
-            </p>
-            <p>
-                <label for="county">Please enter you county (optional)</label>
-                <input type="text" name="county" id="county">
-            </p>
-            <p>
-                <label for="postcode">Please enter your postcode</label>
-                <input type="text" name="post_code" id="postcode">
-            </p>
-            <p>
-                <label for="website">Please enter your website address</label>
-                <input type="url" name="web_site" id="website">
-            </p>
+        <form action="/local-auth-data1" id="data" name="data" method="post">
+                <br>
+                <label for="localAuthorityName">Enter your local authority
+                    <input type="text" field="localAuthorityName" name="authority_name" id="localAuthorityName">
+                </label><br><br>
+                <label for="address1">Please enter first line of your address
+                    <input type="text" name="address_1" id="address1">
+                </label><br><br>
+                <label for="address2">Please enter second line of your address (optional)
+                    <input type="text" name="address_2" id="address2">
+                </label><br><br>
+                <label for="city">Please enter the City/Town
+                    <input type="text" name="city" id="city">
+                </label><br><br>
+                <label for="county">Please enter you county (optional)
+                    <input type="text" name="county" id="county">
+                </label><br><br>
+                <label for="postcode">Please enter your postcode
+                    <input type="text" name="post_code" id="postcode">
+                </label><br><br>
+                <label for="website">Please enter your website address
+                    <input type="url" name="web_site" id="website">
+                </label><br><br>
             <input type="submit" value="Submit">
         </form>
 </div>
