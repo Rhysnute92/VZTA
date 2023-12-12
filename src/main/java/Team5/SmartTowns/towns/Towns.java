@@ -59,4 +59,23 @@ public class Towns {
         this.trailProgress = trailProgress;
         this.imageTown = imageTown;
     }
+
+    public String setTrailProgressClass() {
+        /*SUGGESTION INSTEAD OF DOING THIS IS THE HTML*/
+        String progress;
+        if (trailProgress < 50) {
+            progress = "notComplete";
+        } else if (trailProgress < 70) {
+            progress = "farComplete";
+        } else if (trailProgress < 90) {
+            progress = "nearComplete";
+        } else if (trailProgress < 100) {
+            progress = "closeComplete";
+        } else {
+            progress = "Complete";
+        }
+        return progress;
+    }
+
+
 }

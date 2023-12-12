@@ -1,0 +1,43 @@
+<header th:fragment="header">
+  <a class="nav-logo-container"><img th:src="@{/images/icons/VZTA.png}" alt="Logo" class="nav-logo"></a>
+  <nav class="head-navbar">
+    <ul class="nav-ul">
+      <li class="nav-li li-first"><a href="/mobile-home" class="nav-links">Home</a></li>
+      <li class="nav-li li-middle"><a class="nav-links">Profile</a></li>
+      <li class="nav-li li-middle"><a class="nav-links">FAQ</a></li>
+      <li class="nav-li li-last" th:if="${#authentication.principal}==anonymousUser">
+        <a href="/login" class="nav-links">Log In</a>
+      </li>
+      <li class="nav-li li-last" th:if="${#authentication.principal}!=anonymousUser">
+        <a href="/logout" class="nav-links">Log Out</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<footer th:fragment="footer">
+  <!-- By Rhys Nute -->
+  <div class="footer-div leftFooter">
+    <h3>VZTA</h3>
+    Near Me Now LTD
+    <br>Britania House
+    <br>Caerphilly Business Park
+    <br>Caerphilly
+    <br>CF83 3GG
+  </div>
+  <div class="footer-div centerFooter">
+    <div class="footerText">
+      <h3>Follow Us</h3>
+      <a href="https://www.facebook.com/VZTAsmarttowns/" class="icon"><img src="/images/icons/Facebook.png" height="25" width="25" alt="Facebook Logo" class="icon"/></a>
+      <a href="https://www.twitter.com/VZTAsmarttowns/" class="icon"><img src="/images/icons/Twitter.jpg" height="25" width="25" alt="X (formally Twitter) Logo" class="icon"/></a>
+      <a href="https://www.instagram.com/vztasmarttowns/" class="icon"><img src="/images/icons/Instagram.jpg" height="25" width="25" alt="Instagram Logo" class="icon"/></a>
+      <a href="https://www.linkin.com/company/vztasmarttowns/" class="icon"><img src="/images/icons/Linkedin.png" height="25" width="25" alt="Linkedin Logo" class="icon"/></a><br>
+    </div>
+  </div>
+  <div class="footer-div rightFooter">
+    <h3>Connect with us</h3>
+    <p>Be the first to know about updates by joining out Community page</p>
+    (C) VZTA 2022<br>
+    Policy Terms and Conditions
+  </div>
+</footer>
