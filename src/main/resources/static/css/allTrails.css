@@ -1,134 +1,134 @@
-* {
-    box-sizing: border-box;
-}
-body {
-    background-color: rgb(41, 41, 41);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100svh;
-}
-main {
-}
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*body {*/
+/*    background-color: rgb(41, 41, 41);*/
+/*    margin: 0;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    min-height: 100svh;*/
+/*}*/
+/*main {*/
+/*}*/
 
-.centerFlex {
-    display: flex;
-    justify-content: center;
-}
-#allTrailsBar {
-    width: 100%;
-    height: auto;
-    /*margin: 1svh auto;*/
-    padding: 0 5svh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+/*.centerFlex {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+/*#allTrailsBar {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    !*margin: 1svh auto;*!*/
+/*    padding: 0 5svh;*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-evenly;*/
 
-}
-.trailsImages {
-    margin: 1svh auto;
-    height: 12svh;
-    width: auto;
-    border-radius: 20px;
-    border: solid grey 2px;
-    transition: 0.5s ease-out 100ms;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);
-}
+/*}*/
+/*.trailsImages {*/
+/*    margin: 1svh auto;*/
+/*    height: 12svh;*/
+/*    width: auto;*/
+/*    border-radius: 20px;*/
+/*    border: solid grey 2px;*/
+/*    transition: 0.5s ease-out 100ms;*/
+/*    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.85);*/
+/*}*/
 
-.trailsImages:hover {
-    box-shadow: 0 0 20px 10px #bbbb00;
-    transform: scale(1.2,1.2);
-}
+/*.trailsImages:hover {*/
+/*    box-shadow: 0 0 20px 10px #bbbb00;*/
+/*    transform: scale(1.2,1.2);*/
+/*}*/
 
-.selected {
-    box-shadow: 0 0 20px 10px #bbbb00;
-}
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-main {
-    margin: 0;
-}
+/*.selected {*/
+/*    box-shadow: 0 0 20px 10px #bbbb00;*/
+/*}*/
+/*@keyframes fadeIn {*/
+/*    0% { opacity: 0; }*/
+/*    100% { opacity: 1; }*/
+/*}*/
+/*main {*/
+/*    margin: 0;*/
+/*}*/
 
-#trailInfoContainer {
+/*#trailInfoContainer {*/
 
-    overflow: scroll;
-}
+/*    overflow: scroll;*/
+/*}*/
 
-.trailInfoFrag {
-    background-color: rgb(84, 33, 128);
-    border: #000000 solid 2px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px 0 #000000;
-    margin: 2svh auto;
-    padding-bottom: 2svw;
-    width: 70vw;
-    height: auto;
-    min-height: 30svh;
-    animation: fadeIn 3s;
+/*.trailInfoFrag {*/
+/*    background-color: rgb(84, 33, 128);*/
+/*    border: #000000 solid 2px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 5px 20px 0 #000000;*/
+/*    margin: 2svh auto;*/
+/*    padding-bottom: 2svw;*/
+/*    width: 70vw;*/
+/*    height: auto;*/
+/*    min-height: 30svh;*/
+/*    animation: fadeIn 3s;*/
 
-    display: grid;
-    grid-template-areas:
-            "header header header"
-            "image text text";
-    grid-template-columns: 30% 30% auto;
-    grid-template-rows: 10% auto;
-    grid-column-gap: 2vw;
-    grid-row-gap: 2svh;
-    & .trailInfoHeader {
-        grid-area: header;
-        width: 100%;
-        height: 100%;
-        margin-top: 1svh;
-        padding: 0;
-        & h1 {
-            color: white;
-            padding:0;
-            margin:0 25%;
-            font-size: 2vw;
-            text-align: center;
-            box-shadow: 0 10px 10px -10px black;
-        }
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*            "header header header"*/
+/*            "image text text";*/
+/*    grid-template-columns: 30% 30% auto;*/
+/*    grid-template-rows: 10% auto;*/
+/*    grid-column-gap: 2vw;*/
+/*    grid-row-gap: 2svh;*/
+/*    & .trailInfoHeader {*/
+/*        grid-area: header;*/
+/*        width: 100%;*/
+/*        height: 100%;*/
+/*        margin-top: 1svh;*/
+/*        padding: 0;*/
+/*        & h1 {*/
+/*            color: white;*/
+/*            padding:0;*/
+/*            margin:0 25%;*/
+/*            font-size: 2vw;*/
+/*            text-align: center;*/
+/*            box-shadow: 0 10px 10px -10px black;*/
+/*        }*/
 
-    }
+/*    }*/
 
-    & img {
-        grid-area: image;
-        border-radius: 10px;
-        border: black solid 1px;
-        margin-left: 2vw;
-        margin-right: 2vw;
-        width: 100%;
-        height: auto;
-        box-shadow: 0 10px 20px -10px black;
-    }
-    & p {
-        grid-area: text;
-        color: white;
-        margin: 0;
-        padding: 0 2vw;
-        font-size: 1.3vw;
-        text-align: justify;
-        text-justify: inter-character;
-        line-height: 1.5;
-        width: fit-content;
-        height: fit-content;
-        overflow: scroll;
+/*    & img {*/
+/*        grid-area: image;*/
+/*        border-radius: 10px;*/
+/*        border: black solid 1px;*/
+/*        margin-left: 2vw;*/
+/*        margin-right: 2vw;*/
+/*        width: 100%;*/
+/*        height: auto;*/
+/*        box-shadow: 0 10px 20px -10px black;*/
+/*    }*/
+/*    & p {*/
+/*        grid-area: text;*/
+/*        color: white;*/
+/*        margin: 0;*/
+/*        padding: 0 2vw;*/
+/*        font-size: 1.3vw;*/
+/*        text-align: justify;*/
+/*        text-justify: inter-character;*/
+/*        line-height: 1.5;*/
+/*        width: fit-content;*/
+/*        height: fit-content;*/
+/*        overflow: scroll;*/
 
-    }
-}
+/*    }*/
+/*}*/
 
-#trailFragContent {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    min-height: 40svh;
-    flex-wrap: wrap;
+/*#trailFragContent {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    display: flex;*/
+/*    min-height: 40svh;*/
+/*    flex-wrap: wrap;*/
 
-}
+/*}*/
 
-header {
-    box-shadow: #1e1e1e 0 0 10px 10px;
-    font-size: 1vw;
-}
+/*header {*/
+/*    box-shadow: #1e1e1e 0 0 10px 10px;*/
+/*    font-size: 1vw;*/
+/*}*/
