@@ -6,6 +6,7 @@ import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.rewards.Sticker;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,12 @@ public class UserController {
         ModelAndView mav = new ModelAndView("users/login");
         mav.addObject("user", new NewUser( "", "", ""));
         System.out.println(userRepository.findUserByName("Admin").getName());
+        return mav;
+    }
+
+    @GetMapping("/logout")
+    public ModelAndView getLogOutPage(){
+        ModelAndView mav = new ModelAndView("users/logout");
         return mav;
     }
 

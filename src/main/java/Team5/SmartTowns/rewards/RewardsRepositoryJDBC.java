@@ -59,7 +59,7 @@ public class RewardsRepositoryJDBC implements RewardsRepository {
         /* FINDS ALL STICKERS UNLOCKED BY THE GIVEN USER */
         String sql= "SELECT * FROM stickers LEFT JOIN stickerprogress " +
                 "ON (stickers.id, stickers.packID) = (stickerprogress.stickerID, stickerprogress.packID) " +
-                "WHERE stickerprogress.userID = ? ";
+                "WHERE stickerprogress.username = ? ";
         return jdbc.query(sql, stickerMapper, userID);
     }
 
