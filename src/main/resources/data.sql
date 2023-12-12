@@ -74,7 +74,7 @@ insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLon
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (3, 51.575372, -3.219186);
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (4, 51.576363, -3.220712 );
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (9, 51.57239, -3.21992);
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (10, 51.57229, -3.21937 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (10, 51.57230, -3.21938 );
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (13, 51.57168, -3.21861);
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (14, 51.57465, -3.22022 );
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (17, 51.61117, -3.10198 );

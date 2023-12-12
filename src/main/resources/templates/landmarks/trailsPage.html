@@ -8,6 +8,33 @@
 <main>
     <div th:each="trail, indexValue:${trails}">
         <H1 th:text="*{trail.getTrailName()}"></H1>
+
+        <div th:if="*{trail.getTrailName()=='Caerphilly Castle Trail'}">
+            <iframe
+                                        width="600"
+                                        height="400"
+                                        frameborder="0"
+                                        scrolling="yes"
+                                        marginheight="0"
+                                        marginwidth="0"
+                                        src="https://www.google.com/maps/dir/51.57623,-3.21910/51.575372,-3.219186/51.576363,-3.220712//@11z">
+                                </iframe>
+
+        </div>
+
+        <div th:if="*{trail.getTrailName()=='Caerphilly Pub Trail'}">
+            <iframe
+                    width="600"
+                    height="400"
+                    frameborder="0"
+                    scrolling="yes"
+                    marginheight="0"
+                    marginwidth="0"
+                    th:src="'https://www.google.com/maps/dir/51.57239,-3.21992/51.57230,-3.21938//@11z'">
+            </iframe>
+
+        </div>
+
         <div th:each="locationCoord, indexValue2:${locationCoords}"  >
             <div th:if="${locations[indexValue2.index].getLocationTrailID()==trail.getTrailsId()}">
                 <li>
@@ -16,16 +43,15 @@
                     </li>
 
 
-
-                <iframe
-                        width="600"
-                        height="400"
-                        frameborder="0"
-                        scrolling="yes"
-                        marginheight="0"
-                        marginwidth="0"
-                        th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
-                </iframe>
+<!--                <iframe-->
+<!--                        width="600"-->
+<!--                        height="400"-->
+<!--                        frameborder="0"-->
+<!--                        scrolling="yes"-->
+<!--                        marginheight="0"-->
+<!--                        marginwidth="0"-->
+<!--                        th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">-->
+<!--                </iframe>-->
 
 
 
