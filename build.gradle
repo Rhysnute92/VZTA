@@ -27,7 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
     compileOnly 'org.projectlombok:lombok'
     testImplementation 'org.projectlombok:lombok:1.18.28'
     compileOnly 'org.projectlombok:lombok'
@@ -37,7 +37,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// https://mvnrepository.com/artifact/org.webjars/openlayers
 	implementation group: 'org.webjars', name: 'openlayers', version: '5.2.0'
+//	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+//	testImplementation 'org.junit.vintage.engine-API:5.01'
+	// https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+//	testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.0.1'
+
+
 }
+
+
 
 tasks.named('bootBuildImage') {
 	builder = 'paketobuildpacks/builder-jammy-base:latest'
@@ -47,6 +55,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-task myScript(type: NodeTask) {
-	script = file('src/main/resources/static/scripts/mapAPI.js')
-}
+//task myScript(type: NodeTask) {
+//	script = file('src/main/resources/static/scripts/mapAPI.js')
+

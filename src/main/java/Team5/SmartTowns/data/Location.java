@@ -54,4 +54,29 @@ public class Location {
     public boolean isLocationApproved() {
         return locationApproved;
     }
+
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public void setLocationEmail(String locationEmail) {
+        this.locationEmail = locationEmail;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
+    }
+
+    public void setLocationPlace(String locationPlace) {
+        this.locationPlace = locationPlace;
+    }
+
+    public void setLocationTrailID(String locationTrailID) {
+        this.locationTrailID = locationTrailID;
+    }
+
+    public void setLocationApproved(boolean locationApproved) {
+        this.locationApproved = locationApproved;
+    }
 }

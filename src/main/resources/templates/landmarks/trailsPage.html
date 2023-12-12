@@ -10,10 +10,26 @@
         <H1 th:text="*{trail.getTrailName()}"></H1>
         <div th:each="locationCoord, indexValue2:${locationCoords}"  >
             <div th:if="${locations[indexValue2.index].getLocationTrailID()==trail.getTrailsId()}">
+                <li>
 
                 <a th:href="'/checkpoints/'+${locations[indexValue2.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue2.index].getLocationName()}"></a>
+                    </li>
 
-                <p th:text="${locationCoord.getLocationCoordsLong()}"></p></div>
+
+
+                <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0"
+                        scrolling="yes"
+                        marginheight="0"
+                        marginwidth="0"
+                        th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
+                </iframe>
+
+
+
+<!--                <p th:text="${locationCoord.getLocationCoordsLong()}"></p></div>-->
 
 
 <!--            <div th:each="coord, indexValue:${locationCoords}">-->
