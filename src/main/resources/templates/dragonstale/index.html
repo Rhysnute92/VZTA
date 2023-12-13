@@ -3,6 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Dragon's Tale</title>
     <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
@@ -14,7 +15,7 @@
         <!-- As this predefined trail will be accessible from multiple different towns, this thymeleaf element will display the town the user is currently trying to access and display it accordingly.   <span th:text="${townName}">  -->
         <div>
             <h1> Welcome, to a dragon's tale! </h1>
-            <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon" id="homeimg">
+            <img th:src="@{/images/trails/dragonstalehome.png}" alt="Image of a dragon" class="images">
             <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of to discover a prize! </h2>
         </div>
 

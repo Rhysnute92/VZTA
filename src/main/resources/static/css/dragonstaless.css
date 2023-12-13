@@ -16,6 +16,10 @@ body{
     border: none;
     cursor: pointer;
 }
+.images{
+    max-width:100%;
+    height:auto;
+}
 
 
 .landmarkName{
