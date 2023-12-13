@@ -2,6 +2,8 @@ package Team5.SmartTowns.landmarks;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
+import Team5.SmartTowns.placeswithcoordinates.LocationsCoordinates;
+import Team5.SmartTowns.placeswithcoordinates.PlacesCoordinatesRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,14 +46,23 @@ public class LandmarksController {
             return modelAndView;
 
         }
+        
+    }
 
+    @Autowired
+    private PlacesCoordinatesRepository placesCoordinatesRepo;
 
+    @Autowired
+    private LocationsCoordinates locationsCoordinates;
 
-
-
-
+    @GetMapping("/checkpointApproval")
+    public ModelAndView adminCheckpointApproval(){
+        ModelAndView modelAndView1 = new ModelAndView("Landmarks/locationApprovalFormTh.html");
+        modelAndView1.addObject("locationCoord", new LocationsCoordinates());
+        return modelAndView1;
 
     }
+
 
 
 }
