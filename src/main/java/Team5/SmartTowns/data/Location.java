@@ -16,15 +16,12 @@ public class Location {
     private String locationPlace;
     private int locationTrailID;
 
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/Location.java
 
-=======
     private boolean locationApproved;
 
     public Location() {
 
     }
->>>>>>> main:src/main/java/Team5/SmartTowns/data/Location.java
 
     @Override
     public String toString() {
@@ -58,15 +55,21 @@ public class Location {
         return locationTrailID;
     }
 
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/Location.java
 
 
-    public int testMe(){
-        int a=4;
-        return 4;
-=======
+
+
     public boolean isLocationApproved() {
         return locationApproved;
->>>>>>> main:src/main/java/Team5/SmartTowns/data/Location.java
+
+    }
+
+    public Location(String locationName, String locationEmail, String locationDescription, String locationPlace, int locationTrailID, boolean locationApproved) {
+        this.locationName = locationName;
+        this.locationEmail = locationEmail;
+        this.locationDescription = locationDescription;
+        this.locationPlace = locationPlace;
+        this.locationTrailID = locationTrailID;
+        this.locationApproved = locationApproved;
     }
 }

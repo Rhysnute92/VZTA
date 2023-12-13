@@ -1,36 +1,33 @@
 //Implements the locations repository using JDBC
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
-package Team5.SmartTowns.Data;
-=======
-package Team5.SmartTowns.data;
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
 
+package Team5.SmartTowns.data;
+
+
+import Team5.SmartTowns.data.LocationRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
+
 import javax.sql.DataSource;
-=======
+
 import java.util.ArrayList;
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
+
 import java.util.List;
 
 @Repository
 public class LocationRepositoryJDBC implements LocationRepository {
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
-    private JdbcTemplate jdbc;
-=======
+
+
    private JdbcTemplate jdbc;
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
+
     private RowMapper<Location> locationMapper;
 
     public LocationRepositoryJDBC(JdbcTemplate aJdbc) {
         this.jdbc = aJdbc;
         setlocationMapper();
     }
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
-=======
+
 
 //    public LocationRepositoryJDBC() {
 //        JdbcTemplate ajdbc = new JdbcTemplate();
@@ -40,7 +37,6 @@ public class LocationRepositoryJDBC implements LocationRepository {
 //    }
 
 
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
     private void setlocationMapper(){
         locationMapper = (rs, i) -> new Location(
 
@@ -48,8 +44,8 @@ public class LocationRepositoryJDBC implements LocationRepository {
                 rs.getString("locationEmail"),
                 rs.getString("locationDescription"),
                 rs.getString("locationPlace"),
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
-                rs.getInt("locationTrailID")
+                rs.getInt("locationTrailID"),
+                rs.getBoolean()
         );
     }
     public String getCountOfEmployees() {
@@ -60,22 +56,22 @@ public class LocationRepositoryJDBC implements LocationRepository {
         String sql= "SELECT * FROM locations";
         return aJdbc.query(sql, locationMapper);
     }
-=======
+
                 rs.getInt("locationTrailID"),
                 rs.getBoolean("locationApproved")
         );
     }
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
+
     public List<Location> getAllLocation(){
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
 
-    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
-    public void addLocation(Location loc) {
-        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?)";
-=======
+
+//    @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
+//    public void addLocation(Location loc) {
+//        String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) values (?,?,?,?,?)";}
+
 //    public LocationRepositoryJDBC() {
 //        JdbcTemplate ajdbc = new JdbcTemplate();
 //        this.jdbc =ajdbc;
@@ -90,12 +86,9 @@ public class LocationRepositoryJDBC implements LocationRepository {
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
     public void addLocation(Location loc) {
         String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) values (?,?,?,?,?,?)";
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
-
         jdbc.update(sql,loc.getLocationName(),loc.getLocationEmail(),loc.getLocationDescription(),loc.getLocationPlace(),loc.getLocationTrailID());
     }
 
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/LocationRepositoryJDBC.java
 
     public void setDataSource(DataSource dataSource) {
         jdbc = new JdbcTemplate(dataSource);
@@ -107,7 +100,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
     public void setJdbc(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
-=======
+
     @Override
     public List<Location> getApprovedLocations(){
         JdbcTemplate jdbc = new JdbcTemplate();
@@ -150,5 +143,5 @@ public class LocationRepositoryJDBC implements LocationRepository {
 //    }
 
 
->>>>>>> main:src/main/java/Team5/SmartTowns/data/LocationRepositoryJDBC.java
+
 }

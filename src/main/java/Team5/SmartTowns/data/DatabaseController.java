@@ -1,4 +1,4 @@
-<<<<<<< HEAD:src/main/java/Team5/SmartTowns/Data/DatabaseController.java
+
 //package Team5.SmartTowns.Data;
 //
 //import Team5.SmartTowns.users.User;
@@ -34,7 +34,7 @@
 //        return mav2;
 //    }
 //}
-=======
+
 package Team5.SmartTowns.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,4 +83,3 @@ public class DatabaseController {
 //        } return locationApprovalList;
 //    }
 }
->>>>>>> main:src/main/java/Team5/SmartTowns/data/DatabaseController.java

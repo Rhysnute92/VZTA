@@ -1,15 +1,13 @@
-import Team5.SmartTowns.Data.Calculator;
+import Team5.SmartTowns.data.Calculator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.NestedRuntimeException;
 //import org.springframework.dao.DataAccessException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 //import org.junit.platform.engine.TestDescriptor;
 //import org.junit.platform.commons.util.Preconditions;
-import org.apache.commons.logging.LogFactory;
+
 //@SpringBootTest
 public class CalculatorTest {
 //    String asd= getLegacyReportingName("das");

@@ -1,6 +1,6 @@
 package Team5.SmartTowns;
 
-import Team5.SmartTowns.Data.LocationRepository;
+import Team5.SmartTowns.data.LocationRepository;
 //import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

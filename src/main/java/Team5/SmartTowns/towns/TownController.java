@@ -1,8 +1,8 @@
 package Team5.SmartTowns.towns;
 
-import Team5.SmartTowns.Data.Location;
-import Team5.SmartTowns.Data.Town;
-import Team5.SmartTowns.Data.LocationRepository;
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.Town;
+import Team5.SmartTowns.data.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class TownController {
     @Autowired
     private LocationRepository locationRepository;
     @Autowired
-    private Team5.SmartTowns.Data.TownRepository townRepository;
+    private Team5.SmartTowns.data.TownRepository townRepository;
 
     @GetMapping("/home")
     public ModelAndView getTownList(){

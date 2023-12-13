@@ -1,4 +1,4 @@
-package Team5.SmartTowns.Data;
+package Team5.SmartTowns.data;
 
 import java.util.List;
 
