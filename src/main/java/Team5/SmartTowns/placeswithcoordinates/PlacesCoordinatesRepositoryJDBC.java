@@ -85,6 +85,11 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 //    }
 
 
+
+
+
+
+
     public boolean checkInputtedCoordsMatchTown(String inpLatCoords, String inpLongCoords, String townName){
      PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
      List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();

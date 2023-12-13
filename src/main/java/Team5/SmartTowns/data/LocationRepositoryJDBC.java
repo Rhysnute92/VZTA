@@ -96,6 +96,11 @@ public class LocationRepositoryJDBC implements LocationRepository {
     }
 
 
+    public int nametoLocationID(String name){
+
+
+    }
+
 //    public JdbcTemplate getJdbc() {
 //        return jdbc;
 //    }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 //import jakarta.validation.Valid;
 
 @Controller
@@ -40,7 +42,6 @@ public class LandmarksController {
         } else{
             // converts valid response using Location constructor into a submittable format to the sql table
             Location loc= new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID(), false);
-            System.out.println(loc);
             locationRepository.addLocation(loc); // adds valid landmark to locations table
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
@@ -52,17 +53,36 @@ public class LandmarksController {
     @Autowired
     private PlacesCoordinatesRepository placesCoordinatesRepo;
 
-    @Autowired
-    private LocationsCoordinates locationsCoordinates;
+
 
     @GetMapping("/checkpointApproval")
     public ModelAndView adminCheckpointApproval(){
-        ModelAndView modelAndView1 = new ModelAndView("Landmarks/locationApprovalFormTh.html");
-        modelAndView1.addObject("locationCoord", new LocationsCoordinates());
-        return modelAndView1;
+        List<Location> unapprovedLocations = locationRepository.getAllLocation(); //change to unauthorised once merger 68 accepted!! todo
+
+        ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html");
+        modelAndView.addObject("uLocs", unapprovedLocations);
+        modelAndView.addObject("locationCoord", new LocationsCoordinates());
+        return modelAndView;
 
     }
 
+    @PostMapping("/checkpointSubmitted")
+    public ModelAndView checkpointSent(@Valid @ModelAttribute("locationCoord") LocationsCoordinates locCoord, BindingResult bindingResult, Model model ) {
 
+
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html", model.asMap());
+            return modelAndView;
+
+        } else{
+            // converts valid response using Location constructor into a submittable format to the sql table
+            LocationsCoordinates ALocCoord = new LocationsCoordinates(locCoord.getLocationID(),locCoord.getLocationCoordsLat(),locCoord.getLocationCoordsLong());
+            placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
+            ModelAndView modelAndView = new ModelAndView("redirect:/home"); //todo redirect to trails?
+            return modelAndView;
+
+        }
+
+    }
 
 }
