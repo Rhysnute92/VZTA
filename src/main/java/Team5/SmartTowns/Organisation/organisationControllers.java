@@ -35,7 +35,7 @@ public class organisationControllers {
     @PostMapping("/localForm")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
-            ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
+            ModelAndView modelAndView = new ModelAndView("localForm", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
 
