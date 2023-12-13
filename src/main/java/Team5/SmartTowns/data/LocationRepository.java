@@ -8,6 +8,8 @@ public interface LocationRepository {
     List<Location> getAllLocation();
     void addLocation(Location loc);
 
+    void updateApprovalStatus(int locID);
+
 
     List<Location> getAllApprovedLocations();
    int nametoLocationID(String name);

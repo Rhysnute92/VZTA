@@ -57,7 +57,7 @@ public class LandmarksController {
 
     @GetMapping("/checkpointApproval")
     public ModelAndView adminCheckpointApproval(){
-        List<Location> unapprovedLocations = locationRepository.getAllLocation(); //change to unauthorised once merger 68 accepted!! todo
+        List<Location> unapprovedLocations = locationRepository.getAllUnapprovedLocations(); //change to unauthorised once merger 68 accepted!! todo
 
         ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html");
         modelAndView.addObject("uLocs", unapprovedLocations);
@@ -76,11 +76,13 @@ public class LandmarksController {
 //            return modelAndView;
 //
 //        } else{
+
             int locationID= locationRepository.nametoLocationID(location.getLocationName());
             System.out.println( locationID);
             // converts valid response using Location constructor into a submittable format to the sql table
             LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID,locCoord.getLocationCoordsLat(),locCoord.getLocationCoordsLong());
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
+            locationRepository.updateApprovalStatus(locationID); // updates approval status accordingly
             System.out.println(placesCoordinatesRepo.getAllLocationCoords());
             ModelAndView modelAndView = new ModelAndView("redirect:/home"); //todo redirect to trails?
             return modelAndView;

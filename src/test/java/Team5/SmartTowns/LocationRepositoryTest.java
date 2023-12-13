@@ -19,8 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @SpringBootTest
@@ -116,5 +115,17 @@ public class LocationRepositoryTest  {
 
 
         } assertTrue(doTheyMatch);
+    }
+
+
+    @Test
+    public void doesApporvalUpdateTest(){
+        int approvedLocationsTotal = locationRepository.getAllApprovedLocations().size();
+        Location unapprovedLocation = new Location("test","test@email","","Caerphilly","301",false);
+        locationRepository.addLocation(unapprovedLocation);
+        int newID=locationRepository.nametoLocationID( unapprovedLocation.getLocationName());
+        locationRepository.updateApprovalStatus(newID);
+        int newApprovedLocationsTotal = locationRepository.getAllApprovedLocations().size();
+        assertEquals(1,(newApprovedLocationsTotal-approvedLocationsTotal));
     }
 }

@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class PlacesController {
@@ -51,7 +50,7 @@ public class PlacesController {
 
         @GetMapping("/checkpoints/{location}")
     public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
-            List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+            List<LocationsCoordinates> locCoords = reorderCoordsWRTLocations(placeRepo.getAllLocationCoords());
             List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
 
             int locationID = 999;
@@ -84,7 +83,7 @@ public class PlacesController {
 
         modelAndView.addObject("trails", trailslocations);
         modelAndView.addObject("locations", approvedLocations);
-        modelAndView.addObject("locationCoords", locCoords);
+        modelAndView.addObject("locationCoords", reorderCoordsWRTLocations(locCoords));
         return  modelAndView;
     }
 
@@ -106,11 +105,53 @@ public class PlacesController {
                 trailID=i;
             break;}
         }
+        List<LocationsCoordinates> aa=reorderCoordsWRTLocations(locCoords);
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
         modelAndView.addObject("trail", trailslocations.get(trailID));
-        modelAndView.addObject("locCoords", locCoords);
+        modelAndView.addObject("locCoords", aa);
         modelAndView.addObject("locations", approvedLocations);
         return modelAndView;
     }
 
-}
+
+//    public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
+//        List<Location> approvedList = locationRepo.getAllLocation();
+////        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+//        List<Integer> locationID= new ArrayList<Integer>();
+//        System.out.println(locCoords);
+//        System.out.println("///////");
+//        Collections.swap(locCoords,0,10);
+//        for(int i=0;i<locCoords.size();i++){
+//            if (i==locCoords.size()-1){
+//                if (locCoords.get(i).getLocationID()<locCoords.get(i-1).getLocationID()){
+//                    Collections.swap(locCoords,i,i--);
+//                    i=0;
+//                }
+//
+//            }
+//            if (locCoords.get(i).getLocationID()>locCoords.get(i++).getLocationID()){
+//                System.out.println("ASDSADASD");
+//                Collections.swap(locCoords,i,i++);
+//                i=0;
+//            }
+//
+//        } System.out.println(locCoords);
+//        return locCoords;
+//
+//
+//
+//    }
+
+ // When adding to the locationsCoordinates table, the order is not based on LocationID order, therefore it is needed to rearrange this list to
+    // follow ascending locationID so that any new coordinates match up with their intended locations.
+    public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
+        Collections.sort(locCoords,
+                Comparator.comparingInt(LocationsCoordinates::getLocationID));
+        System.out.println(locCoords);
+        return locCoords;
+
+    }
+
+    }
+
+

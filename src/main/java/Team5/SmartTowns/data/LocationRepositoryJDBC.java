@@ -127,6 +127,12 @@ public class LocationRepositoryJDBC implements LocationRepository {
 
 
     }
+    @Override
+    public void updateApprovalStatus(int locID){
+        String updateSql = "update locations set locationApproved = true where locationID = ?";
+        jdbc.update(updateSql, locID);
+    }
+//    return jdbc.queryForObject("SELECT locationApproval FROM locations WHERE locationName=?", locationID);
 
 //    public JdbcTemplate getJdbc() {
 //        return jdbc;
