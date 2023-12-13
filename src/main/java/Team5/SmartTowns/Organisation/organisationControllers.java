@@ -32,7 +32,7 @@ public class organisationControllers {
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @PostMapping("/localSub")
+    @PostMapping("/localForm")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()){
             ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
