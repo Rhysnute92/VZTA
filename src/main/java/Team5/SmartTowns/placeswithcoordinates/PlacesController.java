@@ -59,14 +59,19 @@ public class PlacesController {
     public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
             List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
             List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+
             int locationID = 999;
             for (int i=0;i<approvedLocations.size();i++){
                 if ( (approvedLocations.get(i).getLocationName().replace(' ', '-').trim().equals(location)) ){
                     locationID= i;
                 }
             }
+
+            String trailName=trailsRepo.getTrailNameWithID(approvedLocations.get(locationID).getLocationTrailID()).replace(' ', '-').trim();
+            System.out.println(trailName);
         ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
         modelAndView.addObject("locCoord", locCoords.get(locationID));
+        modelAndView.addObject("trail", trailName);
         modelAndView.addObject("location", approvedLocations.get(locationID));
         return modelAndView;
     }

@@ -26,4 +26,14 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
         String sql= "SELECT * FROM trails";
         return jdbc.query(sql, trailMapper);
     }
+    @Override
+    public String getTrailNameWithID(String trailsID){
+        String resultName = jdbc.queryForObject(
+                "SELECT trailName FROM trails WHERE trailID=?", String.class, trailsID);
+        return resultName;
+
+
+    }
+
+
 }

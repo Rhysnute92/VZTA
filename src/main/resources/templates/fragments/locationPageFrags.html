@@ -28,6 +28,8 @@
                     marginwidth="0"
                     th:src="'https://maps.google.com/maps?q='+ ${locCoord.getLocationCoordsLat()} +','+ ${locCoord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
             </iframe>
+            <H2 id="return">
+            <a th:href="@{'/trails/'+${trail}}">Return</a></H2>
 
         </article>
         <hr style="height:40px; visibility:hidden;" />

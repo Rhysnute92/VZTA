@@ -3,6 +3,7 @@ package Team5.SmartTowns;
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
 
+import Team5.SmartTowns.data.TrailsRepository;
 import Team5.SmartTowns.placeswithcoordinates.LocationsCoordinates;
 import Team5.SmartTowns.placeswithcoordinates.PlacesCoordinatesRepository;
 import org.junit.jupiter.api.Assertions;
@@ -25,6 +26,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 @SpringBootTest
 public class LocationRepositoryTest  {
 
+    @Autowired
+    TrailsRepository trailsRepo;
     @Autowired
     LocationRepository locationRepository;
 
