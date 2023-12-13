@@ -1,8 +1,6 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
-import Team5.SmartTowns.data.LocationRepositoryJDBC;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -121,7 +119,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
          }
      }
     return true;}
-    int getLocationTableIDValue(List<Location> locations, String locationName){
+
+    @Override
+    public int getLocationTableIDValue(List<Location> locations, String locationName){
         int index;
         for(int i=0;i<locations.size();i++){
             if (Objects.equals(locations.get(i).getLocationName(), locationName)){
@@ -132,6 +132,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
         } return index= Integer.parseInt(null);
 
     }
+
 
 
 

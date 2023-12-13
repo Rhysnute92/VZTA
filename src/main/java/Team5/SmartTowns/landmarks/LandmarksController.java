@@ -20,9 +20,9 @@ import java.util.List;
 @Controller
 public class LandmarksController {
 
-// Controllers for LandmarkFormTh.html landmark submission form
+    // Controllers for LandmarkFormTh.html landmark submission form
     @GetMapping("/landmarkSubmission")
-    public ModelAndView landmarkSubmission(){
+    public ModelAndView landmarkSubmission() {
         ModelAndView modelAndView1 = new ModelAndView("Landmarks/LandmarkFormTh.html");
         modelAndView1.addObject("landmarkData", new Landmarks());
         return modelAndView1;
@@ -31,32 +31,33 @@ public class LandmarksController {
 
     @Autowired
     private LocationRepository locationRepository;
+
     @PostMapping("/landmarkSub")
-    public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model ) {
+    public ModelAndView landmarkSent(@Valid @ModelAttribute("landmarkData") Landmarks landmarks, BindingResult bindingResult, Model model) {
 
 
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("Landmarks/LandmarkFormTh.html", model.asMap());
             return modelAndView;
 
-        } else{
+        } else {
             // converts valid response using Location constructor into a submittable format to the sql table
-            Location loc= new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID(), false);
+            Location loc = new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID(), false);
             locationRepository.addLocation(loc); // adds valid landmark to locations table
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
 
         }
-        
+
     }
 
     @Autowired
     private PlacesCoordinatesRepository placesCoordinatesRepo;
 
 
-
+    // For form that allows an administrator to add an unapproved location to a trail
     @GetMapping("/checkpointApproval")
-    public ModelAndView adminCheckpointApproval(){
+    public ModelAndView adminCheckpointApproval() {
         List<Location> unapprovedLocations = locationRepository.getAllUnapprovedLocations(); //change to unauthorised once merger 68 accepted!! todo
 
         ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html");
@@ -66,21 +67,19 @@ public class LandmarksController {
         return modelAndView;
 
     }
-//    @ModelAttribute("locationCoord")
+
     @PostMapping("/checkpointSubmitted")
-    public ModelAndView checkpointSent(@Valid  LocationsCoordinates locCoord, Location location, BindingResult bindingResult, Model model ) {
-        System.out.println(111);
+    public ModelAndView checkpointSent(@Valid LocationsCoordinates locCoord, Location location, BindingResult bindingResult, Model model) {
 
-//        if (bindingResult.hasErrors()) {
-//            ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html", model.asMap());
-//            return modelAndView;
-//
-//        } else{
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html", model.asMap());
+            return modelAndView;
 
-            int locationID= locationRepository.nametoLocationID(location.getLocationName());
-            System.out.println( locationID);
+        } else {
+
+            int locationID = locationRepository.nametoLocationID(location.getLocationName());
             // converts valid response using Location constructor into a submittable format to the sql table
-            LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID,locCoord.getLocationCoordsLat(),locCoord.getLocationCoordsLong());
+            LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID, locCoord.getLocationCoordsLat(), locCoord.getLocationCoordsLong());
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
             locationRepository.updateApprovalStatus(locationID); // updates approval status accordingly
             System.out.println(placesCoordinatesRepo.getAllLocationCoords());
@@ -89,6 +88,7 @@ public class LandmarksController {
 
 //        }
 
+        }
     }
-
 }
+

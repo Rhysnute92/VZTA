@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+    <script src="/scripts/locationApprovalForm.js"></script>
 </head>
 <body>
+<header th:insert="~{/fragments/Templating.html :: header}"></header>
 <main>
 
-    <form  action="/checkpointSubmitted" method="post" th:object="${locationCoord}">
+    <form  action="/checkpointSubmitted" method="post" name="adminCheckpointApproval" th:object="${locationCoord}" onsubmit="return acceptanceValidation()">
             <label> Location To Be Approved:
                 <select th:object="${location}" th:field="*{locationName}"}>
     <!--                <select th:field="*{locationName}">-->
                     <option value="" hidden="true">Select Location</option>
                     <option value=""  selected disabled>Select Location</option>
-                    <option value="Caerphilly">Caerphilly</option>
-                    <option th:each="uloc:${uLocs}" th:value="${uloc.getLocationName()}" th:text="${uloc.getLocationName()}">
+                    <option th:each="uloc:${uLocs}" th:value="${uloc.getLocationName()}" th:text="${uloc.getLocationName()}+' ('+${uloc.getLocationTrailID()}+')'">
                     </option>
                 </select>
             </label>
-            <br><label> Location Latitude:
+            <br><br>
+        <label> Location Latitude:
             <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
-            <br><label> Location Longitude:
+        <div th:errors="*{locationCoordsLat}" th:if="${#fields.hasErrors('locationCoordsLat')}">ErrorlocationCoordsLat</div>
+            <br><br>
+            <label> Location Longitude:
                 <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
-        </label><br>
+        </label><br><br>
+        <div th:errors="*{locationCoordsLong}" th:if="${#fields.hasErrors('locationCoordsLong')}">ErrorlocationCoordsLat</div>
             <input type="submit">
 
     </form>
 
 
 </main>
-
+<footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
 </body>
 </html>
