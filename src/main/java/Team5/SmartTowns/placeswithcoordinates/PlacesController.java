@@ -32,16 +32,10 @@ public class PlacesController {
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
-        List<Location> locations =  locationRepo.getAllLocation();
-//        List<Location> approvedLocations =  locationRepo.getApprovedLocations2(locations);
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Integer> locationIDIndex = new ArrayList<Integer>();
-        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-        for (LocationsCoordinates coord: locCoords){
-            locationIDIndex.add(coord.getLocationID()-1);
-            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-        }
-        modelAndView.addObject("location", locationCoordsWorkaround);
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+
+        modelAndView.addObject("location", approvedLocations);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }
@@ -68,7 +62,6 @@ public class PlacesController {
             }
 
             String trailName=trailsRepo.getTrailNameWithID(approvedLocations.get(locationID).getLocationTrailID()).replace(' ', '-').trim();
-            System.out.println(trailName);
         ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
         modelAndView.addObject("locCoord", locCoords.get(locationID));
         modelAndView.addObject("trail", trailName);
