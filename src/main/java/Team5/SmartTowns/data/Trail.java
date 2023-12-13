@@ -1,8 +1,11 @@
 //Holds variable data for the trails table
 package Team5.SmartTowns.data;
 
+import Team5.SmartTowns.placeswithcoordinates.PlacesCoordinatesRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.File;
 import java.util.List;
@@ -14,6 +17,7 @@ public class Trail {
     private String trailName;
     private String trailNumber;
     private String imgPath;
+
 
     public Trail(Long trailsId, String trailName, String trailNumber) {
         this.trailsId = trailsId;

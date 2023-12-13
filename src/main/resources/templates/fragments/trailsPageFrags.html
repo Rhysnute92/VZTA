@@ -1,3 +1,4 @@
+<!-- @thymesVar id="location" type="Team5.SmartTowns.data.Location" -->
 <!DOCTYPE html>
 <html lang="en" th:fragment="trailsSection" class="trailsPageFrag">
 <head>
@@ -93,10 +94,10 @@
         </div>
         <H3>Checkpoints:</H3>
 <!-- With the trial name, we go through locations list to get -->
-        <div th:each="locationCoord, indexValue:${locCoords}"  >
-            <div th:if="${locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}">
+        <div th:each="location:${locations}" >
+            <div>
                 <li id="checkpointList">
-                    <div><a th:href="'/checkpoints/'+${locations[indexValue.index].getLocationName().replace(' ', '-')}" th:text="${locations[indexValue.index].getLocationName()}"></a></div>
+                    <div><a th:href="'/checkpoints/'+${location.getLocationName().replace(' ', '-')}" th:text="${location.getLocationName()}"></a></div>
                     <ul></ul>
                 </li>
             </div>

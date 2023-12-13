@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class PlacesController {
@@ -112,9 +113,20 @@ public class PlacesController {
             break;}
         }
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
+        System.out.println(locCoords.get(0).getLocationID());
+        System.out.println(approvedLocations.get(0).getLocationID());
+//        locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}
+
+
+        final int trailIDFINAL = trailID;
+        List<Location> finalLocations = approvedLocations.stream()
+                .filter(loc -> Long.parseLong(loc.getLocationTrailID()) == trailslocations.get(trailIDFINAL).getTrailsId())
+                        .toList();
+        System.out.println(finalLocations);
+
         modelAndView.addObject("trail", trailslocations.get(trailID));
         modelAndView.addObject("locCoords", locCoords);
-        modelAndView.addObject("locations", approvedLocations);
+        modelAndView.addObject("locations", finalLocations);
 
         modelAndView.addObject("stickers", rewardsRepository.getAllStickersFromPack(1));
         return modelAndView;
