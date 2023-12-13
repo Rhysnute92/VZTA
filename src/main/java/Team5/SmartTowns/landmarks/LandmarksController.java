@@ -61,27 +61,31 @@ public class LandmarksController {
 
         ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html");
         modelAndView.addObject("uLocs", unapprovedLocations);
+        modelAndView.addObject("location", new Location());
         modelAndView.addObject("locationCoord", new LocationsCoordinates());
         return modelAndView;
 
     }
-
+//    @ModelAttribute("locationCoord")
     @PostMapping("/checkpointSubmitted")
-    public ModelAndView checkpointSent(@Valid @ModelAttribute("locationCoord") LocationsCoordinates locCoord, BindingResult bindingResult, Model model ) {
+    public ModelAndView checkpointSent(@Valid  LocationsCoordinates locCoord, Location location, BindingResult bindingResult, Model model ) {
+        System.out.println(111);
 
-
-        if (bindingResult.hasErrors()) {
-            ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html", model.asMap());
-            return modelAndView;
-
-        } else{
+//        if (bindingResult.hasErrors()) {
+//            ModelAndView modelAndView = new ModelAndView("Landmarks/locationApprovalFormTh.html", model.asMap());
+//            return modelAndView;
+//
+//        } else{
+            int locationID= locationRepository.nametoLocationID(location.getLocationName());
+            System.out.println( locationID);
             // converts valid response using Location constructor into a submittable format to the sql table
-            LocationsCoordinates ALocCoord = new LocationsCoordinates(locCoord.getLocationID(),locCoord.getLocationCoordsLat(),locCoord.getLocationCoordsLong());
+            LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID,locCoord.getLocationCoordsLat(),locCoord.getLocationCoordsLong());
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
+            System.out.println(placesCoordinatesRepo.getAllLocationCoords());
             ModelAndView modelAndView = new ModelAndView("redirect:/home"); //todo redirect to trails?
             return modelAndView;
 
-        }
+//        }
 
     }
 

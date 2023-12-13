@@ -10,6 +10,7 @@ public interface LocationRepository {
 
 
     List<Location> getAllApprovedLocations();
+   int nametoLocationID(String name);
 
 //    List<Location> getApprovedLocations2(List<Location> list);
 

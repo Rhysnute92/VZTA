@@ -8,21 +8,22 @@
 <main>
 
     <form  action="/checkpointSubmitted" method="post" th:object="${locationCoord}">
-        <label> Location To Be Approved:
-            <select >
-<!--                <select th:field="*{locationName}">-->
-                <option value="" hidden="true">Select Location</option>
-                <option value=""  selected disabled>Select Location</option>
-                <option th:each="uloc:${uLocs}" th:value="${uloc.getLocationName()}" th:text="${uloc.getLocationName()}">
-                </option>
-            </select>
-        </label>
-        <br><label> Location Latitude:
-        <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
-        <br><label> Location Longitude:
-            <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
-    </label><br>
-        <input type="submit">
+            <label> Location To Be Approved:
+                <select th:object="${location}" th:field="*{locationName}"}>
+    <!--                <select th:field="*{locationName}">-->
+                    <option value="" hidden="true">Select Location</option>
+                    <option value=""  selected disabled>Select Location</option>
+                    <option value="Caerphilly">Caerphilly</option>
+                    <option th:each="uloc:${uLocs}" th:value="${uloc.getLocationName()}" th:text="${uloc.getLocationName()}">
+                    </option>
+                </select>
+            </label>
+            <br><label> Location Latitude:
+            <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
+            <br><label> Location Longitude:
+                <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
+        </label><br>
+            <input type="submit">
 
     </form>
 

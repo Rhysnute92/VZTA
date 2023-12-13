@@ -121,9 +121,9 @@ public class LocationRepositoryJDBC implements LocationRepository {
 //        } return locationUnapprovedList;
 //    }
 
-
+    @Override
     public int nametoLocationID(String name){
-        int locationID = jdbc.queryForObject("SELECT locationID FROM locations WHERE locationName=?", Integer.class, name);
+        return jdbc.queryForObject("SELECT locationID FROM locations WHERE locationName=?", Integer.class, name);
 
 
     }

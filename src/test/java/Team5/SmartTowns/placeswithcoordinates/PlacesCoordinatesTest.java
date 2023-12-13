@@ -1,5 +1,7 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +17,9 @@ class PlacesCoordinatesTest {
 
     @Autowired
     PlacesCoordinatesRepository placesCoordinatesRepository;
+
+    @Autowired
+    LocationRepository locationRepository;
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -79,4 +84,22 @@ class PlacesCoordinatesTest {
     @Test
     void getLocationTableIDValue() {
     }
+
+
+    @Test
+    public void nameToLocationIDTest(){
+        List<Location> locationList = locationRepository.getAllLocation();
+        String firstLocationName=locationList.get(0).getLocationName();
+        String lastLocationName=locationList.get(locationList.size()-1).getLocationName();
+        int firstLocationID= locationRepository.nametoLocationID(firstLocationName);
+        int lastLocationID= locationRepository.nametoLocationID(lastLocationName);
+        // if first and last location are chosen and if SQL ID starts at 1 , while an array index starts at 0, then the following should be equal;
+        String firstLocationTest=locationList.get(firstLocationID-1).getLocationName();
+        String lastLocationTest=locationList.get(lastLocationID-1).getLocationName();
+        assertEquals(firstLocationName,firstLocationTest);
+        assertEquals(lastLocationName,lastLocationTest);
+
+
+    }
+
 }

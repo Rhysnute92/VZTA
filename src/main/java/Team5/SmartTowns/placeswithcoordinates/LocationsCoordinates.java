@@ -104,8 +104,13 @@ public class LocationsCoordinates {
  /// Need a constructor to create a locations list, approved collation list, unapproved locations list.
 
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "LocationsCoordinates{" +
+                "locationID=" + locationID +
+                ", locationCoordsLat=" + locationCoordsLat +
+                ", locationCoordsLong=" + locationCoordsLong +
+                ", jdbc=" + jdbc +
+                '}';
+    }
 }
