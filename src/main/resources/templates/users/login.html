@@ -16,10 +16,12 @@
 <main>
     <!--CODE MODIFIED FROM: https://github.com/AsmrProg-YT/Modern-Login -->
 
-        <div class="container" id="container">
+        <div class="container" th:classappend="${status}" id="container">
             <div class="form-container sign-up">
                 <h1 class="form-title">Create Account</h1>
                 <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return registerFormValidation()">
+                    <h1>Create Account</h1>
+                    <div th:if="${error.equals('User exists')}" class="alert alert-error">User already exist</div>
                     <label>
                         <input class="input" th:field="*{name}" id="register-username" type="text" placeholder="Name">
                     </label>

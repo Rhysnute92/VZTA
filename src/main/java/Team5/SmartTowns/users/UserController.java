@@ -6,7 +6,7 @@ import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.rewards.Sticker;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
+import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -31,40 +31,57 @@ public class UserController {
     public ModelAndView getLoginPage() {
         ModelAndView mav = new ModelAndView("users/login");
         mav.addObject("user", new NewUser( "", "", ""));
+        mav.addObject("error", "");
+        mav.addObject("status", "");
         System.out.println(userRepository.findUserByName("Admin").getName());
         return mav;
     }
 
-    @GetMapping("/logout")
-    public ModelAndView getLogOutPage(){
-        ModelAndView mav = new ModelAndView("users/logout");
-        return mav;
-    }
+//    @GetMapping("/logout")
+//    public ModelAndView getLogOutPage(){
+//        ModelAndView mav = new ModelAndView("users/logout");
+//        return mav;
+//    }
 
     @PostMapping("/login/register")
     public ModelAndView registerUser(@Valid @ModelAttribute("user") NewUser user, BindingResult bindingResult, Model model) {
         ModelAndView mav = new ModelAndView("users/login", model.asMap());
         // TODO VALIDATE EMAIL INPUT
-
+        mav.addObject("status", "active");
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("users/login");
             modelAndView.addObject("errors", bindingResult);
             return modelAndView;
         }
-        System.out.println(user.getName());
-        System.out.println(user.getPassword());
-
 
         if ( userRepository.doesUserExist(user.getEmail()) ) {
-            //TODO return modelandview for user already exists
-            System.out.println(user.getEmail() + " already exists");
-            return mav;
-        } else {
-            userRepository.addUser(user.name, user.email, user.password);
-            System.out.println(user.getEmail() + " created");
+            mav.addObject("errors", "Email already in use");
             return mav;
         }
+
+        try {
+            userRepository.addUser(user.name, user.email, user.password);
+            mav.addObject("error", "");
+            //TODO return user creation success
+            return mav;
+        } catch (DataAccessException e) {
+            mav.addObject("error", "User exists");
+        }
+        return mav;
     }
+
+    @GetMapping("/userProfile")
+    public ModelAndView userProfile(){
+        ModelAndView mav = new ModelAndView("users/userProfile");
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
+        mav.addObject("packs", allPacks);
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        mav.addObject("user", userRepository.findUserByName("Admin"));
+        mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
+        return mav;
+    }
+
 
     /* USER MAPPING & FUNCTIONS */
     @GetMapping("/profile/{username}")
