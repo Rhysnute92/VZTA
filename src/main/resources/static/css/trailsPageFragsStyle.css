@@ -1,4 +1,4 @@
-.locationFragment{
+.trailsFragment{
     background-color: rgb(206, 153, 253);
     color: black;
     border-color: white;
@@ -9,26 +9,28 @@
     margin: 0 auto;
 
 }
-.locationPageFrag{
+.trailsPageFrag{
     background:  rgb(41, 41, 41);
     color: wheat;
 }
 
-#return{
-    padding-bottom: 10px;
-}
 iframe{
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     border: white 2px solid;
 }
 H1{
-    padding-top: 5px;
+    padding-top: 15px;
     padding-bottom:3px ;
     margin-bottom: 0;
 }
-#townHeader{
+#trailHeader{
     margin: 0;
     padding: 0;
 
+}
+
+#checkpointList{
+    list-style: none;
+    padding-bottom: 10px;
 }
