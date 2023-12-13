@@ -10,8 +10,8 @@
 <body>
 <h1>Local Authorities</h1>
 <div id="councils">
-    <ul th:each="localauthorities:${localAuthority}">
-        <li th:text="${localauthorities}"></li>
+    <ul th:each="localAuthority:${localAuthority}">
+        <li th:text="${localAuthority}"></li>
     </ul>
 </div>
 <a href="/localForm" id="authority"><button>Local Authorities please enter here</a></button>

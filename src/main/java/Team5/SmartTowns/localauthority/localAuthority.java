@@ -19,7 +19,7 @@ public class localAuthority {
     private URL website;
     @Override
     public String toString() {
-        return "localAuthority{" +
+        return "localAuthority" +
                 localAuthorityName + '\'' +
                 address1 + '\'' +
                 address2 + '\'' +
@@ -27,16 +27,14 @@ public class localAuthority {
                 county + '\'' +
                 postcode + '\'' +
                 website +
-                '}';
+                '.';
     }
 
     public String getLocalAuthorityName() {
         return localAuthorityName;
     }
 
-    public String getAddress1() {
-        return address1;
-    }
+    public String getAddress1() { return address1; }
 
     public String getAddress2() {
         return address2;

@@ -11,30 +11,30 @@
 <body>
 <div id="container1">
     <h2>Enter your Local authority</h2>
-        <form action="/local-auth-data1" id="data" name="data" method="post">
+        <form action="/local-auth-data" id="data" name="data" method="post" th:object="${localAuthority}">
                 <br>
-                <label for="localAuthorityName">Enter your local authority
-                    <input type="text" field="localAuthorityName" name="authority_name" id="localAuthorityName">
+                <label>Enter your local authority
+                    <input type="text" th:field="*{localAuthorityName}">
                 </label><br><br>
-                <label for="address1">Please enter first line of your address
-                    <input type="text" name="address_1" id="address1">
+                <label>Please enter first line of your address
+                    <input type="text" th:field="*{address1}">
                 </label><br><br>
-                <label for="address2">Please enter second line of your address (optional)
-                    <input type="text" name="address_2" id="address2">
+                <label>Please enter second line of your address (optional)
+                    <input type="text" th:field="*{address2}">
                 </label><br><br>
-                <label for="city">Please enter the City/Town
-                    <input type="text" name="city" id="city">
+                <label>Please enter the City/Town
+                    <input type="text" th:field="*{city}">
                 </label><br><br>
-                <label for="county">Please enter you county (optional)
-                    <input type="text" name="county" id="county">
+                <label>Please enter you county (optional)
+                    <input type="text" th:field="*{county}">
                 </label><br><br>
-                <label for="postcode">Please enter your postcode
-                    <input type="text" name="post_code" id="postcode">
+                <label>Please enter your postcode
+                    <input type="text" th:field="*{postcode}">
                 </label><br><br>
-                <label for="website">Please enter your website address
-                    <input type="url" name="web_site" id="website">
+                <label>Please enter your website address
+                    <input type="text" th:field="*{website}">
                 </label><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit">
         </form>
 </div>
 </body>
