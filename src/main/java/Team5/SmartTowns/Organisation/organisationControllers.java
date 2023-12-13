@@ -23,6 +23,7 @@ public class organisationControllers {
     @GetMapping("/businesses")
     public ModelAndView getBusinessPage(){
         ModelAndView modelAndView = new ModelAndView("businesses");
+        modelAndView.addObject("busiSub", business);
         return modelAndView;
     }
     @GetMapping("/businessSub")
