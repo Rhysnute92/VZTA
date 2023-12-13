@@ -2,6 +2,9 @@ package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
+import Team5.SmartTowns.data.Trail;
+import Team5.SmartTowns.data.TrailsRepository;
+import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,55 +25,91 @@ public class PlacesController {
     @Autowired
     private LocationRepository locationRepo;
 
-
+    @Autowired
+    private TrailsRepository trailsRepo;
 
 
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
-        List<Location> locations =  locationRepo.getAllLocation();
-//        List<Location> approvedLocations =  locationRepo.getApprovedLocations2(locations);
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Integer> locationIDIndex = new ArrayList<Integer>();
-        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-        for (LocationsCoordinates coord: locCoords){
-            locationIDIndex.add(coord.getLocationID()-1);
-            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-        }
-        modelAndView.addObject("location", locationCoordsWorkaround);
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+
+        modelAndView.addObject("location", approvedLocations);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }
 
     @RequestMapping(value="/location", method= RequestMethod.POST)
-    public String sendHtmlFragment(Model map) {
+    public String sendHtmlFragmentLocation(Model map) {
         map.addAttribute("foo", "bar");
         return "checkpoint/checkpoint";
     }
 
-        @GetMapping("/checkpoints/{location}")
-    public ModelAndView getResultBySearchKey(@PathVariable String location) {
-            List<Location> locations =  locationRepo.getAllLocation();
-            List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
 
-            List<Integer> locationIDIndex = new ArrayList<Integer>();
-            List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+
+
+        @GetMapping("/checkpoints/{location}")
+    public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
+            List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+            List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+
             int locationID = 999;
-            int workAroundID=0;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
-            for (int i=0;i<locCoords.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with lcoation index manually
-                locationIDIndex.add(locCoords.get(i).getLocationID()-1); // gets location ID and therefore location list index number
-                locationCoordsWorkaround.add(locations.get(locCoords.get(i).getLocationID()-1));
-                if ( (locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)) ){
+            for (int i=0;i<approvedLocations.size();i++){
+                if ( (approvedLocations.get(i).getLocationName().replace(' ', '-').trim().equals(location)) ){
                     locationID= i;
-                    break;
-                } workAroundID++;
-            }System.out.println(locationCoordsWorkaround);
-            System.out.println("ag"+locationID);
+                }
+            }
+
+            String trailName=trailsRepo.getTrailNameWithID(approvedLocations.get(locationID).getLocationTrailID()).replace(' ', '-').trim();
         ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
-            System.out.println("ag"+locationID);
         modelAndView.addObject("locCoord", locCoords.get(locationID));
-            System.out.println("sd"+workAroundID);
-        modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
+        modelAndView.addObject("trail", trailName);
+        modelAndView.addObject("location", approvedLocations.get(locationID));
+        return modelAndView;
+    }
+
+
+
+    /// Trail webpage mapping
+
+
+    @GetMapping("/trails")
+    public ModelAndView getTrailsPage(){
+        ModelAndView modelAndView = new ModelAndView("landmarks/trailsPage.html");
+        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+
+        modelAndView.addObject("trails", trailslocations);
+        modelAndView.addObject("locations", approvedLocations);
+        modelAndView.addObject("locationCoords", locCoords);
+        return  modelAndView;
+    }
+
+    @RequestMapping(value="/trail", method= RequestMethod.POST)
+    public String sendHtmlFragmentTrail(Model map) {
+        map.addAttribute("foo", "bar");
+        return "trail/trail";
+    }
+
+    @GetMapping("/trails/{trail}")
+    public ModelAndView getResultBySearchKeyTrails(@PathVariable String trail) {
+        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        int trailID = 999;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
+        for (int i=0;i<trailslocations.size();i++){
+
+            if (trailslocations.get(i).getTrailName().replace(' ', '-').trim().equals(trail)){
+                trailID=i;
+            break;}
+        }
+        ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
+        modelAndView.addObject("trail", trailslocations.get(trailID));
+        modelAndView.addObject("locCoords", locCoords);
+        modelAndView.addObject("locations", approvedLocations);
         return modelAndView;
     }
 

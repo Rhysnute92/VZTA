@@ -13,7 +13,7 @@ public interface PlacesCoordinatesRepository {
     List<TownWithTrails> getAllTownCoords();
     void addTownWithCoords(TownWithTrails town);
 
-    List<Location> getFullApprovedLocations(JdbcTemplate aJdbc);
+//    List<Location> getFullApprovedLocations(JdbcTemplate aJdbc);
 
 
 

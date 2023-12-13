@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface TrailsRepository {
     List<Trail> getAllTrails();
+    String getTrailNameWithID(String trailsID);
 }

@@ -35,6 +35,18 @@ insert into locations ( locationName , locationEmail,locationDescription,locatio
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Esplanade','','Location description here','Penarth',0301, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
 
+DELETE FROM locationCoordinates;
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (2, 51.57623, -3.21910 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (3, 51.575372, -3.219186);
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (4, 51.576363, -3.220712 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (9, 51.57239, -3.21992);
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (10, 51.57230, -3.21938 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (13, 51.57168, -3.21861);
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (14, 51.57465, -3.22022 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (17, 51.61117, -3.10198 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (18, 51.61655, -3.12371 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (19, 51.43484, -3.16492 );
+insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (20, 51.43547, -3.16789 );
 
 # delete from badges;
 # insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
@@ -71,18 +83,6 @@ INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 3,
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
 # insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
-delete from locationCoordinates;
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (2, 51.57623, -3.21910 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (3, 51.575372, -3.219186);
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (4, 51.576363, -3.220712 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (9, 51.57239, -3.21992);
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (10, 51.57230, -3.21938 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (13, 51.57168, -3.21861);
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (14, 51.57465, -3.22022 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (17, 51.61117, -3.10198 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (18, 51.61655, -3.12371 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (19, 51.43484, -3.16492 );
-insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (20, 51.43547, -3.16789 );
 
 
 

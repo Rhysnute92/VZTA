@@ -1,6 +1,6 @@
-function updatePack(userid, packid) {
-    /* Updates the trail being shown on screen to the one requested by ID */
-    $.get("/packInfo/" + userid + "/" + packid).done(function (fragment) {
+function updatePack(url) {
+    /* Updates the trail being shown on screen */
+    $.get(url).done(function (fragment) {
         let packRewardsWrapper = $("#packRewardsWrapper");
 
         packRewardsWrapper.fadeTo("slow", 0, function () {

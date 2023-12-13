@@ -2,46 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 
-    /*COLOUR PALETTE*/
-    @media (prefers-color-scheme: dark) {
-        --primary-darker: hsl(272, 100%, 10%);
-        --primary-dark: hsl(271, 100%, 20%);
-        --primary-colour: hsl(271, 100%, 30%);
-        --primary-light: hsl(271, 100%, 40%);
-        --primary-lighter: hsl(271, 100%, 50%);
-
-        --secondary-colour: hsl(12, 81%, 46%);
-        --accent-colour: hsl(12, 82%, 32%);
-        --accent-border: hsl(12, 81%, 25%);
-
-        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
-
-        color: white;
-
-    }
-    @media (prefers-color-scheme: light) {
-        --primary-darker: hsl(272, 100%, 10%);
-        --primary-dark: hsl(271, 100%, 20%);
-        --primary-colour: hsl(271, 100%, 30%);
-        --primary-light: hsl(271, 100%, 40%);
-        --primary-lighter: hsl(271, 100%, 50%);
-
-        --secondary-colour: hsl(12, 81%, 46%);
-        --accent-colour: hsl(12, 82%, 32%);
-        --accent-border: hsl(12, 81%, 25%);
-
-        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
-
-        color: white;
-
-
-    }
-}
 
 
 
@@ -237,8 +198,14 @@ main {
     height: 17em;
     margin: 1.5em;
 }
-/*}*/
+/* LOGIN FORM PAGE */
 
+
+
+
+
+
+/* MEDIA TYPE UPDATES*/
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 640px) {
@@ -306,4 +273,21 @@ and (min-device-width: 1000px) {
     .progressionContainer {
         height: 20svh;
     }
+}
+
+.container {
+    width: 500px;
+    margin-block: 5%;
+    background-color: var(--accent-colour);
+    border-radius: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & form {
+        margin-inline: auto;
+        margin-block: 5%;
+    }
+}
+.container-active {
+    background: black;
 }

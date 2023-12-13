@@ -92,16 +92,16 @@ public class LocationsCoordinates {
 //        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
 //        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
 //    }
-
-    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
-//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
-    }
-
-
+//
+//    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
+////        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
+//    }
 
 
- /// Need a constructor to create a lcoations list, approved lcoatiosn lsit, unapproved lcoations list.
+
+
+ /// Need a constructor to create a locations list, approved collation list, unapproved locations list.
 
 
 

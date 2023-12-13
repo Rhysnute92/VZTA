@@ -53,6 +53,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
         String sql= "SELECT * FROM locationCoordinates";
         return jdbc.query(sql, locationCoordMapper);
     }
+
+
+
     public List<TownWithTrails> getAllTownCoords(){
         String sql= "SELECT * FROM townswithtrails";
         return jdbc.query(sql, townCoordMapper);
@@ -74,10 +77,10 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
     }
 
 
-    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
-//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
-    }
+//    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
+////        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
+//    }
 
 //    @Override //TODO CHECK
 //    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
