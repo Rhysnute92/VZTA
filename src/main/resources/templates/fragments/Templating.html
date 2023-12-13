@@ -9,15 +9,15 @@
             <li><a id="homeHead" href="/home">Home</a></li>
             <li>FAQs</li>
             <li>Contact us</li>
+            <li th:if="${#authentication.principal}!=anonymousUser"><a href="/logout">Log Out</a></li>
+            <li th:if="${#authentication.principal}==anonymousUser"><a href="/login">Log In</a></li>
         </ul>
-        <label class="work">Who  we Work with:</label>
-        <select>
-            <ul>
-                <option value="localauthorities">Local Authorities</option>
-                <option value="towns">Towns</option>
-                <option value="businesses"><a href="/businesses">Businesses</a></option>
-                <option value="consumers">Consumers</option>
-            </ul>
+        <label for="stakeholders" class="work">Who  we Work with:</label>
+        <select id="stakeholders">
+            <option value="localauthorities">Local Authorities</option>
+            <option value="towns">Towns</option>
+            <option value="businesses">Businesses</option>
+            <option value="consumers">Consumers</option>
         </select>
     </nav>
 </header>
