@@ -2,11 +2,13 @@
 package Team5.SmartTowns.users;
 
 import java.util.List;
-import java.util.Map;
 
 public interface UserRepository {
     List<User> getAllUsers();
-//    Map<Long, Integer> getBadgeProgress(int id);
-    Map<Long, Boolean> getStickers(int id);
-    User getUser(int id);
+    List<Long> getUserStickersFromPack(String username, int packID);
+    boolean unlockSticker(String username, int packID, int stickerID);
+    boolean addUser(String username, String email, String password);
+    boolean doesUserExist(String email);
+    User findUserByEmail(String email);
+    User findUserByName(String name);
 }

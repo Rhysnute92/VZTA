@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="locationSection" class="locationPageFrag">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${location.getLocationName()}"></title>
+
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{/css/locationPageFragsStyle.css}">
+</head>
+<body >
+<header th:insert="~{/fragments/Templating.html::header}"></header>
+    <main>
+
+        <hr style="height:40px; visibility:hidden;" />
+        <article class="locationFragment">
+
+            <H1 th:text="${location.getLocationName()}" > </H1>
+            <H4 th:text="${location.getLocationPlace()}" id="townHeader"> </H4>
+            <p th:text="${location.getLocationDescription()}"></p>
+
+
+            <iframe
+                    width="600"
+                    height="400"
+                    frameborder="0"
+                    scrolling="yes"
+                    marginheight="0"
+                    marginwidth="0"
+                    th:src="'https://maps.google.com/maps?q='+ ${locCoord.getLocationCoordsLat()} +','+ ${locCoord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
+            </iframe>
+            <H2 id="return">
+            <a th:href="@{'/trails/'+${trail}}">Return</a></H2>
+
+        </article>
+        <hr style="height:40px; visibility:hidden;" />
+    </main>
+
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
+</body>
+</html>

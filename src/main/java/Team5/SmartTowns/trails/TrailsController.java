@@ -1,19 +1,19 @@
 package Team5.SmartTowns.trails;
 
 
-import Team5.SmartTowns.Landmarks.Landmarks;
+import Team5.SmartTowns.landmarks.Landmarks;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import static Team5.SmartTowns.Landmarks.Landmarks.getLandmarksDragonstrail;
+import static Team5.SmartTowns.landmarks.Landmarks.landmarksDragonstrail;
+
+//import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
 
 @Controller
 public class TrailsController {
@@ -40,21 +40,22 @@ public class TrailsController {
 
     @GetMapping("/dragonstale")
     public ModelAndView getDragonsTale(){
-        List<Landmarks> landmarksList = getLandmarksDragonstrail();
-        Landmarks landmarks = new Landmarks();
-        int listSize = landmarksList.size();
+        List<Landmarks> landmarksList = landmarksDragonstrail;
         ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/index");
         modelAndView.addObject("landmarksList", landmarksList);
-        modelAndView.addObject("getListSize", listSize);
         return modelAndView;
     }
 
-//    @GetMapping("/dragonstale/{landmarks}")
-//    public ModelAndView getDragonstaleLandmarks(){
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject()
-//    }
 
+    //
+//    @GetMapping("dragonstale/{qrCode}/{id}")
+//    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
+//        if (qrCode.isPresent()){
+//
+//            //Check if ID is present, if do this, if not dfo that.
+//
+//        }
+//    }
 
 }
 

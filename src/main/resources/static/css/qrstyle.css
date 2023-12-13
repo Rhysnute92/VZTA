@@ -1,0 +1,65 @@
+/*style sheet for QR code - R Nute*/
+/*Modified from (https://www.geeksforgeeks.org/create-a-qr-code-scanner-or-reader-in-html-css-javascript/)*/
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgb(84 33 128 / 66%);
+}
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 5px;
+}
+.container h1 {
+    color: rgb(84 33 128);
+}
+.section {
+    background-color: rgb(84 33 128);
+    padding: 50px 30px;
+    border: 2px solid #b2b2b2;
+    border-radius: 0.5em;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 30);
+}
+#qr-code-reader {
+    padding: 20px !important;
+    border: 2px solid #b2b2b2 !important;
+    border-radius: 10px;
+}
+#qr-code-reader img[alt="Information icon"] {
+    display: none;
+}
+#qr-code-reader img[alt="QR Code Scan"] {
+    width: 100px !important;
+    height: 100px !important;
+}
+button {
+    padding: 15px 25px;
+    border: 2px solid #b2b2b2;
+    outline: none;
+    border-radius: 0.5em;
+    color: grey;
+    font-size: 25px;
+    cursor: default;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: rgb(84 33 128);
+    transition: 0.5s background-color;
+}
+button:hover {
+    background-color: rgb(84 33 128);
+}
+#html-qrcode-scan-type-change {
+    text-decoration: none !important;
+    color: #1d9bf0;
+}
+stickers {
+    width: 100% !important;
+    border: 2px solid #b2b2b2 !important;
+    border-radius: 0.5em;
+}
