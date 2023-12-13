@@ -2,12 +2,14 @@ package Team5.SmartTowns.placeswithcoordinates;
 
 
 
-import Team5.SmartTowns.Data.Location;
-import Team5.SmartTowns.Data.LocationRepositoryJDBC;
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepositoryJDBC;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 //@Data
@@ -91,10 +93,10 @@ public class LocationsCoordinates {
 //        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
 //    }
 
-//    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
-////        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-//        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
-//    }
+    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
+//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
+    }
 
 
 

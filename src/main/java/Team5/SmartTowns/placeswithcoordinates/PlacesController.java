@@ -1,7 +1,7 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
-import Team5.SmartTowns.Data.Location;
-import Team5.SmartTowns.Data.LocationRepository;
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

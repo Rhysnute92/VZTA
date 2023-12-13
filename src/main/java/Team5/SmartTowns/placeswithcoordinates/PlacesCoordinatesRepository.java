@@ -1,6 +1,6 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
-import Team5.SmartTowns.Data.Location;
+import Team5.SmartTowns.data.Location;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
