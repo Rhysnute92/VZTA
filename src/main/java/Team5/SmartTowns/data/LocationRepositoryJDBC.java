@@ -52,6 +52,32 @@ public class LocationRepositoryJDBC implements LocationRepository {
 //        this.locationMapper = locationMapper;
 //    }
 
+
+    public List<Location> getAllApprovedLocation(){
+        String sql= "SELECT * FROM locations";
+        List<Location> lis = jdbc.query(sql, locationMapper);
+        List<Location> lisFiltered = new ArrayList<>();
+        for (Location li : lis){
+            if (li.isLocationApproved()){
+                lisFiltered.add(li);
+            }
+        }
+        return lisFiltered;
+    }
+
+
+    public List<Location> getAllUnapprovedLocation(){
+        String sql= "SELECT * FROM locations";
+        List<Location> lis = jdbc.query(sql, locationMapper);
+        List<Location> lisFiltered = new ArrayList<>();
+        for (Location li : lis){
+            if (!li.isLocationApproved()){
+                lisFiltered.add(li);
+            }
+        }
+        return lisFiltered;
+    }
+
     @Override // intended implementation at current: user data from templates/Landmarks/LandmarkFormTh.html is added to the Location table
     public void addLocation(Location loc) {
         String sql = "insert into locations( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) values (?,?,?,?,?,?)";

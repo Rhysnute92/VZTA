@@ -53,6 +53,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
         String sql= "SELECT * FROM locationCoordinates";
         return jdbc.query(sql, locationCoordMapper);
     }
+
+
+
     public List<TownWithTrails> getAllTownCoords(){
         String sql= "SELECT * FROM townswithtrails";
         return jdbc.query(sql, townCoordMapper);
