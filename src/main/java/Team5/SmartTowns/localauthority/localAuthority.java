@@ -19,15 +19,15 @@ public class localAuthority {
     private URL website;
     @Override
     public String toString() {
-        return "localAuthority" +
-                localAuthorityName + '\'' +
-                address1 + '\'' +
-                address2 + '\'' +
-                city + '\'' +
-                county + '\'' +
-                postcode + '\'' +
+        return "Local Authority:" + " " +
+                localAuthorityName + '\'' + " " +
+                address1 + '\'' + " " +
+                address2 + '\'' + " " +
+                city + '\'' + " " +
+                county + '\'' + " " +
+                postcode + '\'' + " " +
                 website +
-                '.';
+                " ";
     }
 
     public String getLocalAuthorityName() {

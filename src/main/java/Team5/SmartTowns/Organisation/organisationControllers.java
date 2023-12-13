@@ -21,6 +21,7 @@ public class organisationControllers {
     public ModelAndView getLocalAuthoritiesPage(){
         ModelAndView mav = new ModelAndView("local-authorities");
         List<localAuthority> localAuthority = localAuthorityRepository.getAllLocalAuthority();
+        mav.addObject("localAuth", localAuthority);
         return mav;
     }
     @GetMapping("/localForm")
@@ -33,6 +34,7 @@ public class organisationControllers {
     private localAuthorityRepository localAuthorityRepository;
     @PostMapping("/local-auth-data")
     public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
+        List<localAuthority> localAuthorityList = localAuthorityRepository.getAllLocalAuthority();
         if (bindingResult.hasErrors()){
             ModelAndView modelAndView = new ModelAndView("local-auth-data", model.asMap());
             return modelAndView;
