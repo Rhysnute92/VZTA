@@ -23,11 +23,11 @@ public class LocationsCoordinates {
     /// separate class to location to cover all locations within trails that have been approved and have long/lat coords attached for mapping.
     private int locationID;
 //    @NotEmpty(message = "You must enter a Latitude.")
-    @Min(value=0,message = "You must enter a Latitude.")
+//    @Min(value=0,message = "You must enter a Latitude.")
     private Double locationCoordsLat;
    
 //    @NotEmpty(message = "You must type in a Longitude.")
-    @Min(value=0,message = "You must type in a Longitude.")
+//    @Min(value=0,message = "You must type in a Longitude.")
     private Double locationCoordsLong;
     private JdbcTemplate jdbc;
 

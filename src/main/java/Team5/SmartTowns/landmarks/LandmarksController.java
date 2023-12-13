@@ -80,10 +80,14 @@ public class LandmarksController {
             int locationID = locationRepository.nametoLocationID(location.getLocationName());
             // converts valid response using Location constructor into a submittable format to the sql table
             LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID, locCoord.getLocationCoordsLat(), locCoord.getLocationCoordsLong());
+            boolean checkIfCoorsWithinBoundaries =  placesCoordinatesRepo.checkIfCoordsAreWithinTownBoundary(ALocCoord);
+            if (checkIfCoorsWithinBoundaries==false){ // if coords outside associated town, form is returned to original state
+                return new ModelAndView("redirect:/checkpointApproval");
+            }
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
             locationRepository.updateApprovalStatus(locationID); // updates approval status accordingly
             System.out.println(placesCoordinatesRepo.getAllLocationCoords());
-            ModelAndView modelAndView = new ModelAndView("redirect:/home"); //todo redirect to trails?
+            ModelAndView modelAndView = new ModelAndView("redirect:/home"); //redirects back top form in case admin wants to input second location
             return modelAndView;
 
 //        }

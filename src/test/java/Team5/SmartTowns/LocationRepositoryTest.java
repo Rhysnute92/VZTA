@@ -45,7 +45,7 @@ public class LocationRepositoryTest  {
 //    }
 
     @Test
-    public void testGetAllApprovedLocations() {
+    public void testGetAllApprovedLocations() { // test to amke sure all approved locations are called
         List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
         List<Location> allLocations = locationRepository.getAllLocation();
         for (int i=0;i<allLocations.size();i++){ // iterate over all location, removing authorised=true
@@ -67,7 +67,7 @@ public class LocationRepositoryTest  {
 
 
     @Test
-    public void testGetAllUnapprovedLocations() {
+    public void testGetAllUnapprovedLocations() { // test to make sure all unapproved coordinates are called
         List<Location> unapprovedLocations = locationRepository.getAllUnapprovedLocations();
         List<Location> allLocations = locationRepository.getAllLocation();
         for (int i=0;i<allLocations.size();i++){ // iterate over all location, removing authorised=false
@@ -76,17 +76,17 @@ public class LocationRepositoryTest  {
                     allLocations.remove(allLocations.get(i));
                 }
             }
-        } boolean noUnapporvedLeft=false;
+        } boolean noUnapprovedLeft=false;
         for (Location loc2: allLocations){
             if (!loc2.isLocationApproved()){
-                noUnapporvedLeft=false;
+                noUnapprovedLeft=false;
                 break;
             } else{
-                noUnapporvedLeft=true;
+                noUnapprovedLeft=true;
             }
-        } assertTrue(noUnapporvedLeft);
+        } assertTrue(noUnapprovedLeft);
     }
-    @Test
+    @Test// test to ensure that the number of approved locations and number of associated locations with coordinates are equal
     public void ensureApprovedLocationsAndCoordinatessAreTheSameSize(){
         List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
         List<LocationsCoordinates> coordinatesLocations = placesRepository.getAllLocationCoords();
@@ -95,11 +95,10 @@ public class LocationRepositoryTest  {
     }
 
 
-    @Test
+    @Test // test to ensure that all default locations and location coordinates match
     public void ensureApprovedLocationsAndCoordinatessTableLineUpTest(){
         List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
         List<LocationsCoordinates> coordinatesLocations = placesRepository.getAllLocationCoords();
-        List<Integer> coordinatesLocationsID = new ArrayList<>();
         boolean doTheyMatch=false;
         for (int i=0;i<coordinatesLocations.size();i++){
         int locID=coordinatesLocations.get(i).getLocationID();
@@ -119,9 +118,9 @@ public class LocationRepositoryTest  {
 
 
     @Test
-    public void doesApporvalUpdateTest(){
+    public void doesApprovalUpdateTest(){ //tests whether locations that are approved have their database approval changed to true
         int approvedLocationsTotal = locationRepository.getAllApprovedLocations().size();
-        Location unapprovedLocation = new Location("test","test@email","","Caerphilly","301",false);
+        Location unapprovedLocation = new Location("test","test@email","","Caerphilly","102",false);
         locationRepository.addLocation(unapprovedLocation);
         int newID=locationRepository.nametoLocationID( unapprovedLocation.getLocationName());
         locationRepository.updateApprovalStatus(newID);

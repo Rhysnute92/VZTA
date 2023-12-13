@@ -1,6 +1,8 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -131,6 +133,33 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
             }
         } return index= Integer.parseInt(null);
 
+    }
+
+    @Autowired
+    LocationRepository local;
+    @Override
+    public Boolean checkIfCoordsAreWithinTownBoundary(LocationsCoordinates loc){
+        int locationID=loc.getLocationID();
+        String locationTown= jdbc.queryForObject("SELECT locationPlace FROM locations WHERE locationID=?", String.class, locationID);
+        List<TownWithTrails> allTowns = getAllTownCoords();
+        for (int i=0;i<allTowns.size();i++){
+            if (Objects.equals(allTowns.get(i).getTownName(), locationTown)){
+
+
+                double inpLat=(loc.getLocationCoordsLat());
+                double inpLong=(loc.getLocationCoordsLong());
+
+                double townBoundaryLatUppermost=Double.parseDouble(allTowns.get(i).getTownUppermostCoordsLat());
+                double townBoundaryLatLowermost=Double.parseDouble(allTowns.get(i).getTownLowermostCoordsLat());
+
+                double townBoundaryLongLeftmost=Double.parseDouble(allTowns.get(i).getTownLeftmostCoordsLong());
+                double townBoundaryLongRightmost=Double.parseDouble(allTowns.get(i).getTownRightmostCoordsLong());
+                // check coords within respective town boundary (boundary decided by rough google maps red-line)
+                if ( (inpLat<=townBoundaryLatUppermost)&& (inpLat>=townBoundaryLatLowermost) && (inpLong>=townBoundaryLongLeftmost) &&  (inpLong<=townBoundaryLongRightmost)){
+                    // location within boundary returns true
+                    return true;
+            }}
+        } return false; // if location outside boundary, return true won't function and it wil return false.
     }
 
 

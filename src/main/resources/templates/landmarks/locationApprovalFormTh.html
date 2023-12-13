@@ -6,13 +6,45 @@
 
     <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
     <script src="/scripts/locationApprovalForm.js"></script>
+    <style>
+        body{
+            background:  rgb(41, 41, 41);
+            color: wheat;
+        }
+        main {
+            background-color: rgb(206, 153, 253);
+            color: black;
+            border-color: white;
+            align-content: center;
+            text-align: center;
+            border-radius: 25px;
+            max-width: 620px;
+            margin: 0 auto
+        }
+
+        #formHeader{
+            padding-top: 10px;
+            color:white;
+            text-align: center;}
+
+        table, th,tr{
+            margin: 0 auto;
+            border: white 2px solid;
+            align-content: center;
+            text-align: center;
+        }
+
+
+    </style>
 </head>
 <body>
 <header th:insert="~{/fragments/Templating.html :: header}"></header>
+<hr style="height:20px; visibility:hidden;" />
 <main>
+    <H1 id="formHeader">Locations To Be Approved:</H1>
 
-    <form  action="/checkpointSubmitted" method="post" name="adminCheckpointApproval" th:object="${locationCoord}" onsubmit="return acceptanceValidation()">
-            <label> Location To Be Approved:
+    <form  action="/checkpointSubmitted" method="post" id="adminCheckpointApproval" name="adminCheckpointApproval" th:object="${locationCoord}" onsubmit="return acceptanceValidation()">
+            <label> Location:
                 <select th:object="${location}" th:field="*{locationName}"}>
     <!--                <select th:field="*{locationName}">-->
                     <option value="" hidden="true">Select Location</option>
@@ -34,7 +66,33 @@
 
     </form>
 
+    <hr style="height:20px; visibility:hidden;" />
+    <section id =unapprovedList >
+        <H2>To Be Approved:</H2>
 
+        <table>
+            <tr>
+                <th>Business Name</th>
+                <th>Town</th>
+                <th>Contact Address</th>
+                <th>Description</th>
+            </tr>
+            <div th:each="uloc:${uLocs}">
+                <tr>
+                    <td th:text="${uloc.getLocationName()}+' ('+${uloc.getLocationTrailID()}+')'" ></td>
+                    <td th:text="${uloc.getLocationPlace()}"></td>
+                    <td th:text="${uloc.getLocationEmail()}"></td>
+                    <td th:text="${uloc.getLocationDescription()}"></td>
+                </tr>
+            </div>
+                <tr>
+
+            </table>
+
+
+    </section>
+
+    <hr style="height:20px; visibility:hidden;" />
 </main>
 <footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
 </body>

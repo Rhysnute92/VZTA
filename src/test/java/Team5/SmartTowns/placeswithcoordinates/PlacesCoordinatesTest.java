@@ -102,4 +102,24 @@ class PlacesCoordinatesTest {
 
     }
 
+    @Test // test to see if
+    public void checkIfCoordsAreWithinTownBoundaryTest(){
+        // initiate second instance of location without Caerphilly bounds.
+        List<Location> locationList = locationRepository.getAllLocation();
+        Location unapprovedLocation = new Location("test","test@email","","Caerphilly","102",false);
+        locationRepository.addLocation(unapprovedLocation);
+        int newID=locationRepository.nametoLocationID( unapprovedLocation.getLocationName());
+        LocationsCoordinates newCoord = new LocationsCoordinates(newID,0.00,0.00);
+        boolean falseIfOutOfBounds = placesCoordinatesRepository.checkIfCoordsAreWithinTownBoundary(newCoord);
+        // initiate second instance of location within Caerphilly bounds.
+        Location unapprovedLocationTwo = new Location("test2","test2@email","","Caerphilly","103",false);
+        locationRepository.addLocation(unapprovedLocationTwo);
+        int newIDTwo=locationRepository.nametoLocationID( unapprovedLocationTwo.getLocationName());
+        LocationsCoordinates newCoordTwo = new LocationsCoordinates(newIDTwo,51.57903,-3.22075 );
+        boolean falseIfOutOfBoundsTwo = placesCoordinatesRepository.checkIfCoordsAreWithinTownBoundary(newCoordTwo);
+        assertNotEquals(falseIfOutOfBounds,falseIfOutOfBoundsTwo);
+
+
+    }
+
 }
