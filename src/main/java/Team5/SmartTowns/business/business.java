@@ -18,15 +18,15 @@ public class business {
 
     @Override
     public String toString(){
-        return "business{" +
-                businessName + '\'' +
-                address1 + '\'' +
-                address2 + '\'' +
-                city + '\'' +
-                county + '\'' +
-                postcode + '\'' +
+        return "Business:" + " " +
+                businessName + '\'' + " " +
+                address1 + '\'' + " " +
+                address2 + '\'' + " " +
+                city + '\'' + " " +
+                county + '\'' + " " +
+                postcode + '\'' + " " +
                 website +
-                '}';
+                " ";
     }
 
     public String getBusinessName() {

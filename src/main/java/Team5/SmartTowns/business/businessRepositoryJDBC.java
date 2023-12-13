@@ -27,21 +27,15 @@ public class businessRepositoryJDBC implements businessRepository{
             );
         }
         public List<business> getAllBusinesses(){
-            String sql = "SELECT * FROM localAuthority";
+            String sql = "SELECT * FROM businesses";
             return jdbc.query(sql, businessMapper);
         }
 
     @Override
     public void addBusiness(business bus) {
-
-    }
-
-    @Override
-        public void addLocalAuthority(business bus){
-            String sql = "INSERT INTO business( businessName, address1, address2, city, county, postcode, website) values (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO businesses( businessName, address1, address2, city, county, postcode, website) values (?, ?, ?, ?, ?, ?, ?)";
             jdbc.update(sql, bus.getBusinessName(),bus.getAddress1(),bus.getAddress2(),bus.getCity(),bus.getCounty(),bus.getPostcode(),bus.getWebsite());
         }
-
-    }
+}
 
 

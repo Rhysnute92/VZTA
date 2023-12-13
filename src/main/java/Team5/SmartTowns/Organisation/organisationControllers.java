@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class organisationControllers {
     @GetMapping("/localauthorities")
@@ -23,6 +25,7 @@ public class organisationControllers {
     @GetMapping("/businesses")
     public ModelAndView getBusinessPage(){
         ModelAndView modelAndView = new ModelAndView("businesses");
+        List<business> business = businessRepository.getAllBusinesses();
         modelAndView.addObject("busiSub", business);
         return modelAndView;
     }
