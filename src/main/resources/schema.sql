@@ -71,3 +71,16 @@ create table if not exists localAuthority
     postcode varchar(15),
     website varchar(250)
 ) engine=InnoDB;
+
+drop table if exists businesses;
+create table if not exists businesses
+(
+    businessID bigint auto_increment primary key,
+    businessName varchar(250),
+    address1 varchar(250),
+    address2 varchar(250),
+    city varchar(100),
+    county varchar(75),
+    postcode varchar(15),
+    website varchar(250)
+) engine=InnoDB;

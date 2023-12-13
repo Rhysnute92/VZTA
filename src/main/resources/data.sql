@@ -1,52 +1,62 @@
+delete from users;
+insert into users (email, name, dragonProgress) value ('hannah@gmail.com', 'Hannah', '90');
+insert into users (userID, email, name, dragonProgress) value ('2', 'nigel@gmail.com', 'Nigel', '40');
+
 delete from trails;
-insert into trails ( Name,tru) value ( 'Caerphilly Coffee Trail',false);
-insert into trails ( Name,tru) value ( 'Penarth Dragon Trail',true);
+insert into trails ( Name) value ( 'Caerphilly Coffee Trail');
+insert into trails ( Name) value ( 'Penarth Dragon Trail');
 
 delete from locations;
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Castle','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Medieval Trades','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Queen''s War','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Green Lady','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Armoury','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Architecture','','Location description here','Caerphilly',0101, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( '21st Century Landmark','','Location description here','Caerphilly',0101, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'St Cenydd','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'The Castle','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Medieval Trades','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'The Queen''s War','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'The Green Lady','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Armoury','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Architecture','','Location description here','Caerphilly',0101);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( '21st Century Landmark','','Location description here','Caerphilly',0101);
 
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'JD Wetherspoons-Malcolm Uphill','','Location description here','Caerphilly',0102, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Cwtch','','Location description here','Caerphilly',0102, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Conservative Club','','Location description here','Caerphilly',0102, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The King''s Arms','','Location description here','Caerphilly',0102, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'JD Wetherspoons-Malcolm Uphill','','Location description here','Caerphilly',0102);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Caerphilly Cwtch','','Location description here','Caerphilly',0102);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Caerphilly Conservative Club','','Location description here','Caerphilly',0102);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'The King''s Arms','','Location description here','Caerphilly',0102);
 
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Caerphilly Bus Station','','Location description here','Caerphilly',0103, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Medieval Courthouse','','Location description here','Caerphilly',0103, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ('Caerphilly Castle','','Location description here','Caerphilly',0103, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Ty Vaughan House','','Location description here','Caerphilly',0103, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Risca Colliery','','Location description here','Risca',0201, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Esplanade','','Location description here','Penarth',0301, true);
-insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Caerphilly Bus Station','','Location description here','Caerphilly',0103);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'The Medieval Courthouse','','Location description here','Caerphilly',0103);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ('Caerphilly Castle','','Location description here','Caerphilly',0103);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Ty Vaughan House','','Location description here','Caerphilly',0103);
 
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Risca Colliery','','Location description here','Risca',0201);
+insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201);
 
 
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (19, 'The Esplanade','','Location description here','Penarth',0301);
+insert into locations (locationID, locationName , locationEmail,locationDescription,locationPlace, locationTrailID) value (20, 'The Old Swimming Baths','','Location description here','Penarth',0301);
+delete from badges;
+insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
+insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+insert into badges (name, description, difficulty) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
+insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
 
+delete from stickers;
+insert into stickers (name, description, rarity) value ('TownConnoisseur', 'You know the town very well!', '2');
+insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+insert into stickers (name, description, rarity) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
+insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
+insert into stickers (name, description, rarity) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
 
-DELETE FROM packs;
-INSERT INTO packs (name, description) VALUE ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
-INSERT INTO packs (name, description) VALUE ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
-INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
+delete from badgeprogress;
+insert into badgeprogress (userID, badgeID, progress) value ('1', '1', '40');
+insert into badgeprogress (userID, badgeID, progress) value ('1', '2', '70');
+insert into badgeprogress (userID, badgeID, progress) value ('2', '2', '70');
 
-DELETE FROM stickers;
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 1, 'wayne_hennessey', 'Wales Football Team Player', '2');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 2, 'neco_williams', 'Wales Football Team Player', '2');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 3, 'joe_morrell', 'Wales Football Team Player', '2');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 4, 'ethan_ampadu', 'Wales Football Team Player', '2');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 5, 'connor_roberts', 'Wales Football Team Player', '2');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (2, 1, 'Taine_Basham', 'Wales Rugby Team Player', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (2, 2, 'Adam Beard', 'Wales Rugby Team Player', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (2, 3, 'Elliot Dee', 'Wales Rugby Team Player', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (2, 4, 'Corey Domachowski', 'Wales Rugby Team Player', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (2, 5, 'Ryan Elias', 'Wales Rugby Team Player', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 1, 'Welsh Lady', 'Welsh Heritage', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
-INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
+delete from stickerprogress;
+insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
+insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
+insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
+delete from localauthority;
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Caerphilly County Borough Council', 'Tredomen Park','', 'Ystrad Mynach, Hengoed', '', 'CF82 7PG', 'https://www.caerphilly.gov.uk/main.aspx?lang=en-GB');
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Risca Town Council', 'Unit B, 75 Tredegar Street', '', 'Risca', '', 'NP11 6BW', 'https://www.riscatowncouncil.org.uk/');
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Penarth Town Council West House', 'Stanwell Road', '', 'Penarth', '', 'CF64 2YG', 'https://www.penarthtowncouncil.gov.uk/your-council/');
