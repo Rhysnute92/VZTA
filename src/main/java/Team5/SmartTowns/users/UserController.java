@@ -4,10 +4,15 @@ package Team5.SmartTowns.users;
 import Team5.SmartTowns.rewards.Pack;
 import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.rewards.Sticker;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,45 +22,87 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private RewardsRepository rewardsRepository;
 
+    /* LOGIN MAPPING & FUNCTIONS */
     @GetMapping("/login")
     public ModelAndView getLoginPage() {
         ModelAndView mav = new ModelAndView("users/login");
-//        List<User> users = userRepository.getAllUsers();
-//        mav.addObject("users", users);
+        mav.addObject("user", new NewUser( "", "", ""));
+        mav.addObject("error", "");
+        mav.addObject("status", "");
+        System.out.println(userRepository.findUserByName("Admin").getName());
         return mav;
     }
 
-    @GetMapping("/userList")
-    public ModelAndView userList() {
-        ModelAndView mav = new ModelAndView("towns/userData");
-        List<User> users = userRepository.getAllUsers();
-        mav.addObject("users", users);
+//    @GetMapping("/logout")
+//    public ModelAndView getLogOutPage(){
+//        ModelAndView mav = new ModelAndView("users/logout");
+//        return mav;
+//    }
+
+    @PostMapping("/login/register")
+    public ModelAndView registerUser(@Valid @ModelAttribute("user") NewUser user, BindingResult bindingResult, Model model) {
+        ModelAndView mav = new ModelAndView("users/login", model.asMap());
+        // TODO VALIDATE EMAIL INPUT
+        mav.addObject("status", "active");
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("users/login");
+            modelAndView.addObject("errors", bindingResult);
+            return modelAndView;
+        }
+
+        if ( userRepository.doesUserExist(user.getEmail()) ) {
+            mav.addObject("errors", "Email already in use");
+            return mav;
+        }
+
+        try {
+            userRepository.addUser(user.name, user.email, user.password);
+            mav.addObject("error", "");
+            //TODO return user creation success
+            return mav;
+        } catch (DataAccessException e) {
+            mav.addObject("error", "User exists");
+        }
         return mav;
     }
 
-    @GetMapping("/user/{id}")
-    public ModelAndView getUserPage(@PathVariable int id) {
+    @GetMapping("/userProfile")
+    public ModelAndView userProfile(){
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Pack> allPacks = rewardsRepository.getAllPacks();
-        mav.addObject("user", userRepository.getUserById(id));
         mav.addObject("packs", allPacks);
 
-        mav.addAllObjects(getPackInfo(id, 1).getModelMap());
-
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        mav.addObject("user", userRepository.findUserByName("Admin"));
+        mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
         return mav;
     }
 
-    @GetMapping("/packInfo/{userID}/{packID}")
-    public ModelAndView getPackInfo(@PathVariable int userID, @PathVariable int packID) {
+
+    /* USER MAPPING & FUNCTIONS */
+    @GetMapping("/user/{username}")
+    public ModelAndView getUserPage(@PathVariable String username) {
+        ModelAndView mav = new ModelAndView("users/userProfile");
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
+        mav.addObject("user", userRepository.findUserByName("Admin"));
+        mav.addObject("packs", allPacks);
+        mav.addAllObjects(getPackInfo(username, 1).getModelMap());
+        return mav;
+    }
+
+    @GetMapping("/packInfo/{username}/{packID}")
+    public ModelAndView getPackInfo(@PathVariable String username, @PathVariable int packID) {
         /* Displays on page the stickers present in the pack and colour the ones the
         *  user has acquired */
 
         ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
         List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
-        List<Long> userStickers = userRepository.getUserStickersFromPack(userID, packID);
+        List<Long> userStickers = userRepository.getUserStickersFromPack(username, packID);
+        System.out.println(userStickers);
 
 
 
@@ -85,5 +132,8 @@ public class UserController {
         }
         return displayedStickers;
     }
+
+
+
 
 }

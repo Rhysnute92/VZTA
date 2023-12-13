@@ -27,8 +27,7 @@ public class User {
         this.dragonProgress = dragonProgress;
         imgPath = findImagePath();
     }
-    public User(int id, String email, String name) {
-        this.id = id;
+    public User(String email, String name) {
         this.email = email;
         this.name = name;
         imgPath = findImagePath();
