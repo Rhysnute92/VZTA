@@ -14,20 +14,22 @@
 
 <main>
     <section id="allTrailsBar" class="centerFlex">
-        <img class="trailsImages"
-             th:each="trail : ${trails}"
-             th:src="@{${trail.getImgPath()}}"
-             th:onclick="'updateOutputTrail('+ ${trail.getId()} +');'"
-             th:id="'img' + ${trail.getId()}" th:alt="${trail.getName()}"
-        >
+        <a th:each="trail : ${trails}" th:href="'/trails/' + ${trail.getTrailLink()}" class="trailWrapper">
+            <h1 th:text="${trail.getTrailName()}"></h1>
+            <img class="trailsImages"
+                th:src="${trail.getImagePath()}"
+                th:onclick="'updateOutputTrail('+ ${trail.getTrailsId()} +');'"
+                th:id="'img' + ${trail.getTrailsId()}" th:alt="${trail.getTrailName()}"
+        ></a>
+
     </section>
-    <section id="trailInfoContainer" class="trailInfoFrag">
-        <!--All this section is loaded from thymeleaf, based on what tail is selected
-            in the #allTrailsBar -->
-        <div class="trailInfoHeader">
-            <h1 class="centerFlex">Please select your trail</h1>
-        </div>
-    </section>
+<!--    <section id="trailInfoContainer" class="trailInfoFrag">-->
+<!--        &lt;!&ndash;All this section is loaded from thymeleaf, based on what tail is selected-->
+<!--            in the #allTrailsBar &ndash;&gt;-->
+<!--        <div class="trailInfoHeader">-->
+<!--            <h1 class="centerFlex">Please select your trail</h1>-->
+<!--        </div>-->
+<!--    </section>-->
 </main>
 <footer th:replace="~{/fragments/banners :: footer}"></footer>
 

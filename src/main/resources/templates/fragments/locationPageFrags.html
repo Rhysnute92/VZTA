@@ -6,9 +6,10 @@
 
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
     <link rel="stylesheet" th:href="@{/css/locationPageFragsStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/mobile-style.css}">
 </head>
 <body >
-<header th:insert="~{/fragments/Templating.html::header}"></header>
+<header th:replace="~{/fragments/banners::header}"></header>
     <main>
 
         <hr style="height:40px; visibility:hidden;" />
@@ -35,6 +36,6 @@
         <hr style="height:40px; visibility:hidden;" />
     </main>
 
-<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
+<footer th:replace="~{/fragments/banners::footer}"></footer>
 </body>
 </html>

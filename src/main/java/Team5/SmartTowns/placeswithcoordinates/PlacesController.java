@@ -4,6 +4,8 @@ import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
 import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
+import Team5.SmartTowns.rewards.RewardsRepository;
+import Team5.SmartTowns.users.UserRepository;
 import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ public class PlacesController {
 
     @Autowired
     private TrailsRepository trailsRepo;
+
+    @Autowired
+    private RewardsRepository rewardsRepository;
 
 
     @GetMapping("/checkpoints")
@@ -110,6 +115,8 @@ public class PlacesController {
         modelAndView.addObject("trail", trailslocations.get(trailID));
         modelAndView.addObject("locCoords", locCoords);
         modelAndView.addObject("locations", approvedLocations);
+
+        modelAndView.addObject("stickers", rewardsRepository.getAllStickersFromPack(1));
         return modelAndView;
     }
 

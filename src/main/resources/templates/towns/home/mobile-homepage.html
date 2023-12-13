@@ -19,7 +19,7 @@
     <article class="towns-wrapper">
         <div th:each="town:${towns}" class="gridContainer2">
             <h2 class="town-name" th:text="${town.getName()}"></h2>
-            <a href="/allTrails" class="img-container">
+            <a th:href="'/allTrails-' + ${town.getName()}" class="img-container">
                 <img class="town-img" th:src="${town.getImageTown()}" th:alt="${town.getName()}">
             </a>
             <div class="BannerTrail">

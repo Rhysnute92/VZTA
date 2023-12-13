@@ -1,9 +1,9 @@
 delete from trails;
-insert into trails ( trailID, trailName, trailNumber) value ( 0101,'Caerphilly Castle Trail','0101');
-insert into trails ( trailID, trailName, trailNumber) value ( 0102,'Caerphilly Pub Trail','0102');
-insert into trails ( trailID, trailName, trailNumber) value ( 0103,'Caerphilly Heritage Trail','0103');
-insert into trails ( trailID, trailName, trailNumber) value ( 0201,'Risca Heritage Trail','0201');
-insert into trails ( trailID, trailName, trailNumber) value ( 0301,'Penarth Esplanade Trail','0301');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0101,'Caerphilly Castle Trail','0101', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0102,'Caerphilly Pub Trail','0102', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0103,'Caerphilly Heritage Trail','0103', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0201,'Risca Heritage Trail','0201', 'Risca');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0301,'Penarth Esplanade Trail','0301', 'Penarth');
 
 delete from locations;
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, false);
