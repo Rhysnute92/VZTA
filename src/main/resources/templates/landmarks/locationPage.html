@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkpoint</title>
+<!--    todo make this a list per trail or per town that when clicked brings to unique location page-->
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+</head>
+<body>
+
+<main>
+    <header th:insert="~{/fragments/Templating.html::header}"></header>
+    <div th:each="coord, indexValue:${locationCoords}">
+        <p th:text="*{coord.getLocationID()}"></p>
+<!--        <p th:text="${locations[indexValue.index]}"></p>-->
+        <H1 th:text="${location[indexValue.index].getLocationName()}"> </H1>
+        <H4 th:text="${location[indexValue.index].getLocationPlace()}"> </H4>
+        <p th:text="${location[indexValue.index].getLocationDescription()}"></p>
+
+
+        <iframe
+                width="600"
+                height="400"
+                frameborder="0"
+                scrolling="yes"
+                marginheight="0"
+                marginwidth="0"
+                th:src="'https://maps.google.com/maps?q='+ ${coord.getLocationCoordsLat()} +','+ ${coord.getLocationCoordsLong()} +'&hl=en&z=20&amp;output=embed'">
+        </iframe>
+        <br />
+<!--        <small>-->
+<!--&lt;!&ndash;            <a&ndash;&gt; //https://maps.google.com/maps?q=51.57623,-3.21910&hl=es&z=14&amp;output=embed">-->
+<!--                    th:href="https://maps.google.com/maps?q='+{coord.getLocationCoordsLat()}+','+*{coord.getLocationCoordsLong()}+'&hl=es;z=14&amp;output=embed"-->
+<!--                    style="color:#0000FF;text-align:left"-->
+<!--                    target="_blank"-->
+<!--            >-->
+<!--                See map bigger-->
+<!--            </a>-->
+<!--        </small>-->
+
+    </div>
+
+
+</main>
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
+</body>
+</html>

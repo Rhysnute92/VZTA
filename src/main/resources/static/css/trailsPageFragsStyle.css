@@ -1,0 +1,36 @@
+.trailsFragment{
+    background-color: rgb(206, 153, 253);
+    color: black;
+    border-color: white;
+    align-content: center;
+    text-align: center;
+    border-radius: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+.trailsPageFrag{
+    background:  rgb(41, 41, 41);
+    color: wheat;
+}
+
+iframe{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: white 2px solid;
+}
+H1{
+    padding-top: 15px;
+    padding-bottom:3px ;
+    margin-bottom: 0;
+}
+#trailHeader{
+    margin: 0;
+    padding: 0;
+
+}
+
+#checkpointList{
+    list-style: none;
+    padding-bottom: 10px;
+}

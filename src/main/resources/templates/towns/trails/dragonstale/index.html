@@ -8,7 +8,7 @@
     <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
 </head>
     <body>
-        <header th:insert="towns/Templating.html :: header"></header>
+        <header th:insert="fragments/Templating.html :: header"></header>
 
         <!-- As this predefined trail will be accessible from multiple different towns, this thymeleaf element will display the town the user is currently trying to access and display it accordingly.   <span th:text="${townName}">  -->
         <div class="centre">
@@ -49,7 +49,7 @@
             <button type="button" id="begin">Click here!</button>
         </div>
 
-        <div th:insert="towns/Templating.html :: footer"></div>
+        <div th:insert="fragments/Templating.html :: footer"></div>
 
         <script>
 

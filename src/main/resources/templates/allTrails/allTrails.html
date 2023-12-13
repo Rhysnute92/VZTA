@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<header th:replace="~{/towns/Templating.html :: header}"></header>
-
+<header th:replace="~{/fragments/Templating.html :: header}"></header>
+<div>TEST</div>
 <main>
     <section id="allTrailsBar" class="centerFlex">
         <img class="trailsImages"
@@ -31,7 +31,7 @@
     </section>
 
 </main>
-<footer th:insert="~{/towns/Templating.html :: footer}"></footer>
+<footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
 
 
 <script type="text/javascript" th:src="@{scripts/allTrails.js}"></script>

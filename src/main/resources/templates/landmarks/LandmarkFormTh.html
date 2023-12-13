@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landmark Sign Up</title>
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+    <script src="scripts/landmarkFormThScript.js"></script>
+
+
+</head>
+<body>
+<header th:insert="~{/fragments/Templating.html :: header}"></header>
+<hr style="height:20px; visibility:hidden;" />
+<H2 id="landmarkFormTitle"> Interested in joining our trails? Sign up Here! </H2>
+<main>
+<!--    Form used to submit potential landmarks for trails-->
+    <form action="/landmarkSub" id="landmarkSubmission" name="landmarkSubmission" method="post" th:object="${landmarkData}" onsubmit="return landmarkFormValidation()">
+
+        <br>
+        <label>Business Name:
+           <input type="text" th:field="*{landmarkName}" placeholder="Business name here...">
+        </label><br>
+        <div th:errors="*{landmarkName}" th:if="${#fields.hasErrors('landmarkName')}">ErrorLandmarkName</div>
+        <br><label>Contact Address:
+            <input type="text" th:field="*{landmarkEmail}" placeholder="E-mail here...">
+        </label><br>
+        <div th:errors="*{landmarkEmail}" th:if="${#fields.hasErrors('landmarkEmail')}">ErrorEmail</div>
+        <br><label>Please Describe Your Business:<br>
+            <textarea th:field="*{landmarkDescription}" rows="18" cols="70" placeholder="Max 200 words please..."></textarea>
+        </label><br><br>
+        <label>Your Location:
+            <select th:field="*{landmarkLocation}">
+                <option value="" hidden="true">Select Location</option>
+                <option value=""  selected disabled>Select Location</option>
+                <option value="Caerphilly">Caerphilly</option>
+                <option value="Risca">Risca</option>
+                <option value="Penarth">Penarth</option>
+            </select>
+        </label><br><br>
+        <label>Trail:
+            <select th:field="*{trailID}">
+                <option value=0 hidden="true">Select Trail</option>
+                <option value=0 disabled selected>Select Trail</option>
+                <option value=101>(Caerphilly) Castle Trail</option>
+                <option value=0102>(Caerphilly) Pub Trail</option>
+                <option value=0103>(Caerphilly) Heritage Trail</option>
+                <option value=0201>(Risca) Heritage and Culture Trail</option>
+                <option value=0301>(Penarth) Esplanade Trail</option>
+            </select>
+
+        </label><br><br>
+
+
+        <input type="submit">
+        <hr style="height:0px; visibility:hidden;" />
+    </form>
+
+    <hr style="height:40px; visibility:hidden;" />
+</main>
+
+
+<footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
+</body>
+</html>
