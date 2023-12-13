@@ -81,18 +81,11 @@ public class PlacesController {
         ModelAndView modelAndView = new ModelAndView("landmarks/trailsPage.html");
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
         List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
-
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
-        List<Location> locations =  locationRepo.getAllLocation();
-        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Integer> locationIDIndex = new ArrayList<Integer>();
         List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-        for (LocationsCoordinates coord: locCoords){
-            locationIDIndex.add(coord.getLocationID()-1);
-            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-        }
+
         modelAndView.addObject("trails", trailslocations);
-        modelAndView.addObject("locations", locationCoordsWorkaround);
+        modelAndView.addObject("locations", approvedLocations);
         modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }
@@ -105,18 +98,10 @@ public class PlacesController {
 
     @GetMapping("/trails/{trail}")
     public ModelAndView getResultBySearchKeyTrails(@PathVariable String trail) {
-        List<Location> locations =  locationRepo.getAllLocation();
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
-        List<Integer> locationIDIndex = new ArrayList<Integer>();
-        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-        int trailID = 999;
-        int workAroundID=0;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
-        for (LocationsCoordinates coord: locCoords){
-            locationIDIndex.add(coord.getLocationID()-1);
-            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-        }
-
+        int trailID = 999;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
         for (int i=0;i<trailslocations.size();i++){
 
             if (trailslocations.get(i).getTrailName().replace(' ', '-').trim().equals(trail)){
@@ -126,24 +111,8 @@ public class PlacesController {
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
         modelAndView.addObject("trail", trailslocations.get(trailID));
         modelAndView.addObject("locCoords", locCoords);
-        modelAndView.addObject("locations", locationCoordsWorkaround);
+        modelAndView.addObject("locations", approvedLocations);
         return modelAndView;
-
-
-
-//        List<Trail> trailslocations =  trailsRepo.getAllTrails();
-//        List<Location> locations =  locationRepo.getAllLocation();
-//        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-//        List<Integer> locationIDIndex = new ArrayList<Integer>();
-//        List<Location> locationCoordsWorkaround = new ArrayList<Location>();
-//        for (LocationsCoordinates coord: locCoords){
-//            locationIDIndex.add(coord.getLocationID()-1);
-//            locationCoordsWorkaround.add(locations.get(coord.getLocationID()-1));
-//        }
-//        modelAndView.addObject("trails", trailslocations);
-//        modelAndView.addObject("locations", locationCoordsWorkaround);
-//        modelAndView.addObject("locationCoords", locCoords);
-//        return modelAndView;
     }
 
 }
