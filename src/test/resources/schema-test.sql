@@ -5,18 +5,29 @@
 DROP DATABASE IF EXISTS test_towns;
 CREATE DATABASE IF NOT EXISTS test_towns;
 USE test_towns;
-DROP TABLE IF EXISTS trails;
-DROP TABLE IF EXISTS locations;
+/****************************************************************/
+
+/* DROPS ALL TABLES IF THEY EXIST (they wont but just in case) */
+
+drop table if exists locationCoordinates;
+drop table if exists locations;
+drop table if exists trails;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS stickers;
 DROP TABLE IF EXISTS packs;
 DROP TABLE IF EXISTS stickerProgress;
 
 
-CREATE TABLE IF NOT EXISTS trails (
-                                      trailID bigint auto_increment primary key,
-                                      name varchar(128),
-                                      tru boolean
+
+/****************************************************************/
+
+/* CREATES ALL TABLES */
+
+create table if not exists trails
+(
+    trailID varchar(128) primary key,
+    trailName varchar(128),
+    trailNumber varchar(128)
 )   engine=InnoDB;
 
 drop table if exists locationCoordinates;
@@ -31,6 +42,8 @@ create table if not exists locations
     locationTrailID varchar(128),
     locationApproved boolean
 )   engine=InnoDB;
+
+
 CREATE TABLE IF NOT EXISTS users (
                                      username varchar(30) primary key NOT NULL,
                                      id bigint auto_increment unique, /*DEPRECATED COLUMN, LEFT IN WHILE SOME OTHER FUNCTIONS STILL USE IT*/
@@ -62,7 +75,6 @@ CREATE TABLE IF NOT EXISTS stickers (
                                         description text NOT NULL,
                                         rarity tinyint
 );
-
 CREATE TABLE IF NOT EXISTS stickerProgress (
                                                id bigint auto_increment primary key,
                                                username varchar(30) NOT NULL,
@@ -106,5 +118,4 @@ create table if not exists townsWithTrails
     townRightmostCoordsLong varchar(128)
 
 )engine=InnoDB;
-
 

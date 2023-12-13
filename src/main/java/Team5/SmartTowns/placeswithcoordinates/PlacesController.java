@@ -4,6 +4,7 @@ import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
 import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
+import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,26 +52,22 @@ public class PlacesController {
         return "checkpoint/checkpoint";
     }
 
+
+
+
         @GetMapping("/checkpoints/{location}")
     public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
-            List<Location> locations =  locationRepo.getAllLocation();
             List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-
-            List<Integer> locationIDIndex = new ArrayList<Integer>();
-            List<Location> locationCoordsWorkaround = new ArrayList<Location>();
+            List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
             int locationID = 999;
-            int workAroundID=0;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
-            for (int i=0;i<locCoords.size();i++){ /// for loop iterating over coordinates table need to match coordinate index with location index manually
-                locationIDIndex.add(locCoords.get(i).getLocationID()-1); // gets location ID and therefore location list index number
-                locationCoordsWorkaround.add(locations.get(locCoords.get(i).getLocationID()-1));
-                if ( (locations.get(locCoords.get(i).getLocationID() - 1).getLocationName().replace(' ', '-').trim().equals(location)) ){
+            for (int i=0;i<approvedLocations.size();i++){
+                if ( (approvedLocations.get(i).getLocationName().replace(' ', '-').trim().equals(location)) ){
                     locationID= i;
-                    break;
-                } workAroundID++;
+                }
             }
         ModelAndView modelAndView= new ModelAndView("fragments/locationPageFrags :: locationSection");
         modelAndView.addObject("locCoord", locCoords.get(locationID));
-        modelAndView.addObject("location", locationCoordsWorkaround.get(locationID));
+        modelAndView.addObject("location", approvedLocations.get(locationID));
         return modelAndView;
     }
 
@@ -82,6 +79,9 @@ public class PlacesController {
     @GetMapping("/trails")
     public ModelAndView getTrailsPage(){
         ModelAndView modelAndView = new ModelAndView("landmarks/trailsPage.html");
+        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
         List<Location> locations =  locationRepo.getAllLocation();
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
@@ -118,10 +118,6 @@ public class PlacesController {
         }
 
         for (int i=0;i<trailslocations.size();i++){
-            System.out.println(trail);
-            System.out.println(i);
-            System.out.println(trailslocations.get(i).getTrailName());
-            System.out.println(trailslocations.get(i).getTrailName().replace(' ', '-').trim());
 
             if (trailslocations.get(i).getTrailName().replace(' ', '-').trim().equals(trail)){
                 trailID=i;

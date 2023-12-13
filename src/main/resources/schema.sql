@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS stickers (
     name varchar(30) NOT NULL,
     description text NOT NULL,
     rarity tinyint
-
+);
 CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
     username varchar(30) NOT NULL,
