@@ -1,6 +1,7 @@
 //Implements the users repository using JDBC
 package Team5.SmartTowns.users;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.object.SqlQuery;
@@ -59,7 +60,7 @@ public class UserRepositoryJDBC implements UserRepository{
     }
 
     @Override
-    public boolean addUser(String username, String email, String password){
+    public boolean addUser(String username, String email, String password) throws DataAccessException{
         /* Adds new user to the database */
         String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?);";
         String query2= "INSERT INTO authorities (username, authority) VALUES (?,?);";

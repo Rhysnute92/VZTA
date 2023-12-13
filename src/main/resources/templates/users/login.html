@@ -11,15 +11,20 @@
 <body>
 
 <header>
+    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="false">
+        <input hidden type="submit" value="Sign Out"/>
+        <button type="submit">CLICK ME OT LOG OUT</button>
+    </form>
 </header>
 
 <main>
     <!--CODE MODIFIED FROM: https://github.com/AsmrProg-YT/Modern-Login -->
     <div class="container sign-in">
-        <div class="container" id="container">
+        <div class="container" th:classappend="${status}" id="container">
             <div class="form-container sign-up">
                 <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return registerFormValidation()">
                     <h1>Create Account</h1>
+                    <div th:if="${error.equals('User exists')}" class="alert alert-error">User already exist</div>
                     <label>
                         <input class="input" th:field="*{name}" id="register-username" type="text" placeholder="Name">
                     </label>
@@ -36,7 +41,6 @@
                 <form  name="f" th:action="@{/login}" th:method="POST">
                     <h1>Sign In</h1>
                     <div th:if="${param.error}" class="alert alert-error">Invalid Username or Password</div>
-                    <div th:if="${param.logout}" class="alert alert-success">Successfully Logged out</div>
                     <label>
                         <input class="input" id="username" type="text" name="username" placeholder="Email">
                     </label>
@@ -55,8 +59,9 @@
                         <button class="hidden" id="login">Sign In</button>
                     </div>
                     <div class="toggle-panel toggle-right">
-                        <h1>Hello, Welcome!</h1>
-                        <p>Register with your personal details and start earning stickers!</p>
+                        <div th:if="${param.logout}" class="alert alert-success">Successfully Logged out</div>
+                        <h1 th:if="!${param.logout}">Hello, Welcome!</h1>
+                        <p th:if="!${param.logout}">Register with your personal details and start earning stickers!</p>
                         <button class="hidden" id="register">Sign Up</button>
                     </div>
                 </div>
