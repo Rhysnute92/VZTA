@@ -17,13 +17,23 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
     }
     private void settrailsMapper(){
         trailMapper = (rs, i) -> new Trail(
-                rs.getInt("trailID"),
-                rs.getString("name"),
-                rs.getBoolean("tru")
+                rs.getString("trailID"),
+                rs.getString("trailName"),
+                rs.getString("trailNumber")
         );
     }
     public List<Trail> getAllTrails(){
         String sql= "SELECT * FROM trails";
         return jdbc.query(sql, trailMapper);
     }
+    @Override
+    public String getTrailNameWithID(String trailsID){
+        String resultName = jdbc.queryForObject(
+                "SELECT trailName FROM trails WHERE trailID=?", String.class, trailsID);
+        return resultName;
+
+
+    }
+
+
 }
