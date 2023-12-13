@@ -30,7 +30,7 @@
         <div class="dropdown">
             <button class="dropdownButton">There are <span th:text="${getListSize}"> Size of List </span> adventures in this journey! </button>
             <ul th:each="item : ${landmarksList}" id="tabBox">
-                <li>
+                <li class="content">
                     <a id="#" href="#landmarkTabLink" th:text="${item.landmarkName}"> Landmark Tab</a>
                     <button id="qrCodeScanner" onclick="getQR()">Click here to scan a QR code for: <span th:text="${item.landmarkName}">Landmark Name Here</span></button>
                 </li>

@@ -8,14 +8,33 @@ body{
     background-color: #927BB7;
 }
 
-.dropdown{
+.dropdown button{
     background-color: coral;
     color: white;
-    padding: 20px;
+    padding: 25px;
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
+
+.dropdown a{
+    display: block;
+    color: #393433;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.dropdown .content{
+    position: absolute;
+    background-color: #D3B69C;
+    min-width:100px;
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+
+
 .images{
     max-width:100%;
     height:auto;

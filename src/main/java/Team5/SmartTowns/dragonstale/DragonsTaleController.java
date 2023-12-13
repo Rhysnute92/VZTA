@@ -36,12 +36,12 @@ public class DragonsTaleController {
         return modelAndView;
     }
 
-    @GetMapping("/dragonstale/{landmarkID}")
-    public Integer getDTLandmarkID(@RequestParam(value="landmarkID") int landmark){
-        Integer idCounter = 0;
-        modelAndView = new ModelAndView("/dragonstale/{landmarkID}")
-                .addObject() //All your doing is retrieving the information from the database giving it to a string variable.
-    }
+//    @GetMapping("/dragonstale/{landmarkID}")
+//    public Integer getDTLandmarkID(@RequestParam(value="landmarkID") int landmark){
+//        Integer idCounter = 0;
+//        modelAndView = new ModelAndView("/dragonstale/{landmarkID}")
+//                .addObject() //All your doing is retrieving the information from the database giving it to a string variable.
+//    }
 
     //Create another controller that directs to the given DragonsTale..Trail.. and updates the users account accordingly.
 
