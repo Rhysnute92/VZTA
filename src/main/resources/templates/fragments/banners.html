@@ -15,7 +15,10 @@
         <a href="/login" class="nav-links">Log In</a>
       </li>
       <li class="nav-li li-last" th:if="${#authentication.principal}!=anonymousUser">
-        <a href="/logout" class="nav-links">Log Out</a>
+        <a class="nav-links" href="javascript: document.logoutForm.submit()" role="menuitem">Log Out</a>
+        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+          <input hidden type="submit" value="Sign Out"/>
+        </form>
       </li>
     </ul>
   </nav>
