@@ -1,51 +1,73 @@
-let username = document.forms["loginForm"]["username"];
-let password = document.forms["loginForm"]["password"];
-let pattern = new RegExp("^[a-z0-9_-]{3,15}$");
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
 
-username.addEventListener("input", validateUsername)
-password.addEventListener("input", validatePassword)
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
 
-function validateUsername() {
-    if (!(username.value === "") && pattern.test(username.value)){
-        username.classList.remove("invalid-field");
-        username.classList.add("valid-field");
-        document.getElementById(username.name+"Invalid").style.opacity = 0;
-        username.style.borderColor = "green";
-        return true;
-    } else if( ! (username.classList.contains("invalid-field") ) ){
-        username.classList.add("invalid-field");
-        username.classList.remove("valid-field");
-        document.getElementById(username.name+"Invalid").style.opacity = 1;
-        username.style.borderColor = "red";
-    }
-    return false;
-}
-function validatePassword(){
-    if (password.value === "") {
-        password.classList.add("invalid-field");
-        password.classList.remove("valid-field");
-        document.getElementById(password.name+"Invalid").style.opacity = 1;
-        password.style.borderColor = "red";
-        return false;
-    } else if( ! (password.classList.contains("valid-field") ) ) {
-        password.classList.remove("invalid-field");
-        password.classList.add("valid-field");
-        document.getElementById(password.name+"Invalid").style.opacity = 0;
-        password.style.borderColor = "green";
-    }
-    return true;
-}
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
 
-function validateForm(){
-    if (validateUsername() & validatePassword()) { //Using just & so it checks both, even if the first is false (it applies the style)
-        console.log("VALID");
-        return false;
-    } else {
-        console.log("Invalid");
-        document.getElementById("invalidLogin").style.opacity = 1;
-        return false;
+
+const emailRegEx = new RegExp(/^[A-Za-z0-9.-_]+@[A-Za-z0-9.-]+\.[A-Za-z]+$/m);
+const passwordRegEx = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+$/m);
+const usernameRegEx = new RegExp(/^[A-Za-z ]+$/m);
+
+function loginFormValidation(){
+    let pass= true;
+    let email = $("#login-email").val();
+    let password = $("#login-password").val();
+    if (email === "") {
+        alert("Email cannot be empty");
+        pass = false;
+    } else if ( !(emailRegEx.test(email)) ) {
+        pass = false;
+        alert("Invalid Email address")
     }
-    //TODO SERVER SIDE VALIDATION AND CHECK AGAINST USERS DB TABLE
+    if (password === "") {
+        alert("Password cannot be empty");
+        pass = false;
+    } else if ( !(passwordRegEx.test(password)) ) {
+        pass = false;
+        alert("Password contains invalid characters");
+    }
+    return pass;
 }
 
+function registerFormValidation(){
+    /*WHYTF THIS DONT WORK*/
+    let pass=true;
+    let email = $("#register-email").val();
+    let username = $("#register-username").val();
+    let password = $("#register-password").val();
 
+    if (email == "") {
+        console.log("Email empty bit")
+        pass = false;
+        alert("Email cannot be empty");
+    } else if ( !(emailRegEx.test(email)) ) {
+        console.log("Email no match")
+        pass = false;
+        alert("Invalid Email address");
+    }
+
+    if (username == "") {
+        pass = false;
+        alert("Username cannot be empty")
+    } else if ( !(usernameRegEx.test(username)) ) {
+        console.log(!usernameRegEx.test(username));
+        pass = false;
+        alert("Invalid username");
+    }
+
+    if (password == "") {
+        pass = false;
+        alert("Password cannot be empty");
+    } else if ( !(passwordRegEx.test(password)) ) {
+        pass = false;
+        alert("Password contains invalid characters");
+    }
+    return pass;
+}

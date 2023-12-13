@@ -50,3 +50,19 @@ INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 1,
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
 
+INSERT INTO users (username, password) VALUE ('Admin', 'admin');
+INSERT INTO users (username, password) VALUE ('Hannah', 'root');
+INSERT INTO users (username, password) VALUE ('Nigel', 'root');
+INSERT INTO users (username, password) VALUE ('Oscar', 'root');
+INSERT INTO users (username, email, password) VALUE ('kevin','Kevin@Gmail.com' ,'root');
+
+INSERT INTO authorities (username, authority) VALUE ('Admin', 'ADMIN');
+INSERT INTO authorities (username, authority) VALUE ('Hannah', 'USER');
+
+DELETE FROM stickerprogress;
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 1, 1);
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 1, 2);
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 1, 3);
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 1, 5);
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 2, 1);
+INSERT INTO stickerprogress (username, packID, stickerID) VALUE ('Admin', 2, 3);
