@@ -92,11 +92,11 @@ public class LocationsCoordinates {
 //        JdbcTemplate jdbcSuper= new LocationRepositoryJDBC().getJdbc();
 //        return new LocationRepositoryJDBC(jdbcSuper).getApprovedLocations();
 //    }
-
-    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
-//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
-    }
+//
+//    public List<Location> getFullUnapprovedLocations(JdbcTemplate aJdbc){
+////        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        return new LocationRepositoryJDBC(aJdbc).getUnapprovedLocations();
+//    }
 
 
 

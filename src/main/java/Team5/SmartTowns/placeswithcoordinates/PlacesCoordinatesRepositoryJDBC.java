@@ -77,10 +77,10 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
     }
 
 
-    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
-//        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
-        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
-    }
+//    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
+////        LocationsCoordinates jdbcSuper= new LocationsCoordinates(aJdbc);
+//        return new LocationRepositoryJDBC(aJdbc).getApprovedLocations();
+//    }
 
 //    @Override //TODO CHECK
 //    public List<Location> getFullApprovedLocations(JdbcTemplate aJdbc) {
