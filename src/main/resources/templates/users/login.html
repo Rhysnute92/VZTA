@@ -19,8 +19,9 @@
         <div class="container" th:classappend="${status}" id="container">
             <div class="form-container sign-up">
                 <h1 class="form-title">Create Account</h1>
-                <form th:object="${user}" action="#" th:action="@{/login/register}" th:method="POST" onsubmit="return registerFormValidation()">
+                <form th:object="${user}" action="#" th:action="@{/register}" th:method="POST" onsubmit="return registerFormValidation()">
                     <div th:if="${error.equals('User exists')}" class="alert alert-error">User already exist</div>
+                    <div th:text="${errors}" class="alert alert-error"></div>
                     <label>
                         <input class="input" th:field="*{name}" id="register-username" type="text" placeholder="Name">
                     </label>
@@ -38,6 +39,7 @@
                 <form  name="f" th:action="@{/login}" th:method="POST">
                     <div th:if="${param.error}" class="alert alert-error">Invalid Username or Password</div>
                     <div th:if="${param.logout}" class="alert alert-success">Successfully Logged out</div>
+                    <div th:if="${param.register}" class="alert alert-success">Account Created Successfully</div>
                     <label>
                         <input class="input" id="username" type="text" name="username" placeholder="Email">
                     </label>

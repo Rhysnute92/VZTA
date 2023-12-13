@@ -43,7 +43,7 @@ public class UserController {
 //        return mav;
 //    }
 
-    @PostMapping("/login/register")
+    @PostMapping("/register")
     public ModelAndView registerUser(@Valid @ModelAttribute("user") NewUser user, BindingResult bindingResult, Model model) {
         ModelAndView mav = new ModelAndView("users/login", model.asMap());
         // TODO VALIDATE EMAIL INPUT
@@ -51,19 +51,12 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("users/login");
             modelAndView.addObject("errors", bindingResult);
+            modelAndView.addObject("error", "");
             return modelAndView;
         }
-
-        if ( userRepository.doesUserExist(user.getEmail()) ) {
-            mav.addObject("errors", "Email already in use");
-            return mav;
-        }
-
         try {
             userRepository.addUser(user.name, user.email, user.password);
-            mav.addObject("error", "");
-            //TODO return user creation success
-            return mav;
+            return new ModelAndView("redirect:/login?register");
         } catch (DataAccessException e) {
             mav.addObject("error", "User exists");
         }
@@ -81,6 +74,7 @@ public class UserController {
         mav.addAllObjects(getPackInfo("Admin", 1).getModelMap());
         return mav;
     }
+
 
 
     /* USER MAPPING & FUNCTIONS */
