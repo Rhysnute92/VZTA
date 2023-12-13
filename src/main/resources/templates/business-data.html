@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
     <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
-<header th:insert="~{/towns/Templating.html::header}"></header>
+<header th:insert="fragments/Templating.html :: header"></header>
 <body>
 <div id="container1">
     <h2>Enter your Business information</h2>
@@ -37,5 +37,5 @@
     </form>
 </div>
 </body>
-<footer th:insert="~{/towns/Templating.html::footer}"></footer>
+<div th:insert="fragments/Templating.html :: footer"></div>
 </html>
