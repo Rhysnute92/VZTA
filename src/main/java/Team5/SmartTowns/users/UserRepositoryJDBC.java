@@ -50,8 +50,11 @@ public class UserRepositoryJDBC implements UserRepository{
     public boolean unlockSticker(String username, int packID, int stickerID){
         /* Adds entry in the stickerprogress database, effectively unlocking the sticker for the user
         *  Returns false if no sticker is unlocked */
-        String query = "SELECT COUNT(id) FROM stickers WHERE (stickerID, packID) = (stickerID, packID)";
-        if (jdbc.queryForObject(query, Integer.class) == 1){ //Checks if sticker exists
+        String query = "SELECT COUNT(id) FROM stickers WHERE (stickerID, packID) = (?, ?)";
+
+        int stickerCount = jdbc.queryForObject(query, Integer.class, stickerID, packID);
+
+        if (stickerCount == 1){ //Checks if sticker exists
             String sql = "INSERT INTO stickerprogress (username, packID, stickerID) VALUES (?,?,?)";
             jdbc.update(sql, username, packID, stickerID);
             return true;
