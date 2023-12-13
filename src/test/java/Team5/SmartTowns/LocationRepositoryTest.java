@@ -66,6 +66,27 @@ public class LocationRepositoryTest  {
         } assertTrue(noApporvedLeft);
     }
 
+
+    @Test
+    public void testGetAllUnapprovedLocations() {
+        List<Location> unapprovedLocations = locationRepository.getAllUnapprovedLocations();
+        List<Location> allLocations = locationRepository.getAllLocation();
+        for (int i=0;i<allLocations.size();i++){ // iterate over all location, removing authorised=false
+            for (Location app : unapprovedLocations){
+                if (Objects.equals(allLocations.get(i).getLocationName(), app.getLocationName())){
+                    allLocations.remove(allLocations.get(i));
+                }
+            }
+        } boolean noUnapporvedLeft=false;
+        for (Location loc2: allLocations){
+            if (!loc2.isLocationApproved()){
+                noUnapporvedLeft=false;
+                break;
+            } else{
+                noUnapporvedLeft=true;
+            }
+        } assertTrue(noUnapporvedLeft);
+    }
     @Test
     public void ensureApprovedLocationsAndCoordinatessAreTheSameSize(){
         List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
