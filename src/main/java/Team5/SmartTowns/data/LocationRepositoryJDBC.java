@@ -97,6 +97,7 @@ public class LocationRepositoryJDBC implements LocationRepository {
 
 
     public int nametoLocationID(String name){
+        int locationID = jdbc.queryForObject("SELECT locationID FROM locations WHERE locationName=?", Integer.class, name);
 
 
     }
