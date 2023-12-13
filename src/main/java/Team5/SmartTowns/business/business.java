@@ -2,8 +2,10 @@ package Team5.SmartTowns.business;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class business {
     private String businessName;

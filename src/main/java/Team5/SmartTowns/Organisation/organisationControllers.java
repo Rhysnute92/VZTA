@@ -25,6 +25,12 @@ public class organisationControllers {
         ModelAndView modelAndView = new ModelAndView("businesses");
         return modelAndView;
     }
+    @GetMapping("/businessSub")
+    public ModelAndView getBusinessSubPage(){
+        ModelAndView modelAndView = new ModelAndView("business-data");
+        modelAndView.addObject("business", new business());
+        return modelAndView;
+    }
     @Autowired
     private businessRepository businessRepository;
     @PostMapping("/business-data")

@@ -3,42 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Businesses</title>
-    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
 <div id="container1">
     <h2>Enter your Business information</h2>
-    <form action="businesses.php" method="post" id="data">
-        <p>
-            <label for="businessName">Enter your business name</label>
-            <input type="text" name="business_name" id="businessName">
-        </p>
-        <p>
-            <label for="address1">Please enter first line of your address</label>
-            <input type="text" name="address_1" id="address1">
-        </p>
-        <p>
-            <label for="address2">Please enter second line of your address (optional)</label>
-            <input type="text" name="address_2" id="address2">
-        </p>
-        <p>
-            <label for="city">Please enter the City/Town</label>
-            <input type="text" name="city" id="city">
-        </p>
-        <p>
-            <label for="county">Please enter you county (optional)</label>
-            <input type="text" name="county" id="county">
-        </p>
-        <p>
-            <label for="postcode">Please enter your postcode</label>
-            <input type="text" name="post_code" id="postcode">
-        </p>
-        <p>
-            <label for="website">Please enter your website address</label>
-            <input type="url" name="web_site" id="website">
-        </p>
-        <input type="submit" value="Submit Data">
+    <form action="/business-data" id="data" name="data" method="post" th:object="${business}">
+        <br>
+        <label>Enter your business
+            <input type="text" th:field="*{businessName}">
+        </label><br><br>
+        <label>Please enter first line of your address
+            <input type="text" th:field="*{address1}">
+        </label><br><br>
+        <label>Please enter second line of your address (optional)
+            <input type="text" th:field="*{address2}">
+        </label><br><br>
+        <label>Please enter the City/Town
+            <input type="text" th:field="*{city}">
+        </label><br><br>
+        <label>Please enter you county (optional)
+            <input type="text" th:field="*{county}">
+        </label><br><br>
+        <label>Please enter your postcode
+            <input type="text" th:field="*{postcode}">
+        </label><br><br>
+        <label>Please enter your website address
+            <input type="text" th:field="*{website}">
+        </label><br><br>
+        <input type="submit">
     </form>
 </div>
 </body>

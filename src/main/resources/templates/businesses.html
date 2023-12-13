@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Businesses</title>
-    <link rel="stylesheet" th:href="@{css\businessesStyle.css}">
-    <link rel="stylesheet" th:href="@{css\templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
 <header th:insert="~{/towns/Templating.html::header}"></header>
 <body>
+<p>A business is an organised establishment in a professional manner in order to achieve your particular aim for owning a business.</p>
 <h3>Future Proof Businesses</h3>
 <h3>Compete with Online Retailers</h3>
 <h3>Drive Footfall to the high street</h3>
 <h3>Increase Sales</h3>
-<ul th:each="business:${business}">
+<ul th:each="business:${businesses}">
     <li th:text="${business}"></li>
 </ul>
-<button><a href="business-data.html" id="business">Businesses please enter here</a></button>
+<button><a href="/businessSub" id="business">Businesses please enter here</a></button>
 </body>
 <footer th:insert="~{/towns/Templating.html::footer}"></footer>
 </html>
