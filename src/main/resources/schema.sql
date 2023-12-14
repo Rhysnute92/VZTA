@@ -1,9 +1,30 @@
+
+/* DELETES AND RECREATES DATABASE EVERY TIME THE SYSTEM IS BOOTED*/
+DROP DATABASE IF EXISTS towns;
+CREATE DATABASE IF NOT EXISTS towns;
+USE towns;
+/****************************************************************/
+
+/* DROPS ALL TABLES IF THEY EXIST (they wont but just in case) */
+
+drop table if exists locationCoordinates;
+drop table if exists locations;
 drop table if exists trails;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS stickers;
+DROP TABLE IF EXISTS packs;
+DROP TABLE IF EXISTS stickerProgress;
+
+
+
+/****************************************************************/
+
+/* CREATES ALL TABLES */
 create table if not exists trails
 (
-    trailID bigint auto_increment primary key,
-    name varchar(128),
-    tru boolean
+    trailID varchar(128) primary key,
+    trailName varchar(128),
+    trailNumber varchar(128)
 )   engine=InnoDB;
 
 drop table if exists locationCoordinates;
@@ -20,52 +41,52 @@ create table if not exists locations
 )   engine=InnoDB;
 
 
-drop table if exists users;
-drop table if exists stickers;
-drop table if exists packs;
-drop table if exists stickerProgress;
-
-create table if not exists users
-(
-    id bigint auto_increment primary key,
+CREATE TABLE IF NOT EXISTS users (
+    username varchar(30) primary key NOT NULL,
+    id bigint auto_increment unique, /*DEPRECATED COLUMN, LEFT IN WHILE SOME OTHER FUNCTIONS STILL USE IT*/
     email varchar(128),
-    name varchar(30),
-    dragonProgress int,
-    dragonsLandmarkIDs longtext
-) engine=InnoDB;
+    password varchar(30) NOT NULL,
+    enabled boolean default true
+);
 
+CREATE TABLE IF NOT EXISTS authorities (
+    id bigint primary key auto_increment NOT NULL,
+    username varchar(30) NOT NULL ,
+    authority varchar(45) NOT NULL
+);
 
-create table if not exists packs
-(
+CREATE TABLE IF NOT EXISTS packs (
     id bigint auto_increment primary key,
-    name varchar(20),
+    name varchar(20) NOT NULL,
     description text
-) engine=InnoDB;
+);
 
-create table if not exists stickers
-(
+CREATE TABLE IF NOT EXISTS stickers (
     id bigint auto_increment primary key,
-    packID bigint,
+    packID bigint NOT NULL,
     FOREIGN KEY (packID) REFERENCES packs(id)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
-    stickerID bigint, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
-    name varchar(30),
-    description text,
+    stickerID bigint NOT NULL, /*STICKER ID NUMBER WITHIN ITS OWN PACK*/
+    name varchar(30) NOT NULL,
+    description text NOT NULL,
     rarity tinyint
-
-) engine=InnoDB;
-
-create table if not exists stickerProgress
-(
+);
+CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
-    userID bigint,
-    stickerID bigint
-) engine=InnoDB;
-
-
-
-
+    username varchar(30) NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    packID bigint NOT NULL,
+    FOREIGN KEY (packID) REFERENCES packs(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    stickerID bigint NOT NULL,
+        FOREIGN KEY (stickerID) REFERENCES stickers(id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
+);
 
 create table if not exists locationCoordinates
 (

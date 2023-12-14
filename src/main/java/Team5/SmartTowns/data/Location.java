@@ -14,7 +14,7 @@ public class Location {
     private String locationEmail;
     private String locationDescription;
     private String locationPlace;
-    private int locationTrailID;
+    private String locationTrailID;
 
 
     private boolean locationApproved;
@@ -51,7 +51,7 @@ public class Location {
         return locationPlace;
     }
 
-    public int getLocationTrailID() {
+    public String getLocationTrailID() {
         return locationTrailID;
     }
 
@@ -70,6 +70,31 @@ public class Location {
         this.locationDescription = locationDescription;
         this.locationPlace = locationPlace;
         this.locationTrailID = locationTrailID;
+        this.locationApproved = locationApproved;
+    }
+
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public void setLocationEmail(String locationEmail) {
+        this.locationEmail = locationEmail;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
+    }
+
+    public void setLocationPlace(String locationPlace) {
+        this.locationPlace = locationPlace;
+    }
+
+    public void setLocationTrailID(String locationTrailID) {
+        this.locationTrailID = locationTrailID;
+    }
+
+    public void setLocationApproved(boolean locationApproved) {
         this.locationApproved = locationApproved;
     }
 }

@@ -1,210 +1,87 @@
 * {
-   box-sizing: border-box;
-   padding: 0;
-   margin: 0;
-}
-
-#homeHead{
-    color: inherit;
-    text-decoration: none;
-    padding: 0;
-    margin: 0;}
-
-.center {
-    text-align: center;
-}
-body {
-    background-color: rgb(41, 41, 41);
-    margin: 0%;
-}
-.headerBlock {
-    background-color: rgb(15, 15, 15);
-    padding-bottom: 20px;
-    box-shadow: 0 10px 20px black;
-    .headerTitle {
-        text-align: center;
-        padding: 10px 10px 0 10px;
-        margin: 0 50px 0 50px;    
-        letter-spacing: 10px;
-        font-size: 50px;
-        font-style: italic;
-        color: blueviolet;
-        text-shadow: black 3px 3px 5px;
-        border-bottom: 3px blueviolet solid;
-    }
-    .headerBanner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        height: 200px;
-        border-top: grey solid 2px;
-        border-bottom: grey solid 2px;
-
-        .bannerBack {
-            opacity: 0.6;
-            width: 100%;
-            left: 0;
-            top: 0;
-            position: absolute
-        }
-        .bigTitle {
-            color:white;
-            text-align: center;
-            position: relative;
-            font-size: 50px;
-            margin: 20px 20px 5px;
-        }
-        .smallTitle {
-            position: relative;
-            color:white;
-            text-align: center;
-            font-size: 20px;
-            margin: 5px 20px 20px;
-        }
-    }
-}
-
-
-
-.mainTrails{
-    overflow: hidden;
-    position: relative;
-    height: 200px;
-    border-top: grey solid 2px;
-    border-bottom: grey solid 2px;
-}
-.trailList {
-    .ulHeader {
-        margin: 30px;
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        padding: 0px;
-        border-bottom: solid black 5px;
-
-        .liHeader {
-            
-            flex: 1 1 0px;
-            padding-left: 10px;
-            padding-right: 10px;
-            color: white;
-            text-align: center;
-        }
-        .liHeader:hover {
-            color: blueviolet;
-            border-bottom: solid blueviolet 2px;  
-        }
-        .selected {
-            flex: 1 1 0px;
-            padding-left: 10px;
-            padding-right: 10px;
-            color: rgb(154, 69, 234);
-            border-bottom: solid blueviolet 2px;
-            text-align: center;
-        }
-    }
-    
-}
-.mainBlock {
-    display: flex;
-    min-width: 300px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    margin-bottom: 100px;
-}
-.mainBlock .trailStats{
-    background-color: rgb(206, 153, 253);
-    flex: 0 0 0px;
-    min-width: 400px;
-    height: 600px;
-    margin: auto;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 20px rgb(20, 20, 20);
-    border-radius: 30px;
-    .stats {
-        display: block;
-        width: 200px;
-        margin: auto;
-    }
-    .textStats {
-        display: block;
-        text-align: left;
-        margin: 20px;
-    }
-}
-.mainBlock .trailInfo{
-    background-color: rgb(206, 153, 253);
-    flex: 0 0 0px;
-    min-width: 400px;
-    height: 600px;
-    margin: auto;
-    margin-bottom: 20px;
-    box-shadow: 0px 10px 10px rgb(20, 20, 20);
-    border-radius: 30px;
-    .trailInfoTxt {
-        margin: 15px;
-    }
-}
-.titleH1 {
-    padding: 0px;
-    margin: 10px 30px 20px 30px;
-    text-align: center;
-    font-size: 40px;
-    font-style: italic;
-    border-bottom: solid black 1px;
-}
-.mainBlock p {
-    font-size: 25px;
-    text-align: left;
-    padding: 1px;
-}
-main .badgesBlock{
-    bottom: 0%;
-    background-color: rgb(222, 75, 255);
-    flex: 0 0 0px;
-    min-width: 500px;
-    min-height: 100px;
-    margin: auto;
-    margin-bottom: 10px;
-    box-shadow: 0px 10px 10px rgb(20, 20, 20);
-    border-radius: 30px;
-}
-.badgesList {
-    display: flex;
-}
-.badgeImg {
-    flex: 0 1 0px;
-    width: 60px;
-    margin: auto;
-    margin-bottom: 20px;
-    
-}
-
-footer {
-    z-index: 99;
-    bottom: 0%;
-    left: 0%;
-    position: fixed;
-    width: 100%;
-    min-width: 300px;
-}
-footer .footerBar {
-    display: flex;
-    list-style: none;
-    padding: 0;
     margin: 0;
-    
+    padding: 0;
+    box-sizing: border-box;
 }
-footer .footerButton {
-    padding: 20px;
-    text-align: center;
-    flex: 1 1 0px;
-    color:crimson;
-    background-color: white;
-    
+
+* {
+    /*COLOUR PALETTE*/
+    @media (prefers-color-scheme: dark) {
+        --primary-darker: hsl(272, 100%, 10%);
+        --primary-dark: hsl(271, 100%, 20%);
+        --primary-colour: hsl(271, 100%, 30%);
+        --primary-light: hsl(271, 100%, 40%);
+        --primary-lighter: hsl(271, 100%, 50%);
+
+        --secondary-colour: hsl(12, 81%, 46%);
+        --accent-colour: hsl(12, 82%, 32%);
+        --accent-border: hsl(12, 81%, 25%);
+
+        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+
+        color:  white;
+
+    }
+    @media (prefers-color-scheme: light) {
+        --primary-darker: hsl(272, 100%, 10%);
+        --primary-dark: hsl(271, 100%, 20%);
+        --primary-colour: hsl(271, 100%, 30%);
+        --primary-light: hsl(271, 100%, 40%);
+        --primary-lighter: hsl(271, 100%, 50%);
+
+        --secondary-colour: hsl(12, 81%, 46%);
+        --accent-colour: hsl(12, 82%, 32%);
+        --accent-border: hsl(12, 81%, 25%);
+
+        --accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;
+
+        color: white;
+
+
+    }
 }
-footer .footerButton:hover {
-    background-color: black;
+
+body {
+    background: linear-gradient(to bottom right,
+    var(--primary-darker),
+    var(--primary-dark),
+    var(--primary-darker));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
+.centerAll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*PHONES PORTRAIT*/
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 640px) {
+    body {
+        position: fixed;
+        width: 100vw;
+        height: 100svh;
+    }
+    html {
+        position: fixed;
+        width: 100vw;
+        height: 100svh;
+    }
+}
+
+/*PHONES LANDSCAPE*/
+@media only screen
+and (min-device-width: 640px)
+and (max-device-width: 1000px) {
+
+
+}
+
+/*LARGER SCREENS*/
+@media only screen and (min-device-width: 1000px) {}

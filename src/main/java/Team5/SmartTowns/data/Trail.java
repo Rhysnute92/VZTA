@@ -7,7 +7,22 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Trail {
-    private int trailsId;
-    private String name;
-    private Boolean tru;
+    private String trailsId;
+    private String trailName;
+    private String trailNumber;
+
+
+    public String getTrailsId() {
+        return trailsId;
+    }
+
+    public String getTrailName() {
+        return trailName;
+    }
+
+    public String getTrailNumber() {
+        return trailNumber;
+    }
+
+
 }
