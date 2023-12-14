@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/colours.css}">
+    <link rel="stylesheet" th:href="@{/css/mobile-style.css}">
+</head>
+
+<body>
+    <header th:replace="~{/fragments/banners :: header}"></header>
+
+    <main>
+        <h1>Welcome to Smart Towns by VZTA!</h1>
+        <p>Click here to start exploring!</p>
+        <button type="submit">Explore!</button>
+    </main>
+
+    <footer th:replace="~{/fragments/banners :: footer}"></footer>
+</body>
+</html>

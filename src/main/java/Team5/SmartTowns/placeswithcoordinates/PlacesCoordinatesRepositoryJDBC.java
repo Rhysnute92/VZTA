@@ -1,8 +1,8 @@
 package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
-import Team5.SmartTowns.data.LocationRepositoryJDBC;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
+import Team5.SmartTowns.data.LocationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -88,6 +88,11 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 //    }
 
 
+
+
+
+
+
     public boolean checkInputtedCoordsMatchTown(String inpLatCoords, String inpLongCoords, String townName){
      PlacesCoordinatesRepositoryJDBC jbdcsecond = new PlacesCoordinatesRepositoryJDBC(jdbc);
      List<TownWithTrails> allTowns = jbdcsecond.getAllTownCoords();
@@ -116,7 +121,9 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
          }
      }
     return true;}
-    int getLocationTableIDValue(List<Location> locations, String locationName){
+
+    @Override
+    public int getLocationTableIDValue(List<Location> locations, String locationName){
         int index;
         for(int i=0;i<locations.size();i++){
             if (Objects.equals(locations.get(i).getLocationName(), locationName)){
@@ -128,7 +135,37 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
 
     }
 
+    @Autowired
+    LocationRepository local;
+    @Override
+    public Boolean checkIfCoordsAreWithinTownBoundary(LocationsCoordinates loc){
+        int locationID=loc.getLocationID();
+        String locationTown= jdbc.queryForObject("SELECT locationPlace FROM locations WHERE locationID=?", String.class, locationID);
+        List<TownWithTrails> allTowns = getAllTownCoords();
+        for (int i=0;i<allTowns.size();i++){
+            if (Objects.equals(allTowns.get(i).getTownName(), locationTown)){
 
+
+                double inpLat=(loc.getLocationCoordsLat());
+                double inpLong=(loc.getLocationCoordsLong());
+
+                double townBoundaryLatUppermost=Double.parseDouble(allTowns.get(i).getTownUppermostCoordsLat());
+                double townBoundaryLatLowermost=Double.parseDouble(allTowns.get(i).getTownLowermostCoordsLat());
+
+                double townBoundaryLongLeftmost=Double.parseDouble(allTowns.get(i).getTownLeftmostCoordsLong());
+                double townBoundaryLongRightmost=Double.parseDouble(allTowns.get(i).getTownRightmostCoordsLong());
+                // check coords within respective town boundary (boundary decided by rough google maps red-line)
+                if ( (inpLat<=townBoundaryLatUppermost)&& (inpLat>=townBoundaryLatLowermost) && (inpLong>=townBoundaryLongLeftmost) &&  (inpLong<=townBoundaryLongRightmost)){
+                    // location within boundary returns true
+                    return true;
+            }}
+        } return false; // if location outside boundary, return true won't function and it wil return false.
+    }
+
+    @Override
+    public int getTownIDFromName(String townsName){
+        return jdbc.queryForObject("SELECT townID FROM townswithtrails WHERE townName=?", Integer.class, townsName);
+    }
 
     // Method used to approve and add locations with associated coordinates. List<Location> unapprovedLocations
 //    public void approveLocationAndAddCoords(String locationsName, Double latCoords, Double longCoords,JdbcTemplate jdbc) {

@@ -2,10 +2,9 @@
 <!-- @thymesVar id="user" type="Team5.SmartTowns.users.User" -->
 <!-- @thymesVar id="selectedPack" type="Team5.SmartTowns.rewards.Pack" -->
 <div th:fragment="stickersBox" id="packRewardsWrapper">
-  <article class="progressionContainer">
-    <h1 th:text="${selectedPack.getName()}"></h1>
+  <div class="packs-area">
     <div class="progImgContainer">
-      <div class="progImgFill" th:style="'width:'+ ${progress} + '%;'">
+      <div class="progImgFill gotSticker" th:style="'width:'+ ${progress} + '%;'">
         <img th:src="@{'../' + ${selectedPack.getDisplayImg()}}"
              alt="Filled Dragon" id="FilledDragon" class="progImg">
       </div>
@@ -17,7 +16,18 @@
              alt="Outline Dragon" id="OutlineDragon" class="progImg">
       </div>
     </div>
-  </article>
+      <h2 class="pack-text">Other Packs</h2>
+      <div id="allPacksContainer"  class="centerFlex">
+        <div th:each="pack : ${packs}"  class="packContainer">
+          <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
+               th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
+               th:data-url="@{/packInfo/{username}/{packID}(username=${user.getName()}, packID=${pack.getId()})}"
+               onclick="updatePack(this.getAttribute('data-url'))">
+          <h4 class="packName" th:text="${pack.getName()}"></h4>
+        </div>
+      </div>
+  </div>
+  <h1 class="pack-title" th:text="${selectedPack.getName()}"></h1>
 
   <article id="stickersBox">
     <div class="stickersContainer">

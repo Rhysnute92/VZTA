@@ -24,7 +24,7 @@ public class localAuthorityRepositoryJDBC implements localAuthorityRepository {
                 rs.getString("city"),
                 rs.getString("county"),
                 rs.getString("postcode"),
-                rs.getURL("website")
+                rs.getString("website")
         );
     }
     public List<localAuthority> getAllLocalAuthority(){

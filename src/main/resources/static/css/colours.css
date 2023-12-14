@@ -1,0 +1,50 @@
+/* AUTHOR: Gabriel Copat
+ * Variable list for website palette, to be re-used throughout the site
+ *
+ * This makes it easy to change up the site's colours without having to go through
+ *     each individual reference in the CSS
+*/
+
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap'); /*MedievalSharp*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); /*Montserrat*/
+
+:root {
+    /*Variable Colours for Dark Theme Users
+    *************DEFAULT VALUES************
+    */
+
+    --primary-colour: hsl(271, 100%, 20%);
+    --primary-dark: hsl(271, 100%, 15%);
+    --primary-darker: hsl(272, 100%, 10%);
+    --prim-shade-1:#632e93;
+    --prim-shade-2:#9159c2;
+    --prim-shade-3:#c285f3;
+
+    --secondary-colour: #f2724a;
+    --accent-colour: #cc2f58;
+    --accent-secondary: #8f0065;
+
+    /*DEFAULT TEXT COLOUR*/
+    color:  white;
+    font-family: 'Montserrat', sans-serif;
+
+
+    /*Variable Colours for Light Theme Users*/
+    /*UN-IMPLEMENTED AS OF YET*/
+    @media (prefers-color-scheme: light) {
+        /*--primary-darker: hsl(272, 100%, 10%);*/
+        /*--primary-dark: hsl(271, 100%, 20%);*/
+        /*--primary-colour: hsl(271, 100%, 30%);*/
+        /*--primary-light: hsl(271, 100%, 40%);*/
+        /*--primary-lighter: hsl(271, 100%, 50%);*/
+
+        /*--secondary-colour: hsl(12, 81%, 46%);*/
+        /*--accent-colour: hsl(12, 82%, 32%);*/
+        /*--accent-border: hsl(12, 81%, 25%);*/
+
+        /*--accent-shadow: rgba(0, 0, 0, 0.7) 0 0.5em 1em -0.5em;*/
+
+        /*color: white;*/
+    }
+}

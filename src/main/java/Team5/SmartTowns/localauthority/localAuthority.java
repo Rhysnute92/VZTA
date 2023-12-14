@@ -16,7 +16,7 @@ public class localAuthority {
     private String city;
     private String county;
     private String postcode;
-    private URL website;
+    private String website;
     @Override
     public String toString() {
         return "Local Authority:" + " " +
@@ -52,7 +52,7 @@ public class localAuthority {
         return postcode;
     }
 
-    public URL getWebsite() {
+    public String getWebsite() {
         return website;
     }
 }

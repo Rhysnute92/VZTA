@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <title>Local Authorities</title>
     <link rel="stylesheet" th:href="@{css/localAuthorityPageStyle.css}">
-    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
 </head>
-<header th:insert="fragments/Templating.html :: header"></header>
+<header th:insert="fragments/banners :: header"></header>
 <body>
-<h1>Local Authorities</h1>
-<div id="councils">
-    <ul th:each="local:${localAuth}">
-        <li th:text="${local}"></li>
-    </ul>
-</div>
-<button><a href="/localForm" id="authority">Local Authorities please enter here</a></button>
-<div th:insert="fragments/Templating.html :: footer"></div>
+    <main>
+        <h1>Local Authorities</h1>
+        <div id="councils">
+            <ul th:each="local:${localAuth}">
+                <li th:text="${local}"></li>
+            </ul>
+        </div>
+        <button><a href="/localForm" id="authority">Local Authorities please enter here</a></button>
+        <div th:insert="fragments/banners :: footer"></div>
+    </main>
 </body>
 </html>

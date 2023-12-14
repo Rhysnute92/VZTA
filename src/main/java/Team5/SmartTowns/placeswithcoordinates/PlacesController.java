@@ -4,6 +4,8 @@ import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
 import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
+import Team5.SmartTowns.rewards.RewardsRepository;
+import Team5.SmartTowns.users.UserRepository;
 import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class PlacesController {
@@ -27,6 +30,9 @@ public class PlacesController {
 
     @Autowired
     private TrailsRepository trailsRepo;
+
+    @Autowired
+    private RewardsRepository rewardsRepository;
 
 
     @GetMapping("/checkpoints")
@@ -107,9 +113,22 @@ public class PlacesController {
             break;}
         }
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
+        System.out.println(locCoords.get(0).getLocationID());
+        System.out.println(approvedLocations.get(0).getLocationID());
+//        locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}
+
+
+        final int trailIDFINAL = trailID;
+        List<Location> finalLocations = approvedLocations.stream()
+                .filter(loc -> Long.parseLong(loc.getLocationTrailID()) == trailslocations.get(trailIDFINAL).getTrailsId())
+                        .toList();
+        System.out.println(finalLocations);
+
         modelAndView.addObject("trail", trailslocations.get(trailID));
         modelAndView.addObject("locCoords", locCoords);
-        modelAndView.addObject("locations", approvedLocations);
+        modelAndView.addObject("locations", finalLocations);
+
+        modelAndView.addObject("stickers", rewardsRepository.getAllStickersFromPack(1));
         return modelAndView;
     }
 

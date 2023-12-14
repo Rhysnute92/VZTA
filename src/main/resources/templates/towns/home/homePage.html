@@ -13,12 +13,13 @@
   <div class="gridContainer1">
       <H1 id="homeTitle"> VZTA Smart Towns - Trails</H1>
       <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
+      <a class="reviewLand" href="/checkpointApproval">  <button> Review Landmark!</button></a>
 <!--    <div th:text="${towns}">-->
     </div>
 
     <div th:each="town:${towns}" class="gridContainer2">
 
-      <a href="/allTrails" class="Banner"
+      <a th:href="'/towns/'+${town.getName()}" class="Banner"
          th:style="'background:url('+ ${town.getImageTown()} +');'"
          th:styleappend="'background-size: 80vw 24vh;'+'background-repeat: no-repeat;'+'background-position: left 30%;'" />
 

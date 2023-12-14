@@ -1,4 +1,4 @@
-package Team5.SmartTowns;
+package Team5.SmartTownsOld;
 
 import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.users.NewUser;
@@ -53,7 +53,7 @@ public class testUsers {
     }
 
     @Test
-    public void canUsersUnlockStickersTest(){
+    public void canUsersUnlockStickersTest(){ // tests if users can unlock stickers
         NewUser newuser = new NewUser("MeowMeowMeow","WoofMeowMeow","CatMeowMeow@Dogs.com");
         Boolean newUser = userRepository.addUser(newuser.getName(), newuser.getEmail(), newuser.getPassword());
         Boolean doesStickerUnlock = userRepository.unlockSticker(newuser.getName(),2,2);
@@ -61,7 +61,7 @@ public class testUsers {
         assertTrue(doesStickerUnlock);
     }
     @Test
-    public void canUsersUnlockStickersAndViewThemTest(){
+    public void canUsersUnlockStickersAndViewThemTest(){ // tests if users who unlock stickers can view them
         NewUser newuser = new NewUser("MeowMeowMeowMeow","WoofMeowMeowMeow","CatMeowMeowMeow@Dogs.com");
         NewUser newuserTwo = new NewUser("Jumper","Baa","Sheep@Wool.com");
         Boolean newUser = userRepository.addUser(newuser.getName(), newuser.getEmail(), newuser.getPassword());

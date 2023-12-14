@@ -32,16 +32,24 @@ public class organisationControllers {
     }
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
-    @PostMapping("/localForm")
+
+    @PostMapping("/local-authorities")
     public ModelAndView localAuthoritySent(@Valid @ModelAttribute("local-auth-data")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
         if (bindingResult.hasErrors()) {
-            ModelAndView modelAndView = new ModelAndView("business-data", model.asMap());
+            localAuthority loc = new localAuthority(localAuthority.getLocalAuthorityName(), localAuthority.getAddress1(), localAuthority.getAddress2(), localAuthority.getCity(), localAuthority.getCounty(), localAuthority.getPostcode(), localAuthority.getWebsite());
+            System.out.println(loc);
+            localAuthorityRepository.addLocalAuthority(loc); //add local authority to local authority table
+            ModelAndView modelAndView = new ModelAndView("local-authorities");
+            List<localAuthority> localAuthorities = localAuthorityRepository.getAllLocalAuthority();
+            modelAndView.addObject("localAuth", localAuthorities);
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
             localAuthority loc = new localAuthority(localAuthority.getLocalAuthorityName(), localAuthority.getAddress1(), localAuthority.getAddress2(), localAuthority.getCity(), localAuthority.getCounty(), localAuthority.getPostcode(), localAuthority.getWebsite());
             System.out.println(loc);
             localAuthorityRepository.addLocalAuthority(loc); //add local authority to local authority table
-            ModelAndView modelAndView = new ModelAndView("redirect:/localauthority");
+            ModelAndView modelAndView = new ModelAndView("local-authorities");
+            List<localAuthority> localAuthorities = localAuthorityRepository.getAllLocalAuthority();
+            modelAndView.addObject("localAuth", localAuthorities);
             return modelAndView;
         }
     }

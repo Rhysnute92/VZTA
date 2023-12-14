@@ -1,172 +1,264 @@
+@media only screen
+and (min-device-width: 1000px) {
+    body {
+        background-color: rgb(41, 41, 41)
+    }
 
-body{
-    background-color: rgb(41, 41, 41)
-}
-#homeTitle{
-    grid-area: pageTitle;
-    color: whitesmoke;
-}
-.submitLand{
-    grid-area: submitButton;
-}
-.Banner {
-    margin-top: 20px;
-    background-color: darkslategrey;
-    margin-bottom: 20px;
-    /*border: solid 2px whitesmoke;*/
-    /*border colour here at .banner and .bannertrail*/
-    border-right: none;
-}
+    #homeTitle {
+        grid-area: pageTitle;
+        color: whitesmoke;
+    }
 
-/* .BannerTrail.Complete(100%) .BannerTrail.closeComplete(90-99%) .BannerTrail.nearComplete(70-99%) .BannerTrail.farComplete(50-69%) .BannerTrail.notComplete(0-49%) */
-.BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 2px whitesmoke;
-    text-align: center;
-}
+    .submitLand {
+        grid-area: submitButton;
+    }
 
-.BannerTrail th, .BannerTrail.Complete th, .BannerTrail.closeComplete th, .BannerTrail.nearComplete th, .BannerTrail.farComplete th, .BannerTrail.notComplete th{
-    grid-area:townBannerDetsR
-}
+    .Banner {
+        margin-top: 20px;
+        background-color: darkslategrey;
+        margin-bottom: 20px;
+        /*border: solid 2px whitesmoke;*/
+        /*border colour here at .banner and .bannertrail*/
+        border-right: none;
+    }
 
-.BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete{
-    grid-area:townBannerDets;
-}
+    /* .BannerTrail.Complete(100%) .BannerTrail.closeComplete(90-99%) .BannerTrail.nearComplete(70-99%) .BannerTrail.farComplete(50-69%) .BannerTrail.notComplete(0-49%) */
+    .BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: solid 2px whitesmoke;
+        text-align: center;
+    }
 
-.BannerTrail {
-    background-color: darkslategrey;
+    .BannerTrail th, .BannerTrail.Complete th, .BannerTrail.closeComplete th, .BannerTrail.nearComplete th, .BannerTrail.farComplete th, .BannerTrail.notComplete th {
+        grid-area: townBannerDetsR
+    }
 
-}
+    .BannerTrail, .BannerTrail.Complete, .BannerTrail.closeComplete, .BannerTrail.nearComplete, .BannerTrail.farComplete, .BannerTrail.notComplete {
+        grid-area: townBannerDets;
+    }
 
-.BannerTrail.Complete {
-    background-color: gold;
-    border: 2px solid gold;
-    border-left: solid 2px whitesmoke;
-}
-.BannerTrail.closeComplete {
-    background-color: darkgoldenrod;
-    background-color: darkgoldenrod;
-    border: 2px solid darkgoldenrod;
-    border-left: solid 2px whitesmoke;
-}
+    .BannerTrail {
+        background-color: darkslategrey;
 
-.BannerTrail.nearComplete {
-    background-color: deepskyblue;
-    background-color: deepskyblue;
-    border: 2px solid deepskyblue;
-    border-left: solid 2px whitesmoke;
-}
+    }
 
-.BannerTrail.farComplete {
-    background-color: green;
-    background-color: green;
-    border: 2px solid green;
-    border-left: solid 2px whitesmoke;
-}
+    .BannerTrail.Complete {
+        background-color: gold;
+        border: 2px solid gold;
+        border-left: solid 2px whitesmoke;
+    }
 
-.BannerTrail.notComplete {
-    background-color: red;
-    background-color: red;
-    border: 2px solid red;
-    border-left: solid 2px whitesmoke;
-}
+    .BannerTrail.closeComplete {
+        background-color: darkgoldenrod;
+        background-color: darkgoldenrod;
+        border: 2px solid darkgoldenrod;
+        border-left: solid 2px whitesmoke;
+    }
 
-/*Below selects banner that has the Complete class to change color*/
-.Banner:has(+.BannerTrail.Complete){
-    border: 2px solid gold;
-    border-right: solid 2px whitesmoke;
-}
+    .BannerTrail.nearComplete {
+        background-color: deepskyblue;
+        background-color: deepskyblue;
+        border: 2px solid deepskyblue;
+        border-left: solid 2px whitesmoke;
+    }
 
-.Banner:has(+.BannerTrail.closeComplete){
-    border: 2px solid darkgoldenrod;
-    border-right: solid 2px whitesmoke;
-}
+    .BannerTrail.farComplete {
+        background-color: green;
+        background-color: green;
+        border: 2px solid green;
+        border-left: solid 2px whitesmoke;
+    }
 
+    .BannerTrail.notComplete {
+        background-color: red;
+        background-color: red;
+        border: 2px solid red;
+        border-left: solid 2px whitesmoke;
+    }
 
-.Banner:has(+.BannerTrail.nearComplete){
-    border: 2px solid deepskyblue;
-    border-right: solid 2px whitesmoke;
-}
-.Banner:has(+.BannerTrail.farComplete){
-    border: 2px solid green;
-    border-right: solid 2px whitesmoke;
-}
-.Banner:has(+.BannerTrail.notComplete){
-    border: 2px solid red;
-    border-right: solid 2px whitesmoke;
-}
+    /*Below selects banner that has the Complete class to change color*/
+    .Banner:has(+.BannerTrail.Complete) {
+        border: 2px solid gold;
+        border-right: solid 2px whitesmoke;
+    }
+
+    .Banner:has(+.BannerTrail.closeComplete) {
+        border: 2px solid darkgoldenrod;
+        border-right: solid 2px whitesmoke;
+    }
 
 
-.BannerTrail {
-    background-color: darkslategrey;
+    .Banner:has(+.BannerTrail.nearComplete) {
+        border: 2px solid deepskyblue;
+        border-right: solid 2px whitesmoke;
+    }
 
-}
+    .Banner:has(+.BannerTrail.farComplete) {
+        border: 2px solid green;
+        border-right: solid 2px whitesmoke;
+    }
 
-
-
-
-
-
-.Banner {
-    grid-area:townBanner;
-    color: inherit;
-    text-decoration: none;
-    background-color: hotpink;
-}
+    .Banner:has(+.BannerTrail.notComplete) {
+        border: 2px solid red;
+        border-right: solid 2px whitesmoke;
+    }
 
 
-a{
-    background-size: contain;
+    .BannerTrail {
+        background-color: darkslategrey;
 
-}
-
-
-
-#aboutUsFlavour{
-    grid-area: textFlavour;
-    margin-top: 25px;
-    margin-bottom: 15px;
-    color: whitesmoke;
-}
-#trailCount{
-    flex:1;
+    }
 
 
+    .Banner {
+        grid-area: townBanner;
+        color: inherit;
+        text-decoration: none;
+        background-color: hotpink;
+    }
 
 
-}
-#trailProgress{
-    flex:2;
-    align-content: center;
+    a {
+        background-size: contain;
 
-}
+    }
 
 
-.gridContainer1 {
-    display:grid;
-    grid-template-columns: 10% 10% 60% 5% 5% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
+    #aboutUsFlavour {
+        grid-area: textFlavour;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        color: whitesmoke;
+    }
+
+    #trailCount {
+        flex: 1;
+
+
+    }
+
+    #trailProgress {
+        flex: 2;
+        align-content: center;
+
+    }
+
+
+    .gridContainer1 {
+        display: grid;
+        grid-template-columns: 10% 10% 60% 5% 5% 10%;
+        grid-template-rows: auto;
+        grid-template-areas:
             ". pageTitle pageTitle pageTitle pageTitle ."
             ". . . submitButton submitButton .";
-}
+    }
 
-.gridContainer2 {
-    display:grid;
-    grid-template-columns: 10% 10% 60% 5% 5% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
+    .gridContainer2 {
+        display: grid;
+        grid-template-columns: 10% 10% 60% 5% 5% 10%;
+        grid-template-rows: auto;
+        grid-template-areas:
 
             ". townBanner townBanner townBannerDets . .";
-}
+    }
 
-.gridContainer3 {
-    display:grid;
-    grid-template-columns: 10% 10% 60% 5% 5% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
+    .gridContainer3 {
+        display: grid;
+        grid-template-columns: 10% 10% 60% 5% 5% 10%;
+        grid-template-rows: auto;
+        grid-template-areas:
 
             " . . textFlavour . . .";
+    }
 }
 
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 640px) {
+    .small-text {
+        font-size: 0.8em;
+    }
+
+
+    .towns-wrapper {
+        width: 100%;
+    }
+    .gridContainer2 {
+        height: 10svh;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+        flex: 1 1;
+        margin-block: 1svh;
+    }
+    .town-name {
+        position: absolute;
+        z-index: 5;
+        padding: 0.2em;
+        margin: 0.5em;
+        border-radius: 35%;
+        background: rgba(31, 31, 31, 0.6);
+
+    }
+    .img-container {
+        float: left;
+        z-index: 1;
+        height: 100%;
+        width: 60vw;
+    }
+    .town-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20% 0 0 20%;
+        border: #36454F solid;
+        border-width: 6px 3px 6px 6px;
+    }
+    .BannerTrail {
+        width: 25vw;
+        height: 10svh;
+        border-radius: 0 20% 20% 0;
+        border: #36454F solid;
+        border-width: 6px 6px 6px 3px;
+        position: relative;
+        overflow: hidden;
+        & h4 {
+            text-align: center;
+        }
+    }
+    .trail-info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 25vw;
+        height: 10svh;
+    }
+
+    /*Below selects banner that has the Complete class to change color*/
+    .BannerFill {
+        position: absolute;
+        background: var(--trail-colour, transparent);
+        width: 10%;
+        height: 10svh;
+        opacity: 0.9;
+        z-index: 0;
+    }
+    .Complete {
+        --trail-colour: gold;
+    }
+    .closeComplete {
+        --trail-colour: darkgoldenrod;
+    }
+    .nearComplete {
+        --trail-colour: deepskyblue;
+    }
+    .farComplete {
+        --trail-colour: green;
+    }
+    .notComplete {
+        --trail-colour: red;
+    }
+}
