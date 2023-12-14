@@ -196,6 +196,12 @@ and (max-device-width: 640px) {
         }
     }
 
+    button {
+        min-width: 15vw;
+        min-height: 4svh;
+        font-size: 1.5em;
+    }
+
 }
 
 
