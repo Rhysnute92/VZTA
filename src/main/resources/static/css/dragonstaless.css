@@ -1,4 +1,4 @@
-.centre{
+body{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -7,6 +7,40 @@
     width: 50%;
     background-color: #927BB7;
 }
+
+.dropdown button{
+    background-color: coral;
+    color: white;
+    padding: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown option{
+    display: block;
+    color: #393433;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: #D3B69C;
+    min-width:100px;
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+
+
+.images{
+    max-width:100%;
+    height:auto;
+}
+
 
 .landmarkName{
     font-weight: bold;
