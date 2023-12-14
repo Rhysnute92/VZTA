@@ -19,7 +19,7 @@ import java.util.List;
 public class organisationControllers {
     @GetMapping("/localauthorities")
     public ModelAndView getLocalAuthoritiesPage(){
-        ModelAndView modelAndView = new ModelAndView("WorkWith/local-authorities.html");
+        ModelAndView modelAndView = new ModelAndView("local-authorities");
         return modelAndView;
     }
     @GetMapping("/businesses")

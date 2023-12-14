@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{css/localAuthorityPageStyle.css}">
     <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
 </head>
-<header th:insert="~{/towns/Templating.html::header}"></header>
+<header th:insert="~{/fragments/Templating.html::header}"></header>
 <body>
 <h1>Local Authorities</h1>
 <div id="councils">
@@ -15,6 +15,6 @@
     </ul>
 </div>
 <button><a href="/localForm" id="authority">Local Authorities please enter here</a></button>
-<footer th:insert="~{/towns/Templating.html::footer}"></footer>
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
 </body>
 </html>
