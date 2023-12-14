@@ -60,13 +60,13 @@ public class PlacesController {
             int townIDFromTable= placeRepo.getTownIDFromName(townNamee);
             for (int i=0;i<trailslocations.size();i++){
                 int trailID = trailsRepo.getTrailIDFromTrailName(trailslocations.get(i).getTrailName());
-                if ((trailID>100)&&(trailID<200)){
+                if ((trailID>100)&&(trailID<200)&&(Objects.equals(townNamee, "Caerphilly"))){
                     correctTrails.add(trailslocations.get(i));
                 }
-                if ((trailID>200)&&(trailID<300)){
+                if ((trailID>200)&&(trailID<300)&&(Objects.equals(townNamee, "Risca"))){
                     correctTrails.add(trailslocations.get(i));
                 }
-                if ((trailID>300)&&(trailID<400)){
+                if ((trailID>300)&&(trailID<400)&& (Objects.equals(townNamee, "Penarth")) ){
                     correctTrails.add(trailslocations.get(i));
                 }
             }
