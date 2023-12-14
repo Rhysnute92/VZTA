@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Authority</title>
+
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
+</head>
+<header th:replace="~{/fragments/banners::header}"></header>
+<body>
+    <main>
+        <div id="container1">
+            <h2>Enter your Local authority</h2>
+                <form action="/local-authorities" id="data" name="data" method="post" th:object="${localAuthority}">
+                        <br>
+                        <label>Enter your local authority
+                            <input type="text" th:field="*{localAuthorityName}">
+                        </label><br><br>
+                        <label>Please enter first line of your address
+                            <input type="text" th:field="*{address1}">
+                        </label><br><br>
+                        <label>Please enter second line of your address (optional)
+                            <input type="text" th:field="*{address2}">
+                        </label><br><br>
+                        <label>Please enter the City/Town
+                            <input type="text" th:field="*{city}">
+                        </label><br><br>
+                        <label>Please enter you county (optional)
+                            <input type="text" th:field="*{county}">
+                        </label><br><br>
+                        <label>Please enter your postcode
+                            <input type="text" th:field="*{postcode}">
+                        </label><br><br>
+                        <label>Please enter your website address
+                            <input type="text" th:field="*{website}">
+                        </label><br><br>
+                    <input type="submit">
+                </form>
+        </div>
+    </main>
+</body>
+<footer th:replace="~{/fragments/banners::footer}"></footer>
+</html>
