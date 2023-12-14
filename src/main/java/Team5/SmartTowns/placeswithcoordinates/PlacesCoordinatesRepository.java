@@ -17,6 +17,8 @@ public interface PlacesCoordinatesRepository {
 
     Boolean checkIfCoordsAreWithinTownBoundary(LocationsCoordinates loc);
 
+    int getTownIDFromName(String townsName);
+
 //    List<Location> getFullApprovedLocations(JdbcTemplate aJdbc);
 
 

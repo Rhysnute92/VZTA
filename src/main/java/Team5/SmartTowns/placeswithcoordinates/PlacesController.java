@@ -4,6 +4,8 @@ import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;
 import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
+import Team5.SmartTowns.rewards.RewardsRepository;
+import Team5.SmartTowns.users.UserRepository;
 import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class PlacesController {
@@ -26,6 +30,9 @@ public class PlacesController {
 
     @Autowired
     private TrailsRepository trailsRepo;
+
+    @Autowired
+    private RewardsRepository rewardsRepository;
 
 
     @GetMapping("/checkpoints")
@@ -50,7 +57,7 @@ public class PlacesController {
 
         @GetMapping("/checkpoints/{location}")
     public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
-            List<LocationsCoordinates> locCoords = reorderCoordsWRTLocations(placeRepo.getAllLocationCoords());
+            List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
             List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
 
             int locationID = 999;
@@ -83,7 +90,7 @@ public class PlacesController {
 
         modelAndView.addObject("trails", trailslocations);
         modelAndView.addObject("locations", approvedLocations);
-        modelAndView.addObject("locationCoords", reorderCoordsWRTLocations(locCoords));
+        modelAndView.addObject("locationCoords", locCoords);
         return  modelAndView;
     }
 
@@ -105,53 +112,24 @@ public class PlacesController {
                 trailID=i;
             break;}
         }
-        List<LocationsCoordinates> aa=reorderCoordsWRTLocations(locCoords);
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
+        System.out.println(locCoords.get(0).getLocationID());
+        System.out.println(approvedLocations.get(0).getLocationID());
+//        locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}
+
+
+        final int trailIDFINAL = trailID;
+        List<Location> finalLocations = approvedLocations.stream()
+                .filter(loc -> Long.parseLong(loc.getLocationTrailID()) == trailslocations.get(trailIDFINAL).getTrailsId())
+                        .toList();
+        System.out.println(finalLocations);
+
         modelAndView.addObject("trail", trailslocations.get(trailID));
-        modelAndView.addObject("locCoords", aa);
-        modelAndView.addObject("locations", approvedLocations);
+        modelAndView.addObject("locCoords", locCoords);
+        modelAndView.addObject("locations", finalLocations);
+
+        modelAndView.addObject("stickers", rewardsRepository.getAllStickersFromPack(1));
         return modelAndView;
     }
 
-
-//    public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
-//        List<Location> approvedList = locationRepo.getAllLocation();
-////        List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-//        List<Integer> locationID= new ArrayList<Integer>();
-//        System.out.println(locCoords);
-//        System.out.println("///////");
-//        Collections.swap(locCoords,0,10);
-//        for(int i=0;i<locCoords.size();i++){
-//            if (i==locCoords.size()-1){
-//                if (locCoords.get(i).getLocationID()<locCoords.get(i-1).getLocationID()){
-//                    Collections.swap(locCoords,i,i--);
-//                    i=0;
-//                }
-//
-//            }
-//            if (locCoords.get(i).getLocationID()>locCoords.get(i++).getLocationID()){
-//                System.out.println("ASDSADASD");
-//                Collections.swap(locCoords,i,i++);
-//                i=0;
-//            }
-//
-//        } System.out.println(locCoords);
-//        return locCoords;
-//
-//
-//
-//    }
-
- // When adding to the locationsCoordinates table, the order is not based on LocationID order, therefore it is needed to rearrange this list to
-    // follow ascending locationID so that any new coordinates match up with their intended locations.
-    public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
-        Collections.sort(locCoords,
-                Comparator.comparingInt(LocationsCoordinates::getLocationID));
-        System.out.println(locCoords);
-        return locCoords;
-
-    }
-
-    }
-
-
+}

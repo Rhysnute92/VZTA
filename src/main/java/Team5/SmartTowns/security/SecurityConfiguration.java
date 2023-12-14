@@ -2,6 +2,7 @@ package Team5.SmartTowns.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
@@ -28,10 +30,11 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/user/**", "/userProfile").authenticated()
                         .anyRequest().permitAll()
+
                 )
                 .formLogin((login) -> login
                         .loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/userProfile")
+                        .defaultSuccessUrl("/mobile-home")
                 )
                 .logout((logout) -> logout.permitAll());
 

@@ -162,8 +162,10 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
         } return false; // if location outside boundary, return true won't function and it wil return false.
     }
 
-
-
+    @Override
+    public int getTownIDFromName(String townsName){
+        return jdbc.queryForObject("SELECT townID FROM townswithtrails WHERE townName=?", Integer.class, townsName);
+    }
 
     // Method used to approve and add locations with associated coordinates. List<Location> unapprovedLocations
 //    public void approveLocationAndAddCoords(String locationsName, Double latCoords, Double longCoords,JdbcTemplate jdbc) {

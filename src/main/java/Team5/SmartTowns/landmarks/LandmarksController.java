@@ -42,7 +42,7 @@ public class LandmarksController {
 
         } else {
             // converts valid response using Location constructor into a submittable format to the sql table
-            Location loc = new Location(landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID(), false);
+            Location loc = new Location(landmarks.getLandmarkID(), landmarks.getLandmarkName(), landmarks.getLandmarkEmail(), landmarks.getLandmarkDescription(), landmarks.getLandmarkLocation(), landmarks.getTrailID(), false);
             locationRepository.addLocation(loc); // adds valid landmark to locations table
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;

@@ -1,21 +1,77 @@
 /*LandmarkFormTh stylesheet*/
-body{
-    background:  rgb(41, 41, 41);
-    color: wheat;
-}
-#landmarkSubmission {
-    background-color: rgb(206, 153, 253);
-    color: black;
-    border-color: white;
-    align-content: center;
-    text-align: center;
-    border-radius: 25px;
-    max-width: 620px;
-    margin: 0 auto
+@media only screen
+and (min-device-width: 640px) {
+    #landmarkSubmission {
+        background-color: var(--prim-shade-1);
+        color: black;
+        border-color: white;
+        align-content: center;
+        text-align: center;
+        border-radius: 25px;
+        max-width: 620px;
+        margin: 0 auto
+    }
+
+    #landmarkFormTitle {
+        color: white;
+        text-align: center;
+
+    }
 }
 
-#landmarkFormTitle{
-    color:white;
-    text-align: center;
+@media only screen
+and (max-device-width: 640px) {
+    /*LandmarkFormTh stylesheet*/
+    main {
+       min-height: 30svh;
+    }
+    #landmarkSubmission {
+        background-color: var(--prim-shade-1);
+        border-color: white;
+        align-content: center;
+        text-align: center;
+        border-radius: 25px;
+        max-width: 620px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2svh;
+        align-items: center;
 
+        & h1 {
+
+        }
+
+        & label {
+            font-weight: 600;
+        }
+        & select {
+            font-size: 1em;
+        }
+
+        & input {
+            font-size: 1em;
+        }
+    }
+
+    .button {
+        background-color: var(--prim-shade-3);
+        border-radius: 20px;
+        border: var(--prim-shade-2) 5px;
+        color: #fff;
+        font-size: xxx-large;
+        padding: 40px 40px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 2svh;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 1svh 1svh;
+    }
+
+    #landmarkFormTitle {
+        color: white;
+        text-align: center;
+
+    }
 }

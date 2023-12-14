@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>towns</title>
+</head>
+<body>
+<main>
+   <div th:each="town:${towns}">
+       <H1 th:text="${town.getTownName()}"></H1>
+       <li>
+<!--           <ul th:if="*{town.getTownName()=='Caerphilly'}"></ul>-->
+       </li>
+
+
+   </div>
+
+
+</main>
+</body>
+</html>
