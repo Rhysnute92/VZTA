@@ -13,7 +13,9 @@
     <div class="title-container">
         <h1 class="title">Welcome to VZTA Smart Towns!</h1>
         <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
+        <a th:if="${#authentication.getName().equals('Admin')}" class="reviewLand" href="/checkpointApproval">  <button> Review Landmark!</button></a>
         <p class="small-text">Choose your town and start tracking your trails!</p>
+
     </div>
 
     <article class="towns-wrapper">

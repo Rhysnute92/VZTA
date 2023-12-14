@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Authorities</title>
+    <link rel="stylesheet" th:href="@{css/localAuthorityPageStyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
+</head>
+
+<body>
+    <header th:replace="fragments/banners :: header"></header>
+    <main>
+        <h1>Local Authorities</h1>
+        <div id="councils">
+            <ul th:each="local:${localAuth}">
+                <li th:text="${local}"></li>
+            </ul>
+        </div>
+        <button><a href="/localForm" id="authority">Local Authorities please enter here</a></button>
+
+    </main>
+    <footer th:replace="fragments/banners :: footer"></footer>
+</body>
+</html>

@@ -60,7 +60,6 @@ public class Location {
 
     public boolean isLocationApproved() {
         return locationApproved;
-
     }
 
 
