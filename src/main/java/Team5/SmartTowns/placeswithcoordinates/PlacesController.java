@@ -28,6 +28,14 @@ public class PlacesController {
     @Autowired
     private TrailsRepository trailsRepo;
 
+@GetMapping()
+public ModelAndView getTownsPages(){
+    ModelAndView modelAndView = new ModelAndView("");
+    List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
+    List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+}
+
+
 
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
