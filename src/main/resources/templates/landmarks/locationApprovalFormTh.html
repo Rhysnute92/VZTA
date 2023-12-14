@@ -29,12 +29,12 @@
             <br><br>
         <label> Location Latitude:
             <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
-        <div th:errors="*{locationCoordsLat}" th:if="${#fields.hasErrors('locationCoordsLat')}">ErrorlocationCoordsLat</div>
+        <div th:if="${param==error}" class="coordError">Invalid Coordinates entered</div>
             <br><br>
             <label> Location Longitude:
                 <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
         </label><br><br>
-        <div th:errors="*{locationCoordsLong}" th:if="${#fields.hasErrors('locationCoordsLong')}">ErrorlocationCoordsLat</div>
+            <div th:if="${param==error}" class="coordError">Invalid Coordinates entered<
             <input type="submit">
 
     </form>

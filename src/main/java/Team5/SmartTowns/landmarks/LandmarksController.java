@@ -82,7 +82,7 @@ public class LandmarksController {
             LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID, locCoord.getLocationCoordsLat(), locCoord.getLocationCoordsLong());
             boolean checkIfCoorsWithinBoundaries =  placesCoordinatesRepo.checkIfCoordsAreWithinTownBoundary(ALocCoord);
             if (checkIfCoorsWithinBoundaries==false){ // if coords outside associated town, form is returned to original state
-                return new ModelAndView("redirect:/checkpointApproval");
+                return new ModelAndView("redirect:/checkpointApproval?error");
             }
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
             locationRepository.updateApprovalStatus(locationID); // updates approval status accordingly
