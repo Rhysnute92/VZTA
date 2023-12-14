@@ -157,6 +157,31 @@ and (max-device-width: 640px) {
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
+
+            & ul {
+                list-style: none;
+                text-decoration: none;
+
+
+                & li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    margin-block: 3px;
+                    background-color: #1f1f1f;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    text-align: center;
+
+                    & a {
+                        text-decoration: none;
+                        font-weight: 600;
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                }
+            }
         }
 
         .rightFooter {
@@ -170,6 +195,7 @@ and (max-device-width: 640px) {
             aspect-ratio: 1;
         }
     }
+
 }
 
 

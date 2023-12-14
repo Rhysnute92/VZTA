@@ -5,8 +5,6 @@ import Team5.SmartTowns.data.LocationRepository;
 import Team5.SmartTowns.data.Trail;
 import Team5.SmartTowns.data.TrailsRepository;
 import Team5.SmartTowns.rewards.RewardsRepository;
-import Team5.SmartTowns.users.UserRepository;
-import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,15 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class PlacesController {
 
     @Autowired
     private PlacesCoordinatesRepository placeRepo;
-    @Autowired
-    private LocationRepository locationRepo;
 
     @Autowired
     private TrailsRepository trailsRepo;
@@ -34,12 +29,15 @@ public class PlacesController {
     @Autowired
     private RewardsRepository rewardsRepository;
 
+    @Autowired
+    private LocationRepository locationRepository;
+
 
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
         ModelAndView modelAndView = new ModelAndView("landmarks/locationPage.html");
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+        List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
 
         modelAndView.addObject("location", approvedLocations);
         modelAndView.addObject("locationCoords", locCoords);
@@ -58,7 +56,7 @@ public class PlacesController {
         @GetMapping("/checkpoints/{location}")
     public ModelAndView getResultBySearchKeyLocation(@PathVariable String location) {
             List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-            List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+            List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
 
             int locationID = 999;
             for (int i=0;i<approvedLocations.size();i++){
@@ -84,7 +82,7 @@ public class PlacesController {
     public ModelAndView getTrailsPage(){
         ModelAndView modelAndView = new ModelAndView("landmarks/trailsPage.html");
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+        List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
         List<Location> locationCoordsWorkaround = new ArrayList<Location>();
 
@@ -103,8 +101,9 @@ public class PlacesController {
     @GetMapping("/trails/{trail}")
     public ModelAndView getResultBySearchKeyTrails(@PathVariable String trail) {
         List<LocationsCoordinates> locCoords = placeRepo.getAllLocationCoords();
-        List<Location> approvedLocations = locationRepo.getAllApprovedLocations();
+        List<Location> approvedLocations = locationRepository.getAllApprovedLocations();
         List<Trail> trailslocations =  trailsRepo.getAllTrails();
+
         int trailID = 999;// otherwise cases errors e.g. null used. 999 unlikely to be used so safe until then
         for (int i=0;i<trailslocations.size();i++){
 
@@ -113,9 +112,6 @@ public class PlacesController {
             break;}
         }
         ModelAndView modelAndView= new ModelAndView("fragments/trailsPageFrags :: trailsSection");
-        System.out.println(locCoords.get(0).getLocationID());
-        System.out.println(approvedLocations.get(0).getLocationID());
-//        locations[indexValue.index].getLocationTrailID()==trail.getTrailsId()}
 
 
         final int trailIDFINAL = trailID;

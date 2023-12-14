@@ -28,8 +28,7 @@ create table if not exists trails
     city varchar(128)
 )   engine=InnoDB;
 
-drop table if exists locationCoordinates;
-drop table if exists locations;
+
 create table if not exists locations
 (
     locationID bigint auto_increment primary key,
@@ -103,7 +102,7 @@ create table if not exists locationCoordinates
 )engine=InnoDB;
 
 
-drop table if exists townsWithTrails;
+
 create table if not exists townsWithTrails
 (
     townID bigint auto_increment primary key,
@@ -117,7 +116,7 @@ create table if not exists townsWithTrails
 
 )engine=InnoDB;
 
-drop table if exists localAuthority;
+
 create table if not exists localAuthority
 (
     localAuthorityID bigint auto_increment primary key,
@@ -130,7 +129,7 @@ create table if not exists localAuthority
     website varchar(250)
 ) engine=InnoDB;
 
-drop table if exists businesses;
+
 create table if not exists businesses
 (
     businessID bigint auto_increment primary key,

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
     <link rel="stylesheet" th:href="@{css/locationApprovalFormStyle.css}">
     <script src="/scripts/locationApprovalForm.js"></script>
 
 
 </head>
 <body>
-<header th:insert="~{/fragments/Templating.html :: header}"></header>
+<header th:insert="~{/fragments/banners.html :: header}"></header>
 <hr style="height:20px; visibility:hidden;" />
 <main>
     <H1 id="formHeader">Locations To Be Approved:</H1>
@@ -67,6 +67,6 @@
 
     <hr style="height:20px; visibility:hidden;" />
 </main>
-<footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
+<footer th:insert="~{/fragments/banners.html :: footer}"></footer>
 </body>
 </html>
