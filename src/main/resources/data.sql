@@ -102,3 +102,6 @@ delete from townsWithTrails;
 insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Caerphilly', '51.57903','-3.22075 ','51.60418','51.55093','-3.25222','-3.17696');
 insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Risca','51.61195','-3.09648','51.63039','51.59175','-3.12129','-3.06438');
 insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Penarth','51.43893','-3.17354','51.44878','51.41233','-3.20271','-3.16005');
+
+delete from dragonstale;
+insert into dragonstale(landmarkID, landmarkName, landmarkDescription, imgPath) value (1, 'A scent of...Dragon', 'The Dragon has been spotted near by, find the QR code to continue', '~/images/dragonstale/DTLM1.png');
