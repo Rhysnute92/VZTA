@@ -66,7 +66,7 @@ public class PlacesCoordinatesRepositoryJDBC implements PlacesCoordinatesReposit
     public void addLocationCoord(LocationsCoordinates locCoords) {
         String sql = "insert into locationCoordinates(locationID, locationCoordsLat,locationCoordsLong) values (?,?,?)";
 
-        jdbc.update(sql,locCoords.getLocationID(), locCoords.getLocationCoordsLong(),locCoords.getLocationCoordsLat());
+        jdbc.update(sql,locCoords.getLocationID(), locCoords.getLocationCoordsLat(),locCoords.getLocationCoordsLong());
 
     }
     @Override

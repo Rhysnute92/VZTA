@@ -12,7 +12,9 @@ main {
     max-width: 80vw;
     margin: 0 auto
 }
-
+.coordError{
+    color:darkred;
+}
 #formHeader{
     padding-top: 10px;
     color:white;
