@@ -28,6 +28,16 @@ public class PlacesController {
     @Autowired
     private TrailsRepository trailsRepo;
 
+    @GetMapping("/towns")
+    public ModelAndView getTownPages(){
+        ModelAndView modelAndView = new ModelAndView("towns/townsPageList.html");
+        List<TownWithTrails> townsList = placeRepo.getAllTownCoords();
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        modelAndView.addObject("trails", trailslocations);
+        modelAndView.addObject("towns", townsList);
+        return  modelAndView;
+    }
+
 
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
