@@ -4,6 +4,10 @@ package Team5.SmartTowns.placeswithcoordinates;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepositoryJDBC;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +22,12 @@ import java.util.List;
 public class LocationsCoordinates {
     /// separate class to location to cover all locations within trails that have been approved and have long/lat coords attached for mapping.
     private int locationID;
+//    @NotEmpty(message = "You must enter a Latitude.")
+//    @Min(value=0,message = "You must enter a Latitude.")
     private Double locationCoordsLat;
+   
+//    @NotEmpty(message = "You must type in a Longitude.")
+//    @Min(value=0,message = "You must type in a Longitude.")
     private Double locationCoordsLong;
     private JdbcTemplate jdbc;
 
@@ -104,8 +113,13 @@ public class LocationsCoordinates {
  /// Need a constructor to create a locations list, approved collation list, unapproved locations list.
 
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "LocationsCoordinates{" +
+                "locationID=" + locationID +
+                ", locationCoordsLat=" + locationCoordsLat +
+                ", locationCoordsLong=" + locationCoordsLong +
+                ", jdbc=" + jdbc +
+                '}';
+    }
 }
