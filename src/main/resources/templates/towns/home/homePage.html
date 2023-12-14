@@ -19,7 +19,7 @@
 
     <div th:each="town:${towns}" class="gridContainer2">
 
-      <a href="/allTrails" class="Banner"
+      <a th:href="'/towns/'+${town.getName()}" class="Banner"
          th:style="'background:url('+ ${town.getImageTown()} +');'"
          th:styleappend="'background-size: 80vw 24vh;'+'background-repeat: no-repeat;'+'background-position: left 30%;'" />
 

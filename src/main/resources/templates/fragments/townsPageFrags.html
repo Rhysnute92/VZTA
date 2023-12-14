@@ -4,50 +4,9 @@
     <meta charset="UTF-8">
     <title th:text="${town.getTownName()}"></title>
     <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
-<!--    <link rel="stylesheet" th:href="@{/css/locationPageFragsStyle.css}">-->
-
-    <style>
-
-        .townFragment{
-            background-color: rgb(206, 153, 253);
-            color: black;
-            border-color: white;
-            align-content: center;
-            text-align: center;
-            border-radius: 25px;
-            max-width: 800px;
-            margin: 0 auto;
-
-        }
-        .townPageFrag{
-            background:  rgb(41, 41, 41);
-            color: wheat;
-        }
-
-        #return{
-            padding-bottom: 10px;
-        }
-        iframe{
-            margin-top: 20px;
-            margin-bottom: 60px;
-            border: white 2px solid;
-        }
-        H1{
-            padding-top: 5px;
-            padding-bottom:3px ;
-            margin-bottom: 0;
-        }
-        #townHeader{
-            margin: 0;
-            padding: 0;
-
-        }
-        #checkpointList{
-            list-style: none;
-        }
+    <link rel="stylesheet" th:href="@{/css/townsPageFragsStyle.css}">
 
 
-    </style>
 </head>
 <body >
 <header th:insert="~{/fragments/Templating.html::header}"></header>
@@ -56,7 +15,7 @@
     <section class="townFragment">
 
 
-        <H1 th:text="${town.getTownName()}"></H1>
+        <H1 th:text="${town.getTownName()}+' Trails'"></H1>
         <hr style="height:20px; visibility:hidden;" />
 
         <div th:each="trail, indexValue:${trails}">
@@ -66,6 +25,9 @@
             </li>
 
         </div>
+        <hr style="height:20px; visibility:hidden;" />
+        <H2 id="return">
+            <a href="/home">Back</a></H2>
     </section>
 
     <hr style="height:40px; visibility:hidden;" />
