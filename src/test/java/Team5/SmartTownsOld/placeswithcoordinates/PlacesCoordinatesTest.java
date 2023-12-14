@@ -1,5 +1,7 @@
-package Team5.SmartTowns.placeswithcoordinates;
+package Team5.SmartTownsOld.placeswithcoordinates;
 
+import Team5.SmartTowns.placeswithcoordinates.LocationsCoordinates;
+import Team5.SmartTowns.placeswithcoordinates.PlacesCoordinatesRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

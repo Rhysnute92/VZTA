@@ -1,4 +1,4 @@
-package Team5.SmartTowns;
+package Team5.SmartTownsOld;
 
 import org.junit.jupiter.api.Test;
 
