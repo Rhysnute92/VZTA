@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Location {
 //    private int locationID;
     private String locationName;
@@ -64,14 +63,6 @@ public class Location {
 
     }
 
-    public Location(String locationName, String locationEmail, String locationDescription, String locationPlace, int locationTrailID, boolean locationApproved) {
-        this.locationName = locationName;
-        this.locationEmail = locationEmail;
-        this.locationDescription = locationDescription;
-        this.locationPlace = locationPlace;
-        this.locationTrailID = locationTrailID;
-        this.locationApproved = locationApproved;
-    }
 
 
     public void setLocationName(String locationName) {
