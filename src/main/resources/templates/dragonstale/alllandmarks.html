@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>The Dragons Path.</title>
+    <link rel="stylesheet" th:href="@{css/dragonstaless.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
 </head>
 <body>
-  <h1> Testing </h1>
+    <main>
+        <header th:insert="~{/fragments/banners.html::header}"></header>
+            <h1> Find your path... </h1>
+
+        <div id="hero-image-one">
+            <div id="hero-text-one">
+                <h1>An adventure begins....</h1>
+                <button onclick="getQR()">Click here to scan a QR code for this trail</button>
+            </div>
+        </div>
+
+        <div id="hero-image-two">
+            <div id="hero-text-two">
+                <h1>An adventure continues....</h1>
+                <button onclick="getQR()">Click here to scan a QR code for this trail</button>
+            </div>
+        </div>
+<!--        <ul>-->
+<!--            <li class="landmark" id="landmarkOne">-->
+<!--                <p>Adventure 1: <span> <img th:src="@{/images/dragonstale/DTLM1.png}" alt="Image of a dragon" class="images"></span></p>-->
+<!--            </li>-->
+<!--            <li class="landmark" id="landmarkTwo">-->
+<!--                <p> Bye</p>-->
+<!--                <img th:src="@{/images/dragonstale/dtlm2.png}" alt="Image of a dragon" class="images">-->
+<!--            </li>-->
+<!--        </ul>-->
+        <footer th:insert="~{/fragments/banners.html::footer}"></footer>
+    </main>
 </body>
 </html>

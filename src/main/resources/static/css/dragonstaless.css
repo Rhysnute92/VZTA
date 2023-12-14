@@ -17,6 +17,24 @@ body{
     cursor: pointer;
 }
 
+#hero-image-one{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/dragonstale/DTLM1.png');
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#hero-text-one {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
 
 .dropdown .content{
     display: none;
@@ -31,6 +49,11 @@ body{
     display: block;
 }
 
+
+main{
+    padding: 20px;
+    margin: 20px;
+}
 
 .images{
     max-width:100%;

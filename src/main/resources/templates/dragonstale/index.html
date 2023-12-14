@@ -5,49 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Dragon's Tale</title>
-    <link rel="stylesheet" th:href="@{/css/dragonstaless.css}">
-    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/dragonstaless.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
     <script type="text/javascript" th:src="@{/scripts/DTscript.js}"></script>
 </head>
     <body>
-        <header th:insert="fragments/Templating.html :: header"></header>
-            <!-- As this predefined trail will be accessible from multiple different towns, this thymeleaf element will display the town the user is currently trying to access and display it accordingly.   <span th:text="${townName}">  -->
-            <div>
-                <h1> Welcome, to a dragon's tale! </h1>
-                <img th:src="@{/images/dragonstale/dragonstalehome.png}" alt="Image of a dragon" class="images">
-                <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of to discover a prize! </h2>
-            </div>
+        <main id="main">
+            <header th:insert="~{/fragments/banners.html::header}"></header>
+                <!-- As this predefined trail will be accessible from multiple different towns, this thymeleaf element will display the town the user is currently trying to access and display it accordingly.   <span th:text="${townName}">  -->
+                <div>
+                    <h1> Welcome, to a dragon's tale! </h1>
+                    <img th:src="@{/images/dragonstale/dragonstalehome.png}" alt="Image of a dragon" class="images">
+                    <h2> Discover the mystery of the dragon, track its location and follow it throughout the town of to discover a prize! </h2>
+                </div>
 
-            <div>
-                <p>
-                    Adventurers... embark through mystical historical landmarks to ultimately discover the lair of the dragon.
-                    Legend has it that within this ominous lair, mighty dragons, guardians of ancient wisdom and treasures untold lay....
-                </p>
-            </div>
-
-
-            <div class="dropdown">
-                <button class="dropdownButton" onclick="toggleDropDown()" >There are <span th:text="${getListSize}"> Size of List </span> adventures in this journey! </button>
-                <ul id="dropdownList">
-                    <li class="content" th:each="item : ${landmarksList}">
-                        <a class="option" href="#landmarkTabLink" th:text="${item.landmarkName}"> Landmark Tab</a>
-                        <button class="option" id="qrCodeScanner" onclick="getQR()">Click here to scan a QR code for: <span th:text="${item.landmarkName}">Landmark Name Here</span></button>
-                    </li>
-                </ul>
-            </div>
+                <div>
+                    <p>
+                        Adventurers... embark through mystical historical landmarks to ultimately discover the lair of the dragon.
+                        Legend has it that within this ominous lair, mighty dragons, guardians of ancient wisdom and treasures untold lay....
+                    </p>
+                </div>
 
 
-            <!-- Need to mark each element to an ID then loop through them.  -->
-    <!--        <div id="listOfLandmarks">-->
-    <!--            <p th:each="item : ${landmarksList}">-->
-    <!--                <span th:text="${item.landmarkDescription}" class="landmarkDesc" id="landmarkTabLink"> Landmark Description</span>-->
-    <!--            </p>-->
-    <!--        </div>-->
+                <div class="dropdown">
+                    <button class="dropdownButton" onclick="toggleDropDown()" >There are <span th:text="${getListSize}"> Size of List </span> adventures in this journey! </button>
+                    <ul id="dropdownList">
+                        <li class="content" th:each="item : ${landmarksList}">
+                            <a class="option" href="#landmarkTabLink" th:text="${item.landmarkName}"> Landmark Tab</a>
+                            <button class="option" id="qrCodeScanner" onclick="getQR()">Click here to scan a QR code for: <span th:text="${item.landmarkName}">Landmark Name Here</span></button>
+                        </li>
+                    </ul>
+                </div>
 
-            <div>
-                <h3>  Begin or Continue your hunt!</h3>
-                <button type="button" id="begin" onclick="routeToAllLandmarks()">Click here!</button>
-            </div>
-        <div th:insert="fragments/Templating.html :: footer"></div>
+
+                <!-- Need to mark each element to an ID then loop through them.  -->
+        <!--        <div id="listOfLandmarks">-->
+        <!--            <p th:each="item : ${landmarksList}">-->
+        <!--                <span th:text="${item.landmarkDescription}" class="landmarkDesc" id="landmarkTabLink"> Landmark Description</span>-->
+        <!--            </p>-->
+        <!--        </div>-->
+
+<!--                <div>-->
+<!--                    <h3>  Begin or Continue your hunt!</h3>-->
+<!--                    <button type="button" id="begin" onclick="routeToAllLandmarks()">Click here!</button>-->
+<!--                </div>-->
+            <footer th:insert="~{/fragments/banners.html::footer}"></footer>
+        </main>
     </body>
 </html>
