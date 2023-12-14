@@ -111,6 +111,10 @@
             <img th:class="'stickerImg gotSticker'"  th:each="sticker : ${stickers}" th:src="@{'../' + ${sticker.getDisplayImg()}}"
                  th:id="'img' + ${sticker.getId()}" th:alt="${sticker.getName()}" >
         </div>
+        <hr style="height:15px; visibility:hidden;" />
+        <H2 id="return">
+            <a href="/home">Home</a></H2>
+        <hr style="height:5px; visibility:hidden;" />
     </article>
     <hr style="height:40px; visibility:hidden;" />
 </main>

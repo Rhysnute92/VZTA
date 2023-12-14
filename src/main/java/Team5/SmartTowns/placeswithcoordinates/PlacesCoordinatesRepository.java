@@ -13,6 +13,12 @@ public interface PlacesCoordinatesRepository {
     List<TownWithTrails> getAllTownCoords();
     void addTownWithCoords(TownWithTrails town);
 
+    int getLocationTableIDValue(List<Location> locations, String locationName);
+
+    Boolean checkIfCoordsAreWithinTownBoundary(LocationsCoordinates loc);
+
+    int getTownIDFromName(String townsName);
+
 //    List<Location> getFullApprovedLocations(JdbcTemplate aJdbc);
 
 

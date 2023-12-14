@@ -41,5 +41,10 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
         return jdbc.query(sql, trailMapper, cityName);
     }
 
+    @Override
+    public int getTrailIDFromTrailName(String trailsName){
+        return jdbc.queryForObject("SELECT trailID FROM trails WHERE trailName=?", Integer.class, trailsName);
+    }
+
 
 }

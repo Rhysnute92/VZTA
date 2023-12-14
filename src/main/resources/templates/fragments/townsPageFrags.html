@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="townSection" class="townPageFrag">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${town.getTownName()}"></title>
+    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{/css/townsPageFragsStyle.css}">
+
+
+</head>
+<body >
+<header th:insert="~{/fragments/Templating.html::header}"></header>
+<main>
+    <hr style="height:40px; visibility:hidden;" />
+    <section class="townFragment">
+
+
+        <H1 th:text="${town.getTownName()}+' Trails'"></H1>
+        <hr style="height:20px; visibility:hidden;" />
+
+        <div th:each="trail, indexValue:${trails}">
+            <li id="checkpointList">
+                <div><a th:href="'/trails/'+${trail.getTrailName().replace(' ', '-')}" th:text="${trail.getTrailName()}"></a></div>
+                <ul></ul>
+            </li>
+
+        </div>
+        <hr style="height:20px; visibility:hidden;" />
+        <H2 id="return">
+            <a href="/home">Back</a></H2>
+    </section>
+
+    <hr style="height:40px; visibility:hidden;" />
+</main>
+
+<footer th:insert="~{/fragments/Templating.html::footer}"></footer>
+</body>
+</html>

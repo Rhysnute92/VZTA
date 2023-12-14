@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static Team5.SmartTowns.landmarks.Landmarks.landmarksDragonstrail;
-
 //import static Team5.SmartTowns.Landmarks.Landmarks.landmarksDragonstrail;
 
 @Controller
@@ -47,25 +45,6 @@ public class TrailsController {
         mv.addObject("trail", trailList.get(id-1));
         return mv;
     }
-
-    @GetMapping("/dragonstale")
-    public ModelAndView getDragonsTale(){
-        List<Landmarks> landmarksList = landmarksDragonstrail;
-        ModelAndView modelAndView = new ModelAndView("towns/trails/dragonstale/index");
-        modelAndView.addObject("landmarksList", landmarksList);
-        return modelAndView;
-    }
-
-
-    //
-//    @GetMapping("dragonstale/{qrCode}/{id}")
-//    public String qrCodeCheck(@PathVariable Optional<String> qrCode, @PathVariable Optional<Integer> id){
-//        if (qrCode.isPresent()){
-//
-//            //Check if ID is present, if do this, if not dfo that.
-//
-//        }
-//    }
 
 }
 
