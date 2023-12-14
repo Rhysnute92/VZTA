@@ -6,8 +6,9 @@
     <link rel="stylesheet" th:href="@{css/localAuthorityPageStyle.css}">
     <link rel="stylesheet" th:href="@{css/mobile-style.css}">
 </head>
-<header th:insert="fragments/banners :: header"></header>
+
 <body>
+    <header th:replace="fragments/banners :: header"></header>
     <main>
         <h1>Local Authorities</h1>
         <div id="councils">
@@ -16,7 +17,8 @@
             </ul>
         </div>
         <button><a href="/localForm" id="authority">Local Authorities please enter here</a></button>
-        <div th:insert="fragments/banners :: footer"></div>
+
     </main>
+    <footer th:replace="fragments/banners :: footer"></footer>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
     <link rel="stylesheet" th:href="@{css/mobile-style.css}">
 </head>
-<header th:insert="~{/fragments/banners::header}"></header>
+<header th:replace="~{/fragments/banners::header}"></header>
 <body>
     <main>
         <div id="container1">
@@ -40,5 +40,5 @@
         </div>
     </main>
 </body>
-<footer th:insert="~{/fragments/banners::footer}"></footer>
+<footer th:replace="~{/fragments/banners::footer}"></footer>
 </html>
