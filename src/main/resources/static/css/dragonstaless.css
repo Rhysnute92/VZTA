@@ -17,18 +17,14 @@ body{
     cursor: pointer;
 }
 
-.dropdown option{
-    display: block;
-    color: #393433;
-    text-decoration: none;
-    padding: 10px 15px;
-}
 
 .dropdown .content{
     display: none;
     position: absolute;
     background-color: #D3B69C;
     min-width:100px;
+    box-shadow: white;
+    z-index: 1;
 }
 
 .dropdown:hover .content{
