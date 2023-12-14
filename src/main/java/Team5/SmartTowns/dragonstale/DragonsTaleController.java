@@ -35,6 +35,13 @@ public class DragonsTaleController {
         return modelAndView;
     }
 
+    // Placeholder until thorough controller is inputted.
+    @GetMapping("/dragonstale/landmarkonedone")
+    public ModelAndView getLa(){
+        modelAndView = new ModelAndView("/dragonstale/landmarkonedone");
+        return modelAndView;
+    }
+
     @GetMapping ("/QRScan") //In here, we could use trailID as a string variable and use it to track what trail the user clicked from.
     public ModelAndView getQRScanner(){
         modelAndView = new ModelAndView("fragments/qr-scanner");
