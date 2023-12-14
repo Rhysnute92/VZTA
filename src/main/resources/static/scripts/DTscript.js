@@ -4,6 +4,10 @@ var getQR = function (){
 }
 
 function toggleDropDown(){
-    var dropdownList = document.getElementById("dropdownList")
-    dropdownList.style.display = (dropdownList.style.display === "block") ? "none" : "block"
+    var dropdownList = document.getElementById("dropdownList");
+    dropdownList.style.display = (dropdownList.style.display === "block") ? "none" : "block";
+}
+
+function routeToAllLandmarks(){
+    window.location.href="/allDTLandmarks";
 }
