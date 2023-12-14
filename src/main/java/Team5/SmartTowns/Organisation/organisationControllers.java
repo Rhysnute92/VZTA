@@ -1,15 +1,15 @@
 package Team5.SmartTowns.Organisation;
 
-import Team5.SmartTowns.localauthority.localAuthority;
-import Team5.SmartTowns.localauthority.localAuthorityRepository;
+import Team5.SmartTowns.business.business;
+import Team5.SmartTowns.business.businessRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.stereotype.Controller;
 
@@ -17,17 +17,22 @@ import java.util.List;
 
 @Controller
 public class organisationControllers {
-    @GetMapping("/local-authorities")
+    @GetMapping("/localauthorities")
     public ModelAndView getLocalAuthoritiesPage(){
-        ModelAndView mav = new ModelAndView("local-authorities");
-        List<localAuthority> localAuthority = localAuthorityRepository.getAllLocalAuthority();
-        mav.addObject("localAuth", localAuthority);
-        return mav;
+        ModelAndView modelAndView = new ModelAndView("local-authorities");
+        return modelAndView;
     }
-    @GetMapping("/localForm")
-    public ModelAndView getLocalAuthForm(){
-        ModelAndView modelAndView = new ModelAndView("local-auth-data");
-        modelAndView.addObject("localAuthority",new localAuthority());
+    @GetMapping("/businesses")
+    public ModelAndView getBusinessPage(){
+        ModelAndView modelAndView = new ModelAndView("businesses");
+        List<business> business = businessRepository.getAllBusinesses();
+        modelAndView.addObject("busiSub", business);
+        return modelAndView;
+    }
+    @GetMapping("/businessSub")
+    public ModelAndView getBusinessSubPage(){
+        ModelAndView modelAndView = new ModelAndView("business-data");
+        modelAndView.addObject("business", new business());
         return modelAndView;
     }
     @Autowired
@@ -42,6 +47,11 @@ public class organisationControllers {
             ModelAndView modelAndView = new ModelAndView("local-authorities");
             List<localAuthority> localAuthorities = localAuthorityRepository.getAllLocalAuthority();
             modelAndView.addObject("localAuth", localAuthorities);
+    private businessRepository businessRepository;
+    @PostMapping("/business-data")
+    public ModelAndView businessSent(@Valid @ModelAttribute("business-data")business  business, BindingResult bindingResult, Model model ) {
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("business-data", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
             localAuthority loc = new localAuthority(localAuthority.getLocalAuthorityName(), localAuthority.getAddress1(), localAuthority.getAddress2(), localAuthority.getCity(), localAuthority.getCounty(), localAuthority.getPostcode(), localAuthority.getWebsite());
@@ -50,26 +60,23 @@ public class organisationControllers {
             ModelAndView modelAndView = new ModelAndView("local-authorities");
             List<localAuthority> localAuthorities = localAuthorityRepository.getAllLocalAuthority();
             modelAndView.addObject("localAuth", localAuthorities);
+        } else {// converts user input using the organisation constructor into a submittable format to the sql table
+
+            business bus = new business(business.getBusinessName(), business.getAddress1(), business.getAddress2(), business.getCity(), business.getCounty(), business.getPostcode(), business.getWebsite());
+            System.out.println(bus);
+            businessRepository.addBusiness(bus); //add local authority to local authority table
+            ModelAndView modelAndView = new ModelAndView("redirect:/businesses");
             return modelAndView;
         }
     }
-
-    @GetMapping("/businesses")
-    public ModelAndView getBusinessesPage(){
-        ModelAndView mav1 = new ModelAndView("Businesses");
-        return mav1;
+        @GetMapping("/consumers")
+    public ModelAndView getConsumersPage(){
+        ModelAndView modelAndView = new ModelAndView("WorkWith/consumers.html");
+        return modelAndView;
     }
     @GetMapping("/towns")
     public ModelAndView getTownsPage(){
-        ModelAndView mav2 = new ModelAndView("towns");
-        return mav2;
+        ModelAndView modelAndView = new ModelAndView("WorkWith/towns.html");
+        return modelAndView;
     }
-    @GetMapping("/consumers")
-    public ModelAndView getConsumersPage(){
-        ModelAndView mav3 = new ModelAndView("consumers");
-        return mav3;
-    }
-
-
-
 }

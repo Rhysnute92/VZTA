@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Businesses</title>
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+</head>
+<header th:insert="fragments/Templating.html :: header"></header>
+<body>
+<p>A business is an organised establishment in a professional manner in order to achieve your particular aim for owning a business.</p>
+<h3>Future Proof Businesses</h3>
+<h3>Compete with Online Retailers</h3>
+<h3>Drive Footfall to the high street</h3>
+<h3>Increase Sales</h3>
+<ul th:each="businesses:${busiSub}">
+    <li th:text="${businesses}"></li>
+</ul>
+<button><a href="/businessSub" id="business">Businesses please enter here</a></button>
+</body>
+<div th:insert="fragments/Templating.html :: footer"></div>
+</html>
