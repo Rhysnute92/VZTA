@@ -88,7 +88,7 @@ public class LandmarksController {
             placesCoordinatesRepo.addLocationCoord(ALocCoord); // adds valid landmark to locations table
             locationRepository.updateApprovalStatus(locationID); // updates approval status accordingly
             System.out.println(placesCoordinatesRepo.getAllLocationCoords());
-            ModelAndView modelAndView = new ModelAndView("redirect:/home"); //redirects back top form in case admin wants to input second location
+            ModelAndView modelAndView = new ModelAndView("redirect:/mobile-home"); //redirects back top form in case admin wants to input second location
             return modelAndView;
 
 //        }
