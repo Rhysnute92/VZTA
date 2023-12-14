@@ -88,6 +88,10 @@ insert into localauthority ( localAuthorityName, address1, address2, city, count
 insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Risca Town Council', 'Unit B, 75 Tredegar Street', '', 'Risca', '', 'NP11 6BW', 'https://www.riscatowncouncil.org.uk/');
 insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Penarth Town Council West House', 'Stanwell Road', '', 'Penarth', '', 'CF64 2YG', 'https://www.penarthtowncouncil.gov.uk/your-council/');
 
+delete from businesses;
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Caerphilly Castle', 'Castle Street','', 'Caerphilly', '', 'CF836 1JD', 'https://cadw.gov.wales/visit/places-to-visit/caerphilly-castle');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Risca Museum', 'Grove Road', '', 'Risca', '', 'NP11 6GN', 'https://riscamuseum.wales/');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Penarth Pier Pavillion Cinema', 'Windsor Court', 'The Esplanade', 'Penarth', '', 'CF64 3AU', 'https://www.valeofglamorgan.gov.uk/en/enjoying/Coast-and-Countryside/Dog-Beach-Ban.aspx');
 
 #
 delete from townsWithTrails;
