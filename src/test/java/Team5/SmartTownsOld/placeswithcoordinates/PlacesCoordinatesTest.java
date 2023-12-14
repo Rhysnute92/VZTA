@@ -1,7 +1,7 @@
-package Team5.SmartTownsOld.placeswithcoordinates;
+package Team5.SmartTowns.placeswithcoordinates;
 
-import Team5.SmartTowns.placeswithcoordinates.LocationsCoordinates;
-import Team5.SmartTowns.placeswithcoordinates.PlacesCoordinatesRepository;
+import Team5.SmartTowns.data.Location;
+import Team5.SmartTowns.data.LocationRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +17,9 @@ class PlacesCoordinatesTest {
 
     @Autowired
     PlacesCoordinatesRepository placesCoordinatesRepository;
+
+    @Autowired
+    LocationRepository locationRepository;
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -81,4 +84,42 @@ class PlacesCoordinatesTest {
     @Test
     void getLocationTableIDValue() {
     }
+
+
+    @Test
+    public void nameToLocationIDTest(){
+        List<Location> locationList = locationRepository.getAllLocation();
+        String firstLocationName=locationList.get(0).getLocationName();
+        String lastLocationName=locationList.get(locationList.size()-1).getLocationName();
+        int firstLocationID= locationRepository.nametoLocationID(firstLocationName);
+        int lastLocationID= locationRepository.nametoLocationID(lastLocationName);
+        // if first and last location are chosen and if SQL ID starts at 1 , while an array index starts at 0, then the following should be equal;
+        String firstLocationTest=locationList.get(firstLocationID-1).getLocationName();
+        String lastLocationTest=locationList.get(lastLocationID-1).getLocationName();
+        assertEquals(firstLocationName,firstLocationTest);
+        assertEquals(lastLocationName,lastLocationTest);
+
+
+    }
+
+    @Test // test to see if
+    public void checkIfCoordsAreWithinTownBoundaryTest(){
+        // initiate second instance of location without Caerphilly bounds.
+        List<Location> locationList = locationRepository.getAllLocation();
+        Location unapprovedLocation = new Location("test","test@email","","Caerphilly","102",false);
+        locationRepository.addLocation(unapprovedLocation);
+        int newID=locationRepository.nametoLocationID( unapprovedLocation.getLocationName());
+        LocationsCoordinates newCoord = new LocationsCoordinates(newID,0.00,0.00);
+        boolean falseIfOutOfBounds = placesCoordinatesRepository.checkIfCoordsAreWithinTownBoundary(newCoord);
+        // initiate second instance of location within Caerphilly bounds.
+        Location unapprovedLocationTwo = new Location("test2","test2@email","","Caerphilly","103",false);
+        locationRepository.addLocation(unapprovedLocationTwo);
+        int newIDTwo=locationRepository.nametoLocationID( unapprovedLocationTwo.getLocationName());
+        LocationsCoordinates newCoordTwo = new LocationsCoordinates(newIDTwo,51.57903,-3.22075 );
+        boolean falseIfOutOfBoundsTwo = placesCoordinatesRepository.checkIfCoordsAreWithinTownBoundary(newCoordTwo);
+        assertNotEquals(falseIfOutOfBounds,falseIfOutOfBoundsTwo);
+
+
+    }
+
 }
