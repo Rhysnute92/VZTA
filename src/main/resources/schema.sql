@@ -71,3 +71,30 @@ create table if not exists localAuthority
     postcode varchar(15),
     website varchar(250)
 ) engine=InnoDB;
+=======
+    locationCoordID bigint auto_increment primary key,
+    locationID bigint,
+    Foreign Key (locationID) REFERENCES locations(locationID)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    locationCoordsLat DECIMAL(8,6),
+    locationCoordsLong DECIMAL(8,6)
+
+
+)engine=InnoDB;
+
+
+drop table if exists townsWithTrails;
+create table if not exists townsWithTrails
+(
+    townID bigint auto_increment primary key,
+    townName varchar(128),
+    townCentreCoordsLat varchar(128),
+    townCentreCoordsLong varchar(128),
+    townUppermostCoordsLat varchar(128),
+    townLowermostCoordsLat varchar(128),
+    townLeftmostCoordsLong varchar(128),
+    townRightmostCoordsLong varchar(128)
+
+)engine=InnoDB;
+

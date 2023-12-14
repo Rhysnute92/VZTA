@@ -33,16 +33,15 @@ public class organisationControllers {
     @Autowired
     private localAuthorityRepository localAuthorityRepository;
     @PostMapping("/localForm")
-    public ModelAndView localAuthSent(@Valid @ModelAttribute("localAuthority")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
-        if (bindingResult.hasErrors()){
-            ModelAndView modelAndView = new ModelAndView("localForm", model.asMap());
+    public ModelAndView localAuthoritySent(@Valid @ModelAttribute("local-auth-data")localAuthority localAuthority, BindingResult bindingResult, Model model ) {
+        if (bindingResult.hasErrors()) {
+            ModelAndView modelAndView = new ModelAndView("business-data", model.asMap());
             return modelAndView;
         }else{// converts user input using the organisation constructor into a submittable format to the sql table
-
             localAuthority loc = new localAuthority(localAuthority.getLocalAuthorityName(), localAuthority.getAddress1(), localAuthority.getAddress2(), localAuthority.getCity(), localAuthority.getCounty(), localAuthority.getPostcode(), localAuthority.getWebsite());
             System.out.println(loc);
             localAuthorityRepository.addLocalAuthority(loc); //add local authority to local authority table
-            ModelAndView modelAndView = new ModelAndView("redirect:/local-authorities");
+            ModelAndView modelAndView = new ModelAndView("redirect:/localauthority");
             return modelAndView;
         }
     }

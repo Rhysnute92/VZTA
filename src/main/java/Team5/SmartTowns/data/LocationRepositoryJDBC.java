@@ -41,16 +41,16 @@ public class LocationRepositoryJDBC implements LocationRepository {
         String sql= "SELECT * FROM locations";
         return jdbc.query(sql, locationMapper);
     }
-//    public LocationRepositoryJDBC() {
-//        JdbcTemplate ajdbc = new JdbcTemplate();
-//        this.jdbc =ajdbc;
-//        setlocationMapper();
-//
-//    }
-//    public LocationRepositoryJDBC(JdbcTemplate jdbc, RowMapper<Location> locationMapper) {
-//        this.jdbc = jdbc;
-//        this.locationMapper = locationMapper;
-//    }
+    public LocationRepositoryJDBC() {
+        JdbcTemplate ajdbc = new JdbcTemplate();
+        this.jdbc =ajdbc;
+        setlocationMapper();
+
+    }
+    public LocationRepositoryJDBC(JdbcTemplate jdbc, RowMapper<Location> locationMapper) {
+        this.jdbc = jdbc;
+        this.locationMapper = locationMapper;
+    }
 
     @Override
     public List<Location> getAllApprovedLocations(){
