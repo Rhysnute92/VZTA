@@ -79,6 +79,7 @@ public class LandmarksController {
 
             int locationID = locationRepository.nametoLocationID(location.getLocationName());
             // converts valid response using Location constructor into a submittable format to the sql table
+            System.out.println(locCoord.getLocationCoordsLong());
             LocationsCoordinates ALocCoord = new LocationsCoordinates(locationID, locCoord.getLocationCoordsLat(), locCoord.getLocationCoordsLong());
             boolean checkIfCoorsWithinBoundaries =  placesCoordinatesRepo.checkIfCoordsAreWithinTownBoundary(ALocCoord);
             if (checkIfCoorsWithinBoundaries==false){ // if coords outside associated town, form is returned to original state

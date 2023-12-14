@@ -18,7 +18,7 @@
 
     <form  action="/checkpointSubmitted" method="post" id="adminCheckpointApproval" name="adminCheckpointApproval" th:object="${locationCoord}" onsubmit="return acceptanceValidation()">
             <label> Location:
-                <select th:object="${location}" th:field="*{locationName}"}>
+                <select th:object="${location}" th:field="*{locationName}">
     <!--                <select th:field="*{locationName}">-->
                     <option value="" hidden="true">Select Location</option>
                     <option value=""  selected disabled>Select Location</option>
@@ -27,14 +27,13 @@
                 </select>
             </label>
             <br><br>
+        <div th:if="${param.error}" class="coordError">Invalid Coordinates entered</div>
         <label> Location Latitude:
             <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
-        <div th:if="${param==error}" class="coordError">Invalid Coordinates entered</div>
             <br><br>
             <label> Location Longitude:
-                <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
+                <input type="text" th:field="*{locationCoordsLong}" placeholder="Longitude Here">
         </label><br><br>
-            <div th:if="${param==error}" class="coordError">Invalid Coordinates entered<
             <input type="submit">
 
     </form>
