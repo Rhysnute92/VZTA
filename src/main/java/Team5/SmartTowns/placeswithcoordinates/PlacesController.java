@@ -200,7 +200,6 @@ public class PlacesController {
     public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
         Collections.sort(locCoords,
                 Comparator.comparingInt(LocationsCoordinates::getLocationID));
-        System.out.println(locCoords);
         return locCoords;
 
     }
