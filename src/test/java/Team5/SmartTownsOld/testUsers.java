@@ -1,4 +1,4 @@
-package Team5.SmartTowns;
+package Team5.SmartTownsOld;
 
 import Team5.SmartTowns.rewards.RewardsRepository;
 import Team5.SmartTowns.users.NewUser;

@@ -1,4 +1,4 @@
-package Team5.SmartTowns;
+package Team5.SmartTownsOld;
 
 import Team5.SmartTowns.data.Location;
 import Team5.SmartTowns.data.LocationRepository;

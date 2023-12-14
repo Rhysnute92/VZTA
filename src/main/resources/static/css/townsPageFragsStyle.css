@@ -1,0 +1,34 @@
+.townFragment{
+    background-color: rgb(206, 153, 253);
+    color: black;
+    border-color: white;
+    align-content: center;
+    text-align: center;
+    border-radius: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+.townPageFrag{
+    background:  rgb(41, 41, 41);
+    color: wheat;
+}
+
+#return{
+    padding-bottom: 10px;
+}
+iframe{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    border: white 2px solid;
+}
+H1{
+    padding-top: 5px;
+    padding-bottom:3px ;
+    margin-bottom: 0;
+}
+
+#checkpointList{
+    list-style: none;
+}
+

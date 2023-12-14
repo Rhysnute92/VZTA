@@ -6,4 +6,6 @@ import java.util.List;
 public interface TrailsRepository {
     List<Trail> getAllTrails();
     String getTrailNameWithID(String trailsID);
+
+    int getTrailIDFromTrailName(String trailsName);
 }

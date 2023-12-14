@@ -27,6 +27,57 @@ public class PlacesController {
     @Autowired
     private TrailsRepository trailsRepo;
 
+    @GetMapping("/towns")
+    public ModelAndView getTownPages(){
+        ModelAndView modelAndView = new ModelAndView("towns/townsPageList.html");
+        List<TownWithTrails> townsList = placeRepo.getAllTownCoords();
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        modelAndView.addObject("trails", trailslocations);
+        modelAndView.addObject("towns", townsList);
+        return  modelAndView;
+    }
+
+    @RequestMapping(value="/town", method= RequestMethod.POST)
+    public String sendHtmlFragmentTown(Model map) {
+        map.addAttribute("foo", "bar");
+        return "checkpoint/checkpoint";
+    }
+
+    @GetMapping("/towns/{town}")
+    public ModelAndView getResultBySearchKeyTowns(@PathVariable String town) {
+        List<TownWithTrails> townsList = placeRepo.getAllTownCoords();
+        List<Trail> trailslocations =  trailsRepo.getAllTrails();
+        List<Trail> correctTrails = new ArrayList<>();
+        String townNamee="";
+        int indexTown=999;
+        for (int i=0;i<townsList.size();i++){
+            if (Objects.equals(townsList.get(i).getTownName(), town)){
+                indexTown=i;
+                townNamee=town;
+            }
+        }
+        if (indexTown!=999){
+            int townIDFromTable= placeRepo.getTownIDFromName(townNamee);
+            for (int i=0;i<trailslocations.size();i++){
+                int trailID = trailsRepo.getTrailIDFromTrailName(trailslocations.get(i).getTrailName());
+                if ((trailID>100)&&(trailID<200)&&(Objects.equals(townNamee, "Caerphilly"))){
+                    correctTrails.add(trailslocations.get(i));
+                }
+                if ((trailID>200)&&(trailID<300)&&(Objects.equals(townNamee, "Risca"))){
+                    correctTrails.add(trailslocations.get(i));
+                }
+                if ((trailID>300)&&(trailID<400)&& (Objects.equals(townNamee, "Penarth")) ){
+                    correctTrails.add(trailslocations.get(i));
+                }
+            }
+        }
+
+        ModelAndView modelAndView= new ModelAndView("fragments/townsPageFrags :: townSection");
+        modelAndView.addObject("town", townsList.get(indexTown));
+        modelAndView.addObject("trails", correctTrails);
+
+        return modelAndView;
+    }
 
     @GetMapping("/checkpoints")
     public ModelAndView getLocationPages(){
@@ -44,6 +95,8 @@ public class PlacesController {
         map.addAttribute("foo", "bar");
         return "checkpoint/checkpoint";
     }
+
+
 
 
 
@@ -147,7 +200,6 @@ public class PlacesController {
     public List<LocationsCoordinates> reorderCoordsWRTLocations(List<LocationsCoordinates> locCoords){
         Collections.sort(locCoords,
                 Comparator.comparingInt(LocationsCoordinates::getLocationID));
-        System.out.println(locCoords);
         return locCoords;
 
     }

@@ -3,6 +3,8 @@ package Team5.SmartTowns.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 public class Location {
@@ -12,6 +14,7 @@ public class Location {
     private String locationDescription;
     private String locationPlace;
     private String locationTrailID;
+
 
     private boolean locationApproved;
 
@@ -51,9 +54,15 @@ public class Location {
         return locationTrailID;
     }
 
+
+
+
+
     public boolean isLocationApproved() {
         return locationApproved;
+
     }
+
 
 
     public void setLocationName(String locationName) {
