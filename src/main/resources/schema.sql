@@ -14,8 +14,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS stickers;
 DROP TABLE IF EXISTS packs;
 DROP TABLE IF EXISTS stickerProgress;
-
-
+DROP TABLE IF EXISTS dragonstale;
 
 /****************************************************************/
 
@@ -39,7 +38,6 @@ create table if not exists locations
     locationTrailID varchar(128),
     locationApproved boolean
 )   engine=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS users (
     username varchar(30) primary key NOT NULL,
@@ -72,6 +70,7 @@ CREATE TABLE IF NOT EXISTS stickers (
     description text NOT NULL,
     rarity tinyint
 );
+
 CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
     username varchar(30) NOT NULL,
@@ -101,7 +100,6 @@ create table if not exists locationCoordinates
 
 )engine=InnoDB;
 
-
 drop table if exists townsWithTrails;
 create table if not exists townsWithTrails
 (
@@ -113,6 +111,15 @@ create table if not exists townsWithTrails
     townLowermostCoordsLat varchar(128),
     townLeftmostCoordsLong varchar(128),
     townRightmostCoordsLong varchar(128)
+
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS dragonstale
+(
+    landmarkID bigint auto_increment primary key,
+    landmarkName varchar(255),
+    landmarkDescription varchar(2000),
+    imgPath varchar(255)
 
 )engine=InnoDB;
 
