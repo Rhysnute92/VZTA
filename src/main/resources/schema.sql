@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS stickers;
 DROP TABLE IF EXISTS packs;
 DROP TABLE IF EXISTS stickerProgress;
-DROP TABLE IF EXISTS dragonstale;
+
+
 
 /****************************************************************/
 
@@ -27,8 +28,7 @@ create table if not exists trails
     city varchar(128)
 )   engine=InnoDB;
 
-drop table if exists locationCoordinates;
-drop table if exists locations;
+
 create table if not exists locations
 (
     locationID bigint auto_increment primary key,
@@ -39,6 +39,7 @@ create table if not exists locations
     locationTrailID varchar(128),
     locationApproved boolean
 )   engine=InnoDB;
+
 
 CREATE TABLE IF NOT EXISTS users (
     username varchar(30) primary key NOT NULL,
@@ -71,7 +72,6 @@ CREATE TABLE IF NOT EXISTS stickers (
     description text NOT NULL,
     rarity tinyint
 );
-
 CREATE TABLE IF NOT EXISTS stickerProgress (
     id bigint auto_increment primary key,
     username varchar(30) NOT NULL,
@@ -101,7 +101,8 @@ create table if not exists locationCoordinates
 
 )engine=InnoDB;
 
-drop table if exists townsWithTrails;
+
+
 create table if not exists townsWithTrails
 (
     townID bigint auto_increment primary key,
@@ -115,12 +116,30 @@ create table if not exists townsWithTrails
 
 )engine=InnoDB;
 
-CREATE TABLE IF NOT EXISTS dragonstale
-(
-    landmarkID bigint auto_increment primary key,
-    landmarkName varchar(255),
-    landmarkDescription varchar(2000),
-    imgPath varchar(255)
 
-)engine=InnoDB;
+create table if not exists localAuthority
+(
+    localAuthorityID bigint auto_increment primary key,
+    localAuthorityName varchar(250),
+    address1 varchar(250),
+    address2 varchar(250),
+    city varchar(100),
+    county varchar(75),
+    postcode varchar(15),
+    website varchar(250)
+) engine=InnoDB;
+
+
+create table if not exists businesses
+(
+    businessID bigint auto_increment primary key,
+    businessName varchar(250),
+    address1 varchar(250),
+    address2 varchar(250),
+    city varchar(100),
+    county varchar(75),
+    postcode varchar(15),
+    website varchar(250)
+) engine=InnoDB;
+
 

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" th:href="@{css/templatingstyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
     <link rel="stylesheet" th:href="@{css/locationApprovalFormStyle.css}">
     <script src="/scripts/locationApprovalForm.js"></script>
 
 
 </head>
 <body>
-<header th:insert="~{/fragments/Templating.html :: header}"></header>
+<header th:insert="~{/fragments/banners.html :: header}"></header>
 <hr style="height:20px; visibility:hidden;" />
 <main>
     <H1 id="formHeader">Locations To Be Approved:</H1>
 
     <form  action="/checkpointSubmitted" method="post" id="adminCheckpointApproval" name="adminCheckpointApproval" th:object="${locationCoord}" onsubmit="return acceptanceValidation()">
             <label> Location:
-                <select th:object="${location}" th:field="*{locationName}"}>
+                <select th:object="${location}" th:field="*{locationName}">
     <!--                <select th:field="*{locationName}">-->
                     <option value="" hidden="true">Select Location</option>
                     <option value=""  selected disabled>Select Location</option>
@@ -27,14 +27,13 @@
                 </select>
             </label>
             <br><br>
+        <div th:if="${param.error}" class="coordError">Invalid Coordinates entered.</div>
         <label> Location Latitude:
             <input type="text" th:field="*{locationCoordsLat}" placeholder="Latitude Here">
-        <div th:errors="*{locationCoordsLat}" th:if="${#fields.hasErrors('locationCoordsLat')}">ErrorlocationCoordsLat</div>
             <br><br>
             <label> Location Longitude:
-                <input type="text" th:field="*{locationCoordsLong}" placeholder="Latitude Here">
+                <input type="text" th:field="*{locationCoordsLong}" placeholder="Longitude Here">
         </label><br><br>
-        <div th:errors="*{locationCoordsLong}" th:if="${#fields.hasErrors('locationCoordsLong')}">ErrorlocationCoordsLat</div>
             <input type="submit">
 
     </form>
@@ -67,6 +66,6 @@
 
     <hr style="height:20px; visibility:hidden;" />
 </main>
-<footer th:insert="~{/fragments/Templating.html :: footer}"></footer>
+<footer th:insert="~{/fragments/banners.html :: footer}"></footer>
 </body>
 </html>

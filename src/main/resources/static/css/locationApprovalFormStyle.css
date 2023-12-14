@@ -1,7 +1,7 @@
-body{
-    background:  rgb(41, 41, 41);
-    color: wheat;
-}
+/*body{*/
+/*    background:  rgb(41, 41, 41);*/
+/*    color: wheat;*/
+/*}*/
 main {
     background-color: rgb(206, 153, 253);
     color: black;
@@ -9,10 +9,12 @@ main {
     align-content: center;
     text-align: center;
     border-radius: 25px;
-    max-width: 620px;
+    max-width: 80vw;
     margin: 0 auto
 }
-
+.coordError{
+    color:darkred;
+}
 #formHeader{
     padding-top: 10px;
     color:white;

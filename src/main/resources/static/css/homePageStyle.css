@@ -13,6 +13,11 @@ and (min-device-width: 1000px) {
         grid-area: submitButton;
     }
 
+
+    .reviewLand{
+        grid-area: reviewButton;
+    }
+
     .Banner {
         margin-top: 20px;
         background-color: darkslategrey;
@@ -146,13 +151,14 @@ and (min-device-width: 1000px) {
 
 
     .gridContainer1 {
-        display: grid;
+        display:grid;
         grid-template-columns: 10% 10% 60% 5% 5% 10%;
         grid-template-rows: auto;
         grid-template-areas:
             ". pageTitle pageTitle pageTitle pageTitle ."
-            ". . . submitButton submitButton .";
+            ". reviewButton . submitButton submitButton .";
     }
+
 
     .gridContainer2 {
         display: grid;

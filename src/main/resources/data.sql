@@ -54,10 +54,6 @@ INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 1,
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 2, 'Welsh Outline', 'Welsh Heritage', '1');
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (3, 3, 'Welsh Spoon', 'Welsh Heritage', '1');
 
-# delete from stickerprogress;
-# insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '1', true);
-# insert into stickerprogress (userID, stickerID, hasSticker) value ('1', '3', true);
-# insert into stickerprogress (userID, stickerID, hasSticker) value ('2', '2', true);
 
 delete from locationCoordinates;
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (2, 51.57623, -3.21910 );
@@ -73,19 +69,17 @@ insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLon
 insert into locationCoordinates(locationID, locationCoordsLat, locationCoordsLong) value (20, 51.43547, -3.16789 );
 
 
+delete from localauthority;
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Caerphilly County Borough Council', 'Tredomen Park','', 'Ystrad Mynach, Hengoed', '', 'CF82 7PG', 'https://www.caerphilly.gov.uk/main.aspx?lang=en-GB');
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Risca Town Council', 'Unit B, 75 Tredegar Street', '', 'Risca', '', 'NP11 6BW', 'https://www.riscatowncouncil.org.uk/');
+insert into localauthority ( localAuthorityName, address1, address2, city, county, postcode, website) value ( 'Penarth Town Council West House', 'Stanwell Road', '', 'Penarth', '', 'CF64 2YG', 'https://www.penarthtowncouncil.gov.uk/your-council/');
+
+delete from businesses;
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Caerphilly Castle', 'Castle Street','', 'Caerphilly', '', 'CF836 1JD', 'https://cadw.gov.wales/visit/places-to-visit/caerphilly-castle');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Risca Museum', 'Grove Road', '', 'Risca', '', 'NP11 6GN', 'https://riscamuseum.wales/');
+insert into businesses ( businessName, address1, address2, city, county, postcode, website) value ( 'Penarth Pier Pavillion Cinema', 'Windsor Court', 'The Esplanade', 'Penarth', '', 'CF64 3AU', 'https://www.valeofglamorgan.gov.uk/en/enjoying/Coast-and-Countryside/Dog-Beach-Ban.aspx');
 
 
-
-# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 1);
-# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 2);
-# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 3);
-# insert into stickerprogress (userID, packID, stickerID) value (1, 1, 5);
-# insert into stickerprogress (userID, packID, stickerID) value (1, 2, 1);
-# insert into stickerprogress (userID, packID, stickerID) value (1, 2, 3);
-
-
-
-#
 delete from townsWithTrails;
 insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Caerphilly', '51.57903','-3.22075 ','51.60418','51.55093','-3.25222','-3.17696');
 insert into townsWithTrails (townName, townCentreCoordsLat, townCentreCoordsLong, townUppermostCoordsLat, townLowermostCoordsLat, townLeftmostCoordsLong, townRightmostCoordsLong) value ('Risca','51.61195','-3.09648','51.63039','51.59175','-3.12129','-3.06438');

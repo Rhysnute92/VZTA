@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Businesses</title>
+    <link rel="stylesheet" th:href="@{css/landmarkFormStyle.css}">
+    <link rel="stylesheet" th:href="@{css/mobile-style.css}">
+</head>
+
+<body>
+    <header th:replace="~{/fragments/banners::header}"></header>
+    <main>
+        <div id="container1">
+            <h2>Enter your Business information</h2>
+            <form action="/businesses" id="data" name="data" method="post" th:object="${business}">
+                <br>
+                <label>Enter your business
+                    <input type="text" th:field="*{businessName}">
+                </label><br><br>
+                <label>Please enter first line of your address
+                    <input type="text" th:field="*{address1}">
+                </label><br><br>
+                <label>Please enter second line of your address (optional)
+                    <input type="text" th:field="*{address2}">
+                </label><br><br>
+                <label>Please enter the City/Town
+                    <input type="text" th:field="*{city}">
+                </label><br><br>
+                <label>Please enter you county (optional)
+                    <input type="text" th:field="*{county}">
+                </label><br><br>
+                <label>Please enter your postcode
+                    <input type="text" th:field="*{postcode}">
+                </label><br><br>
+                <label>Please enter your website address
+                    <input type="text" th:field="*{website}">
+                </label><br><br>
+                <input type="submit">
+            </form>
+        </div>
+    </main>
+
+    <div th:replace="~{fragments/banners :: footer}"></div>
+</body>
+</html>
