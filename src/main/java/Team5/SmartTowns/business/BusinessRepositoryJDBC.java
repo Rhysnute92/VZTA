@@ -5,18 +5,18 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public class businessRepositoryJDBC implements businessRepository{
+public class BusinessRepositoryJDBC implements BusinessRepository {
 
         private JdbcTemplate jdbc;
-        private RowMapper<business> businessMapper;
+        private RowMapper<Business> businessMapper;
 
-        public businessRepositoryJDBC(JdbcTemplate ajdbc){
+        public BusinessRepositoryJDBC(JdbcTemplate ajdbc){
             this.jdbc = ajdbc;
             setbusinessMapper();
         }
 
         private void setbusinessMapper(){
-            businessMapper = (rs, i) -> new business(
+            businessMapper = (rs, i) -> new Business(
                     rs.getString("businessName"),
                     rs.getString("address1"),
                     rs.getString("address2"),
@@ -26,13 +26,13 @@ public class businessRepositoryJDBC implements businessRepository{
                     rs.getString("website")
             );
         }
-        public List<business> getAllBusinesses(){
+        public List<Business> getAllBusinesses(){
             String sql = "SELECT * FROM businesses";
             return jdbc.query(sql, businessMapper);
         }
 
     @Override
-    public void addBusiness(business bus) {
+    public void addBusiness(Business bus) {
             String sql = "INSERT INTO businesses( businessName, address1, address2, city, county, postcode, website) values (?, ?, ?, ?, ?, ?, ?)";
             jdbc.update(sql, bus.getBusinessName(),bus.getAddress1(),bus.getAddress2(),bus.getCity(),bus.getCounty(),bus.getPostcode(),bus.getWebsite());
         }

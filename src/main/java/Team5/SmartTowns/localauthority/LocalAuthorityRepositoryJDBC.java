@@ -7,17 +7,17 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class localAuthorityRepositoryJDBC implements localAuthorityRepository {
+public class LocalAuthorityRepositoryJDBC implements LocalAuthorityRepository {
     private JdbcTemplate jdbc;
-    private RowMapper<localAuthority> localAuthorityMapper;
+    private RowMapper<LocalAuthority> localAuthorityMapper;
 
-    public localAuthorityRepositoryJDBC(JdbcTemplate ajdbc){
+    public LocalAuthorityRepositoryJDBC(JdbcTemplate ajdbc){
         this.jdbc = ajdbc;
         setlocalauthorityMapper();
     }
 
     private void setlocalauthorityMapper(){
-        localAuthorityMapper = (rs, i) -> new localAuthority(
+        localAuthorityMapper = (rs, i) -> new LocalAuthority(
                 rs.getString("localAuthorityName"),
                 rs.getString("address1"),
                 rs.getString("address2"),
@@ -27,12 +27,12 @@ public class localAuthorityRepositoryJDBC implements localAuthorityRepository {
                 rs.getString("website")
         );
     }
-    public List<localAuthority> getAllLocalAuthority(){
+    public List<LocalAuthority> getAllLocalAuthority(){
         String sql = "SELECT * FROM localAuthority";
         return jdbc.query(sql, localAuthorityMapper);
     }
     @Override
-    public void addLocalAuthority(localAuthority loc){
+    public void addLocalAuthority(LocalAuthority loc){
         String sql = "INSERT INTO localAuthority( localAuthorityName, address1, address2, city, county, postcode, website) values (?, ?, ?, ?, ?, ?, ?)";
         jdbc.update(sql, loc.getLocalAuthorityName(),loc.getAddress1(),loc.getAddress2(),loc.getCity(),loc.getCounty(),loc.getPostcode(),loc.getWebsite());
     }

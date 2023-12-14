@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.net.URL;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class localAuthority {
+public class LocalAuthority {
     private String localAuthorityName;
     private String address1;
     private String address2;
