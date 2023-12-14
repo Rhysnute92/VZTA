@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VZTA - Smart Towns Trails</title>
+    <link rel="stylesheet" th:href="@{/css/mobile-style.css}">
+    <link rel="stylesheet" th:href="@{/css/homePageStyle.css}">
+</head>
+<body>
+<header th:replace="~{/fragments/banners::header}"></header>
+
+<main>
+    <div class="title-container">
+        <h1 class="title">Welcome to VZTA Smart Towns!</h1>
+        <a class="submitLand" href="/landmarkSubmission">  <button> Submit Landmark!</button></a>
+        <p class="small-text">Choose your town and start tracking your trails!</p>
+    </div>
+
+    <article class="towns-wrapper">
+        <div th:each="town:${towns}" class="gridContainer2">
+            <h2 class="town-name" th:text="${town.getName()}"></h2>
+            <a th:href="'/allTrails-' + ${town.getName()}" class="img-container">
+                <img class="town-img" th:src="${town.getImageTown()}" th:alt="${town.getName()}">
+            </a>
+            <div class="BannerTrail">
+                <div class="BannerFill" th:style="'width: '+ ${town.getTrailProgress()} + '%;'" th:classappend="${town.setTrailProgressClass()}" ></div>
+                <div class="trail-info">
+                    <h4 class="trailCount" th:text="'Trails: '+ ${town.getTrailNumber()}"></h4>
+                    <h4 class="trailProgress" th:text="${town.getTrailProgress()}+'%'"></h4>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <div class="gridContainer3">
+
+
+        <div id="aboutUsFlavour"> This is placeholder text about VZTA, this application,
+            the trails and towns and resultant awards written in an excitable manner!!</div>
+
+    </div>
+
+</main>
+<footer th:replace="~{/fragments/banners::footer}"></footer>
+
+</body>
+</html>

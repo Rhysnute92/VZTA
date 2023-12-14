@@ -1,13 +1,9 @@
-# delete from users;
-# insert into users (email, name) value ('hannah@gmail.com', 'Hannah');
-# insert into users (email, name) value ('nigel@gmail.com', 'Nigel');
-
 delete from trails;
-insert into trails ( trailID, trailName, trailNumber) value ( 0101,'Caerphilly Castle Trail','0101');
-insert into trails ( trailID, trailName, trailNumber) value ( 0102,'Caerphilly Pub Trail','0102');
-insert into trails ( trailID, trailName, trailNumber) value ( 0103,'Caerphilly Heritage Trail','0103');
-insert into trails ( trailID, trailName, trailNumber) value ( 0201,'Risca Heritage Trail','0201');
-insert into trails ( trailID, trailName, trailNumber) value ( 0301,'Penarth Esplanade Trail','0301');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0101,'Caerphilly Castle Trail','0101', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0102,'Caerphilly Pub Trail','0102', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0103,'Caerphilly Heritage Trail','0103', 'Caerphilly');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0201,'Risca Heritage Trail','0201', 'Risca');
+insert into trails ( trailID, trailName, trailNumber, city) value ( 0301,'Penarth Esplanade Trail','0301', 'Penarth');
 
 delete from locations;
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'St Cenydd','','Location description here','Caerphilly',0101, false);
@@ -31,25 +27,17 @@ insert into locations ( locationName , locationEmail,locationDescription,locatio
 
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Risca Colliery','','Location description here','Risca',0201, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'Black Vein Colliery Disaster','','Location description here','Risca',0201, true);
-
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Esplanade','','Location description here','Penarth',0301, true);
 insert into locations ( locationName , locationEmail,locationDescription,locationPlace, locationTrailID, locationApproved) value ( 'The Old Swimming Baths','','Location description here','Penarth',0301, true);
 
 
-# delete from badges;
-# insert into badges (name, description, difficulty) value ('TownConnoisseur', 'You know the town very well!', '2');
-# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-# insert into badges (name, description, difficulty) value ('TownMaster', 'You visited the town 7 days in a row!', '1');
-# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
-# insert into badges (name, description, difficulty) value ('TownRegular', 'You visited the town 3 days in a row!', '1');
 
 
 
-delete from packs;
-insert into packs (name, description) value ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
-insert into packs (name, description) value ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
-insert into packs (name, description) value ('Welsh Heritage', 'Pack About Welsh Heritage');
-
+DELETE FROM packs;
+INSERT INTO packs (name, description) VALUE ('Wales Football Team', 'Pack of Welsh Football Players in the National Team');
+INSERT INTO packs (name, description) VALUE ('Wales Rugby Team', 'Pack of Welsh Rugby Players in the National Team');
+INSERT INTO packs (name, description) VALUE ('Welsh Heritage', 'Pack About Welsh Heritage');
 
 DELETE FROM stickers;
 INSERT INTO stickers (packID, stickerID, name, description, rarity) VALUE (1, 1, 'wayne_hennessey', 'Wales Football Team Player', '2');

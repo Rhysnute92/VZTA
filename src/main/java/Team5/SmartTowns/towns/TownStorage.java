@@ -12,8 +12,8 @@ public class TownStorage {
         townList.addAll(
           List.of(
                   new Towns("Caerphilly",01,3,70,"/images/banners/CaerphillyCastle.jpg"),
-                  new Towns("Risca",02,2,34,"/images/banners/RiscaBanner.jpg"),
-                  new Towns("Penarth",03,5,0,"/images/banners/PenarthBanner.jpg"),
+                  new Towns("Risca",02,1,34,"/images/banners/RiscaBanner.jpg"),
+                  new Towns("Penarth",03,1,0,"/images/banners/PenarthBanner.jpg"),
                   new Towns("Penarth",03,5,50,"/images/banners/PenarthBanner.jpg"),
                   new Towns("Caerphilly",01,3,70,"/images/banners/CaerphillyCastle.jpg"),
                   new Towns("Risca",02,2,90,"/images/banners/RiscaBanner.jpg"),

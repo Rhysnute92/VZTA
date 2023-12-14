@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 public class Location {
-//    private int locationID;
+    private long locationID;
     private String locationName;
     private String locationEmail;
     private String locationDescription;

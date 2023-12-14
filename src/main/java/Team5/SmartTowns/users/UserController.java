@@ -43,7 +43,7 @@ public class UserController {
 //        return mav;
 //    }
 
-    @PostMapping("/login/register")
+    @PostMapping("/register")
     public ModelAndView registerUser(@Valid @ModelAttribute("user") NewUser user, BindingResult bindingResult, Model model) {
         ModelAndView mav = new ModelAndView("users/login", model.asMap());
         // TODO VALIDATE EMAIL INPUT
@@ -51,19 +51,12 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("users/login");
             modelAndView.addObject("errors", bindingResult);
+            modelAndView.addObject("error", "");
             return modelAndView;
         }
-
-        if ( userRepository.doesUserExist(user.getEmail()) ) {
-            mav.addObject("errors", "Email already in use");
-            return mav;
-        }
-
         try {
             userRepository.addUser(user.name, user.email, user.password);
-            mav.addObject("error", "");
-            //TODO return user creation success
-            return mav;
+            return new ModelAndView("redirect:/login?register");
         } catch (DataAccessException e) {
             mav.addObject("error", "User exists");
         }
@@ -83,12 +76,14 @@ public class UserController {
     }
 
 
+
     /* USER MAPPING & FUNCTIONS */
-    @GetMapping("/user/{username}")
+    @GetMapping("/profile/{username}")
     public ModelAndView getUserPage(@PathVariable String username) {
         ModelAndView mav = new ModelAndView("users/userProfile");
         List<Pack> allPacks = rewardsRepository.getAllPacks();
-        mav.addObject("user", userRepository.findUserByName("Admin"));
+        allPacks.remove(0);
+        mav.addObject("user", userRepository.findUserByName(username));
         mav.addObject("packs", allPacks);
         mav.addAllObjects(getPackInfo(username, 1).getModelMap());
         return mav;
@@ -102,13 +97,16 @@ public class UserController {
         ModelAndView mav = new ModelAndView("users/userFrags :: stickersBox");
         List<Sticker> allStickers = rewardsRepository.getAllStickersFromPack(packID);
         List<Long> userStickers = userRepository.getUserStickersFromPack(username, packID);
-        System.out.println(userStickers);
 
-
+        List<Pack> allPacks = rewardsRepository.getAllPacks();
+        Pack current = allPacks.stream().filter(pack -> pack.getId() == packID).findFirst().get();
+        allPacks.remove(current);
 
         mav.addObject("stickers", setStickerVisibility(allStickers, userStickers));
         mav.addObject("progress", getPackProgress(allStickers));
         mav.addObject("selectedPack", rewardsRepository.findPackByID(packID));
+        mav.addObject("packs", allPacks);
+        mav.addObject("user", userRepository.findUserByName(username));
         return mav;
     }
 

@@ -21,7 +21,16 @@ public class TownController {
 
     @GetMapping("/home")
     public ModelAndView getTownList(){
-        ModelAndView modelAndView = new ModelAndView("Towns/home/homePage");
+        ModelAndView modelAndView = new ModelAndView("towns/home/homePage");
+        TownStorage townsCurrent= new TownStorage().getInstance();
+        List<Towns> towns = townsCurrent.getTownList();
+        modelAndView.addObject("towns",towns);
+        return modelAndView;
+
+    }
+    @GetMapping("/mobile-home")
+    public ModelAndView getTownListMobile(){
+        ModelAndView modelAndView = new ModelAndView("towns/home/mobile-homepage");
         TownStorage townsCurrent= new TownStorage().getInstance();
         List<Towns> towns = townsCurrent.getTownList();
         modelAndView.addObject("towns",towns);

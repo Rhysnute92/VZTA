@@ -17,7 +17,7 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
     }
     private void settrailsMapper(){
         trailMapper = (rs, i) -> new Trail(
-                rs.getString("trailID"),
+                rs.getLong("trailID"),
                 rs.getString("trailName"),
                 rs.getString("trailNumber")
         );
@@ -33,6 +33,12 @@ public class TrailsRepositoryJDBC implements TrailsRepository {
         return resultName;
 
 
+    }
+
+    @Override
+    public List<Trail> getAllTrailsFromCity(String cityName) {
+        String sql = "SELECT * FROM trails WHERE city = ?";
+        return jdbc.query(sql, trailMapper, cityName);
     }
 
     @Override

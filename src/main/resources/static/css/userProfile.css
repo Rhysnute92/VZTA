@@ -1,0 +1,289 @@
+/* AUTHOR: Gabriel Copat*/
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+/* DEFAULT CSS MADE FOR SCREEN SIZES WIDTHS
+    BETWEEN 320px and 640px:*/
+
+main {
+    row-gap: 1svh;
+    padding: 4vw;
+}
+.grayedSticker {
+    filter: grayscale(1);
+}
+.gotSticker {
+    filter: drop-shadow(0 0 10px yellow);
+}
+
+.userContainer {
+    width: 90vw;
+    display: flex;
+    justify-content: flex-start;
+    padding-inline: 2vw;
+    column-gap: 3vw;
+    row-gap: 1svh;
+    & h1 {
+        font-size: 3em;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        text-shadow: rgba(0,0,0,0.3) 0 1svh 1svh;
+        letter-spacing: 0.1em;
+        width: 400px;
+        max-height: 40vw;
+        text-wrap: normal;
+    }
+    & #userPicture {
+        border-radius: 100%;
+        box-shadow: rgba(0,0,0,0.3) 0 1svh 1svh;
+    }
+
+}
+
+
+.rewards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    width: 90vw;
+}
+#packsBar {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    & h2 {
+        font-size: 2em;
+        letter-spacing: 0.1em;
+        border-width: 0 0 10px 0 ;
+        border-style: solid;
+        border-image: linear-gradient(to left, transparent 20%, darkred 50%, transparent 80%)
+                        50;
+        margin-inline: 5%;
+    }
+
+}
+
+#packRewardsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    row-gap: 2svh;
+}
+.pack-title {
+    display: flex;
+    justify-content: center;
+    font-family: MedievalSharp, serif;
+    padding-block: 0.5svh;
+    letter-spacing: 0.1svw;
+    font-size: 3em;
+    border-width: 10px 0 10px 0 ;
+    border-style: solid;
+    border-image: linear-gradient(to left, transparent 10%, darkred 50%, transparent 90%)
+    50;
+}
+.packs-area {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20vw auto;
+    grid-template-rows: 20% auto;
+    grid-template-areas:
+            "current pack-title"
+            "current other-packs";
+    margin-inline: 2vw;
+    align-items: end;
+}
+.other-packs {
+    width: 60vw;
+}
+.progImgContainer {
+    grid-area: current;
+    position: relative;
+    padding-top: 1.5svh;
+    z-index: 1;
+}
+.pack-text {
+    grid-area: pack-title;
+    font-size: 0.8em;
+}
+.progImg {
+    height: 10svh;
+    border-radius: 20%;
+}
+.progImgFill {
+    position: absolute;
+    overflow: hidden;
+    width: 50%;
+}
+.progImgOutline {
+    opacity: 0.1;
+    filter: grayscale(1);
+}
+.progText {
+    font-family: Consolas, serif;
+    opacity: 0.4;
+    -webkit-text-stroke: 1px black;
+    position: absolute;
+    text-align: center;
+    width: 16svh;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+}
+
+#allPacksContainer {
+    grid-area: other-packs;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    column-gap: 3vw;
+    padding-inline: 5vw;
+    z-index: 5;
+}
+.packContainer {
+    flex: 0 0;
+    border-radius: 20px;
+    /*border: darkred solid 3px;*/
+    width: 250px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 80% auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.packImg {
+    transition: 0.5s ease-in-out 1ms;
+    border-radius: 20%;
+    height: 100px;
+    padding-inline: 10px;
+    aspect-ratio: 1;
+}
+.packName {
+    font-size: 0.5em;
+    font-weight: lighter;
+    height: 2.4em;
+    overflow: hidden;
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+
+}
+.packImg:hover {
+    transform: scale(1.5, 1.5)
+}
+#stickersBox {
+    width: 100%;
+    height: 40svh;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-block: 1svh;
+    margin-top:0.5svh;
+}
+.stickersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    row-gap: 1svh;
+    height: 100%;
+
+}
+.stickerImg {
+    height: 250px;
+    margin-inline: 2vw;
+
+}
+/* LOGIN FORM PAGE */
+
+
+
+
+
+
+/* MEDIA TYPE UPDATES*/
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 640px) {
+    #userPicture {
+        width: 300px;
+        aspect-ratio: 1;
+        border: solid #989898 10px;
+    }
+    #allPacksContainer::-webkit-scrollbar {
+        display: none;
+        -ms-scrollbar-darkshadow-color: transparent;
+    }
+}
+
+@media only screen
+and (min-device-width: 1000px) {
+    #userPicture {
+        width: 200px;
+        height: 200px;
+        border: solid #989898 10px;
+    }
+    #allPacksContainer {
+        padding:0;
+        margin-block: 50px;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        border: 5px solid rgba(139, 0, 0, 0.5);
+        justify-content: space-evenly;
+    }
+    .packImg {
+        height: 100px;
+        width: 125px;
+        padding-inline: 1em;
+        margin-inline: 3em;
+    }
+    .packImg:hover{
+        transform: scale(2,2);
+    }
+    .packImg:hover ~ .packName{
+        visibility: visible;
+        opacity: 1;
+    }
+    & .packName {
+        position: absolute;
+        visibility: hidden;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    #packsBar {
+        /*height: 250px;*/
+        & h2 {
+            display: none;
+        }
+    }
+    .progressionContainer {
+        height: 20svh;
+    }
+}
+
+.container {
+    width: 500px;
+    margin-block: 5%;
+    background-color: var(--accent-colour);
+    border-radius: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & form {
+        margin-inline: auto;
+        margin-block: 5%;
+    }
+}
+.container-active {
+    background: black;
+}

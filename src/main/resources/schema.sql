@@ -24,7 +24,8 @@ create table if not exists trails
 (
     trailID varchar(128) primary key,
     trailName varchar(128),
-    trailNumber varchar(128)
+    trailNumber varchar(128),
+    city varchar(128)
 )   engine=InnoDB;
 
 drop table if exists locationCoordinates;
