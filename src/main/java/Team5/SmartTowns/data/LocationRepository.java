@@ -1,9 +1,5 @@
 //Holds locations data repository (landmarks)
-
 package Team5.SmartTowns.data;
-
-
-import Team5.SmartTowns.data.Location;
 
 import java.util.List;
 
@@ -13,16 +9,14 @@ public interface LocationRepository {
     void addLocation(Location loc);
 
 
-
-    List<Location> getApprovedLocations();
+    List<Location> getAllApprovedLocations();
 
 //    List<Location> getApprovedLocations2(List<Location> list);
 
-    List<Location> getUnapprovedLocations();
+    List<Location> getAllUnapprovedLocations();
 
 
 //     List<Location> approvedLocations();
-
 
 
 }

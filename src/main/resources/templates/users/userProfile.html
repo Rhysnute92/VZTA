@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="'VZLA Profile Page of ' + ${user.getName()}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/userProfile2.css}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--    <link rel="stylesheet" th:href="@{/css/templatingstyle.css}">-->
@@ -38,7 +39,8 @@
                 <div th:each="pack : ${packs}"  class="packContainer">
                     <img class="packImg"   th:src="@{'../' + ${pack.getDisplayImg()}}"
                          th:id="'packImg' + ${pack.getId()}" th:alt="${pack.getName()}"
-                         th:onclick="'updatePack(' + ${user.getId()} +',' + ${pack.getId()} +');'">
+                         th:data-url="@{/packInfo/{username}/{packID}(username=${user.getName()}, packID=${pack.getId()})}"
+                         onclick="updatePack(this.getAttribute('data-url'))">
                     <h4 class="packName" th:text="${pack.getName()}"></h4>
                 </div>
             </div>
